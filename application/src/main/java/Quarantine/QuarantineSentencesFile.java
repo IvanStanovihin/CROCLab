@@ -35,7 +35,9 @@ public class QuarantineSentencesFile {
     public void create(String outDir){
         if (!fileIsEmpty()) {
             try (OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/" + fileName), "UTF-8")) {
-                os.write(getJsonFormat());
+                for (String sentence : quarantineSentences){
+                    os.write(sentence + "\n");
+                }
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
@@ -46,11 +48,7 @@ public class QuarantineSentencesFile {
         return fileName;
     }
 
-    public String getJsonFormat(){
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String result = gson.toJson(this);
-        return result;
-    }
+
 
     private boolean fileIsEmpty(){
         return quarantineSentences.size() == 0;

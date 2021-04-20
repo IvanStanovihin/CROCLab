@@ -1,5 +1,16 @@
 package ReportLog;
 
+import Properties.PropertyLoader;
+
+import java.io.FileDescriptor;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Calendar;
+
 public class ReportLog {
 
     public ReportLog(int countInputFiles){
@@ -7,10 +18,13 @@ public class ReportLog {
     }
 
     private  int countInputFiles = 0;
-    private  int indexCurrentProcessedFile = 0;
+    private  int indexCurrentProcessedFile = 1;
     private  LogOperation previousOperation = null;
     private Long startOperationTime;
     private Long endOperationTime;
+    private Long startModuleTime;
+    private Long endModuleTime;
+    private ArrayList<String>moduleWorkTime = new ArrayList<>();
 
     public void startCurrentOperation(LogOperation currentOperation){
         startCurrentOperation(currentOperation, "");
@@ -25,6 +39,8 @@ public class ReportLog {
                 loadingResources(currentOperation);
                 break;
             case SINGLE_DICTIONARY:
+            case CAMELCASE_SEPARATOR:
+            case PROCESSING_DATES:
             case WHITESPACE_DICTIONARY:
             case FIND_ENGLISH:
             case REMOVE_ENGLISH:
@@ -39,6 +55,9 @@ public class ReportLog {
             case PROCESS_PUNCTUATIONS:
             case SEPARATE_ON_SENTENCES:
             case REMOVE_EXTRAS_WHITESPACE:
+            case PROCESSING_TIME:
+            case PROCESSING_MONEY:
+            case PROCESSING_FRACTIONS:
             case REMOVE_ACRONYMS:
             case REMOVE_CAMEL_CASE:
             case CREATE_REPLACEMENT_FILE:
@@ -53,16 +72,49 @@ public class ReportLog {
 
     private  void processingFiles(LogOperation currentOperation, String fileName) {
         updateProcessedFileIndex(currentOperation);
-        System.out.println(currentOperation + "(" + fileName + " " + (1 + indexCurrentProcessedFile) + "/" + countInputFiles + ")");
+        System.out.print(currentOperation + " (" + fileName + " " + ( indexCurrentProcessedFile) + "/" + countInputFiles + ")");
     }
 
     private  void updateProcessedFileIndex(LogOperation currentOperation) {
         if (previousOperation != currentOperation) {
-            indexCurrentProcessedFile = 0;
+            indexCurrentProcessedFile = 1;
         } else {
             indexCurrentProcessedFile++;
         }
         previousOperation = currentOperation;
+    }
+
+    public void endOperation(){
+        endOperationTime = Calendar.getInstance().getTimeInMillis();
+        System.out.println(" " + ((double)endOperationTime - startOperationTime)/1000 );
+    }
+
+    public void startModule(){
+        startModuleTime = Calendar.getInstance().getTimeInMillis();
+    }
+
+    public void endModule(String moduleName){
+        endModuleTime = Calendar.getInstance().getTimeInMillis();
+        String moduleTime = moduleName + " отработал за " + ((double)endModuleTime - startModuleTime) /1000 + " с.";
+        System.out.println(moduleTime);
+        this.moduleWorkTime.add(moduleTime);
+    }
+
+    public void createReportFile(PropertyLoader property){
+        String outDirectory  = property.getOutDirectory() + "/ReportFile";
+        try{
+            Files.createDirectories(Paths.get(outDirectory));
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
+        try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDirectory + "/Report.txt"))){
+            for (String reportEntry : moduleWorkTime){
+                os.write(reportEntry + "\n");
+            }
+        }catch(IOException ex){
+            System.out.println("Ошибка при создании файла отчёта");
+            ex.printStackTrace();
+        }
     }
 
 

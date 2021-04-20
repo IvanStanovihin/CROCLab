@@ -14,10 +14,13 @@ public class LinkService {
     "([a-z0-9_-]+\\.)*[a-z0-9_-]+@[a-z0-9_-]+(\\.[a-z0-9_-]+)*\\.[a-z]{2,6}"};
 
     public static void handle(ArrayList<InputFile> inputFiles){
+        Handler.reportLog.startModule();
         for (InputFile inputFile : inputFiles){
             Handler.reportLog.startCurrentOperation(LogOperation.PROCESS_LINKS, inputFile.getFileName());
             removeLinks(inputFile);
+            Handler.reportLog.endOperation();
         }
+        Handler.reportLog.endModule("Link module ");
     }
 
 
