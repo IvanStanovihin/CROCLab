@@ -16,8 +16,7 @@ public class Launch {
 //        ExcelParser excelParser = new ExcelParser("C:\\Users\\ivan\\Desktop\\CROCLab\\Files\\txt");
 //        excelParser.createFilesForProcess("C:\\Users\\ivan\\Desktop\\CROCLab\\Files\\AllMonth");
         Long endTime = System.currentTimeMillis();
-        System.out.println("Время на обработку файла = " + (endTime - startTime));
-//        StringToData.generatePatternsQueue();
+        System.out.println("Время на обработку файла = " + (float)(endTime - startTime)/1000 + " с.");
 
 
 

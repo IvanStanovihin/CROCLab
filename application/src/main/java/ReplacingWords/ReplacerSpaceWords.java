@@ -21,7 +21,7 @@ public class ReplacerSpaceWords {
             processInputFile(dictionaryWhitespaceWords, inputfile);
             Handler.reportLog.endOperation();
         }
-        Handler.reportLog.endModule("Whitespace dictionary words module");
+        Handler.reportLog.endModule("Whitespace dictionary words ");
     }
 
 

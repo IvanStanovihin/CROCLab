@@ -48,7 +48,7 @@ public class MonthHandler {
         for (InputFile inputFile : inputFiles){
             processFile(inputFile);
         }
-        Handler.reportLog.endModule("Months module");
+        Handler.reportLog.endModule("Months ");
     }
 
     private static void processFile(InputFile inputFile){

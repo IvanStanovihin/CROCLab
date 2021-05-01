@@ -15,7 +15,7 @@ public class InitialsRemover {
             processFile(inputFile);
             Handler.reportLog.endOperation();
         }
-        Handler.reportLog.endModule("Initials module");
+        Handler.reportLog.endModule("Initials ");
     }
 
     private static void processFile(InputFile inputFile){

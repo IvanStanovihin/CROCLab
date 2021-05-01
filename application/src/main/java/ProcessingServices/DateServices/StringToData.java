@@ -9,7 +9,6 @@ import java.util.regex.Pattern;
 public class StringToData {
     // TODO сделать обработку двузначных годов
     static final public String year = "([1-9][0-9]{3})";
-    static final public String yearTwoSymbols = "[0-9]{2}";
     static final public String month = "(0[1-9]|1[012])";
     static final public String day = "(0[1-9]|1[0-9]|2[0-9]|3[01]|[1-9])";
     static final public String monthWords = "(январ[яьюе]|" +
@@ -418,6 +417,20 @@ public class StringToData {
             );
         }));
         patterns.add(new MyPattern("(от|до|из|без|у|для|около|с|вокруг|после|возле)  " + day + "[" + separators + "]" + month +
+                "[" + separators + "]" + year + "[" + separators + "]" + exactPostfix,
+                order++, (matcher)-> {
+
+            long day1 = Long.parseLong(matcher.group(2));
+            long month1 = Long.parseLong(matcher.group(3));
+            long year1 = Long.parseLong(matcher.group(4));
+            String prefix = matcher.group(1);
+            return prefix + ot(
+                    day1,
+                    month1,
+                    year1
+            );
+        }));
+        patterns.add(new MyPattern("(от|до|из|без|у|для|около|с|вокруг|после|возле)  " + day + "[" + separators + "]" + month +
                 "[" + separators + "]" + year,
                 order++, (matcher)-> {
 
@@ -431,7 +444,34 @@ public class StringToData {
                     year1
             );
         }));
+        patterns.add(new MyPattern("(от|до|из|без|у|для|около|с|вокруг|после|возле) " + day+ "[" + separators + "]" + space +
+                monthWords + "[" + separators + "]" + space + year + "[" + separators + "]" + space + exactPostfix,
+                order++, (matcher)-> {
+            long day1 = Long.parseLong(matcher.group(2));
+            String month1 = matcher.group(3);
+            long year1 = Long.parseLong(matcher.group(4));
+            String prefix = matcher.group(1);
+            return prefix + ot(
+                    day1,
+                    month1,
+                    year1
+            );
 
+        }));
+        patterns.add(new MyPattern("(от|до|из|без|у|для|около|с|вокруг|после|возле) " + day+ "[" + separators + "]" + space +
+                monthWords + "[" + separators + "]" + space + year + "[" + separators + "]" + space + exactPostfix,
+                order++, (matcher)-> {
+            long day1 = Long.parseLong(matcher.group(2));
+            String month1 = matcher.group(3);
+            long year1 = Long.parseLong(matcher.group(4));
+            String prefix = matcher.group(1);
+            return prefix + ot(
+                    day1,
+                    month1,
+                    year1
+            );
+
+        }));
         patterns.add(new MyPattern("(от|до|из|без|у|для|около|с|вокруг|после|возле) " + day+ "[" + separators + "]" + space +
                 monthWords + "[" + separators + "]" + space + year,
                 order++, (matcher)-> {
@@ -457,6 +497,17 @@ public class StringToData {
                             year1);
                 }
         ));
+        patterns.add(new MyPattern("(от|до|из|без|у|для|около|с|вокруг|после|возле) " + day + "[" + separators + "]" + month + "[" + separators + "]" + year + "[" + separators + "]" + exactPostfix, order++,
+                (matcher)-> {
+                    long day1 = Long.parseLong(matcher.group(2));
+                    long month1 = Long.parseLong(matcher.group(3));
+                    long year1 = Long.parseLong(matcher.group(4));
+                    String prefix = matcher.group(1);
+                    return prefix + ot(day1,
+                            month1,
+                            year1);
+
+                }));
         patterns.add(new MyPattern("(от|до|из|без|у|для|около|с|вокруг|после|возле) " + day + "[" + separators + "]" + month + "[" + separators + "]" + year, order++,
                 (matcher)-> {
                     long day1 = Long.parseLong(matcher.group(2));
@@ -480,6 +531,17 @@ public class StringToData {
                             month1,
                             year1);
                 }));
+        patterns.add(new MyPattern("(от|до|из|без|у|для|около|с|вокруг|после|возле) " + day + "[" + separators + "]" + space + monthWords+ "[" + separators + "]" + space + year + "[" + separators + "]" + space + exactPostfix, order++,
+                (matcher)-> {
+                    long day1 = Long.parseLong(matcher.group(2));
+                    String month1 = matcher.group(3);
+                    long year1 = Long.parseLong(matcher.group(4));
+                    String prefix = matcher.group(1);
+                    return prefix + ot(day1,
+                            month1,
+                            year1);
+                }
+        ));
         patterns.add(new MyPattern("(от|до|из|без|у|для|около|с|вокруг|после|возле) " + day + "[" + separators + "]" + space + monthWords+ "[" + separators + "]" + space + year, order++,
                 (matcher)-> {
                     long day1 = Long.parseLong(matcher.group(2));
@@ -513,9 +575,30 @@ public class StringToData {
                     year1
             );
         }));
-
+        patterns.add(new MyPattern("(от|до|из|без|у|для|около|с|вокруг|после|возле) " + month + "[" + separators + "]" + space + day + "[" + separators + "]" + space + year + "[" + separators + "]" + space + exactPostfix, order++, (matcher)-> {
+            long month1 = Long.parseLong(matcher.group(2));
+            long year1 = Long.parseLong(matcher.group(4));
+            long day1 = Long.parseLong(matcher.group(3));
+            String prefix = matcher.group(1);
+            return prefix + ot(
+                    day1,
+                    month1,
+                    year1
+            );
+        }));
         patterns.add(new MyPattern("(от|до|из|без|у|для|около|с|вокруг|после|возле) " + month + "[" + separators + "]" + space + day + "[" + separators + "]" + space + year, order++, (matcher)-> {
             long month1 = Long.parseLong(matcher.group(2));
+            long year1 = Long.parseLong(matcher.group(4));
+            long day1 = Long.parseLong(matcher.group(3));
+            String prefix = matcher.group(1);
+            return prefix + ot(
+                    day1,
+                    month1,
+                    year1
+            );
+        }));
+        patterns.add(new MyPattern("(от|до|из|без|у|для|около|с|вокруг|после|возле)  " + monthWords + "[" + separators + "]" + space + day + "[" + separators + "]" + space + year + "[" + separators + "]" + space + exactPostfix, order++, (matcher)-> {
+            String month1 = matcher.group(2);
             long year1 = Long.parseLong(matcher.group(4));
             long day1 = Long.parseLong(matcher.group(3));
             String prefix = matcher.group(1);
@@ -573,6 +656,17 @@ public class StringToData {
                                    }));
         */
         patterns.add(new MyPattern(
+                "(к|по) " + day + "[" + separators + "]" + month + "[" + separators + "]" + year + "[" + separators + "]" + exactPostfix,
+                order++, (matcher)-> {
+            long day1 = Long.parseLong(matcher.group(2));
+            long month1 = Long.parseLong(matcher.group(3));
+            long year1 = Long.parseLong(matcher.group(4));
+            String prefix = matcher.group(1);
+            return prefix + po_string(day1,
+                    month1,
+                    year1);
+        }));
+        patterns.add(new MyPattern(
                 "(к|по) " + day + "[" + separators + "]" + month + "[" + separators + "]" + year,
                 order++, (matcher)-> {
             long day1 = Long.parseLong(matcher.group(2));
@@ -618,6 +712,18 @@ public class StringToData {
                                                   year1);
        }));
         */
+        patterns.add(new MyPattern("(к|по) " + day + "[" + separators + "]" + space + monthWords +
+                "[" + separators + "]" + space + year + "[" + separators + "]" + space + exactPostfix, order++,
+                (matcher)-> {
+                    long day1 = Long.parseLong(matcher.group(2));
+                    String month1 = matcher.group(3);
+                    long year1 = Long.parseLong(matcher.group(4));
+                    String prefix = matcher.group(1);
+
+                    return prefix + po_string(day1,
+                            month1,
+                            year1);
+                }));
         patterns.add(new MyPattern("(к|по) " + day + "[" + separators + "]" + space + monthWords +
                 "[" + separators + "]" + space + year, order++,
                 (matcher)-> {
@@ -669,6 +775,19 @@ public class StringToData {
                            );
                }));
         */
+        patterns.add(new MyPattern("(к|по) " + day + "[" + separators + "]" + month + "[" + separators + "]" + year + "[" + separators + "]" + exactPostfix,
+                order++,
+                (matcher)-> {
+                    long day1 = Long.parseLong(matcher.group(2));
+                    long month1 = Long.parseLong(matcher.group(3));
+                    long year1 = Long.parseLong(matcher.group(4));
+                    String prefix = matcher.group(1);
+
+                    return prefix + po_string(day1,
+                            month1,
+                            year1
+                    );
+                }));
         patterns.add(new MyPattern("(к|по) " + day + "[" + separators + "]" + month + "[" + separators + "]" + year,
                 order++,
                 (matcher)-> {
@@ -720,6 +839,18 @@ public class StringToData {
                            );
                }));
         */
+        patterns.add(new MyPattern("(к|по) " + day + "[" + separators + "]" + space + monthWords + "[" + separators + "]" + space + year + "[" + separators + "]" + exactPostfix, order++,
+                (matcher)-> {
+                    long day1 = Long.parseLong(matcher.group(2));
+                    String month1 = matcher.group(3);
+                    long year1 = Long.parseLong(matcher.group(4));
+                    String prefix = matcher.group(1);
+
+                    return prefix + po_string(day1,
+                            month1,
+                            year1
+                    );
+                }));
         patterns.add(new MyPattern("(к|по) " + day + "[" + separators + "]" + space + monthWords + "[" + separators + "]" + space + year, order++,
                 (matcher)-> {
                     long day1 = Long.parseLong(matcher.group(2));
@@ -785,6 +916,16 @@ public class StringToData {
                            year1);
                }));
          */
+        patterns.add(new MyPattern("(к|по) " + month + "[" + separators + "]" + space + day + "[" + separators + "]" + space + year + "[" + separators + "]" + space + exactPostfix, order++,
+                (matcher)-> {
+                    long day1 = Long.parseLong(matcher.group(3));
+                    long year1 = Long.parseLong(matcher.group(4));
+                    long month1 = Long.parseLong(matcher.group(2));
+                    String prefix = matcher.group(1);
+                    return prefix + po_string(day1,
+                            month1,
+                            year1);
+                }));
         patterns.add(new MyPattern("(к|по) " + month + "[" + separators + "]" + space + day + "[" + separators + "]" + space + year, order++,
                 (matcher)-> {
                     long day1 = Long.parseLong(matcher.group(3));
@@ -806,6 +947,16 @@ public class StringToData {
                            year1);
                }));
         */
+        patterns.add(new MyPattern("(к|по) " + monthWords + "[" + separators + "]" + space + day + "[" + separators + "]" + space + year + "[" + separators + "]" + space + exactPostfix, order++,
+                (matcher)-> {
+                    long day1 = Long.parseLong(matcher.group(3));
+                    String month1 = matcher.group(2);
+                    long year1 = Long.parseLong(matcher.group(4));
+                    String prefix = matcher.group(1);
+                    return prefix + po_string(day1,
+                            month1,
+                            year1);
+                }));
         patterns.add(new MyPattern("(к|по) " + monthWords + "[" + separators + "]" + space + day + "[" + separators + "]" + space + year, order++,
                 (matcher)-> {
                     long day1 = Long.parseLong(matcher.group(3));
@@ -818,10 +969,30 @@ public class StringToData {
                 }));
 
         // classic
+        patterns.add(new MyPattern(day + "[" + separators + "]" + month + "[" + separators +"]" + year  + "[" + separators +"]" + exactPostfix, order++,
+                (matcher)-> {
+                    long day1 = Long.parseLong(matcher.group(1));
+                    long month1 = Long.parseLong(matcher.group(2));
+                    long year1 = Long.parseLong(matcher.group(3));
+
+                    return classic_string(day1,
+                            month1,
+                            year1);
+                }));
         patterns.add(new MyPattern(day + "[" + separators + "]" + month + "[" + separators +"]" + year, order++,
                 (matcher)-> {
                     long day1 = Long.parseLong(matcher.group(1));
                     long month1 = Long.parseLong(matcher.group(2));
+                    long year1 = Long.parseLong(matcher.group(3));
+
+                    return classic_string(day1,
+                            month1,
+                            year1);
+                }));
+        patterns.add(new MyPattern(day + "[" + separators + "]" + space + monthWords + "[" + separators +"]" + space + year + "[" + separators +"]" + space + exactPostfix, order++,
+                (matcher)-> {
+                    long day1 = Long.parseLong(matcher.group(1));
+                    String month1 = matcher.group(2);
                     long year1 = Long.parseLong(matcher.group(3));
 
                     return classic_string(day1,
@@ -848,12 +1019,21 @@ public class StringToData {
                             month1,
                             year1);
                 }));
-
         patterns.add(new MyPattern(year + exactPostfix + "[" + separators + "]" + space + monthWords + "[" + separators + "]" + space + day, order++,
                 (matcher)-> {
                     long year1 = Long.parseLong(matcher.group(1));
                     String month1 = matcher.group(2);
                     long day1 = Long.parseLong(matcher.group(3));
+
+                    return classic_string(day1,
+                            month1,
+                            year1);
+                }));
+        patterns.add(new MyPattern(day + "[" + separators + "]" + space + monthWords + "[" + separators + "]" + space + year + "[" + separators + "]" + exactPostfix, order++,
+                (matcher)-> {
+                    long day1 = Long.parseLong(matcher.group(1));
+                    String month1 = matcher.group(2);
+                    long year1 = Long.parseLong(matcher.group(3));
 
                     return classic_string(day1,
                             month1,
@@ -880,6 +1060,17 @@ public class StringToData {
                             month1,
                             year1);
                 }));
+        patterns.add(new MyPattern(day + "[" + separators + "]" + month + "[" + separators + "]" + year + "[" + separators + "]" + exactPostfix,
+                order++,
+                (matcher)-> {
+                    long day1 = Long.parseLong(matcher.group(1));
+                    long month1 = Long.parseLong(matcher.group(2));
+                    long year1 = Long.parseLong(matcher.group(3));
+
+                    return classic_string(day1,
+                            month1,
+                            year1);
+                }));
         patterns.add(new MyPattern(day + "[" + separators + "]" + month + "[" + separators + "]" + year,
                 order++,
                 (matcher)-> {
@@ -897,6 +1088,15 @@ public class StringToData {
                     String month1 = matcher.group(2);
                     long day1 = Long.parseLong(matcher.group(3));
 
+                    return classic_string(day1,
+                            month1,
+                            year1);
+                }));
+        patterns.add(new MyPattern(day + "[" + separators + "]" + space + monthWords + "[" + separators + "]" + space + year + "[" + separators + "]" + space + exactPostfix, order++,
+                (matcher)-> {
+                    long day1 = Long.parseLong(matcher.group(1));
+                    String month1 = matcher.group(2);
+                    long year1 = Long.parseLong(matcher.group(3));
                     return classic_string(day1,
                             month1,
                             year1);
@@ -934,7 +1134,16 @@ public class StringToData {
                     year1
             );
         }));
-
+        patterns.add(new MyPattern(month + "[" + separators + "]" + space + day + "[" + separators + "]" + space + year + "[" + separators + "]" + space + exactPostfix, order++, (matcher)-> {
+            long month1 = Long.parseLong(matcher.group(1));
+            long year1 = Long.parseLong(matcher.group(3));
+            long day1 = Long.parseLong(matcher.group(2));
+            return classic_string(
+                    day1,
+                    month1,
+                    year1
+            );
+        }));
         patterns.add(new MyPattern(month + "[" + separators + "]" + space + day + "[" + separators + "]" + space + year, order++, (matcher)-> {
             long month1 = Long.parseLong(matcher.group(1));
             long year1 = Long.parseLong(matcher.group(3));
@@ -946,6 +1155,18 @@ public class StringToData {
             );
         }));
 
+        patterns.add(new MyPattern(monthWords + "[" + separators + "]" + space + day
+                + "[" + separators + "]" + space + year  + "[" + separators + "]" + space +  exactPostfix, order++, (matcher)-> {
+            String month1 = matcher.group(1);
+            long year1 = Long.parseLong(matcher.group(3));
+            long day1 = Long.parseLong(matcher.group(2));
+
+            return classic_string(
+                    day1,
+                    month1,
+                    year1
+            );
+        }));
         patterns.add(new MyPattern(monthWords + "[" + separators + "]" + space + day
                 + "[" + separators + "]" + space + year, order++, (matcher)-> {
             String month1 = matcher.group(1);
@@ -1055,7 +1276,6 @@ public class StringToData {
         }));
     }
     public static String isPatterned(String string) {
-
         //generatePatternsQueue();
         Iterator itr = patterns.iterator();
 
@@ -1063,14 +1283,10 @@ public class StringToData {
         String before = "";
         String unProcessed = string;
         while (itr.hasNext()) {
-
             MyPattern myPattern = (MyPattern) itr.next();
-//            System.out.println("Начало Pattern compile " + Calendar.getInstance().getTime());
-            Pattern pattern = Pattern.compile("\\b" + myPattern.getPattern() + postfix);
-//            System.out.println("Конец Pattern compile " + Calendar.getInstance().getTime());
+            Pattern pattern = Pattern.compile("\\b" + myPattern.getPattern());
             Matcher matcher;
-//            System.out.println("Начало Matcher " + Calendar.getInstance().getTime());
-            while ((matcher = pattern.matcher(unProcessed.toLowerCase(Locale.ROOT))).find()) {
+            while ((matcher = pattern.matcher(unProcessed)).find()) {
                 int end = matcher.start() - 1;
                 if (end >= 0) {
                     before += unProcessed.substring(0, end);
@@ -1084,32 +1300,21 @@ public class StringToData {
                 if (unProcessed.length() < matcher.end() + 1) unProcessed = "";
                 else unProcessed = unProcessed.substring(matcher.end() + 1);
             }
-//            System.out.println("Конец Matcher " + Calendar.getInstance().getTime());
-
         }
-
-//        System.out.println("Начало блока matcher2 " + Calendar.getInstance().getTime());
-
         if(res.endsWith(unProcessed + " ")) {
             return res;
         }
 
         res = res + unProcessed;
-//        System.out.println("(.*)" + exactPostfix + "\\s+" + exactPostfix + "(.*)");
-//        Pattern pattern = Pattern.compile("(.*)" + exactPostfix + "\\s+" + exactPostfix + "(.*)");
-//        System.out.println("Compile отработал");
-//        Matcher matcher = pattern.matcher(res);
-//        System.out.println("Matcher отработал ");
-//        int counter = 0;
-//        while(matcher.find()) {
-//            System.out.println("Счётчик " + ++counter);
-//            res = matcher.group(1) + matcher.group(2) + matcher.group(3);
-//            matcher = pattern.matcher(res);
-//        }
-//        System.out.println("Конец блока matcher2 " + Calendar.getInstance().getTime());
 
-//        return res.replaceAll("\\s+", " ");
-        return res;
+        /*
+        Pattern pattern = Pattern.compile("(.*)" + exactPostfix + "\\s+" + exactPostfix + "(.*)");
+        Matcher matcher = pattern.matcher(res);
+        while(matcher.find()) {
+            res = matcher.group(1) + matcher.group(2) + matcher.group(4);
+            matcher = pattern.matcher(res);
+        }
+         */
+        return res.replaceAll("\\s+", " ");
     }
-
 }

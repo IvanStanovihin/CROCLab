@@ -2,6 +2,7 @@ package Handler;
 
 import Dictionary.Dictionaries;
 import ProcessingServices.DateServices.DateHandler;
+import ProcessingServices.LinksService.LinkService;
 import ProtectWords.ProtectedWordsStorage;
 import InputFile.InputFilesLoader;
 import InputFile.InputFile;
@@ -109,12 +110,14 @@ public class Handler {
         }
         QuarantineCreator.createQuarantine(property.getOutDirectory(), inputFiles);
         CreatorReplacementFile.createReplacementFile(property.getOutDirectory(), inputFiles);
-        new Statistic(property, inputFiles).createStatisticFiles();
+        Statistic statistic = new Statistic(property, inputFiles);
+        statistic.createStatisticFiles();
         for (InputFile inputFile : inputFiles) {
             Handler.reportLog.startCurrentOperation(LogOperation.CREATE_PROCESSED_FILES, inputFile.getFileName());
             inputFile.createOutputFile(processedFilesDir, property);
             Handler.reportLog.endOperation();
         }
+        statistic.printQuarantineSentencesInfo();
     }
 
     public static PropertyLoader getProperty() {

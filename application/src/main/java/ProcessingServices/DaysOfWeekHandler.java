@@ -32,7 +32,7 @@ public class DaysOfWeekHandler {
             Handler.reportLog.endOperation();
         }
         daysOfWeek = null;
-        Handler.reportLog.endModule("Days of week module");
+        Handler.reportLog.endModule("Days of week ");
     }
 
     private static void processInputFile(InputFile inputFile){

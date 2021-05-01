@@ -43,6 +43,7 @@ public class QuarantineCreator {
 
     private static void createFile(ArrayList<String>allQuarantineSentences, String outDir){
         try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/QuarantineSentences.txt"))){
+            os.write("В карантин попало " + countQuarantineSentences + " предложений\n");
             for (String sentence : allQuarantineSentences){
                 os.write(sentence + "\n");
             }

@@ -16,7 +16,7 @@ public class DateHandler {
             processFile(inputFile);
             Handler.reportLog.endOperation();
         }
-        Handler.reportLog.endModule("Dates module ");
+        Handler.reportLog.endModule("Dates ");
     }
 
     private static void processFile(InputFile inputFile){

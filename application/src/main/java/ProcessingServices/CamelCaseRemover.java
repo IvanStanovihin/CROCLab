@@ -19,7 +19,7 @@ public class CamelCaseRemover {
             processedCurrentFile(inputFile);
             Handler.reportLog.endOperation();
         }
-        Handler.reportLog.endModule("CamelCase module");
+        Handler.reportLog.endModule("CamelCases ");
     }
 
     private static void processedCurrentFile(InputFile inputFile){

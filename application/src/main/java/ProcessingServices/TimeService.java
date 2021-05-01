@@ -21,7 +21,7 @@ public class TimeService {
             handleTime(inputFile);
             Handler.reportLog.endOperation();
         }
-        Handler.reportLog.endModule("Time module ");
+        Handler.reportLog.endModule("Time ");
     }
 
     private static void handleTime(InputFile inputFile){

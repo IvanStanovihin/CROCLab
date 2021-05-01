@@ -20,7 +20,7 @@ public class FractionService {
             handleFraction(inputFile);
             Handler.reportLog.endOperation();
         }
-        Handler.reportLog.endModule("Fractions module");
+        Handler.reportLog.endModule("Fractions ");
     }
 
     private static void handleFraction(InputFile inputFile) {

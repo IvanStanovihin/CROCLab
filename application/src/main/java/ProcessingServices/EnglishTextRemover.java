@@ -17,7 +17,7 @@ public class EnglishTextRemover {
            handleFile(inputFile);
             Handler.reportLog.endOperation();
         }
-        Handler.reportLog.endModule("Remove english module");
+        Handler.reportLog.endModule("Remove english words ");
     }
 
     private static void handleFile(InputFile fileWithEnglishLetters){

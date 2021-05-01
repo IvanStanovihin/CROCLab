@@ -19,7 +19,7 @@ public class EnglishTextFinder {
             processFile(inputFile);
             Handler.reportLog.endOperation();
         }
-        Handler.reportLog.endModule("Find english module");
+        Handler.reportLog.endModule("Find english words ");
     }
 
     private static void processFile(InputFile inputFile){

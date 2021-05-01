@@ -67,7 +67,6 @@ public class Statistic {
         generateFilesWithEnglish(filesWithEnglishTextDir);
         generateDeletedWordsStatistic(deletedWordsStatisticDir);
         generateQuarantineWordsStatistic(quarantineStatisticDir);
-        printQuarantineSentencesInfo();
     }
 
 
@@ -143,7 +142,7 @@ public class Statistic {
             countProcessedSentences += processedFileStatistic.getCountSentences();
         }
         System.out.println("В карантин попало " + countQuarantineSentences + " из "
-                + countProcessedSentences + countQuarantineSentences + " обработанных");
+                + (countProcessedSentences + countQuarantineSentences) + " обработанных");
     }
 
 }

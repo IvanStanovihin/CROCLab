@@ -15,7 +15,7 @@ public class WhitespaceService {
             handleFile(inputFile);
             Handler.reportLog.endOperation();
         }
-        Handler.reportLog.endModule("Extras whitespaces module");
+        Handler.reportLog.endModule("Extras whitespaces ");
     }
 
     //Удаляем лишние пробелы из предложения.

@@ -16,7 +16,7 @@ public class PunctuationMarkService {
             Handler.reportLog.endOperation();
             System.gc();
         }
-        Handler.reportLog.endModule("Punctuation module ");
+        Handler.reportLog.endModule("Punctuation marks ");
     }
 
     private static void handlePunctuationMarks(InputFile inputFile){

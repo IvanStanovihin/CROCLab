@@ -20,7 +20,7 @@ public class PhoneNumberService {
             handlePhoneNumbers(inputFile);
             Handler.reportLog.endOperation();
         }
-        Handler.reportLog.endModule("Phone numbers module ");
+        Handler.reportLog.endModule("Phone numbers ");
     }
 
     private static void handlePhoneNumbers(InputFile inputFile){

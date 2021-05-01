@@ -19,7 +19,7 @@ public class SentenceSeparator {
             processFile(inputFile);
             Handler.reportLog.endOperation();
         }
-        Handler.reportLog.endModule("Separation of sentences module");
+        Handler.reportLog.endModule("Separation of sentences ");
     }
 
     private static void processFile(InputFile inputFile){

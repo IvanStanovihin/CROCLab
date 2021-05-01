@@ -30,20 +30,6 @@ public class QuarantineSentencesFile {
         return quarantineSentences;
     }
 
-
-    //создается выходной файл с карантинными предложениями для определённого входного файла.
-    public void create(String outDir){
-        if (!fileIsEmpty()) {
-            try (OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/" + fileName), "UTF-8")) {
-                for (String sentence : quarantineSentences){
-                    os.write(sentence + "\n");
-                }
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
-
     public String getFileName() {
         return fileName;
     }

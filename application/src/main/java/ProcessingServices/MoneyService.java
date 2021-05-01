@@ -18,7 +18,7 @@ public class MoneyService {
             processFile(inputFile);
             Handler.reportLog.endOperation();
         }
-        Handler.reportLog.endModule("Money module ");
+        Handler.reportLog.endModule("Money ");
     }
 
     private static void processFile(InputFile inputFile){

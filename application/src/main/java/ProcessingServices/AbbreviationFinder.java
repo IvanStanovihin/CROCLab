@@ -17,7 +17,7 @@ public class AbbreviationFinder {
             findAbbreviationsInInputFile(inputFile);
             Handler.reportLog.endOperation();
         }
-        Handler.reportLog.endModule("Abbreviation module");
+        Handler.reportLog.endModule("Abbreviations ");
     }
 
     private static void findAbbreviationsInInputFile(InputFile inputFile) {

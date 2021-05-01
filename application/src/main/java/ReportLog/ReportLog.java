@@ -2,7 +2,9 @@ package ReportLog;
 
 import Properties.PropertyLoader;
 
-import java.io.FileDescriptor;
+
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -11,20 +13,24 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+
 public class ReportLog {
 
     public ReportLog(int countInputFiles){
         this.countInputFiles = countInputFiles;
     }
 
+    private static final Logger LOGGER = Logger.getLogger(ReportLog.class);
     private  int countInputFiles = 0;
     private  int indexCurrentProcessedFile = 1;
     private  LogOperation previousOperation = null;
     private Long startOperationTime;
     private Long endOperationTime;
-    private Long startModuleTime;
-    private Long endModuleTime;
+    private Long startCurrentModuleTime;
+    private Long endCurrentModuleTime;
     private ArrayList<String>moduleWorkTime = new ArrayList<>();
+    private String currentMessage;
+    private double totalModulesWorkingTime = 0;
 
     public void startCurrentOperation(LogOperation currentOperation){
         startCurrentOperation(currentOperation, "");
@@ -72,7 +78,7 @@ public class ReportLog {
 
     private  void processingFiles(LogOperation currentOperation, String fileName) {
         updateProcessedFileIndex(currentOperation);
-        System.out.print(currentOperation + " (" + fileName + " " + ( indexCurrentProcessedFile) + "/" + countInputFiles + ")");
+        currentMessage = (currentOperation +" (" + fileName + " " + ( indexCurrentProcessedFile) + "/" + countInputFiles + ")");
     }
 
     private  void updateProcessedFileIndex(LogOperation currentOperation) {
@@ -86,16 +92,19 @@ public class ReportLog {
 
     public void endOperation(){
         endOperationTime = Calendar.getInstance().getTimeInMillis();
-        System.out.println(" " + ((double)endOperationTime - startOperationTime)/1000 );
+        currentMessage += " " + (((double)endOperationTime - startOperationTime)/1000);
+        LOGGER.log(Level.INFO, currentMessage);
     }
 
     public void startModule(){
-        startModuleTime = Calendar.getInstance().getTimeInMillis();
+        startCurrentModuleTime = Calendar.getInstance().getTimeInMillis();
     }
 
     public void endModule(String moduleName){
-        endModuleTime = Calendar.getInstance().getTimeInMillis();
-        String moduleTime = moduleName + " отработал за " + ((double)endModuleTime - startModuleTime) /1000 + " с.";
+        endCurrentModuleTime = Calendar.getInstance().getTimeInMillis();
+        double moduleWorkingTime = ((double) endCurrentModuleTime - startCurrentModuleTime) /1000;
+        this.totalModulesWorkingTime += moduleWorkingTime;
+        String moduleTime = moduleName + moduleWorkingTime + " с.";
         System.out.println(moduleTime);
         this.moduleWorkTime.add(moduleTime);
     }
@@ -108,9 +117,11 @@ public class ReportLog {
             ex.printStackTrace();
         }
         try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDirectory + "/Report.txt"))){
+            os.write("Number of input files " + countInputFiles + "\n");
             for (String reportEntry : moduleWorkTime){
                 os.write(reportEntry + "\n");
             }
+            os.write("Total modules working time " + totalModulesWorkingTime);
         }catch(IOException ex){
             System.out.println("Ошибка при создании файла отчёта");
             ex.printStackTrace();

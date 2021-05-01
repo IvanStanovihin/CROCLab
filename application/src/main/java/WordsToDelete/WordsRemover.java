@@ -21,7 +21,7 @@ public class WordsRemover {
         Handler.reportLog.startCurrentOperation(LogOperation.REMOVE_WORDS_TO_DELETE);
         processFiles(inputFiles);
         wordsToDelete = null;
-        Handler.reportLog.endModule("Remove words module");
+        Handler.reportLog.endModule("Remove words ");
     }
 
     private static void processFiles(ArrayList<InputFile> inputFiles){

@@ -18,7 +18,7 @@ public class ReplacerSingleWords {
                 processFile(inputFile, dictionarySingleWords);
                 Handler.reportLog.endOperation();
             }
-            Handler.reportLog.endModule("Single dictionary words module");
+            Handler.reportLog.endModule("Single dictionary words ");
     }
 
     private static void processFile(InputFile inputFile, DictionarySingleWords dictionarySingleWords){

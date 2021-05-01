@@ -18,7 +18,7 @@ public class AcronymService {
             handleAcronyms(inputFile);
             Handler.reportLog.endOperation();
         }
-        Handler.reportLog.endModule("Acronyms module");
+        Handler.reportLog.endModule("Acronyms ");
     }
 
     private static void handleAcronyms(InputFile inputFile){
