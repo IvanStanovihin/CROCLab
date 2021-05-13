@@ -7,6 +7,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 
@@ -66,7 +67,7 @@ public class ReplacementFile {
 
     public void createFile(String outDir) {
         if (!fileIsEmpty()) {
-            try (OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/" + fileName))) {
+            try (OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/" + fileName), StandardCharsets.UTF_8)) {
                 os.write(getJsonFormat());
             } catch (IOException ex) {
                 ex.printStackTrace();

@@ -15,7 +15,7 @@ public class CreatorReplacementFile {
 
     public static void createReplacementFile(String outDir, ArrayList<InputFile> inputFiles) {
         Handler.reportLog.startModule();
-        String currentDir = outDir + "/ReplacementFiles";
+        String currentDir = outDir + "/Replacement";
         try{
             Files.createDirectories(Paths.get(currentDir));
         }catch(IOException ex){
@@ -27,6 +27,6 @@ public class CreatorReplacementFile {
             replacementFile.createFile(currentDir);
             Handler.reportLog.endOperation();
         }
-        Handler.reportLog.endModule("File with replacements module");
+        Handler.reportLog.endModule("File with replacements ");
     }
 }

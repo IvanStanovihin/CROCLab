@@ -23,16 +23,21 @@ public class DaysOfWeekHandler {
         daysOfWeek.put("вс", " воскресенье ");
     }
 
+    private static boolean isModuleEnable(){
+        return Handler.getProperty().isEnableDaysOfWeekModule();
+    }
 
     public static void handleDaysOfWeek(ArrayList<InputFile> inputFiles){
-        Handler.reportLog.startModule();
-        for (InputFile inputFile : inputFiles){
-            Handler.reportLog.startCurrentOperation(LogOperation.PROCESSING_DAYS_OF_WEEK, inputFile.getFileName());
-            processInputFile(inputFile);
-            Handler.reportLog.endOperation();
+        if (isModuleEnable()) {
+            Handler.reportLog.startModule();
+            for (InputFile inputFile : inputFiles) {
+                Handler.reportLog.startCurrentOperation(LogOperation.PROCESSING_DAYS_OF_WEEK, inputFile.getFileName());
+                processInputFile(inputFile);
+                Handler.reportLog.endOperation();
+            }
+            daysOfWeek = null;
+            Handler.reportLog.endModule("Days of week ");
         }
-        daysOfWeek = null;
-        Handler.reportLog.endModule("Days of week ");
     }
 
     private static void processInputFile(InputFile inputFile){

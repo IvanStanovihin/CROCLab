@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class GeneralQuarantineSentencesStatistic {
@@ -24,7 +25,7 @@ public class GeneralQuarantineSentencesStatistic {
 
     public void createFile(String outDir){
         if (!isFileEmpty()) {
-            try (OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/QuarantineSentencesStatistic.txt"))) {
+            try (OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/QuarantineSentencesStatistic.txt"), StandardCharsets.UTF_8)) {
                 os.write(getJsonFormat());
             } catch (IOException ex) {
                 ex.printStackTrace();

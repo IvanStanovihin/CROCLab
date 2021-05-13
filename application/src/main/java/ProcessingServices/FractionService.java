@@ -13,14 +13,20 @@ public class FractionService {
 
     private static final String regexFraction = "\\d+,\\d+";
 
+    private static boolean isModuleEnable(){
+        return Handler.getProperty().isEnableFractionsModule();
+    }
+
     public static void handle(ArrayList<InputFile> inputFiles){
-        Handler.reportLog.startModule();
-        for (InputFile inputFile : inputFiles){
-            Handler.reportLog.startCurrentOperation(LogOperation.PROCESSING_FRACTIONS, inputFile.getFileName());
-            handleFraction(inputFile);
-            Handler.reportLog.endOperation();
+        if (isModuleEnable()) {
+            Handler.reportLog.startModule();
+            for (InputFile inputFile : inputFiles) {
+                Handler.reportLog.startCurrentOperation(LogOperation.PROCESSING_FRACTIONS, inputFile.getFileName());
+                handleFraction(inputFile);
+                Handler.reportLog.endOperation();
+            }
+            Handler.reportLog.endModule("Fractions ");
         }
-        Handler.reportLog.endModule("Fractions ");
     }
 
     private static void handleFraction(InputFile inputFile) {

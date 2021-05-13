@@ -10,14 +10,20 @@ import java.util.regex.Pattern;
 
 public class NumberService {
 
+    private static boolean isModuleEnable(){
+        return Handler.getProperty().isEnableNumbersModule();
+    }
+
     public static void handleNumbers(ArrayList<InputFile> inputFiles) {
-        Handler.reportLog.startModule();
-        for (InputFile inputFile : inputFiles) {
-            Handler.reportLog.startCurrentOperation(LogOperation.PROCESS_NUMBERS, inputFile.getFileName());
-            handleFile(inputFile);
-            Handler.reportLog.endOperation();
+        if (isModuleEnable()) {
+            Handler.reportLog.startModule();
+            for (InputFile inputFile : inputFiles) {
+                Handler.reportLog.startCurrentOperation(LogOperation.PROCESS_NUMBERS, inputFile.getFileName());
+                handleFile(inputFile);
+                Handler.reportLog.endOperation();
+            }
+            Handler.reportLog.endModule("Numbers ");
         }
-        Handler.reportLog.endOperation();
     }
 
     //Принимает список предложений из файла. Возвращает список предложений с числами, раскрытыми в текст.
@@ -40,7 +46,7 @@ public class NumberService {
         inputFile.setFileText(cleanText.toString());
     }
 
-    private static String processLongNumber(String longNumber) {
+    public static String processLongNumber(String longNumber) {
         StringBuilder result = new StringBuilder();
         while (longNumber.length() > 0) {
             if (longNumber.length() > 3) {

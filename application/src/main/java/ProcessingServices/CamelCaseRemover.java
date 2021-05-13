@@ -11,15 +11,24 @@ import java.util.regex.Pattern;
 
 public class CamelCaseRemover {
 
+    private static final String MODULE_NAME = "Camel case ";
+
+    private static boolean isModuleEnable(){
+        return Handler.getProperty().isEnableCamelCaseModule();
+    }
 
     public static void removeCamelCase(ArrayList<InputFile> inputFiles){
-        Handler.reportLog.startModule();
-        for (InputFile inputFile : inputFiles){
-            Handler.reportLog.startCurrentOperation(LogOperation.CAMELCASE_SEPARATOR, inputFile.getFileName());
-            processedCurrentFile(inputFile);
-            Handler.reportLog.endOperation();
+        if (isModuleEnable()) {
+            Handler.reportLog.startModule();
+            for (InputFile inputFile : inputFiles) {
+                Handler.reportLog.startCurrentOperation(LogOperation.CAMELCASE_SEPARATOR, inputFile.getFileName());
+                processedCurrentFile(inputFile);
+                Handler.reportLog.endOperation();
+            }
+            Handler.reportLog.endModule(MODULE_NAME);
+        }else{
+            Handler.reportLog.moduleIsDisable(MODULE_NAME);
         }
-        Handler.reportLog.endModule("CamelCases ");
     }
 
     private static void processedCurrentFile(InputFile inputFile){

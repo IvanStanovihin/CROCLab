@@ -7,6 +7,7 @@ import com.google.gson.GsonBuilder;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -51,7 +52,7 @@ public class GeneralSentencesStatistic {
     }
 
     public void createFile(String outDir){
-        try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/GeneralSentencesStatistic.txt"))){
+        try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/GeneralSentencesStatistic.txt"), StandardCharsets.UTF_8)){
             os.write(getJsonFormat());
         }catch(IOException ex){
             ex.printStackTrace();

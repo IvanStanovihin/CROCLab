@@ -9,14 +9,20 @@ import java.util.ArrayList;
 
 public class LinkService {
 
+    private static boolean isModuleEnable(){
+        return Handler.getProperty().isEnableLinksModule();
+    }
+
     public static void handle(ArrayList<InputFile> inputFiles){
-        Handler.reportLog.startModule();
-        for (InputFile inputFile : inputFiles){
-            Handler.reportLog.startCurrentOperation(LogOperation.PROCESS_LINKS, inputFile.getFileName());
-            removeLinks(inputFile);
-            Handler.reportLog.endOperation();
+        if (isModuleEnable()) {
+            Handler.reportLog.startModule();
+            for (InputFile inputFile : inputFiles) {
+                Handler.reportLog.startCurrentOperation(LogOperation.PROCESS_LINKS, inputFile.getFileName());
+                removeLinks(inputFile);
+                Handler.reportLog.endOperation();
+            }
+            Handler.reportLog.endModule("Links  ");
         }
-        Handler.reportLog.endModule("Links  ");
     }
 
 

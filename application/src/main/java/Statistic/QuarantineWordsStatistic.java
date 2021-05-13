@@ -7,6 +7,7 @@ import com.google.gson.GsonBuilder;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -62,7 +63,7 @@ public class QuarantineWordsStatistic {
 
     public void createFile(String filePath){
         if (!isFileEmpty()){
-            try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(filePath + "/QuarantineWordsStatistic.txt"))){
+            try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(filePath + "/QuarantineWordsStatistic.txt"), StandardCharsets.UTF_8)){
                 os.write(getJsonFormat());
             }catch(IOException ex){
                 ex.printStackTrace();

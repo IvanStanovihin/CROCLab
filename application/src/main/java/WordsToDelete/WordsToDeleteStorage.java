@@ -3,10 +3,7 @@ package WordsToDelete;
 import Properties.PropertyLoader;
 import com.google.gson.Gson;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class WordsToDeleteStorage {
@@ -31,7 +28,7 @@ public class WordsToDeleteStorage {
     private String readFile(String filePath){
         StringBuilder fileData = new StringBuilder();
         String readLine;
-        try(BufferedReader br = new BufferedReader(new FileReader(filePath))){
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"))){
             while((readLine = br.readLine()) != null){
                 fileData.append(readLine);
             }

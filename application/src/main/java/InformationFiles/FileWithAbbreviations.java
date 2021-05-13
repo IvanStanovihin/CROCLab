@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class FileWithAbbreviations {
@@ -24,7 +25,7 @@ public class FileWithAbbreviations {
 
     public void createFile(String outDir){
         if (!fileIsEmpty()) {
-            try (OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/AbbreviationSentences" + inputFileName))) {
+            try (OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/AbbreviationSentences" + inputFileName), StandardCharsets.UTF_8)) {
                 os.write(getJsonFormat());
             } catch (IOException ex) {
                 ex.printStackTrace();

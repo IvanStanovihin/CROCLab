@@ -7,6 +7,7 @@ import com.google.gson.GsonBuilder;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -61,7 +62,7 @@ public class RowFileStatistic {
     }
 
     public void create(String outDir){
-        try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/" + fileName))){
+        try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/" + fileName), StandardCharsets.UTF_8)){
             os.write(getJsonFormat());
         }catch(IOException ex){
             ex.printStackTrace();

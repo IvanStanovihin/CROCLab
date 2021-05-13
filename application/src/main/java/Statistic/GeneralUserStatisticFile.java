@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -24,7 +25,7 @@ public class GeneralUserStatisticFile {
 
     public void createGeneralStatistic(String outDir){
         if (!isFileEmpty()) {
-            try (OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/GeneralUserStatistic_" + userStatisticFileName + ".txt"))) {
+            try (OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/GeneralUserStatistic_" + userStatisticFileName + ".txt"), StandardCharsets.UTF_8)) {
                 os.write(getJsonFormat());
             } catch (IOException ex) {
                 ex.printStackTrace();

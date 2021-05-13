@@ -48,20 +48,16 @@ public class Handler {
         dictionaries = new Dictionaries(property.getDictionariesDirectory());
         //Обработка мобильных номеров телефонов
         PhoneNumberService.handle(inputFiles);
-        //Обработка дат
-        DateHandler.processDate(inputFiles);
         //Обработка времени
         TimeService.handle(inputFiles);
+        //Обработка дат
+        DateHandler.processDate(inputFiles);
         //Обработка денежных сумм
         MoneyService.processMoney(inputFiles);
         //Обработка дробей
         FractionService.handle(inputFiles);
-        //Раскрываем числа в текст.
-        NumberService.handleNumbers(inputFiles);
         //Удаляем ссылки из предложений
         LinkService.handle(inputFiles);
-        //Обработка знаков препинания и спец. символов.
-        PunctuationMarkService.handle(inputFiles);
         //Удаление слов, которые пользователь добавил в файл
         WordsRemover.removeWords(property, inputFiles);
         //Замена слов которые содержат пробелы(# в. ч. -> войсковая часть)
@@ -71,6 +67,10 @@ public class Handler {
         ReplacerSingleWords.handleSingleWords(dictionaries.getDictionarySingleWords(), inputFiles);
         dictionaries = null;
         System.gc();
+        //Раскрываем числа в текст.
+        NumberService.handleNumbers(inputFiles);
+        //Обработка знаков препинания и спец. символов.
+        PunctuationMarkService.handle(inputFiles);
         //Обработка дней недели
         DaysOfWeekHandler.handleDaysOfWeek(inputFiles);
         System.gc();
@@ -89,10 +89,9 @@ public class Handler {
         WhitespaceService.removeExtraWhitespace(inputFiles);
         //Находим все предложения содержащие английский текст
         EnglishTextFinder.findEnglishText(inputFiles);
-        if (property.getEnableEnglishText()) {
-            //Отправляем в карантин предложения содержащие английские буквы.
-            EnglishTextRemover.removeEnglishText(inputFiles);
-        }
+        //Отправляем в карантин предложения содержащие английские буквы.
+        EnglishTextRemover.removeEnglishText(inputFiles);
+
         //Отправляем акронимы в карантин
         AcronymService.acronymsInQuarantine(inputFiles);
 
@@ -101,14 +100,14 @@ public class Handler {
 
     //Создаёт выходной файл.
     public void createOutputFiles() {
-        String processedFilesDir = property.getOutDirectory() + "/ProcessedFiles";
-        reportLog.createReportFile(property);
+        String processedFilesDir = property.getOutDirectory() + "/Processed";
+        reportLog.create(property);
         try {
             Files.createDirectories(Paths.get(processedFilesDir));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        QuarantineCreator.createQuarantine(property.getOutDirectory(), inputFiles);
+        QuarantineCreator.createQuarantine(property.getOutDirectory(), inputFiles, processedFilesDir);
         CreatorReplacementFile.createReplacementFile(property.getOutDirectory(), inputFiles);
         Statistic statistic = new Statistic(property, inputFiles);
         statistic.createStatisticFiles();

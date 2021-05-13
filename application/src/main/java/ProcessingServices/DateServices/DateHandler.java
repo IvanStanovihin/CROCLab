@@ -8,15 +8,21 @@ import java.util.ArrayList;
 
 public class DateHandler {
 
+    private static boolean isModuleEnable(){
+        return Handler.getProperty().isEnableDatesModule();
+    }
+
     public static void processDate(ArrayList<InputFile> inputFiles){
-        Handler.reportLog.startModule();
-        StringToData.generatePatternsQueue();
-        for (InputFile inputFile : inputFiles){
-            Handler.reportLog.startCurrentOperation(LogOperation.PROCESSING_DATES, inputFile.getFileName());
-            processFile(inputFile);
-            Handler.reportLog.endOperation();
+        if (isModuleEnable()) {
+            Handler.reportLog.startModule();
+            StringToData.generatePatternsQueue();
+            for (InputFile inputFile : inputFiles) {
+                Handler.reportLog.startCurrentOperation(LogOperation.PROCESSING_DATES, inputFile.getFileName());
+                processFile(inputFile);
+                Handler.reportLog.endOperation();
+            }
+            Handler.reportLog.endModule("Dates ");
         }
-        Handler.reportLog.endModule("Dates ");
     }
 
     private static void processFile(InputFile inputFile){

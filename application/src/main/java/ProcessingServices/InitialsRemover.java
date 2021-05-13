@@ -8,14 +8,20 @@ import java.util.ArrayList;
 
 public class InitialsRemover {
 
+    private static boolean isModuleEnable(){
+        return Handler.getProperty().isEnableInitialsModule();
+    }
+
     public static void removeInitials(ArrayList<InputFile>inputFiles){
-        Handler.reportLog.startModule();
-        for (InputFile inputFile : inputFiles){
-            Handler.reportLog.startCurrentOperation(LogOperation.REMOVE_INITIALS, inputFile.getFileName());
-            processFile(inputFile);
-            Handler.reportLog.endOperation();
+        if (isModuleEnable()) {
+            Handler.reportLog.startModule();
+            for (InputFile inputFile : inputFiles) {
+                Handler.reportLog.startCurrentOperation(LogOperation.REMOVE_INITIALS, inputFile.getFileName());
+                processFile(inputFile);
+                Handler.reportLog.endOperation();
+            }
+            Handler.reportLog.endModule("Initials ");
         }
-        Handler.reportLog.endModule("Initials ");
     }
 
     private static void processFile(InputFile inputFile){

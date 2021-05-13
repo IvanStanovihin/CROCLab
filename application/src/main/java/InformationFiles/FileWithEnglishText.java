@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class FileWithEnglishText {
@@ -20,7 +21,7 @@ public class FileWithEnglishText {
     }
 
     public void createFile(String outDir){
-        try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/EnglishText_" + processedFileName))){
+        try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/EnglishText_" + processedFileName), StandardCharsets.UTF_8)){
             os.write(getJsonFormat());
         }catch(IOException ex){
             ex.printStackTrace();

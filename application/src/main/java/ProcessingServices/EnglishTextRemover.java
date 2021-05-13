@@ -10,14 +10,22 @@ import java.util.regex.Pattern;
 
 public class EnglishTextRemover {
 
+    private static boolean isModuleEnable(){
+            return Handler.getProperty().isEnableRemoveEnglishTextModule();
+    }
+
+
+
     public static void removeEnglishText(ArrayList<InputFile>inputFiles) {
-        Handler.reportLog.startModule();
-        for (InputFile inputFile : inputFiles) {
-            Handler.reportLog.startCurrentOperation(LogOperation.REMOVE_ENGLISH, inputFile.getFileName());
-           handleFile(inputFile);
-            Handler.reportLog.endOperation();
+        if (isModuleEnable()) {
+            Handler.reportLog.startModule();
+            for (InputFile inputFile : inputFiles) {
+                Handler.reportLog.startCurrentOperation(LogOperation.REMOVE_ENGLISH, inputFile.getFileName());
+                handleFile(inputFile);
+                Handler.reportLog.endOperation();
+            }
+            Handler.reportLog.endModule("Remove english words ");
         }
-        Handler.reportLog.endModule("Remove english words ");
     }
 
     private static void handleFile(InputFile fileWithEnglishLetters){

@@ -8,6 +8,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -63,7 +64,7 @@ public class ExcelParser {
         for (Map.Entry fileText : filesTexts.entrySet()){
             String fileName = (String)fileText.getKey();
             String textFromFile = (String)fileText.getValue();
-            try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/" + fileName.replace(".xls", ".txt")), "UTF-8")){
+            try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/" + fileName.replace(".xls", ".txt")), StandardCharsets.UTF_8)){
                 os.write(textFromFile);
             }catch(IOException ex){
                 ex.printStackTrace();

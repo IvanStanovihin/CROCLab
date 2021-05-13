@@ -11,14 +11,20 @@ import java.util.regex.Pattern;
 
 public class AcronymService {
 
+    private static boolean isModuleEnable(){
+        return Handler.getProperty().isEnableAcronymsModule();
+    }
+
     public static void acronymsInQuarantine(ArrayList<InputFile> inputFiles){
-        Handler.reportLog.startModule();
-        for (InputFile inputFile : inputFiles){
-            Handler.reportLog.startCurrentOperation(LogOperation.REMOVE_ACRONYMS, inputFile.getFileName());
-            handleAcronyms(inputFile);
-            Handler.reportLog.endOperation();
+        if (isModuleEnable()) {
+            Handler.reportLog.startModule();
+            for (InputFile inputFile : inputFiles) {
+                Handler.reportLog.startCurrentOperation(LogOperation.REMOVE_ACRONYMS, inputFile.getFileName());
+                handleAcronyms(inputFile);
+                Handler.reportLog.endOperation();
+            }
+            Handler.reportLog.endModule("Acronyms ");
         }
-        Handler.reportLog.endModule("Acronyms ");
     }
 
     private static void handleAcronyms(InputFile inputFile){

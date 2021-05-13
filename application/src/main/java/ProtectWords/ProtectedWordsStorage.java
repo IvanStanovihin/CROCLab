@@ -27,7 +27,7 @@ public class ProtectedWordsStorage {
     private String readFileData(String filePath){
         StringBuilder fileData = new StringBuilder();
         String readLine;
-        try(BufferedReader br = new BufferedReader(new FileReader(filePath))){
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"))){
             while((readLine = br.readLine()) != null){
                 fileData.append(readLine);
             }

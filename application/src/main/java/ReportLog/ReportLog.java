@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -65,7 +66,6 @@ public class ReportLog {
             case PROCESSING_MONEY:
             case PROCESSING_FRACTIONS:
             case REMOVE_ACRONYMS:
-            case REMOVE_CAMEL_CASE:
             case CREATE_REPLACEMENT_FILE:
                 processingFiles(currentOperation, fileName);
                 break;
@@ -104,28 +104,33 @@ public class ReportLog {
         endCurrentModuleTime = Calendar.getInstance().getTimeInMillis();
         double moduleWorkingTime = ((double) endCurrentModuleTime - startCurrentModuleTime) /1000;
         this.totalModulesWorkingTime += moduleWorkingTime;
-        String moduleTime = moduleName + moduleWorkingTime + " с.";
+        String moduleTime = moduleName + moduleWorkingTime + " s.";
         System.out.println(moduleTime);
         this.moduleWorkTime.add(moduleTime);
     }
 
-    public void createReportFile(PropertyLoader property){
-        String outDirectory  = property.getOutDirectory() + "/ReportFile";
+    public void create(PropertyLoader property){
+        String outDirectory  = property.getOutDirectory() + "/Report";
         try{
             Files.createDirectories(Paths.get(outDirectory));
         }catch(IOException ex){
             ex.printStackTrace();
         }
-        try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDirectory + "/Report.txt"))){
+        try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDirectory + "/Report.txt"), StandardCharsets.UTF_8)){
             os.write("Number of input files " + countInputFiles + "\n");
             for (String reportEntry : moduleWorkTime){
                 os.write(reportEntry + "\n");
             }
-            os.write("Total modules working time " + totalModulesWorkingTime);
+            String workTime = String.format("%.3f", totalModulesWorkingTime);
+            os.write("Total modules working time " + workTime + " s.");
         }catch(IOException ex){
             System.out.println("Ошибка при создании файла отчёта");
             ex.printStackTrace();
         }
+    }
+
+    public void moduleIsDisable(String moduleName){
+        moduleWorkTime.add(moduleName + " is disable");
     }
 
 

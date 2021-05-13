@@ -11,14 +11,20 @@ import java.util.regex.Pattern;
 
 public class MoneyService {
 
+    private static boolean isModuleEnable(){
+        return Handler.getProperty().isEnableMoneyModule();
+    }
+
     public static void processMoney(ArrayList<InputFile> inputFiles){
-        Handler.reportLog.startModule();
-        for (InputFile inputFile : inputFiles){
-            Handler.reportLog.startCurrentOperation(LogOperation.PROCESSING_MONEY, inputFile.getFileName());
-            processFile(inputFile);
-            Handler.reportLog.endOperation();
+        if (isModuleEnable()) {
+            Handler.reportLog.startModule();
+            for (InputFile inputFile : inputFiles) {
+                Handler.reportLog.startCurrentOperation(LogOperation.PROCESSING_MONEY, inputFile.getFileName());
+                processFile(inputFile);
+                Handler.reportLog.endOperation();
+            }
+            Handler.reportLog.endModule("Money ");
         }
-        Handler.reportLog.endModule("Money ");
     }
 
     private static void processFile(InputFile inputFile){

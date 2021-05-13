@@ -33,7 +33,7 @@ public class Dictionaries {
 
     private void readDictionary(String dictionaryPath){
         StringBuilder fileData = new StringBuilder();
-        try(BufferedReader br = new BufferedReader(new FileReader(dictionaryPath))){
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(dictionaryPath), "UTF-8"))){
             String readLine = "";
             while((readLine = br.readLine()) != null){
                 fileData.append(readLine);

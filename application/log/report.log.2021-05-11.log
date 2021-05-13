@@ -1,0 +1,380 @@
+Раскрытие номеров телефонов (dates.txt 1/4) 0.013
+Раскрытие номеров телефонов (InputFile_Mix.txt 2/4) 0.001
+Раскрытие номеров телефонов (numbers_2.txt 3/4) 0.005
+Раскрытие номеров телефонов (time.txt 4/4) 0.0
+Обработака времени (dates.txt 1/4) 0.0
+Обработака времени (InputFile_Mix.txt 2/4) 0.001
+Обработака времени (numbers_2.txt 3/4) 0.002
+Обработака времени (time.txt 4/4) 0.01
+Обработка дат (dates.txt 1/4) 0.123
+Обработка дат (InputFile_Mix.txt 2/4) 0.043
+Обработка дат (numbers_2.txt 3/4) 0.212
+Обработка дат (time.txt 4/4) 0.0
+Обработка денег (dates.txt 1/4) 0.01
+Обработка денег (InputFile_Mix.txt 2/4) 0.0
+Обработка денег (numbers_2.txt 3/4) 0.036
+Обработка денег (time.txt 4/4) 0.0
+Обработка дробей (dates.txt 1/4) 0.0
+Обработка дробей (InputFile_Mix.txt 2/4) 0.0
+Обработка дробей (numbers_2.txt 3/4) 0.0
+Обработка дробей (time.txt 4/4) 0.0
+Раскрытие цифр в текст (dates.txt 1/4) 0.0
+Раскрытие цифр в текст (InputFile_Mix.txt 2/4) 0.0
+Раскрытие цифр в текст (numbers_2.txt 3/4) 0.048
+Раскрытие цифр в текст (time.txt 4/4) 0.0
+Удаление ссылок из текста (dates.txt 1/4) 0.0
+Удаление ссылок из текста (InputFile_Mix.txt 2/4) 0.0
+Удаление ссылок из текста (numbers_2.txt 3/4) 0.05
+Удаление ссылок из текста (time.txt 4/4) 0.0
+Обработка знаков препинания (dates.txt 1/4) 0.0
+Обработка знаков препинания (InputFile_Mix.txt 2/4) 0.0
+Обработка знаков препинания (numbers_2.txt 3/4) 0.051
+Обработка знаков препинания (time.txt 4/4) 0.0
+Удаление словарных слов которые содержат пробелы (dates.txt 1/4) 0.0
+Удаление словарных слов которые содержат пробелы (InputFile_Mix.txt 2/4) 0.01
+Удаление словарных слов которые содержат пробелы (numbers_2.txt 3/4) 0.385
+Удаление словарных слов которые содержат пробелы (time.txt 4/4) 0.002
+Удаление словарных слов не содержащих пробелы (dates.txt 1/4) 0.003
+Удаление словарных слов не содержащих пробелы (InputFile_Mix.txt 2/4) 0.002
+Удаление словарных слов не содержащих пробелы (numbers_2.txt 3/4) 0.048
+Удаление словарных слов не содержащих пробелы (time.txt 4/4) 0.0
+Обработка дней недели (dates.txt 1/4) 0.004
+Обработка дней недели (InputFile_Mix.txt 2/4) 0.006
+Обработка дней недели (numbers_2.txt 3/4) 0.09
+Обработка дней недели (time.txt 4/4) 0.0
+Удаление инициалов (dates.txt 1/4) 0.0
+Удаление инициалов (InputFile_Mix.txt 2/4) 0.0
+Удаление инициалов (numbers_2.txt 3/4) 0.057
+Удаление инициалов (time.txt 4/4) 0.0
+Поиск сокращений в тексте (dates.txt 1/4) 0.0
+Поиск сокращений в тексте (InputFile_Mix.txt 2/4) 0.0
+Поиск сокращений в тексте (numbers_2.txt 3/4) 0.02
+Поиск сокращений в тексте (time.txt 4/4) 0.0
+Разделение файла на предложения (dates.txt 1/4) 0.0
+Разделение файла на предложения (InputFile_Mix.txt 2/4) 0.01
+Разделение файла на предложения (numbers_2.txt 3/4) 0.05
+Разделение файла на предложения (time.txt 4/4) 0.0
+Удаление лишних пробелов (dates.txt 1/4) 0.0
+Удаление лишних пробелов (InputFile_Mix.txt 2/4) 0.0
+Удаление лишних пробелов (numbers_2.txt 3/4) 0.03
+Удаление лишних пробелов (time.txt 4/4) 0.0
+Поиск английского текста (dates.txt 1/4) 0.0
+Поиск английского текста (InputFile_Mix.txt 2/4) 0.0
+Поиск английского текста (numbers_2.txt 3/4) 0.01
+Поиск английского текста (time.txt 4/4) 0.0
+Помещение акронимов в карантин (dates.txt 1/4) 0.0
+Помещение акронимов в карантин (InputFile_Mix.txt 2/4) 0.0
+Помещение акронимов в карантин (numbers_2.txt 3/4) 0.05
+Помещение акронимов в карантин (time.txt 4/4) 0.0
+Создание файла с заменами (dates.txt 1/4) 0.0
+Создание файла с заменами (InputFile_Mix.txt 2/4) 0.0
+Создание файла с заменами (numbers_2.txt 3/4) 0.0
+Создание файла с заменами (time.txt 4/4) 0.0
+Создание обработанных файлов (dates.txt 1/4) 0.01
+Создание обработанных файлов (InputFile_Mix.txt 2/4) 0.0
+Создание обработанных файлов (numbers_2.txt 3/4) 0.02
+Создание обработанных файлов (time.txt 4/4) 0.0
+Processing phone numbers (dates.txt 1/4) 0.016
+Processing phone numbers (InputFile_Mix.txt 2/4) 0.001
+Processing phone numbers (numbers_2.txt 3/4) 0.006
+Processing phone numbers (time.txt 4/4) 0.001
+Processing times (dates.txt 1/4) 0.0
+Processing times (InputFile_Mix.txt 2/4) 0.001
+Processing times (numbers_2.txt 3/4) 0.004
+Processing times (time.txt 4/4) 0.008
+Processing dates (dates.txt 1/4) 0.113
+Processing dates (InputFile_Mix.txt 2/4) 0.024
+Processing dates (numbers_2.txt 3/4) 0.194
+Processing dates (time.txt 4/4) 0.01
+Processing moneys (dates.txt 1/4) 0.0
+Processing moneys (InputFile_Mix.txt 2/4) 0.0
+Processing moneys (numbers_2.txt 3/4) 0.08
+Processing moneys (time.txt 4/4) 0.0
+Processing fractions (dates.txt 1/4) 0.0
+Processing fractions (InputFile_Mix.txt 2/4) 0.0
+Processing fractions (numbers_2.txt 3/4) 0.0
+Processing fractions (time.txt 4/4) 0.0
+Processing numbers (dates.txt 1/4) 0.0
+Processing numbers (InputFile_Mix.txt 2/4) 0.0
+Processing numbers (numbers_2.txt 3/4) 0.04
+Processing numbers (time.txt 4/4) 0.0
+Deleting links (dates.txt 1/4) 0.01
+Deleting links (InputFile_Mix.txt 2/4) 0.0
+Deleting links (numbers_2.txt 3/4) 0.05
+Deleting links (time.txt 4/4) 0.0
+Processing punctuation marks (dates.txt 1/4) 0.0
+Processing punctuation marks (InputFile_Mix.txt 2/4) 0.0
+Processing punctuation marks (numbers_2.txt 3/4) 0.065
+Processing punctuation marks (time.txt 4/4) 0.0
+Deleting whitespace dictionary words (dates.txt 1/4) 0.01
+Deleting whitespace dictionary words (InputFile_Mix.txt 2/4) 0.01
+Deleting whitespace dictionary words (numbers_2.txt 3/4) 0.376
+Deleting whitespace dictionary words (time.txt 4/4) 0.0
+Deleting single dictionary words (dates.txt 1/4) 0.0
+Deleting single dictionary words (InputFile_Mix.txt 2/4) 0.01
+Deleting single dictionary words (numbers_2.txt 3/4) 0.04
+Deleting single dictionary words (time.txt 4/4) 0.0
+Processing days of the week (dates.txt 1/4) 0.0
+Processing days of the week (InputFile_Mix.txt 2/4) 0.01
+Processing days of the week (numbers_2.txt 3/4) 0.09
+Processing days of the week (time.txt 4/4) 0.0
+Deleting initials (dates.txt 1/4) 0.0
+Deleting initials (InputFile_Mix.txt 2/4) 0.0
+Deleting initials (numbers_2.txt 3/4) 0.05
+Deleting initials (time.txt 4/4) 0.0
+Searching abbreviations (dates.txt 1/4) 0.01
+Searching abbreviations (InputFile_Mix.txt 2/4) 0.0
+Searching abbreviations (numbers_2.txt 3/4) 0.01
+Searching abbreviations (time.txt 4/4) 0.0
+Splitting files into sentences (dates.txt 1/4) 0.0
+Splitting files into sentences (InputFile_Mix.txt 2/4) 0.0
+Splitting files into sentences (numbers_2.txt 3/4) 0.068
+Splitting files into sentences (time.txt 4/4) 0.0
+Deleting extra spaces (dates.txt 1/4) 0.0
+Deleting extra spaces (InputFile_Mix.txt 2/4) 0.0
+Deleting extra spaces (numbers_2.txt 3/4) 0.03
+Deleting extra spaces (time.txt 4/4) 0.0
+Searching english text  (dates.txt 1/4) 0.0
+Searching english text  (InputFile_Mix.txt 2/4) 0.0
+Searching english text  (numbers_2.txt 3/4) 0.011
+Searching english text  (time.txt 4/4) 0.0
+Processing acronyms (dates.txt 1/4) 0.0
+Processing acronyms (InputFile_Mix.txt 2/4) 0.0
+Processing acronyms (numbers_2.txt 3/4) 0.047
+Processing acronyms (time.txt 4/4) 0.0
+Creating a file with replacements (dates.txt 1/4) 0.0
+Creating a file with replacements (InputFile_Mix.txt 2/4) 0.0
+Creating a file with replacements (numbers_2.txt 3/4) 0.0
+Creating a file with replacements (time.txt 4/4) 0.0
+Creating processed files (dates.txt 1/4) 0.0
+Creating processed files (InputFile_Mix.txt 2/4) 0.0
+Creating processed files (numbers_2.txt 3/4) 0.022
+Creating processed files (time.txt 4/4) 0.0
+Processing phone numbers (dates.txt 1/4) 0.024
+Processing phone numbers (InputFile_Mix.txt 2/4) 0.001
+Processing phone numbers (numbers_2.txt 3/4) 0.008
+Processing phone numbers (time.txt 4/4) 0.0
+Processing times (dates.txt 1/4) 0.0
+Processing times (InputFile_Mix.txt 2/4) 0.0
+Processing times (numbers_2.txt 3/4) 0.004
+Processing times (time.txt 4/4) 0.009
+Processing dates (dates.txt 1/4) 0.163
+Processing dates (InputFile_Mix.txt 2/4) 0.038
+Processing dates (numbers_2.txt 3/4) 0.203
+Processing dates (time.txt 4/4) 0.0
+Processing moneys (dates.txt 1/4) 0.0
+Processing moneys (InputFile_Mix.txt 2/4) 0.002
+Processing moneys (numbers_2.txt 3/4) 0.05
+Processing moneys (time.txt 4/4) 0.0
+Processing fractions (dates.txt 1/4) 0.0
+Processing fractions (InputFile_Mix.txt 2/4) 0.0
+Processing fractions (numbers_2.txt 3/4) 0.0
+Processing fractions (time.txt 4/4) 0.0
+Processing numbers (dates.txt 1/4) 0.008
+Processing numbers (InputFile_Mix.txt 2/4) 0.002
+Processing numbers (numbers_2.txt 3/4) 0.041
+Processing numbers (time.txt 4/4) 0.0
+Deleting links (dates.txt 1/4) 0.0
+Deleting links (InputFile_Mix.txt 2/4) 0.0
+Deleting links (numbers_2.txt 3/4) 0.04
+Deleting links (time.txt 4/4) 0.008
+Processing punctuation marks (dates.txt 1/4) 0.002
+Processing punctuation marks (InputFile_Mix.txt 2/4) 0.0
+Processing punctuation marks (numbers_2.txt 3/4) 0.05
+Processing punctuation marks (time.txt 4/4) 0.0
+Deleting whitespace dictionary words (dates.txt 1/4) 0.0
+Deleting whitespace dictionary words (InputFile_Mix.txt 2/4) 0.01
+Deleting whitespace dictionary words (numbers_2.txt 3/4) 0.411
+Deleting whitespace dictionary words (time.txt 4/4) 0.01
+Deleting single dictionary words (dates.txt 1/4) 0.0
+Deleting single dictionary words (InputFile_Mix.txt 2/4) 0.0
+Deleting single dictionary words (numbers_2.txt 3/4) 0.049
+Deleting single dictionary words (time.txt 4/4) 0.0
+Processing days of the week (dates.txt 1/4) 0.0
+Processing days of the week (InputFile_Mix.txt 2/4) 0.0
+Processing days of the week (numbers_2.txt 3/4) 0.1
+Processing days of the week (time.txt 4/4) 0.0
+Deleting initials (dates.txt 1/4) 0.0
+Deleting initials (InputFile_Mix.txt 2/4) 0.0
+Deleting initials (numbers_2.txt 3/4) 0.06
+Deleting initials (time.txt 4/4) 0.0
+Searching abbreviations (dates.txt 1/4) 0.0
+Searching abbreviations (InputFile_Mix.txt 2/4) 0.0
+Searching abbreviations (numbers_2.txt 3/4) 0.02
+Searching abbreviations (time.txt 4/4) 0.0
+Splitting files into sentences (dates.txt 1/4) 0.0
+Splitting files into sentences (InputFile_Mix.txt 2/4) 0.0
+Splitting files into sentences (numbers_2.txt 3/4) 0.06
+Splitting files into sentences (time.txt 4/4) 0.0
+Deleting extra spaces (dates.txt 1/4) 0.0
+Deleting extra spaces (InputFile_Mix.txt 2/4) 0.0
+Deleting extra spaces (numbers_2.txt 3/4) 0.03
+Deleting extra spaces (time.txt 4/4) 0.0
+Searching english text  (dates.txt 1/4) 0.0
+Searching english text  (InputFile_Mix.txt 2/4) 0.0
+Searching english text  (numbers_2.txt 3/4) 0.01
+Searching english text  (time.txt 4/4) 0.0
+Processing acronyms (dates.txt 1/4) 0.0
+Processing acronyms (InputFile_Mix.txt 2/4) 0.01
+Processing acronyms (numbers_2.txt 3/4) 0.051
+Processing acronyms (time.txt 4/4) 0.0
+Creating a file with replacements (dates.txt 1/4) 0.01
+Creating a file with replacements (InputFile_Mix.txt 2/4) 0.0
+Creating a file with replacements (numbers_2.txt 3/4) 0.0
+Creating a file with replacements (time.txt 4/4) 0.0
+Creating processed files (dates.txt 1/4) 0.003
+Creating processed files (InputFile_Mix.txt 2/4) 0.002
+Creating processed files (numbers_2.txt 3/4) 0.014
+Creating processed files (time.txt 4/4) 0.0
+Processing phone numbers (dates.txt 1/4) 0.021
+Processing phone numbers (InputFile_Mix.txt 2/4) 0.0
+Processing phone numbers (numbers_2.txt 3/4) 0.01
+Processing phone numbers (time.txt 4/4) 0.0
+Processing times (dates.txt 1/4) 0.0
+Processing times (InputFile_Mix.txt 2/4) 0.0
+Processing times (numbers_2.txt 3/4) 0.01
+Processing times (time.txt 4/4) 0.01
+Processing dates (dates.txt 1/4) 0.13
+Processing dates (InputFile_Mix.txt 2/4) 0.02
+Processing dates (numbers_2.txt 3/4) 0.15
+Processing dates (time.txt 4/4) 0.0
+Processing moneys (dates.txt 1/4) 0.0
+Processing moneys (InputFile_Mix.txt 2/4) 0.0
+Processing moneys (numbers_2.txt 3/4) 0.05
+Processing moneys (time.txt 4/4) 0.0
+Processing fractions (dates.txt 1/4) 0.0
+Processing fractions (InputFile_Mix.txt 2/4) 0.0
+Processing fractions (numbers_2.txt 3/4) 0.0
+Processing fractions (time.txt 4/4) 0.0
+Processing numbers (dates.txt 1/4) 0.0
+Processing numbers (InputFile_Mix.txt 2/4) 0.01
+Processing numbers (numbers_2.txt 3/4) 0.04
+Processing numbers (time.txt 4/4) 0.0
+Deleting links (dates.txt 1/4) 0.0
+Deleting links (InputFile_Mix.txt 2/4) 0.0
+Deleting links (numbers_2.txt 3/4) 0.04
+Deleting links (time.txt 4/4) 0.0
+Processing punctuation marks (dates.txt 1/4) 0.01
+Processing punctuation marks (InputFile_Mix.txt 2/4) 0.01
+Processing punctuation marks (numbers_2.txt 3/4) 0.04
+Processing punctuation marks (time.txt 4/4) 0.0
+Deleting whitespace dictionary words (dates.txt 1/4) 0.007
+Deleting whitespace dictionary words (InputFile_Mix.txt 2/4) 0.008
+Deleting whitespace dictionary words (numbers_2.txt 3/4) 0.369
+Deleting whitespace dictionary words (time.txt 4/4) 0.01
+Deleting single dictionary words (dates.txt 1/4) 0.001
+Deleting single dictionary words (InputFile_Mix.txt 2/4) 0.0
+Deleting single dictionary words (numbers_2.txt 3/4) 0.049
+Deleting single dictionary words (time.txt 4/4) 0.0
+Processing days of the week (dates.txt 1/4) 0.0
+Processing days of the week (InputFile_Mix.txt 2/4) 0.0
+Processing days of the week (numbers_2.txt 3/4) 0.097
+Processing days of the week (time.txt 4/4) 0.0
+Deleting initials (dates.txt 1/4) 0.0
+Deleting initials (InputFile_Mix.txt 2/4) 0.0
+Deleting initials (numbers_2.txt 3/4) 0.05
+Deleting initials (time.txt 4/4) 0.0
+Searching abbreviations (dates.txt 1/4) 0.0
+Searching abbreviations (InputFile_Mix.txt 2/4) 0.0
+Searching abbreviations (numbers_2.txt 3/4) 0.02
+Searching abbreviations (time.txt 4/4) 0.0
+Splitting files into sentences (dates.txt 1/4) 0.0
+Splitting files into sentences (InputFile_Mix.txt 2/4) 0.0
+Splitting files into sentences (numbers_2.txt 3/4) 0.07
+Splitting files into sentences (time.txt 4/4) 0.0
+Deleting extra spaces (dates.txt 1/4) 0.0
+Deleting extra spaces (InputFile_Mix.txt 2/4) 0.001
+Deleting extra spaces (numbers_2.txt 3/4) 0.031
+Deleting extra spaces (time.txt 4/4) 0.0
+Searching english text  (dates.txt 1/4) 0.0
+Searching english text  (InputFile_Mix.txt 2/4) 0.0
+Searching english text  (numbers_2.txt 3/4) 0.009
+Searching english text  (time.txt 4/4) 0.0
+Processing acronyms (dates.txt 1/4) 0.001
+Processing acronyms (InputFile_Mix.txt 2/4) 0.001
+Processing acronyms (numbers_2.txt 3/4) 0.043
+Processing acronyms (time.txt 4/4) 0.0
+Creating a file with replacements (dates.txt 1/4) 0.004
+Creating a file with replacements (InputFile_Mix.txt 2/4) 0.001
+Creating a file with replacements (numbers_2.txt 3/4) 0.0
+Creating a file with replacements (time.txt 4/4) 0.0
+Creating processed files (dates.txt 1/4) 0.002
+Creating processed files (InputFile_Mix.txt 2/4) 0.002
+Creating processed files (numbers_2.txt 3/4) 0.014
+Creating processed files (time.txt 4/4) 0.0
+Processing phone numbers (dates.txt 1/4) 0.02
+Processing phone numbers (InputFile_Mix.txt 2/4) 0.0
+Processing phone numbers (numbers_2.txt 3/4) 0.01
+Processing phone numbers (time.txt 4/4) 0.0
+Processing times (dates.txt 1/4) 0.0
+Processing times (InputFile_Mix.txt 2/4) 0.0
+Processing times (numbers_2.txt 3/4) 0.0
+Processing times (time.txt 4/4) 0.02
+Processing dates (dates.txt 1/4) 0.12
+Processing dates (InputFile_Mix.txt 2/4) 0.03
+Processing dates (numbers_2.txt 3/4) 0.202
+Processing dates (time.txt 4/4) 0.0
+Processing moneys (dates.txt 1/4) 0.0
+Processing moneys (InputFile_Mix.txt 2/4) 0.0
+Processing moneys (numbers_2.txt 3/4) 0.05
+Processing moneys (time.txt 4/4) 0.0
+Processing fractions (dates.txt 1/4) 0.0
+Processing fractions (InputFile_Mix.txt 2/4) 0.0
+Processing fractions (numbers_2.txt 3/4) 0.0
+Processing fractions (time.txt 4/4) 0.0
+Processing numbers (dates.txt 1/4) 0.0
+Processing numbers (InputFile_Mix.txt 2/4) 0.0
+Processing numbers (numbers_2.txt 3/4) 0.05
+Processing numbers (time.txt 4/4) 0.0
+Deleting links (dates.txt 1/4) 0.0
+Deleting links (InputFile_Mix.txt 2/4) 0.01
+Deleting links (numbers_2.txt 3/4) 0.05
+Deleting links (time.txt 4/4) 0.01
+Processing punctuation marks (dates.txt 1/4) 0.0
+Processing punctuation marks (InputFile_Mix.txt 2/4) 0.0
+Processing punctuation marks (numbers_2.txt 3/4) 0.05
+Processing punctuation marks (time.txt 4/4) 0.0
+Deleting whitespace dictionary words (dates.txt 1/4) 0.01
+Deleting whitespace dictionary words (InputFile_Mix.txt 2/4) 0.01
+Deleting whitespace dictionary words (numbers_2.txt 3/4) 0.382
+Deleting whitespace dictionary words (time.txt 4/4) 0.002
+Deleting single dictionary words (dates.txt 1/4) 0.002
+Deleting single dictionary words (InputFile_Mix.txt 2/4) 0.0
+Deleting single dictionary words (numbers_2.txt 3/4) 0.053
+Deleting single dictionary words (time.txt 4/4) 0.0
+Processing days of the week (dates.txt 1/4) 0.004
+Processing days of the week (InputFile_Mix.txt 2/4) 0.005
+Processing days of the week (numbers_2.txt 3/4) 0.087
+Processing days of the week (time.txt 4/4) 0.0
+Deleting initials (dates.txt 1/4) 0.0
+Deleting initials (InputFile_Mix.txt 2/4) 0.0
+Deleting initials (numbers_2.txt 3/4) 0.06
+Deleting initials (time.txt 4/4) 0.0
+Searching abbreviations (dates.txt 1/4) 0.0
+Searching abbreviations (InputFile_Mix.txt 2/4) 0.0
+Searching abbreviations (numbers_2.txt 3/4) 0.01
+Searching abbreviations (time.txt 4/4) 0.0
+Splitting files into sentences (dates.txt 1/4) 0.0
+Splitting files into sentences (InputFile_Mix.txt 2/4) 0.0
+Splitting files into sentences (numbers_2.txt 3/4) 0.07
+Splitting files into sentences (time.txt 4/4) 0.0
+Deleting extra spaces (dates.txt 1/4) 0.0
+Deleting extra spaces (InputFile_Mix.txt 2/4) 0.0
+Deleting extra spaces (numbers_2.txt 3/4) 0.03
+Deleting extra spaces (time.txt 4/4) 0.0
+Searching english text  (dates.txt 1/4) 0.0
+Searching english text  (InputFile_Mix.txt 2/4) 0.0
+Searching english text  (numbers_2.txt 3/4) 0.01
+Searching english text  (time.txt 4/4) 0.0
+Processing acronyms (dates.txt 1/4) 0.0
+Processing acronyms (InputFile_Mix.txt 2/4) 0.0
+Processing acronyms (numbers_2.txt 3/4) 0.055
+Processing acronyms (time.txt 4/4) 0.0
+Creating a file with replacements (dates.txt 1/4) 0.01
+Creating a file with replacements (InputFile_Mix.txt 2/4) 0.0
+Creating a file with replacements (numbers_2.txt 3/4) 0.0
+Creating a file with replacements (time.txt 4/4) 0.0
+Creating processed files (dates.txt 1/4) 0.0
+Creating processed files (InputFile_Mix.txt 2/4) 0.01
+Creating processed files (numbers_2.txt 3/4) 0.01
+Creating processed files (time.txt 4/4) 0.0

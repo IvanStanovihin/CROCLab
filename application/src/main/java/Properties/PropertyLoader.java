@@ -7,14 +7,35 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class PropertyLoader {
-    String inputFilesDirectory = null;
-    Integer outFileSize = null;
-    String outDirectory = null;
-    String dictionariesDirectory = null;
-    String[] filesForStatisticPaths = null;
-    String protectedWordsDir = null;
-    String wordsToDeleteDir = null;
-    boolean enableEnglishText = false;
+    private String inputFilesDirectory = null;
+    private Integer outFileSize = null;
+    private String outDirectory = null;
+    private String dictionariesDirectory = null;
+    private String filesForStatisticDirectory = null;
+    private String protectedWordsDir = null;
+    private String wordsToDeleteDir = null;
+
+    private boolean enableRemoveEnglishTextModule = false;
+    private boolean enableDictionaryWordsModule = false;
+    private boolean enableFindEnglishModule = false;
+    private boolean enablePhoneNumberModule = false;
+    private boolean enableDatesModule = false;
+    private boolean enableTimesModule = false;
+    private boolean enableMoneyModule = false;
+    private boolean enableFractionsModule = false;
+    private boolean enableNumbersModule = false;
+    private boolean enableLinksModule = false;
+    private boolean enablePunctuationMarkModule = false;
+    private boolean enableRemoveWordsModule = false;
+    private boolean enableDaysOfWeekModule = false;
+    private boolean enableInitialsModule = false;
+    private boolean enableAbbreviationsFindModule = false;
+    private boolean enableCamelCaseModule = false;
+    private boolean enableMonthsModule = false;
+    private boolean enableWhitespaceRemoveModule = false;
+    private boolean enableAcronymsModule = false;
+
+
 
     public PropertyLoader(String filePath){
         load(filePath);
@@ -37,25 +58,43 @@ public class PropertyLoader {
             outFileSize = propertyData.getOutputFileSize();
             outDirectory = propertyData.getOutputDirectory();
             dictionariesDirectory = propertyData.getDictionariesDirectory();
-            enableEnglishText = propertyData.getEnableEnglishText().toLowerCase().equals("true");
-            filesForStatisticPaths = propertyData.getFilesForStatisticPaths();
+            filesForStatisticDirectory = propertyData.getFilesForStatisticDirectory();
             protectedWordsDir = propertyData.getProtectedWordsDir();
             wordsToDeleteDir = propertyData.getWordsToDeleteDir();
-            correctStatisticFilesPaths();
+            initializeModulesFlags(propertyData);
 
         }catch(IOException e){
             e.printStackTrace();
         }
     }
 
-
-    private void correctStatisticFilesPaths(){
-        for (int i = 0; i < filesForStatisticPaths.length; i++){
-            filesForStatisticPaths[i] = filesForStatisticPaths[i].trim();
-        }
+    private void initializeModulesFlags(PropertyData propertyData){
+        enableRemoveEnglishTextModule = propertyData.getRemoveEnglishTextModule().equalsIgnoreCase("true");
+        enableDictionaryWordsModule = propertyData.getDictionaryWordsModule().equalsIgnoreCase("true");
+        enableFindEnglishModule = propertyData.getFindEnglishModule().equalsIgnoreCase("true");
+        enablePhoneNumberModule = propertyData.getPhoneNumberModule().equalsIgnoreCase("true");
+        enableDatesModule = propertyData.getDatesModule().equalsIgnoreCase("true");
+        enableTimesModule = propertyData.getTimesModule().equalsIgnoreCase("true");
+        enableMoneyModule = propertyData.getMoneyModule().equalsIgnoreCase("true");
+        enableFractionsModule = propertyData.getFractionsModule().equalsIgnoreCase("true");
+        enableNumbersModule = propertyData.getNumbersModule().equalsIgnoreCase("true");
+        enableLinksModule = propertyData.getLinksModule().equalsIgnoreCase("true");
+        enablePunctuationMarkModule = propertyData.getPunctuationMarkModule().equalsIgnoreCase("true");
+        enableRemoveWordsModule = propertyData.getRemoveWordsModule().equalsIgnoreCase("true");
+        enableDaysOfWeekModule = propertyData.getDaysOfWeekModule().equalsIgnoreCase("true");
+        enableInitialsModule = propertyData.getInitialsModule().equalsIgnoreCase("true");
+        enableAbbreviationsFindModule = propertyData.getAbbreviationsFindModule().equalsIgnoreCase("true");
+        enableCamelCaseModule = propertyData.getCamelCaseModule().equalsIgnoreCase("true");
+        enableMonthsModule = propertyData.getMonthsModule().equalsIgnoreCase("true");
+        enableWhitespaceRemoveModule = propertyData.getWhitespaceRemoveModule().equalsIgnoreCase("true");
+        enableAcronymsModule = propertyData.getAcronymsModule().equalsIgnoreCase("true");
     }
 
 
+
+    public boolean isEnableAcronymsModule() {
+        return enableAcronymsModule;
+    }
     public String getInputFilesDirectory() {
         return inputFilesDirectory;
     }
@@ -70,13 +109,7 @@ public class PropertyLoader {
         return dictionariesDirectory;
     }
 
-    public String[] getFilesForStatisticPaths() {
-        return filesForStatisticPaths;
-    }
 
-    public boolean getEnableEnglishText() {
-        return enableEnglishText;
-    }
 
     public String getWordsToDeleteDir() {
         return wordsToDeleteDir;
@@ -84,5 +117,85 @@ public class PropertyLoader {
 
     public String getProtectedWordsDir() {
         return protectedWordsDir;
+    }
+
+    public boolean isEnableRemoveEnglishTextModule() {
+        return enableRemoveEnglishTextModule;
+    }
+
+    public boolean isEnableDictionaryWordsModule() {
+        return enableDictionaryWordsModule;
+    }
+
+    public boolean isEnableFindEnglishModule() {
+        return enableFindEnglishModule;
+    }
+
+    public boolean isEnablePhoneNumberModule() {
+        return enablePhoneNumberModule;
+    }
+
+    public boolean isEnableDatesModule() {
+        return enableDatesModule;
+    }
+
+    public boolean isEnableTimesModule() {
+        return enableTimesModule;
+    }
+
+    public boolean isEnableMoneyModule() {
+        return enableMoneyModule;
+    }
+
+    public boolean isEnableFractionsModule() {
+        return enableFractionsModule;
+    }
+
+    public boolean isEnableNumbersModule() {
+        return enableNumbersModule;
+    }
+
+    public boolean isEnableLinksModule() {
+        return enableLinksModule;
+    }
+
+    public boolean isEnablePunctuationMarkModule() {
+        return enablePunctuationMarkModule;
+    }
+
+    public boolean isEnableRemoveWordsModule() {
+        return enableRemoveWordsModule;
+    }
+
+    public boolean isEnableDaysOfWeekModule() {
+        return enableDaysOfWeekModule;
+    }
+
+    public String getFilesForStatisticDirectory() {
+        return filesForStatisticDirectory;
+    }
+
+    public void setFilesForStatisticDirectory(String filesForStatisticDirectory) {
+        this.filesForStatisticDirectory = filesForStatisticDirectory;
+    }
+
+    public boolean isEnableInitialsModule() {
+        return enableInitialsModule;
+    }
+
+    public boolean isEnableAbbreviationsFindModule() {
+        return enableAbbreviationsFindModule;
+    }
+
+    public boolean isEnableCamelCaseModule() {
+        return enableCamelCaseModule;
+    }
+
+    public boolean isEnableMonthsModule() {
+        return enableMonthsModule;
+    }
+
+    public boolean isEnableWhitespaceRemoveModule() {
+        return enableWhitespaceRemoveModule;
     }
 }

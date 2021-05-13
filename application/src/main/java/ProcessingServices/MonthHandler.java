@@ -42,13 +42,18 @@ public class MonthHandler {
     }
 
 
+    private static boolean isModuleEnable(){
+        return Handler.getProperty().isEnableMonthsModule();
+    }
 
     public static void processMonths(ArrayList<InputFile>inputFiles){
-        Handler.reportLog.startModule();
-        for (InputFile inputFile : inputFiles){
-            processFile(inputFile);
+        if (isModuleEnable()) {
+            Handler.reportLog.startModule();
+            for (InputFile inputFile : inputFiles) {
+                processFile(inputFile);
+            }
+            Handler.reportLog.endModule("Months ");
         }
-        Handler.reportLog.endModule("Months ");
     }
 
     private static void processFile(InputFile inputFile){

@@ -27,12 +27,12 @@ public class UserStatisticCreator {
     }
 
     private String createFileName(){
-        return filePath.substring(filePath.lastIndexOf("/") + 1, filePath.lastIndexOf("."));
+        return filePath.substring(filePath.lastIndexOf("\\") + 1, filePath.lastIndexOf("."));
     }
 
     private void readFile(){
         ArrayList<String>fileData = new ArrayList<>();
-        try(BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "windows-1251") )){
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8") )){
             String readString;
             while((readString = br.readLine()) != null){
                 fileData.add(readString.trim());

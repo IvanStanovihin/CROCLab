@@ -8,14 +8,20 @@ import java.util.ArrayList;
 
 public class WhitespaceService {
 
+    private static boolean isModuleEnable(){
+        return Handler.getProperty().isEnableWhitespaceRemoveModule();
+    }
+
     public static void removeExtraWhitespace(ArrayList<InputFile>inputFiles){
-        Handler.reportLog.startModule();
-        for (InputFile inputFile : inputFiles){
-            Handler.reportLog.startCurrentOperation(LogOperation.REMOVE_EXTRAS_WHITESPACE, inputFile.getFileName());
-            handleFile(inputFile);
-            Handler.reportLog.endOperation();
+        if (isModuleEnable()) {
+            Handler.reportLog.startModule();
+            for (InputFile inputFile : inputFiles) {
+                Handler.reportLog.startCurrentOperation(LogOperation.REMOVE_EXTRAS_WHITESPACE, inputFile.getFileName());
+                handleFile(inputFile);
+                Handler.reportLog.endOperation();
+            }
+            Handler.reportLog.endModule("Extras whitespaces ");
         }
-        Handler.reportLog.endModule("Extras whitespaces ");
     }
 
     //Удаляем лишние пробелы из предложения.

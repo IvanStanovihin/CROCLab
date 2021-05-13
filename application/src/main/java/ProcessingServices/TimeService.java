@@ -14,14 +14,20 @@ public class TimeService {
 
     private static final String regexTime = "(([0,1][0-9])|(2[0-3]))[:.][0-5][0-9]-(([0,1][0-9])|(2[0-3]))[:.][0-5][0-9]";
 
+    private static boolean isModuleEnable(){
+        return Handler.getProperty().isEnableTimesModule();
+    }
+
     public static void handle(ArrayList<InputFile> inputFiles){
-        Handler.reportLog.startModule();
-        for (InputFile inputFile : inputFiles){
-            Handler.reportLog.startCurrentOperation(LogOperation.PROCESSING_TIME, inputFile.getFileName());
-            handleTime(inputFile);
-            Handler.reportLog.endOperation();
+        if (isModuleEnable()) {
+            Handler.reportLog.startModule();
+            for (InputFile inputFile : inputFiles) {
+                Handler.reportLog.startCurrentOperation(LogOperation.PROCESSING_TIME, inputFile.getFileName());
+                handleTime(inputFile);
+                Handler.reportLog.endOperation();
+            }
+            Handler.reportLog.endModule("Time ");
         }
-        Handler.reportLog.endModule("Time ");
     }
 
     private static void handleTime(InputFile inputFile){

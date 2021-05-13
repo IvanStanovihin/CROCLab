@@ -11,15 +11,20 @@ import java.util.regex.Pattern;
 
 public class EnglishTextFinder {
 
+    private static boolean isModuleEnable(){
+        return Handler.getProperty().isEnableFindEnglishModule();
+    }
 
     public static void findEnglishText(ArrayList<InputFile>inputFiles){
-        Handler.reportLog.startModule();
-        for (InputFile inputFile : inputFiles){
-            Handler.reportLog.startCurrentOperation(LogOperation.FIND_ENGLISH, inputFile.getFileName());
-            processFile(inputFile);
-            Handler.reportLog.endOperation();
+        if (isModuleEnable()) {
+            Handler.reportLog.startModule();
+            for (InputFile inputFile : inputFiles) {
+                Handler.reportLog.startCurrentOperation(LogOperation.FIND_ENGLISH, inputFile.getFileName());
+                processFile(inputFile);
+                Handler.reportLog.endOperation();
+            }
+            Handler.reportLog.endModule("Find english words ");
         }
-        Handler.reportLog.endModule("Find english words ");
     }
 
     private static void processFile(InputFile inputFile){
