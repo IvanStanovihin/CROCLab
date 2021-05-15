@@ -38,7 +38,7 @@ public class NumberService {
             if (foundNumber.length() > 4) {
                 replacement = processLongNumber(foundNumber);
             } else {
-                replacement = NumberHandler.numberToString(foundNumber);
+                replacement = NumberHandler.numberToString(foundNumber).trim();
             }
             matcher.appendReplacement(cleanText, " " + replacement + " ");
         }

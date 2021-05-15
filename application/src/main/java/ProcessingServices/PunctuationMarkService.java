@@ -32,7 +32,7 @@ public class PunctuationMarkService {
                 .replaceAll("%", " процент ").replaceAll("\\+", " плюс ")
                 .replaceAll("₽", " рублей ").replaceAll("\\$", " долларов ")
                 .replaceAll(";", "\\.").replaceAll("<(/?[^<>]*)>", " ")
-                .replaceAll(":", " ").replaceAll("[\\W&&[^а-яА-ЯёЁ,?.!\\s]]", " ").
+                .replaceAll(":", " ").replaceAll("[\\W&&[^а-яА-ЯёЁA-Za-z,?.!\\s]]", " ").
                 replaceAll("(?<=[!?.])[\\s!?.]+", "");
         inputFile.setFileText(handledFileText);
     }

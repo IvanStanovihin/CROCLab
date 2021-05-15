@@ -69,7 +69,7 @@ public class Handler {
         ReplacerSingleWords.handleSingleWords(dictionaries.getDictionarySingleWords(), inputFiles);
         dictionaries = null;
         System.gc();
-//        NormalizerEndSentence.normalize(inputFiles);
+
 
         //Обработка знаков препинания и спец. символов.
         PunctuationMarkService.handle(inputFiles);
