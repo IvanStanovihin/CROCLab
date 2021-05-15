@@ -113,7 +113,7 @@ public class InputFile {
     //Запись фалов которые не превышают заданного размера. Записывающиеся предложения приводятся к нижнему регистру
     private void writeSmallFile(String outputDirectory, ArrayList<String>fileParts){
         try(OutputStreamWriter os = new OutputStreamWriter(
-                new FileOutputStream(outputDirectory + "/Processed_" + fileName), StandardCharsets.UTF_8)){
+                new FileOutputStream(outputDirectory + "/" + fileName), StandardCharsets.UTF_8)){
             os.write(fileParts.get(0).toLowerCase(Locale.ROOT));
         }catch(IOException ex){
             ex.printStackTrace();
@@ -125,7 +125,7 @@ public class InputFile {
         for (int i = 0; i < fileParts.size(); i++) {
             String outputFileName = fileName.replace(".txt", "_" + (i+1) + ".txt");
             try (OutputStreamWriter os = new OutputStreamWriter(
-                    new FileOutputStream(outputDirectory + "/Processed_" + outputFileName), StandardCharsets.UTF_8)){
+                    new FileOutputStream(outputDirectory + "/" + outputFileName), StandardCharsets.UTF_8)){
                 os.write(fileParts.get(i).toLowerCase(Locale.ROOT));
             }catch(IOException ex){
                 ex.printStackTrace();

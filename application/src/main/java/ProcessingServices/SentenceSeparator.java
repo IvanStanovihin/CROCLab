@@ -26,7 +26,8 @@ public class SentenceSeparator {
         String fileText = inputFile.getFileText();
         ArrayList<String>fileSentences = new ArrayList<>();
         //Регулярное выражение для поиска предложений в строке.
-        Pattern pattern = Pattern.compile("[^\\!\\?\\.].*?[\\!\\?\\.]");
+        Pattern pattern = Pattern.compile("[^!?.].*?[!?.]");
+//        Pattern pattern = Pattern.compile("(?<=[^!?.]).*[!?.]");
         Matcher matcher = pattern.matcher(fileText);
         while(matcher.find()) {
             String foundSentence = fileText.substring(matcher.start(), matcher.end());

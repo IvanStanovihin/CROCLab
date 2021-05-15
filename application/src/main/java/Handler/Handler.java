@@ -60,6 +60,8 @@ public class Handler {
         LinkService.handle(inputFiles);
         //Удаление слов, которые пользователь добавил в файл
         WordsRemover.removeWords(property, inputFiles);
+        //Раскрываем числа в текст.
+        NumberService.handleNumbers(inputFiles);
         //Замена слов которые содержат пробелы(# в. ч. -> войсковая часть)
         ReplacerSpaceWords.handleWhitespaceWords(dictionaries.getDictionaryWhitespaceWords(), inputFiles);
         System.gc();
@@ -67,8 +69,8 @@ public class Handler {
         ReplacerSingleWords.handleSingleWords(dictionaries.getDictionarySingleWords(), inputFiles);
         dictionaries = null;
         System.gc();
-        //Раскрываем числа в текст.
-        NumberService.handleNumbers(inputFiles);
+//        NormalizerEndSentence.normalize(inputFiles);
+
         //Обработка знаков препинания и спец. символов.
         PunctuationMarkService.handle(inputFiles);
         //Обработка дней недели

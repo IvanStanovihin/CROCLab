@@ -47,7 +47,7 @@ public class ReplacerSingleWords {
     private static String processTokenWithPunctuation(InputFile inputFile, DictionarySingleWords dictionarySingleWords,
                                                String tokenWithPunctuation){
         String lastTokenCharacter = tokenWithPunctuation.substring(tokenWithPunctuation.length()-1 );
-        if (lastTokenCharacter.equals("!") || lastTokenCharacter.equals("?") || lastTokenCharacter.equals(",")){
+        if (lastTokenCharacter.equals("!") || lastTokenCharacter.equals("?") || lastTokenCharacter.equals(",") || lastTokenCharacter.equals(".")){
             String tokenWithoutPunctuation = tokenWithPunctuation.substring(0, tokenWithPunctuation.length()-1 );
             String replacement = dictionarySingleWords.getSingleWordReplacement(tokenWithoutPunctuation);
             if (replacement != null){
