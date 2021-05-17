@@ -93,8 +93,8 @@ public class InputFile {
             String currentSentences = sentences.get(i);
             countBytes += currentSentences.getBytes().length;
             countSentences++;
-            if (i == sentences.size() - 1 ){
-                filePart.append(currentSentences);
+            if (i == sentences.size() - 1 || countBytes >= (outputFileSize * 1024 * 1024) || countSentences >= 100000) {
+                filePart.append(currentSentences) ;
             }else{
                 filePart.append(currentSentences).append("\n");
             }
