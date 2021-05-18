@@ -1,0 +1,280 @@
+Processing phone numbers (InputFile_abbrev.txt 1/7) 0.044
+Processing phone numbers (InputFile_Mix.txt 2/7) 0.0
+Processing phone numbers (InputFile_noDots.txt 3/7) 0.001
+Processing phone numbers (metro_ok.txt 4/7) 0.001
+Processing phone numbers (new_alfa_ok.txt 5/7) 0.01
+Processing phone numbers (RSHB_Site0.txt 6/7) 0.004
+Processing phone numbers (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.058
+Processing times (InputFile_abbrev.txt 1/7) 0.001
+Processing times (InputFile_Mix.txt 2/7) 0.0
+Processing times (InputFile_noDots.txt 3/7) 0.001
+Processing times (metro_ok.txt 4/7) 0.0
+Processing times (new_alfa_ok.txt 5/7) 0.005
+Processing times (RSHB_Site0.txt 6/7) 0.002
+Processing times (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.081
+Processing dates (InputFile_abbrev.txt 1/7) 0.032
+Processing dates (InputFile_Mix.txt 2/7) 0.043
+Processing dates (InputFile_noDots.txt 3/7) 0.048
+Processing dates (metro_ok.txt 4/7) 0.027
+Processing dates (new_alfa_ok.txt 5/7) 0.331
+Processing dates (RSHB_Site0.txt 6/7) 0.21
+Processing dates (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 5.385
+Processing moneys (InputFile_abbrev.txt 1/7) 0.002
+Processing moneys (InputFile_Mix.txt 2/7) 0.001
+Processing moneys (InputFile_noDots.txt 3/7) 0.009
+Processing moneys (metro_ok.txt 4/7) 0.001
+Processing moneys (new_alfa_ok.txt 5/7) 0.005
+Processing moneys (RSHB_Site0.txt 6/7) 0.003
+Processing moneys (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.053
+Processing fractions (InputFile_abbrev.txt 1/7) 0.001
+Processing fractions (InputFile_Mix.txt 2/7) 0.001
+Processing fractions (InputFile_noDots.txt 3/7) 0.002
+Processing fractions (metro_ok.txt 4/7) 0.0
+Processing fractions (new_alfa_ok.txt 5/7) 0.001
+Processing fractions (RSHB_Site0.txt 6/7) 0.001
+Processing fractions (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.024
+Deleting links (InputFile_abbrev.txt 1/7) 0.003
+Deleting links (InputFile_Mix.txt 2/7) 0.002
+Deleting links (InputFile_noDots.txt 3/7) 0.002
+Deleting links (metro_ok.txt 4/7) 0.001
+Deleting links (new_alfa_ok.txt 5/7) 0.018
+Deleting links (RSHB_Site0.txt 6/7) 0.004
+Deleting links (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.164
+Processing numbers (InputFile_abbrev.txt 1/7) 0.001
+Processing numbers (InputFile_Mix.txt 2/7) 0.0
+Processing numbers (InputFile_noDots.txt 3/7) 0.0
+Processing numbers (metro_ok.txt 4/7) 0.0
+Processing numbers (new_alfa_ok.txt 5/7) 0.002
+Processing numbers (RSHB_Site0.txt 6/7) 0.001
+Processing numbers (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.021
+Deleting whitespace dictionary words (InputFile_abbrev.txt 1/7) 0.019
+Deleting whitespace dictionary words (InputFile_Mix.txt 2/7) 0.017
+Deleting whitespace dictionary words (InputFile_noDots.txt 3/7) 0.016
+Deleting whitespace dictionary words (metro_ok.txt 4/7) 0.021
+Deleting whitespace dictionary words (new_alfa_ok.txt 5/7) 0.328
+Deleting whitespace dictionary words (RSHB_Site0.txt 6/7) 0.132
+Deleting whitespace dictionary words (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 5.39
+Deleting single dictionary words (InputFile_abbrev.txt 1/7) 0.004
+Deleting single dictionary words (InputFile_Mix.txt 2/7) 0.002
+Deleting single dictionary words (InputFile_noDots.txt 3/7) 0.002
+Deleting single dictionary words (metro_ok.txt 4/7) 0.002
+Deleting single dictionary words (new_alfa_ok.txt 5/7) 0.024
+Deleting single dictionary words (RSHB_Site0.txt 6/7) 0.005
+Deleting single dictionary words (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.251
+Processing punctuation marks (InputFile_abbrev.txt 1/7) 0.002
+Processing punctuation marks (InputFile_Mix.txt 2/7) 0.003
+Processing punctuation marks (InputFile_noDots.txt 3/7) 0.003
+Processing punctuation marks (metro_ok.txt 4/7) 0.003
+Processing punctuation marks (new_alfa_ok.txt 5/7) 0.026
+Processing punctuation marks (RSHB_Site0.txt 6/7) 0.012
+Processing punctuation marks (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.432
+Processing days of the week (InputFile_abbrev.txt 1/7) 0.006
+Processing days of the week (InputFile_Mix.txt 2/7) 0.002
+Processing days of the week (InputFile_noDots.txt 3/7) 0.002
+Processing days of the week (metro_ok.txt 4/7) 0.001
+Processing days of the week (new_alfa_ok.txt 5/7) 0.029
+Processing days of the week (RSHB_Site0.txt 6/7) 0.014
+Processing days of the week (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.504
+Deleting initials (InputFile_abbrev.txt 1/7) 0.002
+Deleting initials (InputFile_Mix.txt 2/7) 0.001
+Deleting initials (InputFile_noDots.txt 3/7) 0.001
+Deleting initials (metro_ok.txt 4/7) 0.001
+Deleting initials (new_alfa_ok.txt 5/7) 0.016
+Deleting initials (RSHB_Site0.txt 6/7) 0.009
+Deleting initials (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.282
+Searching abbreviations (InputFile_abbrev.txt 1/7) 0.003
+Searching abbreviations (InputFile_Mix.txt 2/7) 0.0
+Searching abbreviations (InputFile_noDots.txt 3/7) 0.0
+Searching abbreviations (metro_ok.txt 4/7) 0.0
+Searching abbreviations (new_alfa_ok.txt 5/7) 0.005
+Searching abbreviations (RSHB_Site0.txt 6/7) 0.003
+Searching abbreviations (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.066
+Separating camel case words (InputFile_abbrev.txt 1/7) 0.002
+Separating camel case words (InputFile_Mix.txt 2/7) 0.003
+Separating camel case words (InputFile_noDots.txt 3/7) 0.003
+Separating camel case words (metro_ok.txt 4/7) 0.003
+Separating camel case words (new_alfa_ok.txt 5/7) 0.027
+Separating camel case words (RSHB_Site0.txt 6/7) 0.019
+Separating camel case words (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.489
+Splitting files into sentences (InputFile_abbrev.txt 1/7) 0.005
+Splitting files into sentences (InputFile_Mix.txt 2/7) 0.002
+Splitting files into sentences (InputFile_noDots.txt 3/7) 0.001
+Splitting files into sentences (metro_ok.txt 4/7) 0.004
+Splitting files into sentences (new_alfa_ok.txt 5/7) 0.046
+Splitting files into sentences (RSHB_Site0.txt 6/7) 0.003
+Splitting files into sentences (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.264
+Deleting extra spaces (InputFile_abbrev.txt 1/7) 0.001
+Deleting extra spaces (InputFile_Mix.txt 2/7) 0.001
+Deleting extra spaces (InputFile_noDots.txt 3/7) 0.001
+Deleting extra spaces (metro_ok.txt 4/7) 0.001
+Deleting extra spaces (new_alfa_ok.txt 5/7) 0.013
+Deleting extra spaces (RSHB_Site0.txt 6/7) 0.003
+Deleting extra spaces (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.168
+Searching english text  (InputFile_abbrev.txt 1/7) 0.0
+Searching english text  (InputFile_Mix.txt 2/7) 0.001
+Searching english text  (InputFile_noDots.txt 3/7) 0.0
+Searching english text  (metro_ok.txt 4/7) 0.0
+Searching english text  (new_alfa_ok.txt 5/7) 0.005
+Searching english text  (RSHB_Site0.txt 6/7) 0.002
+Searching english text  (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.073
+Processing acronyms (InputFile_abbrev.txt 1/7) 0.002
+Processing acronyms (InputFile_Mix.txt 2/7) 0.001
+Processing acronyms (InputFile_noDots.txt 3/7) 0.001
+Processing acronyms (metro_ok.txt 4/7) 0.001
+Processing acronyms (new_alfa_ok.txt 5/7) 0.029
+Processing acronyms (RSHB_Site0.txt 6/7) 0.006
+Processing acronyms (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.294
+Creating a file with replacements (InputFile_abbrev.txt 1/7) 0.005
+Creating a file with replacements (InputFile_Mix.txt 2/7) 0.001
+Creating a file with replacements (InputFile_noDots.txt 3/7) 0.002
+Creating a file with replacements (metro_ok.txt 4/7) 0.001
+Creating a file with replacements (new_alfa_ok.txt 5/7) 0.001
+Creating a file with replacements (RSHB_Site0.txt 6/7) 0.001
+Creating a file with replacements (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.001
+Creating processed files (InputFile_abbrev.txt 1/7) 0.003
+Creating processed files (InputFile_Mix.txt 2/7) 0.002
+Creating processed files (InputFile_noDots.txt 3/7) 0.002
+Creating processed files (metro_ok.txt 4/7) 0.002
+Creating processed files (new_alfa_ok.txt 5/7) 0.01
+Creating processed files (RSHB_Site0.txt 6/7) 0.002
+Creating processed files (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.05
+Processing phone numbers (InputFile_abbrev.txt 1/7) 0.036
+Processing phone numbers (InputFile_Mix.txt 2/7) 0.001
+Processing phone numbers (InputFile_noDots.txt 3/7) 0.001
+Processing phone numbers (metro_ok.txt 4/7) 0.001
+Processing phone numbers (new_alfa_ok.txt 5/7) 0.01
+Processing phone numbers (RSHB_Site0.txt 6/7) 0.005
+Processing phone numbers (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.051
+Processing times (InputFile_abbrev.txt 1/7) 0.001
+Processing times (InputFile_Mix.txt 2/7) 0.0
+Processing times (InputFile_noDots.txt 3/7) 0.0
+Processing times (metro_ok.txt 4/7) 0.001
+Processing times (new_alfa_ok.txt 5/7) 0.005
+Processing times (RSHB_Site0.txt 6/7) 0.003
+Processing times (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.085
+Processing dates (InputFile_abbrev.txt 1/7) 0.03
+Processing dates (InputFile_Mix.txt 2/7) 0.044
+Processing dates (InputFile_noDots.txt 3/7) 0.044
+Processing dates (metro_ok.txt 4/7) 0.023
+Processing dates (new_alfa_ok.txt 5/7) 0.342
+Processing dates (RSHB_Site0.txt 6/7) 0.214
+Processing dates (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 5.555
+Processing moneys (InputFile_abbrev.txt 1/7) 0.003
+Processing moneys (InputFile_Mix.txt 2/7) 0.0
+Processing moneys (InputFile_noDots.txt 3/7) 0.002
+Processing moneys (metro_ok.txt 4/7) 0.001
+Processing moneys (new_alfa_ok.txt 5/7) 0.006
+Processing moneys (RSHB_Site0.txt 6/7) 0.004
+Processing moneys (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.053
+Processing fractions (InputFile_abbrev.txt 1/7) 0.001
+Processing fractions (InputFile_Mix.txt 2/7) 0.0
+Processing fractions (InputFile_noDots.txt 3/7) 0.002
+Processing fractions (metro_ok.txt 4/7) 0.0
+Processing fractions (new_alfa_ok.txt 5/7) 0.002
+Processing fractions (RSHB_Site0.txt 6/7) 0.001
+Processing fractions (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.024
+Deleting links (InputFile_abbrev.txt 1/7) 0.004
+Deleting links (InputFile_Mix.txt 2/7) 0.002
+Deleting links (InputFile_noDots.txt 3/7) 0.001
+Deleting links (metro_ok.txt 4/7) 0.002
+Deleting links (new_alfa_ok.txt 5/7) 0.019
+Deleting links (RSHB_Site0.txt 6/7) 0.004
+Deleting links (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.16
+Processing numbers (InputFile_abbrev.txt 1/7) 0.001
+Processing numbers (InputFile_Mix.txt 2/7) 0.0
+Processing numbers (InputFile_noDots.txt 3/7) 0.001
+Processing numbers (metro_ok.txt 4/7) 0.0
+Processing numbers (new_alfa_ok.txt 5/7) 0.001
+Processing numbers (RSHB_Site0.txt 6/7) 0.001
+Processing numbers (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.022
+Deleting whitespace dictionary words (InputFile_abbrev.txt 1/7) 0.018
+Deleting whitespace dictionary words (InputFile_Mix.txt 2/7) 0.018
+Deleting whitespace dictionary words (InputFile_noDots.txt 3/7) 0.018
+Deleting whitespace dictionary words (metro_ok.txt 4/7) 0.022
+Deleting whitespace dictionary words (new_alfa_ok.txt 5/7) 0.365
+Deleting whitespace dictionary words (RSHB_Site0.txt 6/7) 0.143
+Deleting whitespace dictionary words (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 5.526
+Deleting single dictionary words (InputFile_abbrev.txt 1/7) 0.003
+Deleting single dictionary words (InputFile_Mix.txt 2/7) 0.002
+Deleting single dictionary words (InputFile_noDots.txt 3/7) 0.001
+Deleting single dictionary words (metro_ok.txt 4/7) 0.002
+Deleting single dictionary words (new_alfa_ok.txt 5/7) 0.024
+Deleting single dictionary words (RSHB_Site0.txt 6/7) 0.006
+Deleting single dictionary words (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.23
+Processing punctuation marks (InputFile_abbrev.txt 1/7) 0.002
+Processing punctuation marks (InputFile_Mix.txt 2/7) 0.002
+Processing punctuation marks (InputFile_noDots.txt 3/7) 0.002
+Processing punctuation marks (metro_ok.txt 4/7) 0.003
+Processing punctuation marks (new_alfa_ok.txt 5/7) 0.025
+Processing punctuation marks (RSHB_Site0.txt 6/7) 0.01
+Processing punctuation marks (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.425
+Processing days of the week (InputFile_abbrev.txt 1/7) 0.007
+Processing days of the week (InputFile_Mix.txt 2/7) 0.003
+Processing days of the week (InputFile_noDots.txt 3/7) 0.001
+Processing days of the week (metro_ok.txt 4/7) 0.003
+Processing days of the week (new_alfa_ok.txt 5/7) 0.032
+Processing days of the week (RSHB_Site0.txt 6/7) 0.015
+Processing days of the week (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.559
+Deleting initials (InputFile_abbrev.txt 1/7) 0.003
+Deleting initials (InputFile_Mix.txt 2/7) 0.001
+Deleting initials (InputFile_noDots.txt 3/7) 0.001
+Deleting initials (metro_ok.txt 4/7) 0.001
+Deleting initials (new_alfa_ok.txt 5/7) 0.018
+Deleting initials (RSHB_Site0.txt 6/7) 0.009
+Deleting initials (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.291
+Searching abbreviations (InputFile_abbrev.txt 1/7) 0.003
+Searching abbreviations (InputFile_Mix.txt 2/7) 0.001
+Searching abbreviations (InputFile_noDots.txt 3/7) 0.0
+Searching abbreviations (metro_ok.txt 4/7) 0.0
+Searching abbreviations (new_alfa_ok.txt 5/7) 0.006
+Searching abbreviations (RSHB_Site0.txt 6/7) 0.002
+Searching abbreviations (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.069
+Separating camel case words (InputFile_abbrev.txt 1/7) 0.002
+Separating camel case words (InputFile_Mix.txt 2/7) 0.003
+Separating camel case words (InputFile_noDots.txt 3/7) 0.003
+Separating camel case words (metro_ok.txt 4/7) 0.003
+Separating camel case words (new_alfa_ok.txt 5/7) 0.029
+Separating camel case words (RSHB_Site0.txt 6/7) 0.02
+Separating camel case words (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.523
+Splitting files into sentences (InputFile_abbrev.txt 1/7) 0.002
+Splitting files into sentences (InputFile_Mix.txt 2/7) 0.002
+Splitting files into sentences (InputFile_noDots.txt 3/7) 0.002
+Splitting files into sentences (metro_ok.txt 4/7) 0.004
+Splitting files into sentences (new_alfa_ok.txt 5/7) 0.055
+Splitting files into sentences (RSHB_Site0.txt 6/7) 0.004
+Splitting files into sentences (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.213
+Deleting extra spaces (InputFile_abbrev.txt 1/7) 0.001
+Deleting extra spaces (InputFile_Mix.txt 2/7) 0.0
+Deleting extra spaces (InputFile_noDots.txt 3/7) 0.0
+Deleting extra spaces (metro_ok.txt 4/7) 0.001
+Deleting extra spaces (new_alfa_ok.txt 5/7) 0.011
+Deleting extra spaces (RSHB_Site0.txt 6/7) 0.002
+Deleting extra spaces (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.157
+Searching english text  (InputFile_abbrev.txt 1/7) 0.0
+Searching english text  (InputFile_Mix.txt 2/7) 0.0
+Searching english text  (InputFile_noDots.txt 3/7) 0.0
+Searching english text  (metro_ok.txt 4/7) 0.001
+Searching english text  (new_alfa_ok.txt 5/7) 0.005
+Searching english text  (RSHB_Site0.txt 6/7) 0.001
+Searching english text  (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.111
+Processing acronyms (InputFile_abbrev.txt 1/7) 0.001
+Processing acronyms (InputFile_Mix.txt 2/7) 0.001
+Processing acronyms (InputFile_noDots.txt 3/7) 0.0
+Processing acronyms (metro_ok.txt 4/7) 0.001
+Processing acronyms (new_alfa_ok.txt 5/7) 0.018
+Processing acronyms (RSHB_Site0.txt 6/7) 0.006
+Processing acronyms (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.293
+Creating a file with replacements (InputFile_abbrev.txt 1/7) 0.005
+Creating a file with replacements (InputFile_Mix.txt 2/7) 0.001
+Creating a file with replacements (InputFile_noDots.txt 3/7) 0.001
+Creating a file with replacements (metro_ok.txt 4/7) 0.002
+Creating a file with replacements (new_alfa_ok.txt 5/7) 0.001
+Creating a file with replacements (RSHB_Site0.txt 6/7) 0.001
+Creating a file with replacements (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.001
+Creating processed files (InputFile_abbrev.txt 1/7) 0.003
+Creating processed files (InputFile_Mix.txt 2/7) 0.002
+Creating processed files (InputFile_noDots.txt 3/7) 0.001
+Creating processed files (metro_ok.txt 4/7) 0.002
+Creating processed files (new_alfa_ok.txt 5/7) 0.01
+Creating processed files (RSHB_Site0.txt 6/7) 0.002
+Creating processed files (_RSHB_2020_02_06_alfa_parser_collection.txt 7/7) 0.051
