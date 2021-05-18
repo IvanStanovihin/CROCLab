@@ -1,5 +1,8 @@
 package ReportLog;
 
+/**
+ * Name and description each log operation
+ */
 public enum LogOperation {
 
     DICTIONARIES_LOAD("Loading dictionaries"),
@@ -27,7 +30,9 @@ public enum LogOperation {
     CAMELCASE_SEPARATOR("Separating camel case words"),
     PROCESSING_FRACTIONS("Processing fractions"),
     CREATE_PROCESSED_FILES("Creating processed files");
-
+    /**
+     * Description of log operation
+     */
     private String operationName;
 
     LogOperation(String operationName){

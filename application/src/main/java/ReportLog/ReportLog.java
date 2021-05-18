@@ -14,29 +14,73 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-
+/**
+ * Class to make report log
+ */
 public class ReportLog {
 
     public ReportLog(int countInputFiles){
         this.countInputFiles = countInputFiles;
     }
 
+    /**
+     * logger
+     */
     private static final Logger LOGGER = Logger.getLogger(ReportLog.class);
+    /**
+     * Counter of input files
+     */
     private  int countInputFiles = 0;
+    /**
+     * Index of current processed file
+     */
     private  int indexCurrentProcessedFile = 1;
+    /**
+     * Information about previous operation
+     */
     private  LogOperation previousOperation = null;
+    /**
+     * Time when operation starts
+     */
     private Long startOperationTime;
+    /**
+     * Time when operation ends
+     */
     private Long endOperationTime;
+    /**
+     * Common time when module starts
+     */
     private Long startCurrentModuleTime;
+    /**
+     * Final time when module ends
+     */
     private Long endCurrentModuleTime;
+    /**
+     * List of all times
+     */
     private ArrayList<String>moduleWorkTime = new ArrayList<>();
+    /**
+     * Current log message
+     */
     private String currentMessage;
+    /**
+     * Common time through all modules
+     */
     private double totalModulesWorkingTime = 0;
 
+    /**
+     * Log current operation
+     * @param currentOperation log operation
+     */
     public void startCurrentOperation(LogOperation currentOperation){
         startCurrentOperation(currentOperation, "");
     }
 
+    /**
+     * Get description of log operation to file
+     * @param currentOperation current log operation
+     * @param fileName file name to save log operation
+     */
     public  void startCurrentOperation(LogOperation currentOperation, String fileName) {
         startOperationTime = System.currentTimeMillis();
         switch (currentOperation) {
@@ -72,15 +116,28 @@ public class ReportLog {
         }
     }
 
+    /**
+     * Pring current operation
+     * @param currentOperation current log operation
+     */
     private  void loadingResources(LogOperation currentOperation) {
         System.out.println(currentOperation);
     }
 
+    /**
+     * Evaluate index of file and current message
+     * @param currentOperation current log operation
+     * @param fileName filename
+     */
     private  void processingFiles(LogOperation currentOperation, String fileName) {
         updateProcessedFileIndex(currentOperation);
         currentMessage = (currentOperation +" (" + fileName + " " + ( indexCurrentProcessedFile) + "/" + countInputFiles + ")");
     }
 
+    /**
+     * Update index of file
+     * @param currentOperation current log operation
+     */
     private  void updateProcessedFileIndex(LogOperation currentOperation) {
         if (previousOperation != currentOperation) {
             indexCurrentProcessedFile = 1;
@@ -90,16 +147,26 @@ public class ReportLog {
         previousOperation = currentOperation;
     }
 
+    /**
+     * Log when operation ends
+     */
     public void endOperation(){
         endOperationTime = Calendar.getInstance().getTimeInMillis();
         currentMessage += " " + (((double)endOperationTime - startOperationTime)/1000);
         LOGGER.log(Level.INFO, currentMessage);
     }
 
+    /**
+     * Save time when current module starts
+     */
     public void startModule(){
         startCurrentModuleTime = Calendar.getInstance().getTimeInMillis();
     }
 
+    /**
+     * Save time when current module ends
+     * @param moduleName name of module
+     */
     public void endModule(String moduleName){
         endCurrentModuleTime = Calendar.getInstance().getTimeInMillis();
         double moduleWorkingTime = ((double) endCurrentModuleTime - startCurrentModuleTime) /1000;
@@ -109,6 +176,10 @@ public class ReportLog {
         this.moduleWorkTime.add(moduleTime);
     }
 
+    /**
+     * Write log to file
+     * @param property info from property.json
+     */
     public void create(PropertyLoader property){
         String outDirectory  = property.getOutDirectory() + "/Report";
         try{
@@ -129,6 +200,10 @@ public class ReportLog {
         }
     }
 
+    /**
+     * Save if module is disabled
+     * @param moduleName name of disabled module
+     */
     public void moduleIsDisable(String moduleName){
         moduleWorkTime.add(moduleName + " is disable");
     }

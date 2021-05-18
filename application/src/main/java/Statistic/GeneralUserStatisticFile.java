@@ -11,11 +11,19 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**Statistics on words that the user added to the directoryForUserStatistic */
 public class GeneralUserStatisticFile {
 
+    /**The name of the file that the user added to generate statistics.*/
     private String userStatisticFileName;
+    /**Statistics on user words. The word and the amount it is used in the processed files*/
     private Map<String, Integer>generalUserStatistic;
 
+    /**
+     *
+     * @param userStatisticFileName - Path for the output file with general user statistics
+     * @param userStatisticFiles - List of user statistics for each processed file
+     */
     public GeneralUserStatisticFile(String userStatisticFileName, ArrayList<UserStatisticFile>userStatisticFiles){
         this.userStatisticFileName = userStatisticFileName;
         fillInStatistic(userStatisticFiles);
@@ -23,6 +31,7 @@ public class GeneralUserStatisticFile {
         sortGeneralStatistic();
     }
 
+    /**Writing statistic to a file*/
     public void createGeneralStatistic(String outDir){
         if (!isFileEmpty()) {
             try (OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/GeneralUserStatistic_" + userStatisticFileName + ".txt"), StandardCharsets.UTF_8)) {
@@ -33,6 +42,8 @@ public class GeneralUserStatisticFile {
         }
     }
 
+
+    /**For each processed file, statistics on user words are calculated and added to the путукфд гыук statistics.*/
     private void fillInStatistic(ArrayList<UserStatisticFile> userStatisticFiles){
         generalUserStatistic = new LinkedHashMap<>();
         for (UserStatisticFile userStatisticFile : userStatisticFiles){
@@ -50,6 +61,7 @@ public class GeneralUserStatisticFile {
         }
     }
 
+    /**The number of "user statistic words" is sorted in descending order*/
     private void sortGeneralStatistic(){
         ArrayList<Map.Entry<String, Integer>>statisticPairs = new ArrayList<>(generalUserStatistic.entrySet());
         statisticPairs.sort((p1, p2) -> (p2.getValue() - p1.getValue()) );
@@ -60,6 +72,7 @@ public class GeneralUserStatisticFile {
         generalUserStatistic = sortedGeneralStatistic;
     }
 
+    /**Converting statistics to json format for writing to a file*/
     private String getJsonFormat(){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(this);

@@ -1,7 +1,7 @@
 package WordsToDelete;
 
 import java.util.ArrayList;
-
+/**Class for storage deleted words*/
 public class FileWordToDelete {
 
     public ArrayList<String> wordsToDelete = new ArrayList<>();

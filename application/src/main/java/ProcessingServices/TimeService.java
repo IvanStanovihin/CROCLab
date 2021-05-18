@@ -10,14 +10,28 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Class for time processing
+ */
 public class TimeService {
 
+    /**
+     * Const - time Regex
+     */
     private static final String regexTime = "(([0,1][0-9])|(2[0-3]))[:.][0-5][0-9]-(([0,1][0-9])|(2[0-3]))[:.][0-5][0-9]";
 
+    /**
+     * Method for checking the module connection
+     * @return true if the module is enabled , else false
+     */
     private static boolean isModuleEnable(){
         return Handler.getProperty().isEnableTimesModule();
     }
 
+    /**
+     * Method of processing time
+     * @param inputFiles inputFiles ArrayList with inputFiles
+     */
     public static void handle(ArrayList<InputFile> inputFiles){
         if (isModuleEnable()) {
             Handler.reportLog.startModule();
@@ -30,6 +44,10 @@ public class TimeService {
         }
     }
 
+    /**
+     * Find and disclosure time in a single input file
+     * @param inputFile input file for processing
+     */
     private static void handleTime(InputFile inputFile){
         String fileText = inputFile.getFileText();
         Pattern phoneNumberPattern = Pattern.compile(regexTime);
@@ -60,6 +78,11 @@ public class TimeService {
         inputFile.setFileText(processedText.toString());
     }
 
+    /**
+     * Method for converting minutes to text
+     * @param number minutes in numerical representation
+     * @return minutes in text representation
+     */
     private static String minuteToString(int number){
         String out = "";
 
@@ -164,6 +187,11 @@ public class TimeService {
     }
 
 
+    /**
+     * Method for converting hours to text
+     * @param number hours in numerical representation
+     * @return hours in text representation
+     */
     private static String hourToString(int number){
         String out = "";
         if(number > 4 && number < 21 && number != 8){

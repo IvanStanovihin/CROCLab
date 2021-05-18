@@ -19,19 +19,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-
+/**Loaded file that the user prepared*/
 public class InputFile {
 
     private boolean validEncoding;
     private String filePath;
     private String fileName;
     private String fileText;
+    /**Replacements that will be made in the file during processing*/
     private ReplacementFile replacementFile;
+    /**Abbreviations found in this file*/
     private FileWithAbbreviations fileWithAbbreviations;
+    /**Quarantine sentences for this file*/
     private QuarantineSentencesFile quarantineFile;
+    /**English sentences found in this file*/
     private FileWithEnglishText fileWithEnglishText;
+    /**This file content*/
     private ArrayList<String> sentences = new ArrayList<>();
+    /**Word storage for deletion*/
     private DeletedWordsStorage deletedWordsStorage;
+    /**Quarantine words storage*/
     private QuarantineWordsFile quarantineWordsFile;
 
 
@@ -59,7 +66,7 @@ public class InputFile {
         this.fileText = fileText;
     }
 
-    //Считывает данные из файла в одну строку.
+   /**Reading a file to a one string*/
     private void readFile() {
         StringBuilder fileData = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8))) {
@@ -73,7 +80,7 @@ public class InputFile {
         fileText = fileData.toString();
     }
 
-
+    /**Creating output file*/
     public void createOutputFile(String outputDirectory, PropertyLoader property){
         ArrayList<String>fileParts = splitOutputFile(property);
         if (fileParts.size() > 1){
@@ -83,6 +90,7 @@ public class InputFile {
         }
     }
 
+    /**Splitting the output file into user defined parts*/
     private ArrayList<String> splitOutputFile(PropertyLoader property){
         ArrayList<String> fileParts = new ArrayList<>();
         int countBytes = 0;
@@ -110,7 +118,7 @@ public class InputFile {
         return fileParts;
     }
 
-    //Запись фалов которые не превышают заданного размера. Записывающиеся предложения приводятся к нижнему регистру
+    /**Record files that do not exceed the user-defined size. Written sentences are reduced to lowercase*/
     private void writeSmallFile(String outputDirectory, ArrayList<String>fileParts){
         try(OutputStreamWriter os = new OutputStreamWriter(
                 new FileOutputStream(outputDirectory + "/" + fileName), StandardCharsets.UTF_8)){
@@ -120,7 +128,7 @@ public class InputFile {
         }
     }
 
-    //Запись файлов которые разделены из - за превышения заданного размера. Текст приводится к нижнему регистру.
+    /**Record files that are separated due to exceeding the user-defined size. The text is reduced to lowercase.*/
     private void writePartsFile(String outputDirectory, ArrayList<String>fileParts){
         for (int i = 0; i < fileParts.size(); i++) {
             String outputFileName = fileName.replace(".txt", "_" + (i+1) + ".txt");
@@ -133,76 +141,14 @@ public class InputFile {
         }
     }
 
-
-
-
-
-    public void createOutputFile2(String outputDirectory, PropertyLoader property){
-        int countByte = 0;
-        int countSentence = 0;
-        int countFiles = 1;
-        int outputFileSize = property.getOutFileSize();
-        OutputStreamWriter os = null;
-        try{
-            os = new OutputStreamWriter(new FileOutputStream(outputDirectory + "/Processed_" +
-                    fileName.replace(".txt", "_" + countFiles + ".txt")), StandardCharsets.UTF_8);
-        }catch(IOException ex){
-            ex.printStackTrace();
-        }
-
-        for (String sentence : sentences){
-            byte[]sentenceBytes = sentence.getBytes();
-            countByte += sentenceBytes.length;
-            countSentence++;
-            if (countByte >= (outputFileSize * 1024 * 1024) || countSentence >= 100000){
-                countByte = 0;
-                countSentence = 0;
-                try{
-                    os.close();
-                }catch(IOException ex){
-                    ex.printStackTrace();
-                }
-                countFiles++;
-                try{
-                    os = new OutputStreamWriter(new FileOutputStream(outputDirectory + "/Processed_" +
-                            fileName.replace(".txt", "_" + countFiles + ".txt")), StandardCharsets.UTF_8);
-                }catch(IOException ex){
-                    ex.printStackTrace();
-                }
-            }
-            try {
-                os.write(sentence.toLowerCase() + "\n");
-            }catch(IOException ex){
-                ex.printStackTrace();
-            }
-        }
-        try{
-            os.close();
-        }catch(IOException ex){
-            ex.printStackTrace();
-        }
-    }
-
-
-    //Проверка кодировки файла. Возвращает true, если кодировка файла UTF-8.
-    private boolean checkEncoding() {
-        String fileEncoding = "";
-        try (InputStream is = new FileInputStream(filePath);) {
-            fileEncoding = Charset.forName(new TikaEncodingDetector().guessEncoding(is)).toString();
-        } catch (IOException e) {
-
-            e.printStackTrace();
-        }
-        return fileEncoding.equals("UTF-8");
+    /**Move the sentence to quarantine*/
+    public void moveToQuarantine(String sentence){
+        quarantineFile.addQuarantineSentence(sentence);
+        sentences.remove(sentence);
     }
 
     public DeletedWordsStorage getDeletedWordsStorage() {
         return deletedWordsStorage;
-    }
-
-    public void moveToQuarantine(String sentence){
-        quarantineFile.addQuarantineSentence(sentence);
-        sentences.remove(sentence);
     }
 
     public QuarantineWordsFile getQuarantineWordsFile() {

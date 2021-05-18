@@ -9,12 +9,23 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Class for processing monetary symbols in the text
+ */
 public class MoneyService {
 
+    /**
+     * Method for checking the module connection
+     * @return true if the module is enabled , else false
+     */
     private static boolean isModuleEnable(){
         return Handler.getProperty().isEnableMoneyModule();
     }
 
+    /**
+     * Method of processing monetary symbols
+     * @param inputFiles ArrayList with inputFiles
+     */
     public static void processMoney(ArrayList<InputFile> inputFiles){
         if (isModuleEnable()) {
             Handler.reportLog.startModule();
@@ -27,6 +38,10 @@ public class MoneyService {
         }
     }
 
+    /**
+     * Find and disclosure monetary symbols in a single input file
+     * @param inputFile input file for processing
+     */
     private static void processFile(InputFile inputFile){
         String fileText = inputFile.getFileText();
         StringBuilder processedText = new StringBuilder();
@@ -41,6 +56,11 @@ public class MoneyService {
         inputFile.setFileText(processedText.toString());
     }
 
+    /**
+     * Method for expanding monetary symbols to text
+     * @param foundMoney
+     * @return monetary symbols in the form of text
+     */
     private static String getMoneyReplacement(String foundMoney){
         String result = "";
         String[] numEndings = {"рубль", "рубля", "рублей"};

@@ -12,8 +12,14 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Replace group of words with whitespaces
+ */
 public class ReplacerSpaceWords {
-
+    /**
+     * Verify if module is needed
+     * @return result of verifying
+     */
     private static boolean isModuleEnable(){
         return Handler.getProperty().isEnableDictionaryWordsModule();
     }
@@ -30,7 +36,11 @@ public class ReplacerSpaceWords {
         }
     }
 
-
+    /**
+     * Processing files
+     * @param whiteSpaceWordsDictionary information concluded group of words with whitespaces
+     * @param inputFile file to process
+     */
     private static void processInputFile(DictionaryWhitespaceWords whiteSpaceWordsDictionary, InputFile inputFile){
         Map<String, UnreadableWordHandler> wordsReplacements = whiteSpaceWordsDictionary.getWordReplacement();
         for (Map.Entry<String, UnreadableWordHandler> wordReplacement : wordsReplacements.entrySet()){

@@ -6,16 +6,22 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
+/**A class that creates statistics for each file "words for user statistic"*/
 public class UserStatisticCreator {
 
+    /**File with words for user statistic*/
     private String filePath;
+    /**Word for user statistic*/
     private ArrayList<String> wordsForUserStatistic;
+    /**Output file name*/
     private String userStatisticFileName;
+   /**Files with statistic for single processed file*/
     private ArrayList<ProcessedFileStatistic>processedFileStatistics;
+    /**Files with statistic for user words*/
     private ArrayList<UserStatisticFile>userStatisticFiles = new ArrayList<>();
 
 
+    /***/
     public UserStatisticCreator(String filePath, ArrayList<ProcessedFileStatistic> processedFileStatistics){
         this.filePath = filePath;
         readFile();

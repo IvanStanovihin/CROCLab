@@ -1,8 +1,20 @@
 package ProcessingServices.DateServices;
 
+/**
+ * Pattern with additional information.
+ */
 public class MyPattern {
+    /**
+     * Pattern
+     */
     private String pattern;
+    /**
+     * Order to activate
+     */
     private int order;
+    /**
+     * Action starting when pattern is activated
+     */
     public Action action;
     public MyPattern(String pattern, int order, Action action) {
         this.pattern = pattern;

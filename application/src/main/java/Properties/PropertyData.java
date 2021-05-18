@@ -1,5 +1,6 @@
 package Properties;
 
+/**Class for deserializing file "property.json"*/
 public class PropertyData {
     private String inputFilesDirectory;
     private Integer outputFileSize;

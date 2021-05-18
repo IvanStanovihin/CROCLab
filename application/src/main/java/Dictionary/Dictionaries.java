@@ -8,10 +8,16 @@ import com.google.gson.Gson;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * Loads all kinds of dictionaries and stores them
+ */
 public class Dictionaries {
 
+    /**List of dictionaries in json format*/
     private ArrayList<JsonDictionary>jsonDictionaries = new ArrayList<>();
+    /**A dictionary that contains single dictionary words*/
     private DictionarySingleWords dictionarySingleWords;
+    /**A dictionary that contains dictionary words with whitespace*/
     private DictionaryWhitespaceWords dictionaryWhitespaceWords;
 
     public Dictionaries(String dictionariesDirectoryPath){
@@ -20,6 +26,7 @@ public class Dictionaries {
         separateDictionary();
     }
 
+    /**Loading dictionaries from a directory*/
     private void loadDictionaries(String dictionariesDirectoryPath){
         File currentFolder = new File(dictionariesDirectoryPath);
         for (File file : currentFolder.listFiles()){
@@ -31,6 +38,7 @@ public class Dictionaries {
         }
     }
 
+    /**Reading dictionary files*/
     private void readDictionary(String dictionaryPath){
         StringBuilder fileData = new StringBuilder();
         try(BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(dictionaryPath), "UTF-8"))){
@@ -45,6 +53,7 @@ public class Dictionaries {
         jsonDictionaries.add(gson.fromJson(fileData.toString(), JsonDictionary.class));
     }
 
+    /**Separation of dictionary words. Words containing spaces and single dictionary words*/
     private void separateDictionary(){
         ArrayList<WordReplacements>whitespaceDictionaryWords = new ArrayList<>();
         ArrayList<WordReplacements>singleDictionaryWords = new ArrayList<>();

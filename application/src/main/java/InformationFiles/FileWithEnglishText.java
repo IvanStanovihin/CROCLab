@@ -6,20 +6,24 @@ import com.google.gson.GsonBuilder;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-
+/**A class that stores all sentences with English text for each processed file*/
 public class FileWithEnglishText {
 
+    /**Processed file name*/
     private String processedFileName;
+    /**Sentences that contain English text*/
     private ArrayList<String>sentencesWithEnglish = new ArrayList<>();
 
     public FileWithEnglishText(String processedFileName){
         this.processedFileName = processedFileName;
     }
 
+    /**Adding English text to the storage*/
     public void addEnglishSentences(String englishSentences){
         this.sentencesWithEnglish.add(englishSentences);
     }
 
+    /**Creating output file*/
     public void createFile(String outDir){
         try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/EnglishText_" + processedFileName), StandardCharsets.UTF_8)){
             os.write(getJsonFormat());

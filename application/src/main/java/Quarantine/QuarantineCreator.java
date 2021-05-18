@@ -14,11 +14,21 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Locale;
 
+/**
+ * Class to create quarantine directory.
+ */
 public class QuarantineCreator {
-
-    private String outputDirectory;
+    /**
+     * Counter of quarantine sentences to statistics and logging.
+     */
     public static int countQuarantineSentences = 0;
 
+    /**
+     * Create quarantine directory if needed and files into them
+     * @param outDirectory root directory to save into
+     * @param inputFiles files will be concluded quarantine sentences
+     * @param modificationQuarantineFilePath common information in this file
+     */
     public static void createQuarantine(String outDirectory, ArrayList<InputFile> inputFiles,
                                         String modificationQuarantineFilePath){
         String quarantineSentencesFilesDir = outDirectory + "/Quarantine";
@@ -32,7 +42,12 @@ public class QuarantineCreator {
         generateQuarantineSentencesFiles(quarantineSentencesFilesDir, inputFiles, modificationQuarantineFilePath);
     }
 
-
+    /**
+     * Create quarantine sentences and save them into files
+     * @param outDir out directory
+     * @param inputFiles files to process
+     * @param modificationQuarantineFilePath common information in this file
+     */
     private static void generateQuarantineSentencesFiles(String outDir, ArrayList<InputFile>inputFiles, String modificationQuarantineFilePath){
         ArrayList<String>quarantineSentencesFiles = new ArrayList<>();
         for (InputFile inputFile : inputFiles){
@@ -46,6 +61,11 @@ public class QuarantineCreator {
         }
     }
 
+    /**
+     * Create file with quarantine sentences in it
+     * @param allQuarantineSentences quarantine sentences to write into file
+     * @param outDir out directory
+     */
     private static void createFile(ArrayList<String>allQuarantineSentences, String outDir){
         try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/QuarantineSentences.txt"), StandardCharsets.UTF_8)){
             os.write("В карантин попало " + countQuarantineSentences + " предложений\n");
@@ -57,6 +77,11 @@ public class QuarantineCreator {
         }
     }
 
+    /**
+     * Create common information inside quarantine sentences
+     * @param quarantineSentences quarantine sentences
+     * @param outputDirectory out directory
+     */
     private static void createModificationQuarantine(ArrayList<String>quarantineSentences, String outputDirectory){
         try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outputDirectory + "/Quarantine.txt"), StandardCharsets.UTF_8)){
             os.write("В карантин попало " + countQuarantineSentences + " предложений\n");

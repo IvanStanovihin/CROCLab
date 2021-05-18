@@ -9,12 +9,23 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Class for disclosure acronym into text
+ */
 public class AcronymService {
 
+    /**
+     * Method for checking the module connection
+     * @return true if the module is enabled , else false
+     */
     private static boolean isModuleEnable(){
         return Handler.getProperty().isEnableAcronymsModule();
     }
 
+    /**
+     * Method of processing acronyms
+     * @param inputFiles ArrayList with inputFiles
+     */
     public static void acronymsInQuarantine(ArrayList<InputFile> inputFiles){
         if (isModuleEnable()) {
             Handler.reportLog.startModule();
@@ -27,6 +38,10 @@ public class AcronymService {
         }
     }
 
+    /**
+     * Find and adding to quarantine sentences with acronyms
+     * @param inputFile input file for processing
+     */
     private static void handleAcronyms(InputFile inputFile){
         ArrayList<String>fileSentences = new ArrayList<>(inputFile.getSentences());
         for (String sentence : fileSentences){

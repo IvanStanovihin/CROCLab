@@ -9,10 +9,21 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.regex.Pattern;
 
+/**
+ * Quarantine in a file
+ */
 public class QuarantineSentencesFile {
-
+    /**
+     * Name of processed file
+     */
     private String processedFileName;
+    /**
+     * Storage with quarantine sentences in file
+     */
     private ArrayList<String>quarantineSentences = new ArrayList<>();
+    /**
+     * Name of file to process.
+     */
     private transient String fileName;
 
 
@@ -22,6 +33,10 @@ public class QuarantineSentencesFile {
         this.fileName = "QuarantineSentences" + processedFileName;
     }
 
+    /**
+     * Add quarantine sentence to storage
+     * @param sentence sentence to add
+     */
     public void addQuarantineSentence(String sentence){
         quarantineSentences.add(sentence);
     }
@@ -32,12 +47,6 @@ public class QuarantineSentencesFile {
 
     public String getFileName() {
         return fileName;
-    }
-
-
-
-    private boolean fileIsEmpty(){
-        return quarantineSentences.size() == 0;
     }
 }
 

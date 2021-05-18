@@ -8,12 +8,22 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Service for numbers.
+ */
 public class NumberService {
-
+    /**
+     * Verify if module is active
+     * @return result of verifying
+     */
     private static boolean isModuleEnable(){
         return Handler.getProperty().isEnableNumbersModule();
     }
 
+    /**
+     * Do processing if needed
+     * @param inputFiles files to process
+     */
     public static void handleNumbers(ArrayList<InputFile> inputFiles) {
         if (isModuleEnable()) {
             Handler.reportLog.startModule();
@@ -26,7 +36,10 @@ public class NumberService {
         }
     }
 
-    //Принимает список предложений из файла. Возвращает список предложений с числами, раскрытыми в текст.
+    /**
+     * Write of processing to files
+     * @param inputFile list of files to process
+     */
     private static void handleFile(InputFile inputFile) {
         String fileText = inputFile.getFileText();
         StringBuilder cleanText = new StringBuilder();
@@ -46,6 +59,11 @@ public class NumberService {
         inputFile.setFileText(cleanText.toString());
     }
 
+    /**
+     * Process of long numbers to write them by triads.
+     * @param longNumber long number to process
+     * @return result of processing
+     */
     public static String processLongNumber(String longNumber) {
         StringBuilder result = new StringBuilder();
         while (longNumber.length() > 0) {

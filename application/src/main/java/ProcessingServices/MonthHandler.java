@@ -9,8 +9,14 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Class for disclosure of months
+ */
 public class MonthHandler {
 
+    /**
+     * Map that stores the options for the disclosure of months
+     */
     private static Map<Pattern, String>monthsRegexps = new HashMap<>();
     static{
         monthsRegexps.put(Pattern.compile("(?<![А-Яа-яёЁ])янв(?![А-Яа-яёЁ])",
@@ -42,10 +48,18 @@ public class MonthHandler {
     }
 
 
+    /**
+     * Method for checking the module connection
+     * @return true if the module is enabled , else false
+     */
     private static boolean isModuleEnable(){
         return Handler.getProperty().isEnableMonthsModule();
     }
 
+    /**
+     * Method of processing months
+     * @param inputFiles ArrayList with inputFiles
+     */
     public static void processMonths(ArrayList<InputFile>inputFiles){
         if (isModuleEnable()) {
             Handler.reportLog.startModule();
@@ -56,6 +70,10 @@ public class MonthHandler {
         }
     }
 
+    /**
+     * Find and disclosure month in a single input file
+     * @param inputFile input file for processing
+     */
     private static void processFile(InputFile inputFile){
         for (Map.Entry<Pattern, String> entries : monthsRegexps.entrySet()){
             StringBuilder processedFileText = new StringBuilder();

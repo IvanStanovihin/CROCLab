@@ -6,11 +6,25 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Main class to process files with dates
+ */
 public class StringToData {
-    // TODO сделать обработку двузначных годов
+    /**
+     * Pattern year
+     */
     static final public String year = "([1-9][0-9]{3})";
+    /**
+     * Pattern month written in number format
+     */
     static final public String month = "(0[1-9]|1[012])";
+    /**
+     * Pattern day
+     */
     static final public String day = "(0[1-9]|1[0-9]|2[0-9]|3[01]|[1-9])";
+    /**
+     * Pattern month written in string format (by name)
+     */
     static final public String monthWords = "(январ[яьюе]|" +
             "январ[её]м|" +
             "феврал[яьюе]|" +
@@ -37,11 +51,28 @@ public class StringToData {
             "ноябр[её]м|" +
             "декабр[ьяюе]|" +
             "декабр[её]м)";
+    /**
+     * Pattern separators between components of dates
+     */
     static final public String separators = "\\/|\\.|-";
+    /**
+     * Pattern spaces
+     */
     static final public String space = "?\\s*";
-    static final public String postfix = "(год[аыуе]|годов|лет|годам|годами|годах|год|г\\.|г)*";
+    /**
+     * Postfix for year
+     */
     static final public String exactPostfix = "(год[аыуе]|годов|лет|годам|годами|годах|год|г\\.|г)";
+    /**
+     * All patterns to activate
+     */
     static final private PriorityQueue<MyPattern> patterns = new PriorityQueue<MyPattern>(new PatternComparator());
+
+    /**
+     * Evaluate prepositions : с
+     * @param number component of date in number format
+     * @return processed component of date
+     */
     public static String s(String number) {
         if(number.endsWith("один ")) {
             int first = number.lastIndexOf("один ");
@@ -82,6 +113,12 @@ public class StringToData {
         }
         return number;
     }
+
+    /**
+     * Evaluate prepositions : в
+     * @param number component of date in number format
+     * @return processed component of date
+     */
     public static String in(long number) {
         String res = NumberHandler.numberToSymbol(number,number);
 
@@ -124,6 +161,12 @@ public class StringToData {
         }
         return res;
     }
+
+    /**
+     * Get name of month
+     * @param month number in number format
+     * @return name of month
+     */
     public static String getMonth(long month) {
         switch((int) month) {
             case 1:
@@ -154,6 +197,11 @@ public class StringToData {
         return "";
     }
 
+    /**
+     * Evaluate prepositions : по, к
+     * @param number component of date in number format
+     * @return processed component of date
+     */
     public static String po(String number) {
         if(number.split(" ").length >= 2) {
             if(number.endsWith("один ")) {
@@ -207,6 +255,14 @@ public class StringToData {
         }
         return number;
     }
+
+    /**
+     * Evaluate prepositions : от, около, до
+     * @param day1 day in number format
+     * @param month1 month in number format
+     * @param year1 year in number format
+     * @return processed date
+     */
     public static String ot(long day1, long month1, long year1) {
         String yearString1 = s(NumberHandler.numberToSymbol(year1, year1));
         String monthString1 = s_date(getMonth(month1));
@@ -214,22 +270,50 @@ public class StringToData {
 
         return " " + dayString1 + " " + monthString1 + " " + yearString1 + " года ";
     }
+
+    /**
+     * Evaluate prepositions : от, около, до
+     * @param day1 day in number format
+     * @param month1 month in number format
+     * @return processed date
+     */
     public static String ot(long day1, long month1) {
         String monthString1 = s_date(getMonth(month1));
         String dayString1 = s(NumberHandler.numberToSymbol(day1,day1));
         return " " + dayString1 + " " + monthString1 + " ";
     }
+
+    /**
+     * Evaluate prepositions : от, около, до
+     * @param day1 day in number format
+     * @param month1 name of month
+     * @param year1 year in number format
+     * @return processed date
+     */
     public static String ot(long day1, String month1, long year1) {
         String yearString1 = s(NumberHandler.numberToSymbol(year1, year1));
         String monthString1 = month1;
         String dayString1 = s(NumberHandler.numberToSymbol(day1,day1));
         return " " + dayString1 + monthString1 + " " + yearString1 + "года ";
     }
+
+    /**
+     * Evaluate prepositions : от, около, до
+     * @param day1 day in number format
+     * @param month1 name of month
+     * @return processed date
+     */
     public static String ot(long day1, String month1) {
         String monthString1 = month1;
         String dayString1 = s(NumberHandler.numberToSymbol(day1,day1));
         return " " + dayString1 + " " + monthString1 + " ";
     }
+
+    /**
+     * Translate name of month into correct grammar. Prepositions : с
+     * @param month name of month
+     * @return correct name of month
+     */
     public static String s_date(String month) {
         if(month.equals("март")) {
             return "марта";
@@ -244,12 +328,14 @@ public class StringToData {
             return month.replace("ь", "я");
         }
     }
-    public static String s_string(long day1, String month1, long year1) {
-        String yearString1 = s(NumberHandler.numberToSymbol(year1, year1));
-        String monthString1 = month1;
-        String dayString1 = s(NumberHandler.numberToSymbol(day1, day1));
-        return " " + dayString1 + " " + monthString1 + " " + yearString1 + " года ";
-    }
+
+    /**
+     * Evaluate prepositions : по
+     * @param day1 day in number format
+     * @param month1 month in number format
+     * @param year1 year in number format
+     * @return processed date
+     */
     public static String po_string(long day1, long month1, long year1) {
         String yearString1 = NumberHandler.numberToSymbol(year1, year1);
         String monthString1 = s_date(getMonth(month1));
@@ -259,22 +345,14 @@ public class StringToData {
         yearString1 = po(yearString1);
         return " " + dayString1 + " " + monthString1 + " " + yearString1+ "года";
     }
-    public static String s_string(long day1, long month1, long year1) {
-        String yearString1 = s(NumberHandler.numberToSymbol(year1, year1));
-        String monthString1 = s_date((getMonth(month1)));
-        String dayString1 = s(NumberHandler.numberToSymbol(day1, day1));
-        return " " + dayString1 + " " + monthString1 + " " + yearString1 + "года ";
-    }
-    public static String s_string(long day1, long month1) {
-        String monthString1 = s_date(getMonth(month1));
-        String dayString1 = s(NumberHandler.numberToSymbol(day1, day1));
-        return " " + dayString1 + " " + monthString1 + " ";
-    }
-    public static String s_string(long day1, String month1) {
-        String monthString1 = month1;
-        String dayString1 = s(NumberHandler.numberToSymbol(day1, day1));
-        return " " + dayString1 + " " + monthString1 + " ";
-    }
+
+    /**
+     * Evaluate prepositions : по
+     * @param day1 day in number format
+     * @param month1 name of month
+     * @param year1 year in number format
+     * @return processed date
+     */
     public static String po_string(long day1, String month1, long year1) {
         String yearString1 = NumberHandler.numberToSymbol(year1, year1);
         String monthString1 = month1;
@@ -284,16 +362,36 @@ public class StringToData {
         yearString1 = po(yearString1);
         return " " + dayString1 + " " + monthString1 + yearString1+ "года";
     }
+
+    /**
+     * Evaluate prepositions : по
+     * @param day1 day in number format
+     * @param month1 name of month
+     * @return processed date
+     */
     public static String po_string(long day1, String month1) {
         String dayString1 = po(NumberHandler.numberToSymbol(day1, day1));
         String monthString1 = month1;
         return " " + dayString1 + " " + monthString1 + " ";
     }
+
+    /**
+     * Evaluate prepositions : по
+     * @param day1 day in number format
+     * @param month1 name in number format
+     * @return processed date
+     */
     public static String po_string(long day1, long month1) {
         String dayString1 = po(NumberHandler.numberToSymbol(day1, day1));
         String monthString1 = s_date(NumberHandler.numberToSymbol(month1, month1));
         return " " + dayString1 + " " + monthString1 + " ";
     }
+
+    /**
+     * Evaluate dates without prepositions
+     * @param number component of date in number format
+     * @return processed component of date
+     */
     public static String classic(String number) {
         if(number.endsWith("два ")) {
             int first = number.lastIndexOf("два ");
@@ -310,6 +408,12 @@ public class StringToData {
         }
         return number;
     }
+
+    /**
+     * Evaluate dates without prepositions
+     * @param year year in string format
+     * @return processed year
+     */
     public static String classic_year(String year) {
         if(year.endsWith("один ")) {
             int first = year.lastIndexOf("один ");
@@ -345,6 +449,14 @@ public class StringToData {
         }
         return year;
     }
+
+    /**
+     * Evaluate dates without prepositions
+     * @param day1 day in number format
+     * @param month1 month in number format
+     * @param year1 year in number format
+     * @return processed year
+     */
     public static String classic_string(long day1, long month1, long year1) {
 
         String dayString1 = classic(NumberHandler.numberToSymbol(day1,day1));
@@ -353,6 +465,13 @@ public class StringToData {
 
         return dayString1 + " " + monthString1 + " " + yearString1 + " год ";
     }
+
+    /**
+     * Evaluate dates without prepositions
+     * @param day1 day in number format
+     * @param month1 month in number format
+     * @return processed year
+     */
     public static String classic_string(long day1, long month1) {
 
         String dayString1 = classic(NumberHandler.numberToSymbol(day1,day1));
@@ -362,6 +481,13 @@ public class StringToData {
         return dayString1 + " " + monthString1 + " ";
     }
 
+    /**
+     * Evaluate dates without prepositions
+     * @param day1 day in number format
+     * @param month1 name of month
+     * @param year1 year in number format
+     * @return processed year
+     */
     public static String classic_string(long day1, String month1, long year1) {
         String dayString1 = classic(NumberHandler.numberToSymbol(day1,day1));
 
@@ -371,6 +497,13 @@ public class StringToData {
 
         return dayString1 + " " + monthString1 + " " + yearString1 + " год ";
     }
+
+    /**
+     * Evaluate dates without prepositions
+     * @param day1 day in number format
+     * @param month1 name of month
+     * @return processed year
+     */
     public static String classic_string(long day1, String month1) {
 
         String dayString1 = classic(NumberHandler.numberToSymbol(day1,day1));
@@ -379,6 +512,10 @@ public class StringToData {
 
         return dayString1 + " " + monthString1 + " ";
     }
+
+    /**
+     * generate all patterns and store it into queue
+     */
     public static void generatePatternsQueue() {
         int order = 1;
         // самый высокий приоритет
@@ -1275,8 +1412,13 @@ public class StringToData {
 
         }));
     }
+
+    /**
+     * Activate patterns and process dates according to their actions
+     * @param string text from file
+     * @return processed file with dates
+     */
     public static String isPatterned(String string) {
-        //generatePatternsQueue();
         Iterator itr = patterns.iterator();
 
         String res = "";
@@ -1307,14 +1449,7 @@ public class StringToData {
 
         res = res + unProcessed;
 
-        /*
-        Pattern pattern = Pattern.compile("(.*)" + exactPostfix + "\\s+" + exactPostfix + "(.*)");
-        Matcher matcher = pattern.matcher(res);
-        while(matcher.find()) {
-            res = matcher.group(1) + matcher.group(2) + matcher.group(4);
-            matcher = pattern.matcher(res);
-        }
-         */
+
         return res.replaceAll("\\s+", " ");
     }
 }

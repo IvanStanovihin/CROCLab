@@ -7,23 +7,38 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Locale;
 
+/**
+ * Storage of not-to-process files, they are protected files
+ */
 public class ProtectedWordsStorage {
-
+    /**
+     * Storage
+     */
     private static ArrayList<FileWithProtectedWords> fileWithProtectedWords = new ArrayList<>();
 
     public ProtectedWordsStorage(PropertyLoader property){
         loadFiles(property.getProtectedWordsDir());
     }
 
+    /**
+     * Load files with protected words into storage.
+     * @param directoryPath directory with files concluded protected words
+     */
     private void loadFiles(String directoryPath){
             File directory = new File(directoryPath);
         for (File file : directory.listFiles()){
             Gson gson = new Gson();
-            FileWithProtectedWords fileWithExcludeWords = gson.fromJson(readFileData(file.getPath()), FileWithProtectedWords.class);
+            FileWithProtectedWords fileWithExcludeWords = gson.fromJson(readFileData(file.getPath()),
+                    FileWithProtectedWords.class);
             fileWithProtectedWords.add(fileWithExcludeWords);
         }
     }
 
+    /**
+     * Additional function to read data in any file
+     * @param filePath path to file
+     * @return text from file
+     */
     private String readFileData(String filePath){
         StringBuilder fileData = new StringBuilder();
         String readLine;
@@ -37,6 +52,11 @@ public class ProtectedWordsStorage {
         return fileData.toString();
     }
 
+    /**
+     * Check if word is protected
+     * @param wordToCheck word
+     * @return result of checking
+     */
     public static boolean isWordProtected(String wordToCheck){
         for (FileWithProtectedWords file : fileWithProtectedWords){
             if (file.isWordProtected(wordToCheck)) {

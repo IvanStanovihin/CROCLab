@@ -7,9 +7,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-
+/**A data structure that stores compound dictionary words.
+ * Compound dictionary word - several words separated by a space.*/
 public class DictionaryWhitespaceWords {
 
+    /**Map which stores the dictionary word and the rules by which it is processed*/
     private Map<String, UnreadableWordHandler> wordReplacement = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
     private String fileName;
@@ -18,6 +20,10 @@ public class DictionaryWhitespaceWords {
         convertWordReplacements(wordReplacements);
     }
 
+    /**
+     * Filling the wordReplacement
+     * @param wordReplacements - list of dictionary words and replacements
+     */
     private void convertWordReplacements(ArrayList<WordReplacements>wordReplacements){
         for (WordReplacements wordFromDictionary : wordReplacements){
             String unreadableWord = wordFromDictionary.getWord();
@@ -26,22 +32,8 @@ public class DictionaryWhitespaceWords {
         }
     }
 
-
-
-    public String getReplacements(String unreadableWord){
-        UnreadableWordHandler unreadableWordHandler = wordReplacement.get(unreadableWord);
-        if (unreadableWordHandler != null){
-            return unreadableWordHandler.getReplacement();
-        }
-        return null;
-    }
-
     public Map<String, UnreadableWordHandler> getWordReplacement() {
         return wordReplacement;
-    }
-
-    public UnreadableWordHandler getUnreadableWordHandler(String unreadableWord){
-        return wordReplacement.get(unreadableWord);
     }
 
     public String getFileName() {

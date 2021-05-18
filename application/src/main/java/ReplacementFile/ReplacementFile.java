@@ -10,13 +10,29 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-
+/**
+ * File with replaced information
+ */
 public class ReplacementFile {
-
+    /**
+     * file name to process
+     */
     private String processedFileName;
+    /**
+     * counter of replacement
+     */
     private int countReplacement = 0;
+    /**
+     * Map replacement to count of replacing
+     */
     private transient Map<Replacement, Integer> replacementsCount = new HashMap<>();
+    /**
+     * file name
+     */
     private transient String fileName;
+    /**
+     * Replacements to save into file
+     */
     @SerializedName("replacements")
     private ArrayList<Replacement>replacementForOut = new ArrayList<>();
 
@@ -26,6 +42,12 @@ public class ReplacementFile {
         this.fileName = "Replacements" + processedFileName;
     }
 
+    /**
+     * Add replacement to map
+     * @param unreadableWord word
+     * @param replacement replacement of word
+     * @param description description of replacement
+     */
     public void addReplacement(String unreadableWord, String replacement, String description){
         Replacement newReplacement = new Replacement(unreadableWord, replacement, description);
         if (replacementsCount.containsKey(newReplacement)) {
@@ -37,6 +59,10 @@ public class ReplacementFile {
         countReplacement++;
     }
 
+    /**
+     * get json format from this file
+     * @return json format
+     */
     public String getJsonFormat() {
         if (replacementForOut.size() == 0) {
             initializeOutList();
@@ -51,6 +77,9 @@ public class ReplacementFile {
         return fileName;
     }
 
+    /**
+     * Look map and save info from it into replacements
+     */
     private void initializeOutList(){
         for (Map.Entry entries : replacementsCount.entrySet()) {
             Replacement replacement = (Replacement) entries.getKey();
@@ -60,11 +89,18 @@ public class ReplacementFile {
         }
     }
 
+    /**
+     * Sort by counter identical replacements
+     */
     private void sortOutList(){
         replacementForOut.sort(Comparator.comparing(r -> r.countIdenticalReplacements));
         Collections.reverse(replacementForOut);
     }
 
+    /**
+     * Create file with information about replacements in json format
+     * @param outDir out directory
+     */
     public void createFile(String outDir) {
         if (!fileIsEmpty()) {
             try (OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/" + fileName), StandardCharsets.UTF_8)) {
@@ -75,16 +111,34 @@ public class ReplacementFile {
         }
     }
 
+    /**
+     * Check if file is empty by count of replacements
+     * @return result of checking
+     */
     private boolean fileIsEmpty(){
         return replacementsCount.size() == 0;
     }
 
 
-
+    /**
+     * Inner class to save replacement
+     */
     class Replacement{
+        /**
+         * Initial word to replace
+         */
         private String unreadableWord;
+        /**
+         * Replacement of word
+         */
         private String replacement;
+        /**
+         * Description about replacement
+         */
         private String description;
+        /**
+         * count of identical replacements
+         */
         @SerializedName("count")
         private Integer countIdenticalReplacements;
 

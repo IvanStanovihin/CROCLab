@@ -11,14 +11,22 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**Statistics file. Contains the sentences quarantine statistics for each processed file.*/
 public class QuarantineStatisticFile {
 
+    /**Name of the input processed file*/
     private String processedFileName;
+    /**Name of the output quarantine statistic file*/
     private transient String fileName;
+    /**A data structure that stores quarantined sentences.*/
     private transient QuarantineSentencesFile quarantineSentencesFile;
+    /**Statistics on quarantine sentences. Sentence and how many times it appear in the processed files.*/
     private Map<String, Integer>quarantineSentencesStatistic = new LinkedHashMap<>();
+    /**Quarantined sentences count*/
     private Integer countQuarantineSentences = null;
 
+
+    /**Start generating quarantine statistics*/
     public QuarantineStatisticFile(QuarantineSentencesFile quarantineSentencesFile){
         this.processedFileName = quarantineSentencesFile.getFileName();
         this.quarantineSentencesFile = quarantineSentencesFile;
@@ -26,6 +34,7 @@ public class QuarantineStatisticFile {
         fileName = "Statistic" + quarantineSentencesFile.getFileName();
     }
 
+    /**Counts the number of times the sentence has been quarantined.*/
     private void generateQuarantineSentencesStatistic(){
         ArrayList<String>quarantineSentences = quarantineSentencesFile.getQuarantineSentences();
         for (String quarantineSentence : quarantineSentences){
@@ -39,6 +48,7 @@ public class QuarantineStatisticFile {
         sortStatistic();
     }
 
+    /**Sorting the number of sentences in descending order*/
     private void sortStatistic(){
         ArrayList<Map.Entry<String, Integer>>quarantineSentencesPairs
                 = new ArrayList<>(quarantineSentencesStatistic.entrySet());
@@ -50,6 +60,7 @@ public class QuarantineStatisticFile {
         quarantineSentencesStatistic = sortedStatisticMap;
     }
 
+    /**Writing statistic in a file*/
     public void createFile(String outDir){
         if (!fileIsEmpty()) {
             try (OutputStreamWriter os = new OutputStreamWriter
@@ -65,6 +76,7 @@ public class QuarantineStatisticFile {
         return fileName;
     }
 
+    /**Converting statistics to json format for writing to a file*/
     public String getJsonFormat(){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String result = gson.toJson(this);
@@ -75,6 +87,7 @@ public class QuarantineStatisticFile {
         return quarantineSentencesStatistic;
     }
 
+    /**Counts the number of sentences in quarantine statistic file. And returns it.*/
     public int getCountQuarantineSentences(){
         if (this.countQuarantineSentences == null){
             this.countQuarantineSentences = 0;

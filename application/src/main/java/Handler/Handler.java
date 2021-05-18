@@ -16,22 +16,30 @@ import ReplacingWords.ReplacerSpaceWords;
 import ReportLog.*;
 import Statistic.*;
 import WordsToDelete.WordsRemover;
-
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**The class in which all file processing modules are called.*/
 public class Handler {
 
+    /**List of files that are specified in property.json*/
     private ArrayList<InputFile> inputFiles;
+    /**An object that loads and stores files with dictionary words.*/
     private static Dictionaries dictionaries;
+    /**The object that stores the json file with the paths to the configuration files*/
     private static PropertyLoader property;
+    /**The object stores words that should not be processed*/
     private ProtectedWordsStorage protectedWordsStorage;
+    /**Stores the running time of each module and writes logs to the console*/
     public static ReportLog reportLog;
 
+    /**
+     **
+     * @param propertyFile - The path to the property.json file. This file stores the file paths for running the program.
+     */
     public Handler(String propertyFile) {
         property = new PropertyLoader(propertyFile);
         protectedWordsStorage = new ProtectedWordsStorage(property);
@@ -69,8 +77,6 @@ public class Handler {
         ReplacerSingleWords.handleSingleWords(dictionaries.getDictionarySingleWords(), inputFiles);
         dictionaries = null;
         System.gc();
-
-
         //Обработка знаков препинания и спец. символов.
         PunctuationMarkService.handle(inputFiles);
         //Обработка дней недели

@@ -5,19 +5,22 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.util.*;
 
-
+/**Statistics on words and sentences for a single processed file*/
 public class ProcessedFileStatistic {
 
+    /**Name of the output file with processedFileStatistics. Not converting to a json*/
     private transient String outFileName;
-
+    /**Name of the input processed file*/
     private String processedFileName;
     private int countWords = 0;
     private int countSentences = 0;
+    /**Statistics on processed words for single processed file. The word and how many times it appear in the processed file.*/
     private  Map<String, Integer> wordsStatistic = new LinkedHashMap<>();
+    /**Statistics on processed sentences for single processed file. The sentence and how many times it appear in the processed file.*/
     private  Map <String, Integer> sentencesStatistic = new LinkedHashMap<>();
 
 
-
+    /**Start generating statistics*/
     public ProcessedFileStatistic(InputFile inputFile){
         this.outFileName = "StatisticProcessed" + inputFile.getFileName();
         this.processedFileName = inputFile.getFileName();
@@ -26,7 +29,7 @@ public class ProcessedFileStatistic {
         sortMap();
     }
 
-
+    /**Generating statistics by words*/
     private void generateWordsStatistic(InputFile inputFile){
         ArrayList<String>sentences = inputFile.getSentences();
         for (String sentence : sentences){
@@ -44,15 +47,12 @@ public class ProcessedFileStatistic {
         }
     }
 
-    public Map<String, Integer> getSentencesStatistic() {
-        return sentencesStatistic;
-    }
 
+    /**Generating statistics by sentences*/
     private void generateSentencesStatistic(InputFile inputFile){
         ArrayList<String>sentences = inputFile.getSentences();
         countSentences = sentences.size();
         for (String sentence : sentences){
-//            String foundSentence = sentence.replaceAll("[.!?]", "");
             String foundSentence = sentence;
             if (sentencesStatistic.containsKey(foundSentence)){
                 int countSentence = sentencesStatistic.get(foundSentence);
@@ -63,12 +63,14 @@ public class ProcessedFileStatistic {
         }
     }
 
+    /**Converting statistics to json format for writing to a file*/
     public String getJsonStatistic(){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String statistic = gson.toJson(this);
         return statistic;
     }
 
+    /**Sorting statistics by words and by sentences in descending order*/
     private void sortMap(){
         List<Map.Entry<String, Integer>> sortedWStatistic = new ArrayList(wordsStatistic.entrySet());
         Map<String, Integer>sortedWordsMap = new LinkedHashMap<>();
@@ -90,6 +92,11 @@ public class ProcessedFileStatistic {
         }
         sentencesStatistic = sortedSentencesMap;
 
+    }
+
+
+    public Map<String, Integer> getSentencesStatistic() {
+        return sentencesStatistic;
     }
 
     public int getCountWords() {

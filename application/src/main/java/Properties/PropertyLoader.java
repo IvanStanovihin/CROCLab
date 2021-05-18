@@ -5,16 +5,19 @@ import com.google.gson.Gson;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
-
+/**The class stores information loaded from property.json*/
 public class PropertyLoader {
     private String inputFilesDirectory = null;
+    /**Size of each output processed file(mb)*/
     private Integer outFileSize = null;
     private String outDirectory = null;
+    /**Paths to configuration files*/
     private String dictionariesDirectory = null;
     private String filesForStatisticDirectory = null;
     private String protectedWordsDir = null;
     private String wordsToDeleteDir = null;
 
+    /**Flags for enabling modules*/
     private boolean enableRemoveEnglishTextModule = false;
     private boolean enableDictionaryWordsModule = false;
     private boolean enableFindEnglishModule = false;
@@ -41,6 +44,7 @@ public class PropertyLoader {
         load(filePath);
     }
 
+    /**Reading a "property.json" and initializing paths for configuration files*/
     private void load(String filePath){
 
         try(Scanner in = new Scanner(new File(filePath))){
@@ -68,6 +72,7 @@ public class PropertyLoader {
         }
     }
 
+    /**Initializing flags for enabling modules*/
     private void initializeModulesFlags(PropertyData propertyData){
         enableRemoveEnglishTextModule = propertyData.getRemoveEnglishTextModule().equalsIgnoreCase("true");
         enableDictionaryWordsModule = propertyData.getDictionaryWordsModule().equalsIgnoreCase("true");

@@ -12,9 +12,13 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**A class that generates general statistics for all processed sentences.
+ * This statistics are written to a file in a single list*/
 public class GeneralSentencesStatistic {
 
+    /**Number of processed sentences.*/
     private int countSentences = 0;
+    /**Statistics on processed sentences. The sentence and how many times it appear in the processed files.*/
     private Map<String, Integer>generalSentencesStatistic = new LinkedHashMap<>();
 
     public GeneralSentencesStatistic(ArrayList<ProcessedFileStatistic> processedFileStatistics){
@@ -22,6 +26,10 @@ public class GeneralSentencesStatistic {
         sortSentenceStatistic();
     }
 
+    /**
+     * Generates general sentences statistics for processed files.
+     * @param processedFileStatistics - List of statistics for each processed file.
+     */
     private void generateGeneralSentencesStatistic(ArrayList<ProcessedFileStatistic>processedFileStatistics){
         for (ProcessedFileStatistic processedFileStatistic : processedFileStatistics){
             countSentences += processedFileStatistic.getCountSentences();
@@ -39,6 +47,7 @@ public class GeneralSentencesStatistic {
         }
     }
 
+    /**Sorting the number of sentences in descending order*/
     private void sortSentenceStatistic(){
         Map<String, Integer>sortedSentencesStatistic = new LinkedHashMap<>();
         ArrayList<Map.Entry<String, Integer>>listSentencesStatistic = new ArrayList<>(generalSentencesStatistic.entrySet());
@@ -51,6 +60,7 @@ public class GeneralSentencesStatistic {
         this.generalSentencesStatistic = sortedSentencesStatistic;
     }
 
+    /**Writing statistics to a file*/
     public void createFile(String outDir){
         try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/GeneralSentencesStatistic.txt"), StandardCharsets.UTF_8)){
             os.write(getJsonFormat());
@@ -59,12 +69,10 @@ public class GeneralSentencesStatistic {
         }
     }
 
+    /**Converting statistics to json format for writing to a file*/
     private String getJsonFormat(){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(this);
     }
 
-    public int getCountSentences(){
-        return countSentences;
-    }
 }

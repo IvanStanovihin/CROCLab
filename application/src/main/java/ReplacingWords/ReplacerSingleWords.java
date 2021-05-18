@@ -8,13 +8,23 @@ import ReportLog.*;
 
 import java.util.ArrayList;
 
-
+/**
+ * Class to replace words saved in SingleWords-file
+ */
 public class ReplacerSingleWords {
-
+    /**
+     * Verify if module is needed
+     * @return result of verifying
+     */
     private static boolean isModuleEnable(){
         return Handler.getProperty().isEnableDictionaryWordsModule();
     }
 
+    /**
+     * Start of processing single words
+     * @param dictionarySingleWords information concluded each single word
+     * @param inputFiles files to process
+     */
     public static void handleSingleWords(DictionarySingleWords dictionarySingleWords, ArrayList<InputFile> inputFiles){
         if (isModuleEnable()) {
             Handler.reportLog.startModule();
@@ -27,6 +37,11 @@ public class ReplacerSingleWords {
         }
     }
 
+    /**
+     * Process file to replace word token with dot or not
+     * @param inputFile file to process
+     * @param dictionarySingleWords information concluded each single word
+     */
     private static void processFile(InputFile inputFile, DictionarySingleWords dictionarySingleWords){
         String[] wordToken = tokenizeFile(inputFile);
         for (int i = 0; i < wordToken.length; i++){//ветка для токенов содержащих точку
@@ -44,6 +59,13 @@ public class ReplacerSingleWords {
         inputFile.setFileText(result);
     }
 
+    /**
+     * Evaluate token
+     * @param inputFile file to process
+     * @param dictionarySingleWords information concluded each single word
+     * @param tokenWithPunctuation token with punctuation mark
+     * @return processed token
+     */
     private static String processTokenWithPunctuation(InputFile inputFile, DictionarySingleWords dictionarySingleWords,
                                                String tokenWithPunctuation){
         String lastTokenCharacter = tokenWithPunctuation.substring(tokenWithPunctuation.length()-1 );
@@ -61,7 +83,13 @@ public class ReplacerSingleWords {
         }
     }
 
-
+    /**
+     * Evaluate token with dot
+     * @param inputFile file to process
+     * @param dictionarySingleWords information concluded each single word
+     * @param dotToken token with dot
+     * @return new token
+     */
     private static String processDotToken(InputFile inputFile, DictionarySingleWords dictionarySingleWords,
                                    String dotToken){
         if (dotToken.lastIndexOf(".") == dotToken.length()-1 ){
@@ -83,6 +111,13 @@ public class ReplacerSingleWords {
         }
     }
 
+    /**
+     * Evaluate token without dot
+     * @param inputFile file to process
+     * @param dictionarySingleWords information concluded each single word
+     * @param noDotToken token without dot
+     * @return new token
+     */
     private static String processNoDotToken(InputFile inputFile, DictionarySingleWords dictionarySingleWords,
                                      String noDotToken){
         String replacement = dictionarySingleWords.getSingleWordReplacement(noDotToken);
@@ -93,6 +128,11 @@ public class ReplacerSingleWords {
         return noDotToken;
     }
 
+    /**
+     * Get words(=tokens) from file
+     * @param inputFile file to read
+     * @return tokens
+     */
     private static String[] tokenizeFile(InputFile inputFile){
         String fileText = inputFile.getFileText();
         return fileText.split(" ");

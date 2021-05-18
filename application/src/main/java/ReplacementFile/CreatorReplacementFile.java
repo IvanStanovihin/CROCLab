@@ -11,8 +11,15 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+/**
+ * Class to create replacement files
+ */
 public class CreatorReplacementFile {
-
+    /**
+     * Create replacement file and log about it
+     * @param outDir out directory
+     * @param inputFiles files to process and read from, then write to replacement file
+     */
     public static void createReplacementFile(String outDir, ArrayList<InputFile> inputFiles) {
         Handler.reportLog.startModule();
         String currentDir = outDir + "/Replacement";

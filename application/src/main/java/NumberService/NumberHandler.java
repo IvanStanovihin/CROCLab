@@ -1,6 +1,14 @@
 package NumberService;
 
+/**
+ * Class to process numbers
+ */
 public class NumberHandler {
+    /**
+     * Do primary numbers` processing
+     * @param number number`s string
+     * @return number written with letters
+     */
     public static String numberToString(String number) {
         String res = "";
         if(number.startsWith("-")) {
@@ -31,6 +39,13 @@ public class NumberHandler {
         }
         else return res + numberToSymbol(Long.parseLong(number), Long.parseLong(number));
     }
+
+    /**
+     * Translate number to string format
+     * @param number number to process
+     * @param number_copy copy of number to process
+     * @return
+     */
     public static String numberToSymbol(long number, long number_copy) {
         String res = "";
         long copyNumber;
@@ -158,24 +173,35 @@ public class NumberHandler {
         return res;
     }
 
+    /**
+     * Change number`s string to correct record according to grammar
+     * @param res number`s string
+     * @param number number to process
+     * @param copy_number copy of number to process
+     * @param ends postfix of number. For example, "миллион".
+     * @return result of change
+     */
     private static String getString(String res, long number, long copy_number, String ends) {
         String t = numberToSymbol(number,  copy_number).trim();
         if (t.endsWith("надцать") || t.endsWith("дцать") ||
                 t.endsWith("десят") || t.endsWith("сто") ||
-                t.endsWith("тысяч") || t.endsWith("тысячи")) {
+                t.endsWith("тысяч") || t.endsWith("тысячи") || t.endsWith("ть")) {
             res += t + " " + ends + "ов ";
+        }
+        else if(t.endsWith("один")) {
+            res+= t + " " + ends;
         }
         else res+= t + " " + ends + "а ";
         return res;
     }
-    private static String getString(String res, long number, long copy_number) {
-        while (number != 0) {
-            res +=numberToSymbol(number, copy_number);
-            number /= 10;
 
-        }
-        return res;
-    }
+    /**
+     * Make number to letter format by one number. For example, "123" - один два три
+     * @param res number`s string
+     * @param number number to process
+     * @param copy_number copy of number
+     * @return number in letter format by one number
+     */
     private static String getStringByOneNumber(String res, long number, long copy_number) {
         while (number != 0) {
             res = copy_number == number ? "" : " "  + numberToSymbol(number % 10, number % 10)  + res;

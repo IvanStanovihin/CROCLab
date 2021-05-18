@@ -13,13 +13,19 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/** Class that generates statistics for user words*/
 public class UserStatisticFile {
 
+    /**Name file with "words for user statistic"*/
     private String processedFileName;
+    /**Statistics on user words.*/
     private Map<String, Integer> userStatistic = new LinkedHashMap<>();
+    /**List of words for user statistic*/
     private transient ArrayList<String>wordsForUserStatistic;
+    /**Output file name*/
     private transient String userStatisticFileName;
 
+    /**Start generating statistic for user words*/
     public UserStatisticFile(ArrayList<String>wordsForUserStatistic, ProcessedFileStatistic processedFileStatistic,
                              String userStatisticFileName) {
         this.userStatisticFileName = userStatisticFileName;
@@ -28,6 +34,7 @@ public class UserStatisticFile {
         createStatistic(processedFileStatistic);
     }
 
+    /**Generating statistic for user words*/
     private void createStatistic(ProcessedFileStatistic processedFileStatistic) {
         Map<String, Integer> processedWordsStatistic = processedFileStatistic.getWordsStatistic();
         for (String wordForStatistic : wordsForUserStatistic) {
@@ -39,6 +46,7 @@ public class UserStatisticFile {
         sortStatistic();
     }
 
+    /**Sorting the number of words in descending order*/
     private void sortStatistic() {
         ArrayList<Map.Entry<String, Integer>> sortedStatisticEntries = new ArrayList<>(userStatistic.entrySet());
         sortedStatisticEntries.sort((w1, w2) -> (w2.getValue() - w1.getValue()));
@@ -49,11 +57,13 @@ public class UserStatisticFile {
         userStatistic = sortedStatisticMap;
     }
 
+    /**Converting statistics to json format for writing to a file*/
     private String getJsonFormat() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(this);
     }
 
+    /**Writing statistic in a file*/
     public void createFile(String outDir) {
         if (!fileIsEmpty()) {
             try (OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/" + userStatisticFileName + processedFileName), StandardCharsets.UTF_8)) {

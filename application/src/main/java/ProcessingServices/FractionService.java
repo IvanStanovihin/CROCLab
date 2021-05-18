@@ -9,14 +9,29 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Class for disclosure fractions into text
+ */
 public class FractionService {
 
+    /**
+     * Regular expression for finding fractions
+     */
     private static final String regexFraction = "\\d+,\\d+";
 
+    /**
+     * Method for checking the module connection
+     * @return true if the module is enabled , else false
+     */
     private static boolean isModuleEnable(){
         return Handler.getProperty().isEnableFractionsModule();
     }
 
+
+    /**
+     * Method of processing fractions
+     * @param inputFiles ArrayList with inputFiles
+     */
     public static void handle(ArrayList<InputFile> inputFiles){
         if (isModuleEnable()) {
             Handler.reportLog.startModule();
@@ -29,6 +44,10 @@ public class FractionService {
         }
     }
 
+    /**
+     * Find and expand fractions in a single input file
+     * @param inputFile input file for processing
+     */
     private static void handleFraction(InputFile inputFile) {
         String fileText = inputFile.getFileText();
         Pattern fractionPattern = Pattern.compile(regexFraction);

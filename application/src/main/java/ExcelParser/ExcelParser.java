@@ -15,7 +15,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+/**A class for adapting data sent by a business client. Extracts information from the desired column in the excel file.
+ *  This class is not required during processing of input files.*/
 public class ExcelParser {
 
     Map<String, String> filesTexts = new LinkedHashMap<>();

@@ -8,11 +8,13 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+/**General statistics for all offers that have been moved to quarantine.*/
 public class GeneralQuarantineSentencesStatistic {
 
+    /**List of quarantine statistics for each processed file*/
+    ArrayList<QuarantineStatisticFile>quarantineStatisticFiles = new ArrayList();
 
-        ArrayList<QuarantineStatisticFile>quarantineStatisticFiles = new ArrayList() ;
-
+    /**If the quarantine for a processed file is not empty then statistics are generated for that processed file*/
     public GeneralQuarantineSentencesStatistic(ArrayList<QuarantineStatisticFile>quarantineStatisticFiles){
             for (QuarantineStatisticFile quarantineStatisticFile : quarantineStatisticFiles){
                 if (!quarantineStatisticFile.fileIsEmpty()){
@@ -21,8 +23,7 @@ public class GeneralQuarantineSentencesStatistic {
             }
     }
 
-
-
+    /**Writing statistic to a file*/
     public void createFile(String outDir){
         if (!isFileEmpty()) {
             try (OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/QuarantineSentencesStatistic.txt"), StandardCharsets.UTF_8)) {
@@ -33,58 +34,16 @@ public class GeneralQuarantineSentencesStatistic {
         }
     }
 
+    /**Converting statistics to json format for writing to a file*/
     private String getJsonFormat(){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(this);
     }
 
+    /**Checking the quarantine for emptiness*/
     private boolean isFileEmpty(){
         return quarantineStatisticFiles.size() == 0;
     }
 }
 
 
-class QuarantineSentenceStatistic{
-
-    private String fileName;
-    private String unreadableSentence;
-    private Integer countSentences;
-
-
-    public QuarantineSentenceStatistic(String fileName, String unreadableSentence){
-        this.fileName = fileName;
-        this.unreadableSentence = unreadableSentence;
-    }
-
-    public String getUnreadableSentence() {
-        return unreadableSentence;
-    }
-
-    public void setCountSentences(Integer countSentences){
-        this.countSentences = countSentences;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = 1;
-        result = 31 * result + fileName.hashCode();
-        result = 31 * result + unreadableSentence.hashCode();
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj){
-            return true;
-        }
-        if (obj == null || obj.getClass() != this.getClass()){
-            return false;
-        }
-        QuarantineSentenceStatistic objQuarSentStat = (QuarantineSentenceStatistic)obj;
-        return fileName.equals(objQuarSentStat.fileName) && unreadableSentence.equals(objQuarSentStat.unreadableSentence);
-    }
-
-    public Integer getCountSentences() {
-        return countSentences;
-    }
-}

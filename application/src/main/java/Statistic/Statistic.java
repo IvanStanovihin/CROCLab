@@ -15,18 +15,28 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+/**Class in which creating all statistic.*/
 public class Statistic {
 
+    /**List of row input files*/
     private ArrayList<InputFile>inputFiles;
+    /**List of quarantine statistic for each processed file*/
     private ArrayList<QuarantineStatisticFile> quarantineStatisticFiles = new ArrayList<>();
+    /**List of statistic for each processed file*/
     private ArrayList<ProcessedFileStatistic> processedFilesStatistic = new ArrayList<>();
+    /**List of statistic for each row input file*/
     private ArrayList<RowFileStatistic> rowFilesStatistic = new ArrayList<>();
+    /**List of sentences with abbreviation*/
     ArrayList<FileWithAbbreviations> filesWithAbbreviations = new ArrayList<>();
+    /**Output statistic directory*/
     private String statisticFilesDir;
 
 
-
-
+    /**
+     *
+     * @param property - a file that contains the paths for the configuration files and statistics output files
+     * @param rowFiles - row input files
+     */
     public Statistic(PropertyLoader property, ArrayList<InputFile>rowFiles){
         String outputDirectory = property.getOutDirectory();
         this.inputFiles = rowFiles;
@@ -38,6 +48,8 @@ public class Statistic {
         this.statisticFilesDir = outputDirectory + "/Statistic";
     }
 
+
+    /**Start generating statistics and creating output statistic directories*/
     public void createStatisticFiles(){
         String generalFilesStatisticDir = statisticFilesDir + "/GeneralProcessedFilesStatistic";
         String eachFileStatisticDir = statisticFilesDir + "/EachProcessedFileStatistic";
@@ -71,17 +83,19 @@ public class Statistic {
         generateQuarantineWordsStatistic(quarantineStatisticDir);
     }
 
-
+    /**Creating file with abbreviations*/
     private void generateFilesWithAbbreviations(String outDir){
         for(FileWithAbbreviations fileWithAbbreviations : filesWithAbbreviations){
             fileWithAbbreviations.createFile(outDir);
         }
     }
 
+    /**Creating words statistic for each processed files*/
     private void generateQuarantineWordsStatistic(String outDir){
         new QuarantineWordsStatistic(inputFiles).createFile(outDir);
     }
 
+    /**Creating words ad sentences statistic for processed files*/
     private void generateStatisticEachFile(String dir){
         for (ProcessedFileStatistic processedFileStatistic : processedFilesStatistic){
             try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(dir + "/" + processedFileStatistic.getOutFileName()), StandardCharsets.UTF_8)){
@@ -93,12 +107,14 @@ public class Statistic {
     }
 
 
+    /**Creating quarantine statistic file*/
     private void generateQuarantineStatistic(String dir){
         GeneralQuarantineSentencesStatistic generalQuarantineSentencesStatistic =
                 new GeneralQuarantineSentencesStatistic(quarantineStatisticFiles);
         generalQuarantineSentencesStatistic.createFile(dir);
     }
 
+    /**Creating statistic file for row file*/
     public static void generateRowFilesStatistic(ArrayList<InputFile>inputFiles, PropertyLoader property){
         String statisticFilesDir = property.getOutDirectory() + "/Statistic";
         ArrayList<RowFileStatistic>rowFilesStatistic = new ArrayList<>();
@@ -116,6 +132,7 @@ public class Statistic {
         }
     }
 
+    /**Creating user statistic file*/
     private void generateUserStatistic(String outDir){
         ArrayList<String>filesPathsWithWordsForStatistic = new ArrayList<>();
         generateFileForStatisticPaths(Handler.getProperty().getFilesForStatisticDirectory(), filesPathsWithWordsForStatistic);
@@ -124,6 +141,7 @@ public class Statistic {
         }
     }
 
+    /**Creating paths for statistic files*/
     private void generateFileForStatisticPaths(String directoryForUserStatistic, ArrayList<String>filesPaths){
         File directory = new File(directoryForUserStatistic);
         for (File file : directory.listFiles()){
@@ -136,16 +154,19 @@ public class Statistic {
     }
 
 
+    /**Creating files with english text*/
     private void generateFilesWithEnglish(String outDir){
         for (InputFile inputFile : inputFiles){
             inputFile.getFileWithEnglishText().createFile(outDir);
         }
     }
 
+    /**Creating files with deleting words*/
     private void generateDeletedWordsStatistic(String outputDirectory){
         new DeletedWordsStatistic(inputFiles).createStatistic(outputDirectory);
     }
 
+    /**Start generating statistics and creating output directories*/
     public void printQuarantineSentencesInfo(){
         int countQuarantineSentences = 0;
         int countProcessedSentences = 0;

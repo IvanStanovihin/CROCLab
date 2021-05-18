@@ -6,12 +6,23 @@ import ReportLog.*;
 
 import java.util.ArrayList;
 
+/**
+ * Class for handling different characters
+ */
 public class PunctuationMarkService {
 
+    /**
+     * Method for checking the module connection
+     * @return true if the module is enabled , else false
+     */
     private static boolean isModuleEnable(){
         return Handler.getProperty().isEnablePunctuationMarkModule();
     }
 
+    /**
+     * Method of processing different characters
+     * @param inputFiles inputFiles ArrayList with inputFiles
+     */
     public static void handle(ArrayList<InputFile>inputFiles){
         if (isModuleEnable()) {
             Handler.reportLog.startModule();
@@ -25,6 +36,10 @@ public class PunctuationMarkService {
         }
     }
 
+    /**
+     * Find and disclosure different characters in a single input file
+     * @param inputFile input file for processing
+     */
     private static void handlePunctuationMarks(InputFile inputFile){
         String fileText = inputFile.getFileText();
         String handledFileText = fileText.replaceAll("\\.{2,}", "\\.")

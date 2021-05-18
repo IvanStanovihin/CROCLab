@@ -6,12 +6,22 @@ import ReportLog.LogOperation;
 
 import java.util.ArrayList;
 
+/**
+ * Handler of dates
+ */
 public class DateHandler {
-
+    /**
+     * Verify if module is enabled
+     * @return result of verifying
+     */
     private static boolean isModuleEnable(){
         return Handler.getProperty().isEnableDatesModule();
     }
 
+    /**
+     * Primary processing files
+     * @param inputFiles files to process
+     */
     public static void processDate(ArrayList<InputFile> inputFiles){
         if (isModuleEnable()) {
             Handler.reportLog.startModule();
@@ -25,6 +35,10 @@ public class DateHandler {
         }
     }
 
+    /**
+     * Process files
+     * @param inputFile files
+     */
     private static void processFile(InputFile inputFile){
         String fileText = inputFile.getFileText();
         String processedText = StringToData.isPatterned(fileText);

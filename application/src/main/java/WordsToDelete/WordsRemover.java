@@ -8,15 +8,25 @@ import ReportLog.LogOperation;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+/**A class that deletes words written by the user in "WordsToDelete" file*/
 public class WordsRemover {
 
+    /**The list of words that the user wrote*/
     private static ArrayList<String> wordsToDelete;
 
+    /**
+     * Method for checking the module connection
+     * @return true if the module is enabled , else false
+     */
     private static boolean isModuleEnable(){
         return Handler.getProperty().isEnableRemoveWordsModule();
     }
 
+    /**
+     * Start deleting words
+     * @param property - "property.json" file with the settings for enabling modules
+     * @param inputFiles - list of input files
+     */
     public static void removeWords(PropertyLoader property, ArrayList<InputFile>inputFiles){
         if (isModuleEnable()) {
             Handler.reportLog.startModule();
@@ -30,6 +40,7 @@ public class WordsRemover {
         }
     }
 
+    /**Finds the words to delete in each input file*/
     private static void processFiles(ArrayList<InputFile> inputFiles){
         for (String wordToDelete : wordsToDelete){
             Pattern deleteWordPattern = Pattern.compile("(?<=[\\W&&[^А-Яа-яёЁ]])" + wordToDelete + "(?=[\\W&&[^А-Яа-яёЁ]])",
@@ -40,6 +51,7 @@ public class WordsRemover {
         }
     }
 
+    /**Deleting "words to delete" from the input file*/
     private static void handleFile(InputFile inputFile, Pattern wordToDeletePattern){
         String fileText = inputFile.getFileText();
         StringBuilder handledText = new StringBuilder();
