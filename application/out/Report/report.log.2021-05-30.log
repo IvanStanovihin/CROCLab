@@ -1,0 +1,700 @@
+Processing phone numbers (InputFile_Mix.txt 1/2) 0.03
+Processing phone numbers (InputFile_noDots.txt 2/2) 0.02
+Processing times (InputFile_Mix.txt 1/2) 0.0
+Processing times (InputFile_noDots.txt 2/2) 0.0
+Processing dates (InputFile_Mix.txt 1/2) 0.1
+Processing dates (InputFile_noDots.txt 2/2) 0.125
+Processing moneys (InputFile_Mix.txt 1/2) 0.0
+Processing moneys (InputFile_noDots.txt 2/2) 0.01
+Processing fractions (InputFile_Mix.txt 1/2) 0.0
+Processing fractions (InputFile_noDots.txt 2/2) 0.0
+Deleting links (InputFile_Mix.txt 1/2) 0.0
+Deleting links (InputFile_noDots.txt 2/2) 0.01
+Processing numbers (InputFile_Mix.txt 1/2) 0.0
+Processing numbers (InputFile_noDots.txt 2/2) 0.0
+Deleting whitespace dictionary words (InputFile_Mix.txt 1/2) 0.04
+Deleting whitespace dictionary words (InputFile_noDots.txt 2/2) 0.03
+Deleting single dictionary words (InputFile_Mix.txt 1/2) 0.01
+Deleting single dictionary words (InputFile_noDots.txt 2/2) 0.0
+Processing punctuation marks (InputFile_Mix.txt 1/2) 0.0
+Processing punctuation marks (InputFile_noDots.txt 2/2) 0.01
+Processing days of the week (InputFile_Mix.txt 1/2) 0.01
+Processing days of the week (InputFile_noDots.txt 2/2) 0.02
+Deleting initials (InputFile_Mix.txt 1/2) 0.0
+Deleting initials (InputFile_noDots.txt 2/2) 0.0
+Searching abbreviations (InputFile_Mix.txt 1/2) 0.01
+Searching abbreviations (InputFile_noDots.txt 2/2) 0.0
+Separating camel case words (InputFile_Mix.txt 1/2) 0.01
+Separating camel case words (InputFile_noDots.txt 2/2) 0.01
+Splitting files into sentences (InputFile_Mix.txt 1/2) 0.0
+Splitting files into sentences (InputFile_noDots.txt 2/2) 0.01
+Deleting extra spaces (InputFile_Mix.txt 1/2) 0.01
+Deleting extra spaces (InputFile_noDots.txt 2/2) 0.0
+Searching english text  (InputFile_Mix.txt 1/2) 0.0
+Searching english text  (InputFile_noDots.txt 2/2) 0.01
+Processing acronyms (InputFile_Mix.txt 1/2) 0.0
+Processing acronyms (InputFile_noDots.txt 2/2) 0.01
+Creating a file with replacements (InputFile_Mix.txt 1/2) 0.01
+Creating a file with replacements (InputFile_noDots.txt 2/2) 0.0
+Creating processed files (InputFile_Mix.txt 1/2) 0.0
+Creating processed files (InputFile_noDots.txt 2/2) 0.01
+Processing phone numbers (InputFile_Mix.txt 1/3) 0.03
+Processing phone numbers (InputFile_noDots.txt 2/3) 0.04
+Processing phone numbers (Money.txt 3/3) 0.0
+Processing times (InputFile_Mix.txt 1/3) 0.0
+Processing times (InputFile_noDots.txt 2/3) 0.0
+Processing times (Money.txt 3/3) 0.0
+Processing dates (InputFile_Mix.txt 1/3) 0.11
+Processing dates (InputFile_noDots.txt 2/3) 0.11
+Processing dates (Money.txt 3/3) 0.0
+Processing moneys (InputFile_Mix.txt 1/3) 0.0
+Processing moneys (InputFile_noDots.txt 2/3) 0.01
+Processing moneys (Money.txt 3/3) 0.0
+Processing fractions (InputFile_Mix.txt 1/3) 0.0
+Processing fractions (InputFile_noDots.txt 2/3) 0.0
+Processing fractions (Money.txt 3/3) 0.0
+Deleting links (InputFile_Mix.txt 1/3) 0.01
+Deleting links (InputFile_noDots.txt 2/3) 0.0
+Deleting links (Money.txt 3/3) 0.0
+Processing numbers (InputFile_Mix.txt 1/3) 0.0
+Processing numbers (InputFile_noDots.txt 2/3) 0.01
+Processing numbers (Money.txt 3/3) 0.0
+Deleting whitespace dictionary words (InputFile_Mix.txt 1/3) 0.04
+Deleting whitespace dictionary words (InputFile_noDots.txt 2/3) 0.03
+Deleting whitespace dictionary words (Money.txt 3/3) 0.01
+Deleting single dictionary words (InputFile_Mix.txt 1/3) 0.008
+Deleting single dictionary words (InputFile_noDots.txt 2/3) 0.0
+Deleting single dictionary words (Money.txt 3/3) 0.0
+Processing punctuation marks (InputFile_Mix.txt 1/3) 0.0
+Processing punctuation marks (InputFile_noDots.txt 2/3) 0.0
+Processing punctuation marks (Money.txt 3/3) 0.0
+Processing days of the week (InputFile_Mix.txt 1/3) 0.01
+Processing days of the week (InputFile_noDots.txt 2/3) 0.01
+Processing days of the week (Money.txt 3/3) 0.0
+Deleting initials (InputFile_Mix.txt 1/3) 0.01
+Deleting initials (InputFile_noDots.txt 2/3) 0.0
+Deleting initials (Money.txt 3/3) 0.0
+Searching abbreviations (InputFile_Mix.txt 1/3) 0.01
+Searching abbreviations (InputFile_noDots.txt 2/3) 0.0
+Searching abbreviations (Money.txt 3/3) 0.0
+Separating camel case words (InputFile_Mix.txt 1/3) 0.0
+Separating camel case words (InputFile_noDots.txt 2/3) 0.01
+Separating camel case words (Money.txt 3/3) 0.0
+Splitting files into sentences (InputFile_Mix.txt 1/3) 0.01
+Splitting files into sentences (InputFile_noDots.txt 2/3) 0.01
+Splitting files into sentences (Money.txt 3/3) 0.0
+Deleting extra spaces (InputFile_Mix.txt 1/3) 0.01
+Deleting extra spaces (InputFile_noDots.txt 2/3) 0.0
+Deleting extra spaces (Money.txt 3/3) 0.0
+Searching english text  (InputFile_Mix.txt 1/3) 0.0
+Searching english text  (InputFile_noDots.txt 2/3) 0.01
+Searching english text  (Money.txt 3/3) 0.0
+Processing acronyms (InputFile_Mix.txt 1/3) 0.0
+Processing acronyms (InputFile_noDots.txt 2/3) 0.01
+Processing acronyms (Money.txt 3/3) 0.0
+Creating a file with replacements (InputFile_Mix.txt 1/3) 0.0
+Creating a file with replacements (InputFile_noDots.txt 2/3) 0.01
+Creating a file with replacements (Money.txt 3/3) 0.0
+Creating processed files (InputFile_Mix.txt 1/3) 0.01
+Creating processed files (InputFile_noDots.txt 2/3) 0.0
+Creating processed files (Money.txt 3/3) 0.009
+Processing phone numbers (InputFile_Mix.txt 1/3) 0.04
+Processing phone numbers (InputFile_noDots.txt 2/3) 0.049
+Processing phone numbers (Money.txt 3/3) 0.0
+Processing times (InputFile_Mix.txt 1/3) 0.0
+Processing times (InputFile_noDots.txt 2/3) 0.0
+Processing times (Money.txt 3/3) 0.0
+Processing dates (InputFile_Mix.txt 1/3) 0.131
+Processing dates (InputFile_noDots.txt 2/3) 0.149
+Processing dates (Money.txt 3/3) 0.0
+Processing moneys (InputFile_Mix.txt 1/3) 0.011
+Processing moneys (InputFile_noDots.txt 2/3) 0.0
+Processing moneys (Money.txt 3/3) 0.0
+Processing fractions (InputFile_Mix.txt 1/3) 0.012
+Processing fractions (InputFile_noDots.txt 2/3) 0.002
+Processing fractions (Money.txt 3/3) 0.0
+Deleting links (InputFile_Mix.txt 1/3) 0.008
+Deleting links (InputFile_noDots.txt 2/3) 0.011
+Deleting links (Money.txt 3/3) 0.0
+Processing numbers (InputFile_Mix.txt 1/3) 0.0
+Processing numbers (InputFile_noDots.txt 2/3) 0.0
+Processing numbers (Money.txt 3/3) 0.0
+Deleting whitespace dictionary words (InputFile_Mix.txt 1/3) 0.045
+Deleting whitespace dictionary words (InputFile_noDots.txt 2/3) 0.036
+Deleting whitespace dictionary words (Money.txt 3/3) 0.0
+Deleting single dictionary words (InputFile_Mix.txt 1/3) 0.013
+Deleting single dictionary words (InputFile_noDots.txt 2/3) 0.0
+Deleting single dictionary words (Money.txt 3/3) 0.0
+Processing punctuation marks (InputFile_Mix.txt 1/3) 0.002
+Processing punctuation marks (InputFile_noDots.txt 2/3) 0.0
+Processing punctuation marks (Money.txt 3/3) 0.0
+Processing days of the week (InputFile_Mix.txt 1/3) 0.007
+Processing days of the week (InputFile_noDots.txt 2/3) 0.007
+Processing days of the week (Money.txt 3/3) 0.0
+Deleting initials (InputFile_Mix.txt 1/3) 0.005
+Deleting initials (InputFile_noDots.txt 2/3) 0.0
+Deleting initials (Money.txt 3/3) 0.0
+Searching abbreviations (InputFile_Mix.txt 1/3) 0.011
+Searching abbreviations (InputFile_noDots.txt 2/3) 0.0
+Searching abbreviations (Money.txt 3/3) 0.0
+Separating camel case words (InputFile_Mix.txt 1/3) 0.006
+Separating camel case words (InputFile_noDots.txt 2/3) 0.0
+Separating camel case words (Money.txt 3/3) 0.0
+Splitting files into sentences (InputFile_Mix.txt 1/3) 0.011
+Splitting files into sentences (InputFile_noDots.txt 2/3) 0.0
+Splitting files into sentences (Money.txt 3/3) 0.0
+Deleting extra spaces (InputFile_Mix.txt 1/3) 0.011
+Deleting extra spaces (InputFile_noDots.txt 2/3) 0.0
+Deleting extra spaces (Money.txt 3/3) 0.0
+Searching english text  (InputFile_Mix.txt 1/3) 0.005
+Searching english text  (InputFile_noDots.txt 2/3) 0.0
+Searching english text  (Money.txt 3/3) 0.0
+Processing acronyms (InputFile_Mix.txt 1/3) 0.007
+Processing acronyms (InputFile_noDots.txt 2/3) 0.0
+Processing acronyms (Money.txt 3/3) 0.0
+Creating a file with replacements (InputFile_Mix.txt 1/3) 0.0
+Creating a file with replacements (InputFile_noDots.txt 2/3) 0.0
+Creating a file with replacements (Money.txt 3/3) 0.0
+Creating processed files (InputFile_Mix.txt 1/3) 0.0
+Creating processed files (InputFile_noDots.txt 2/3) 0.009
+Creating processed files (Money.txt 3/3) 0.0
+Processing phone numbers (InputFile_Mix.txt 1/3) 0.02
+Processing phone numbers (InputFile_noDots.txt 2/3) 0.03
+Processing phone numbers (Money.txt 3/3) 0.0
+Processing times (InputFile_Mix.txt 1/3) 0.0
+Processing times (InputFile_noDots.txt 2/3) 0.0
+Processing times (Money.txt 3/3) 0.0
+Processing dates (InputFile_Mix.txt 1/3) 0.13
+Processing dates (InputFile_noDots.txt 2/3) 0.105
+Processing dates (Money.txt 3/3) 0.01
+Processing moneys (InputFile_Mix.txt 1/3) 0.0
+Processing moneys (InputFile_noDots.txt 2/3) 0.01
+Processing moneys (Money.txt 3/3) 0.0
+Processing fractions (InputFile_Mix.txt 1/3) 0.0
+Processing fractions (InputFile_noDots.txt 2/3) 0.0
+Processing fractions (Money.txt 3/3) 0.0
+Deleting links (InputFile_Mix.txt 1/3) 0.01
+Deleting links (InputFile_noDots.txt 2/3) 0.01
+Deleting links (Money.txt 3/3) 0.0
+Processing numbers (InputFile_Mix.txt 1/3) 0.0
+Processing numbers (InputFile_noDots.txt 2/3) 0.0
+Processing numbers (Money.txt 3/3) 0.0
+Deleting whitespace dictionary words (InputFile_Mix.txt 1/3) 0.04
+Deleting whitespace dictionary words (InputFile_noDots.txt 2/3) 0.031
+Deleting whitespace dictionary words (Money.txt 3/3) 0.0
+Deleting single dictionary words (InputFile_Mix.txt 1/3) 0.01
+Deleting single dictionary words (InputFile_noDots.txt 2/3) 0.01
+Deleting single dictionary words (Money.txt 3/3) 0.0
+Processing punctuation marks (InputFile_Mix.txt 1/3) 0.01
+Processing punctuation marks (InputFile_noDots.txt 2/3) 0.008
+Processing punctuation marks (Money.txt 3/3) 0.0
+Processing days of the week (InputFile_Mix.txt 1/3) 0.01
+Processing days of the week (InputFile_noDots.txt 2/3) 0.01
+Processing days of the week (Money.txt 3/3) 0.0
+Deleting initials (InputFile_Mix.txt 1/3) 0.002
+Deleting initials (InputFile_noDots.txt 2/3) 0.0
+Deleting initials (Money.txt 3/3) 0.0
+Searching abbreviations (InputFile_Mix.txt 1/3) 0.01
+Searching abbreviations (InputFile_noDots.txt 2/3) 0.0
+Searching abbreviations (Money.txt 3/3) 0.0
+Separating camel case words (InputFile_Mix.txt 1/3) 0.01
+Separating camel case words (InputFile_noDots.txt 2/3) 0.0
+Separating camel case words (Money.txt 3/3) 0.0
+Splitting files into sentences (InputFile_Mix.txt 1/3) 0.0
+Splitting files into sentences (InputFile_noDots.txt 2/3) 0.01
+Splitting files into sentences (Money.txt 3/3) 0.0
+Deleting extra spaces (InputFile_Mix.txt 1/3) 0.008
+Deleting extra spaces (InputFile_noDots.txt 2/3) 0.002
+Deleting extra spaces (Money.txt 3/3) 0.0
+Searching english text  (InputFile_Mix.txt 1/3) 0.0
+Searching english text  (InputFile_noDots.txt 2/3) 0.0
+Searching english text  (Money.txt 3/3) 0.0
+Processing acronyms (InputFile_Mix.txt 1/3) 0.002
+Processing acronyms (InputFile_noDots.txt 2/3) 0.008
+Processing acronyms (Money.txt 3/3) 0.0
+Creating a file with replacements (InputFile_Mix.txt 1/3) 0.01
+Creating a file with replacements (InputFile_noDots.txt 2/3) 0.0
+Creating a file with replacements (Money.txt 3/3) 0.0
+Creating processed files (InputFile_Mix.txt 1/3) 0.0
+Creating processed files (InputFile_noDots.txt 2/3) 0.0
+Creating processed files (Money.txt 3/3) 0.008
+Processing phone numbers (Fractions.txt 1/4) 0.01
+Processing phone numbers (InputFile_Mix.txt 2/4) 0.0
+Processing phone numbers (InputFile_noDots.txt 3/4) 0.03
+Processing phone numbers (Money.txt 4/4) 0.0
+Processing times (Fractions.txt 1/4) 0.0
+Processing times (InputFile_Mix.txt 2/4) 0.0
+Processing times (InputFile_noDots.txt 3/4) 0.0
+Processing times (Money.txt 4/4) 0.0
+Processing dates (Fractions.txt 1/4) 0.02
+Processing dates (InputFile_Mix.txt 2/4) 0.071
+Processing dates (InputFile_noDots.txt 3/4) 0.091
+Processing dates (Money.txt 4/4) 0.002
+Processing moneys (Fractions.txt 1/4) 0.0
+Processing moneys (InputFile_Mix.txt 2/4) 0.0
+Processing moneys (InputFile_noDots.txt 3/4) 0.01
+Processing moneys (Money.txt 4/4) 0.0
+Processing fractions (Fractions.txt 1/4) 0.0
+Processing fractions (InputFile_Mix.txt 2/4) 0.0
+Processing fractions (InputFile_noDots.txt 3/4) 0.0
+Processing fractions (Money.txt 4/4) 0.0
+Deleting links (Fractions.txt 1/4) 0.002
+Deleting links (InputFile_Mix.txt 2/4) 0.0
+Deleting links (InputFile_noDots.txt 3/4) 0.01
+Deleting links (Money.txt 4/4) 0.0
+Processing numbers (Fractions.txt 1/4) 0.0
+Processing numbers (InputFile_Mix.txt 2/4) 0.008
+Processing numbers (InputFile_noDots.txt 3/4) 0.0
+Processing numbers (Money.txt 4/4) 0.0
+Deleting whitespace dictionary words (Fractions.txt 1/4) 0.0
+Deleting whitespace dictionary words (InputFile_Mix.txt 2/4) 0.04
+Deleting whitespace dictionary words (InputFile_noDots.txt 3/4) 0.02
+Deleting whitespace dictionary words (Money.txt 4/4) 0.0
+Deleting single dictionary words (Fractions.txt 1/4) 0.0
+Deleting single dictionary words (InputFile_Mix.txt 2/4) 0.01
+Deleting single dictionary words (InputFile_noDots.txt 3/4) 0.0
+Deleting single dictionary words (Money.txt 4/4) 0.0
+Processing punctuation marks (Fractions.txt 1/4) 0.0
+Processing punctuation marks (InputFile_Mix.txt 2/4) 0.0
+Processing punctuation marks (InputFile_noDots.txt 3/4) 0.01
+Processing punctuation marks (Money.txt 4/4) 0.0
+Processing days of the week (Fractions.txt 1/4) 0.0
+Processing days of the week (InputFile_Mix.txt 2/4) 0.01
+Processing days of the week (InputFile_noDots.txt 3/4) 0.01
+Processing days of the week (Money.txt 4/4) 0.0
+Deleting initials (Fractions.txt 1/4) 0.0
+Deleting initials (InputFile_Mix.txt 2/4) 0.01
+Deleting initials (InputFile_noDots.txt 3/4) 0.0
+Deleting initials (Money.txt 4/4) 0.0
+Searching abbreviations (Fractions.txt 1/4) 0.0
+Searching abbreviations (InputFile_Mix.txt 2/4) 0.01
+Searching abbreviations (InputFile_noDots.txt 3/4) 0.0
+Searching abbreviations (Money.txt 4/4) 0.0
+Separating camel case words (Fractions.txt 1/4) 0.0
+Separating camel case words (InputFile_Mix.txt 2/4) 0.01
+Separating camel case words (InputFile_noDots.txt 3/4) 0.01
+Separating camel case words (Money.txt 4/4) 0.0
+Splitting files into sentences (Fractions.txt 1/4) 0.01
+Splitting files into sentences (InputFile_Mix.txt 2/4) 0.0
+Splitting files into sentences (InputFile_noDots.txt 3/4) 0.01
+Splitting files into sentences (Money.txt 4/4) 0.0
+Deleting extra spaces (Fractions.txt 1/4) 0.0
+Deleting extra spaces (InputFile_Mix.txt 2/4) 0.01
+Deleting extra spaces (InputFile_noDots.txt 3/4) 0.0
+Deleting extra spaces (Money.txt 4/4) 0.0
+Searching english text  (Fractions.txt 1/4) 0.0
+Searching english text  (InputFile_Mix.txt 2/4) 0.0
+Searching english text  (InputFile_noDots.txt 3/4) 0.0
+Searching english text  (Money.txt 4/4) 0.0
+Processing acronyms (Fractions.txt 1/4) 0.0
+Processing acronyms (InputFile_Mix.txt 2/4) 0.0
+Processing acronyms (InputFile_noDots.txt 3/4) 0.01
+Processing acronyms (Money.txt 4/4) 0.0
+Creating a file with replacements (Fractions.txt 1/4) 0.0
+Creating a file with replacements (InputFile_Mix.txt 2/4) 0.0
+Creating a file with replacements (InputFile_noDots.txt 3/4) 0.01
+Creating a file with replacements (Money.txt 4/4) 0.0
+Creating processed files (Fractions.txt 1/4) 0.0
+Creating processed files (InputFile_Mix.txt 2/4) 0.01
+Creating processed files (InputFile_noDots.txt 3/4) 0.0
+Creating processed files (Money.txt 4/4) 0.0
+Processing phone numbers (Fractions.txt 1/4) 0.033
+Processing phone numbers (InputFile_Mix.txt 2/4) 0.0
+Processing phone numbers (InputFile_noDots.txt 3/4) 0.04
+Processing phone numbers (Money.txt 4/4) 0.0
+Processing times (Fractions.txt 1/4) 0.0
+Processing times (InputFile_Mix.txt 2/4) 0.0
+Processing times (InputFile_noDots.txt 3/4) 0.008
+Processing times (Money.txt 4/4) 0.0
+Processing dates (Fractions.txt 1/4) 0.03
+Processing dates (InputFile_Mix.txt 2/4) 0.097
+Processing dates (InputFile_noDots.txt 3/4) 0.091
+Processing dates (Money.txt 4/4) 0.0
+Processing moneys (Fractions.txt 1/4) 0.0
+Processing moneys (InputFile_Mix.txt 2/4) 0.01
+Processing moneys (InputFile_noDots.txt 3/4) 0.0
+Processing moneys (Money.txt 4/4) 0.0
+Processing fractions (Fractions.txt 1/4) 0.0
+Processing fractions (InputFile_Mix.txt 2/4) 0.0
+Processing fractions (InputFile_noDots.txt 3/4) 0.0
+Processing fractions (Money.txt 4/4) 0.0
+Deleting links (Fractions.txt 1/4) 0.002
+Deleting links (InputFile_Mix.txt 2/4) 0.0
+Deleting links (InputFile_noDots.txt 3/4) 0.0
+Deleting links (Money.txt 4/4) 0.0
+Processing numbers (Fractions.txt 1/4) 0.0
+Processing numbers (InputFile_Mix.txt 2/4) 0.0
+Processing numbers (InputFile_noDots.txt 3/4) 0.0
+Processing numbers (Money.txt 4/4) 0.0
+Deleting whitespace dictionary words (Fractions.txt 1/4) 0.0
+Deleting whitespace dictionary words (InputFile_Mix.txt 2/4) 0.041
+Deleting whitespace dictionary words (InputFile_noDots.txt 3/4) 0.02
+Deleting whitespace dictionary words (Money.txt 4/4) 0.0
+Deleting single dictionary words (Fractions.txt 1/4) 0.0
+Deleting single dictionary words (InputFile_Mix.txt 2/4) 0.002
+Deleting single dictionary words (InputFile_noDots.txt 3/4) 0.01
+Deleting single dictionary words (Money.txt 4/4) 0.0
+Processing punctuation marks (Fractions.txt 1/4) 0.0
+Processing punctuation marks (InputFile_Mix.txt 2/4) 0.008
+Processing punctuation marks (InputFile_noDots.txt 3/4) 0.0
+Processing punctuation marks (Money.txt 4/4) 0.0
+Processing days of the week (Fractions.txt 1/4) 0.0
+Processing days of the week (InputFile_Mix.txt 2/4) 0.01
+Processing days of the week (InputFile_noDots.txt 3/4) 0.0
+Processing days of the week (Money.txt 4/4) 0.0
+Deleting initials (Fractions.txt 1/4) 0.0
+Deleting initials (InputFile_Mix.txt 2/4) 0.01
+Deleting initials (InputFile_noDots.txt 3/4) 0.0
+Deleting initials (Money.txt 4/4) 0.0
+Searching abbreviations (Fractions.txt 1/4) 0.0
+Searching abbreviations (InputFile_Mix.txt 2/4) 0.0
+Searching abbreviations (InputFile_noDots.txt 3/4) 0.01
+Searching abbreviations (Money.txt 4/4) 0.0
+Separating camel case words (Fractions.txt 1/4) 0.0
+Separating camel case words (InputFile_Mix.txt 2/4) 0.008
+Separating camel case words (InputFile_noDots.txt 3/4) 0.0
+Separating camel case words (Money.txt 4/4) 0.0
+Splitting files into sentences (Fractions.txt 1/4) 0.0
+Splitting files into sentences (InputFile_Mix.txt 2/4) 0.01
+Splitting files into sentences (InputFile_noDots.txt 3/4) 0.0
+Splitting files into sentences (Money.txt 4/4) 0.0
+Deleting extra spaces (Fractions.txt 1/4) 0.0
+Deleting extra spaces (InputFile_Mix.txt 2/4) 0.01
+Deleting extra spaces (InputFile_noDots.txt 3/4) 0.0
+Deleting extra spaces (Money.txt 4/4) 0.0
+Searching english text  (Fractions.txt 1/4) 0.0
+Searching english text  (InputFile_Mix.txt 2/4) 0.0
+Searching english text  (InputFile_noDots.txt 3/4) 0.0
+Searching english text  (Money.txt 4/4) 0.0
+Processing acronyms (Fractions.txt 1/4) 0.0
+Processing acronyms (InputFile_Mix.txt 2/4) 0.01
+Processing acronyms (InputFile_noDots.txt 3/4) 0.0
+Processing acronyms (Money.txt 4/4) 0.0
+Creating a file with replacements (Fractions.txt 1/4) 0.0
+Creating a file with replacements (InputFile_Mix.txt 2/4) 0.0
+Creating a file with replacements (InputFile_noDots.txt 3/4) 0.01
+Creating a file with replacements (Money.txt 4/4) 0.0
+Creating processed files (Fractions.txt 1/4) 0.0
+Creating processed files (InputFile_Mix.txt 2/4) 0.005
+Creating processed files (InputFile_noDots.txt 3/4) 0.0
+Creating processed files (Money.txt 4/4) 0.0
+Processing phone numbers (Fractions.txt 1/4) 0.02
+Processing phone numbers (InputFile_Mix.txt 2/4) 0.0
+Processing phone numbers (InputFile_noDots.txt 3/4) 0.038
+Processing phone numbers (Money.txt 4/4) 0.0
+Processing times (Fractions.txt 1/4) 0.0
+Processing times (InputFile_Mix.txt 2/4) 0.0
+Processing times (InputFile_noDots.txt 3/4) 0.0
+Processing times (Money.txt 4/4) 0.0
+Processing dates (Fractions.txt 1/4) 0.02
+Processing dates (InputFile_Mix.txt 2/4) 0.1
+Processing dates (InputFile_noDots.txt 3/4) 0.09
+Processing dates (Money.txt 4/4) 0.0
+Processing moneys (Fractions.txt 1/4) 0.0
+Processing moneys (InputFile_Mix.txt 2/4) 0.0
+Processing moneys (InputFile_noDots.txt 3/4) 0.0
+Processing moneys (Money.txt 4/4) 0.0
+Processing fractions (Fractions.txt 1/4) 0.0
+Processing fractions (InputFile_Mix.txt 2/4) 0.0
+Processing fractions (InputFile_noDots.txt 3/4) 0.01
+Processing fractions (Money.txt 4/4) 0.0
+Deleting links (Fractions.txt 1/4) 0.0
+Deleting links (InputFile_Mix.txt 2/4) 0.01
+Deleting links (InputFile_noDots.txt 3/4) 0.01
+Deleting links (Money.txt 4/4) 0.0
+Processing numbers (Fractions.txt 1/4) 0.0
+Processing numbers (InputFile_Mix.txt 2/4) 0.0
+Processing numbers (InputFile_noDots.txt 3/4) 0.0
+Processing numbers (Money.txt 4/4) 0.0
+Deleting whitespace dictionary words (Fractions.txt 1/4) 0.01
+Deleting whitespace dictionary words (InputFile_Mix.txt 2/4) 0.03
+Deleting whitespace dictionary words (InputFile_noDots.txt 3/4) 0.04
+Deleting whitespace dictionary words (Money.txt 4/4) 0.0
+Deleting single dictionary words (Fractions.txt 1/4) 0.0
+Deleting single dictionary words (InputFile_Mix.txt 2/4) 0.01
+Deleting single dictionary words (InputFile_noDots.txt 3/4) 0.0
+Deleting single dictionary words (Money.txt 4/4) 0.0
+Processing punctuation marks (Fractions.txt 1/4) 0.01
+Processing punctuation marks (InputFile_Mix.txt 2/4) 0.0
+Processing punctuation marks (InputFile_noDots.txt 3/4) 0.01
+Processing punctuation marks (Money.txt 4/4) 0.0
+Processing days of the week (Fractions.txt 1/4) 0.0
+Processing days of the week (InputFile_Mix.txt 2/4) 0.01
+Processing days of the week (InputFile_noDots.txt 3/4) 0.0
+Processing days of the week (Money.txt 4/4) 0.0
+Deleting initials (Fractions.txt 1/4) 0.0
+Deleting initials (InputFile_Mix.txt 2/4) 0.01
+Deleting initials (InputFile_noDots.txt 3/4) 0.0
+Deleting initials (Money.txt 4/4) 0.0
+Searching abbreviations (Fractions.txt 1/4) 0.0
+Searching abbreviations (InputFile_Mix.txt 2/4) 0.01
+Searching abbreviations (InputFile_noDots.txt 3/4) 0.0
+Searching abbreviations (Money.txt 4/4) 0.0
+Separating camel case words (Fractions.txt 1/4) 0.0
+Separating camel case words (InputFile_Mix.txt 2/4) 0.0
+Separating camel case words (InputFile_noDots.txt 3/4) 0.01
+Separating camel case words (Money.txt 4/4) 0.0
+Splitting files into sentences (Fractions.txt 1/4) 0.0
+Splitting files into sentences (InputFile_Mix.txt 2/4) 0.0
+Splitting files into sentences (InputFile_noDots.txt 3/4) 0.01
+Splitting files into sentences (Money.txt 4/4) 0.0
+Deleting extra spaces (Fractions.txt 1/4) 0.0
+Deleting extra spaces (InputFile_Mix.txt 2/4) 0.0
+Deleting extra spaces (InputFile_noDots.txt 3/4) 0.0
+Deleting extra spaces (Money.txt 4/4) 0.0
+Searching english text  (Fractions.txt 1/4) 0.0
+Searching english text  (InputFile_Mix.txt 2/4) 0.01
+Searching english text  (InputFile_noDots.txt 3/4) 0.0
+Searching english text  (Money.txt 4/4) 0.0
+Processing acronyms (Fractions.txt 1/4) 0.0
+Processing acronyms (InputFile_Mix.txt 2/4) 0.0
+Processing acronyms (InputFile_noDots.txt 3/4) 0.01
+Processing acronyms (Money.txt 4/4) 0.0
+Creating a file with replacements (Fractions.txt 1/4) 0.0
+Creating a file with replacements (InputFile_Mix.txt 2/4) 0.01
+Creating a file with replacements (InputFile_noDots.txt 3/4) 0.0
+Creating a file with replacements (Money.txt 4/4) 0.0
+Creating processed files (Fractions.txt 1/4) 0.01
+Creating processed files (InputFile_Mix.txt 2/4) 0.0
+Creating processed files (InputFile_noDots.txt 3/4) 0.0
+Creating processed files (Money.txt 4/4) 0.0
+Processing phone numbers (Fractions.txt 1/4) 0.03
+Processing phone numbers (InputFile_Mix.txt 2/4) 0.01
+Processing phone numbers (InputFile_noDots.txt 3/4) 0.03
+Processing phone numbers (Money.txt 4/4) 0.0
+Processing times (Fractions.txt 1/4) 0.0
+Processing times (InputFile_Mix.txt 2/4) 0.0
+Processing times (InputFile_noDots.txt 3/4) 0.0
+Processing times (Money.txt 4/4) 0.0
+Processing dates (Fractions.txt 1/4) 0.03
+Processing dates (InputFile_Mix.txt 2/4) 0.097
+Processing dates (InputFile_noDots.txt 3/4) 0.09
+Processing dates (Money.txt 4/4) 0.0
+Processing moneys (Fractions.txt 1/4) 0.0
+Processing moneys (InputFile_Mix.txt 2/4) 0.0
+Processing moneys (InputFile_noDots.txt 3/4) 0.0
+Processing moneys (Money.txt 4/4) 0.0
+Processing fractions (Fractions.txt 1/4) 0.01
+Processing fractions (InputFile_Mix.txt 2/4) 0.0
+Processing fractions (InputFile_noDots.txt 3/4) 0.0
+Processing fractions (Money.txt 4/4) 0.0
+Deleting links (Fractions.txt 1/4) 0.0
+Deleting links (InputFile_Mix.txt 2/4) 0.01
+Deleting links (InputFile_noDots.txt 3/4) 0.01
+Deleting links (Money.txt 4/4) 0.0
+Processing numbers (Fractions.txt 1/4) 0.0
+Processing numbers (InputFile_Mix.txt 2/4) 0.0
+Processing numbers (InputFile_noDots.txt 3/4) 0.0
+Processing numbers (Money.txt 4/4) 0.0
+Deleting whitespace dictionary words (Fractions.txt 1/4) 0.01
+Deleting whitespace dictionary words (InputFile_Mix.txt 2/4) 0.06
+Deleting whitespace dictionary words (InputFile_noDots.txt 3/4) 0.03
+Deleting whitespace dictionary words (Money.txt 4/4) 0.0
+Deleting single dictionary words (Fractions.txt 1/4) 0.0
+Deleting single dictionary words (InputFile_Mix.txt 2/4) 0.01
+Deleting single dictionary words (InputFile_noDots.txt 3/4) 0.008
+Deleting single dictionary words (Money.txt 4/4) 0.0
+Processing punctuation marks (Fractions.txt 1/4) 0.0
+Processing punctuation marks (InputFile_Mix.txt 2/4) 0.01
+Processing punctuation marks (InputFile_noDots.txt 3/4) 0.0
+Processing punctuation marks (Money.txt 4/4) 0.0
+Processing days of the week (Fractions.txt 1/4) 0.0
+Processing days of the week (InputFile_Mix.txt 2/4) 0.011
+Processing days of the week (InputFile_noDots.txt 3/4) 0.0
+Processing days of the week (Money.txt 4/4) 0.0
+Deleting initials (Fractions.txt 1/4) 0.0
+Deleting initials (InputFile_Mix.txt 2/4) 0.0
+Deleting initials (InputFile_noDots.txt 3/4) 0.0
+Deleting initials (Money.txt 4/4) 0.0
+Searching abbreviations (Fractions.txt 1/4) 0.0
+Searching abbreviations (InputFile_Mix.txt 2/4) 0.002
+Searching abbreviations (InputFile_noDots.txt 3/4) 0.0
+Searching abbreviations (Money.txt 4/4) 0.0
+Separating camel case words (Fractions.txt 1/4) 0.0
+Separating camel case words (InputFile_Mix.txt 2/4) 0.002
+Separating camel case words (InputFile_noDots.txt 3/4) 0.01
+Separating camel case words (Money.txt 4/4) 0.0
+Splitting files into sentences (Fractions.txt 1/4) 0.0
+Splitting files into sentences (InputFile_Mix.txt 2/4) 0.011
+Splitting files into sentences (InputFile_noDots.txt 3/4) 0.0
+Splitting files into sentences (Money.txt 4/4) 0.0
+Deleting extra spaces (Fractions.txt 1/4) 0.0
+Deleting extra spaces (InputFile_Mix.txt 2/4) 0.0
+Deleting extra spaces (InputFile_noDots.txt 3/4) 0.01
+Deleting extra spaces (Money.txt 4/4) 0.0
+Searching english text  (Fractions.txt 1/4) 0.0
+Searching english text  (InputFile_Mix.txt 2/4) 0.0
+Searching english text  (InputFile_noDots.txt 3/4) 0.0
+Searching english text  (Money.txt 4/4) 0.0
+Processing acronyms (Fractions.txt 1/4) 0.0
+Processing acronyms (InputFile_Mix.txt 2/4) 0.01
+Processing acronyms (InputFile_noDots.txt 3/4) 0.0
+Processing acronyms (Money.txt 4/4) 0.0
+Creating a file with replacements (Fractions.txt 1/4) 0.0
+Creating a file with replacements (InputFile_Mix.txt 2/4) 0.002
+Creating a file with replacements (InputFile_noDots.txt 3/4) 0.008
+Creating a file with replacements (Money.txt 4/4) 0.0
+Creating processed files (Fractions.txt 1/4) 0.008
+Creating processed files (InputFile_Mix.txt 2/4) 0.002
+Creating processed files (InputFile_noDots.txt 3/4) 0.0
+Creating processed files (Money.txt 4/4) 0.0
+Processing phone numbers (Fractions.txt 1/4) 0.021
+Processing phone numbers (InputFile_Mix.txt 2/4) 0.0
+Processing phone numbers (InputFile_noDots.txt 3/4) 0.028
+Processing phone numbers (Money.txt 4/4) 0.0
+Processing times (Fractions.txt 1/4) 0.0
+Processing times (InputFile_Mix.txt 2/4) 0.0
+Processing times (InputFile_noDots.txt 3/4) 0.0
+Processing times (Money.txt 4/4) 0.0
+Processing dates (Fractions.txt 1/4) 0.026
+Processing dates (InputFile_Mix.txt 2/4) 0.108
+Processing dates (InputFile_noDots.txt 3/4) 0.112
+Processing dates (Money.txt 4/4) 0.0
+Processing moneys (Fractions.txt 1/4) 0.0
+Processing moneys (InputFile_Mix.txt 2/4) 0.008
+Processing moneys (InputFile_noDots.txt 3/4) 0.0
+Processing moneys (Money.txt 4/4) 0.0
+Processing fractions (Fractions.txt 1/4) 0.01
+Processing fractions (InputFile_Mix.txt 2/4) 0.0
+Processing fractions (InputFile_noDots.txt 3/4) 0.0
+Processing fractions (Money.txt 4/4) 0.0
+Deleting links (Fractions.txt 1/4) 0.0
+Deleting links (InputFile_Mix.txt 2/4) 0.01
+Deleting links (InputFile_noDots.txt 3/4) 0.008
+Deleting links (Money.txt 4/4) 0.0
+Processing numbers (Fractions.txt 1/4) 0.0
+Processing numbers (InputFile_Mix.txt 2/4) 0.008
+Processing numbers (InputFile_noDots.txt 3/4) 0.0
+Processing numbers (Money.txt 4/4) 0.0
+Deleting whitespace dictionary words (Fractions.txt 1/4) 0.0
+Deleting whitespace dictionary words (InputFile_Mix.txt 2/4) 0.04
+Deleting whitespace dictionary words (InputFile_noDots.txt 3/4) 0.031
+Deleting whitespace dictionary words (Money.txt 4/4) 0.0
+Deleting single dictionary words (Fractions.txt 1/4) 0.0
+Deleting single dictionary words (InputFile_Mix.txt 2/4) 0.008
+Deleting single dictionary words (InputFile_noDots.txt 3/4) 0.0
+Deleting single dictionary words (Money.txt 4/4) 0.0
+Processing punctuation marks (Fractions.txt 1/4) 0.0
+Processing punctuation marks (InputFile_Mix.txt 2/4) 0.0
+Processing punctuation marks (InputFile_noDots.txt 3/4) 0.01
+Processing punctuation marks (Money.txt 4/4) 0.0
+Processing days of the week (Fractions.txt 1/4) 0.0
+Processing days of the week (InputFile_Mix.txt 2/4) 0.01
+Processing days of the week (InputFile_noDots.txt 3/4) 0.021
+Processing days of the week (Money.txt 4/4) 0.0
+Deleting initials (Fractions.txt 1/4) 0.0
+Deleting initials (InputFile_Mix.txt 2/4) 0.0
+Deleting initials (InputFile_noDots.txt 3/4) 0.008
+Deleting initials (Money.txt 4/4) 0.0
+Searching abbreviations (Fractions.txt 1/4) 0.0
+Searching abbreviations (InputFile_Mix.txt 2/4) 0.0
+Searching abbreviations (InputFile_noDots.txt 3/4) 0.0
+Searching abbreviations (Money.txt 4/4) 0.0
+Separating camel case words (Fractions.txt 1/4) 0.0
+Separating camel case words (InputFile_Mix.txt 2/4) 0.0
+Separating camel case words (InputFile_noDots.txt 3/4) 0.01
+Separating camel case words (Money.txt 4/4) 0.0
+Splitting files into sentences (Fractions.txt 1/4) 0.0
+Splitting files into sentences (InputFile_Mix.txt 2/4) 0.01
+Splitting files into sentences (InputFile_noDots.txt 3/4) 0.0
+Splitting files into sentences (Money.txt 4/4) 0.0
+Deleting extra spaces (Fractions.txt 1/4) 0.0
+Deleting extra spaces (InputFile_Mix.txt 2/4) 0.0
+Deleting extra spaces (InputFile_noDots.txt 3/4) 0.0
+Deleting extra spaces (Money.txt 4/4) 0.0
+Searching english text  (Fractions.txt 1/4) 0.0
+Searching english text  (InputFile_Mix.txt 2/4) 0.01
+Searching english text  (InputFile_noDots.txt 3/4) 0.0
+Searching english text  (Money.txt 4/4) 0.0
+Processing acronyms (Fractions.txt 1/4) 0.0
+Processing acronyms (InputFile_Mix.txt 2/4) 0.0
+Processing acronyms (InputFile_noDots.txt 3/4) 0.012
+Processing acronyms (Money.txt 4/4) 0.0
+Creating a file with replacements (Fractions.txt 1/4) 0.0
+Creating a file with replacements (InputFile_Mix.txt 2/4) 0.018
+Creating a file with replacements (InputFile_noDots.txt 3/4) 0.002
+Creating a file with replacements (Money.txt 4/4) 0.0
+Creating processed files (Fractions.txt 1/4) 0.0
+Creating processed files (InputFile_Mix.txt 2/4) 0.0
+Creating processed files (InputFile_noDots.txt 3/4) 0.01
+Creating processed files (Money.txt 4/4) 0.0
+Processing phone numbers (Fractions.txt 1/4) 0.024
+Processing phone numbers (InputFile_Mix.txt 2/4) 0.008
+Processing phone numbers (InputFile_noDots.txt 3/4) 0.024
+Processing phone numbers (Money.txt 4/4) 0.0
+Processing times (Fractions.txt 1/4) 0.0
+Processing times (InputFile_Mix.txt 2/4) 0.0
+Processing times (InputFile_noDots.txt 3/4) 0.0
+Processing times (Money.txt 4/4) 0.0
+Processing dates (Fractions.txt 1/4) 0.024
+Processing dates (InputFile_Mix.txt 2/4) 0.105
+Processing dates (InputFile_noDots.txt 3/4) 0.138
+Processing dates (Money.txt 4/4) 0.008
+Processing moneys (Fractions.txt 1/4) 0.0
+Processing moneys (InputFile_Mix.txt 2/4) 0.0
+Processing moneys (InputFile_noDots.txt 3/4) 0.016
+Processing moneys (Money.txt 4/4) 0.0
+Processing fractions (Fractions.txt 1/4) 0.0
+Processing fractions (InputFile_Mix.txt 2/4) 0.0
+Processing fractions (InputFile_noDots.txt 3/4) 0.0
+Processing fractions (Money.txt 4/4) 0.0
+Deleting links (Fractions.txt 1/4) 0.0
+Deleting links (InputFile_Mix.txt 2/4) 0.008
+Deleting links (InputFile_noDots.txt 3/4) 0.008
+Deleting links (Money.txt 4/4) 0.0
+Processing numbers (Fractions.txt 1/4) 0.0
+Processing numbers (InputFile_Mix.txt 2/4) 0.0
+Processing numbers (InputFile_noDots.txt 3/4) 0.0
+Processing numbers (Money.txt 4/4) 0.0
+Deleting whitespace dictionary words (Fractions.txt 1/4) 0.0
+Deleting whitespace dictionary words (InputFile_Mix.txt 2/4) 0.041
+Deleting whitespace dictionary words (InputFile_noDots.txt 3/4) 0.032
+Deleting whitespace dictionary words (Money.txt 4/4) 0.0
+Deleting single dictionary words (Fractions.txt 1/4) 0.0
+Deleting single dictionary words (InputFile_Mix.txt 2/4) 0.008
+Deleting single dictionary words (InputFile_noDots.txt 3/4) 0.0
+Deleting single dictionary words (Money.txt 4/4) 0.0
+Processing punctuation marks (Fractions.txt 1/4) 0.0
+Processing punctuation marks (InputFile_Mix.txt 2/4) 0.0
+Processing punctuation marks (InputFile_noDots.txt 3/4) 0.0
+Processing punctuation marks (Money.txt 4/4) 0.0
+Processing days of the week (Fractions.txt 1/4) 0.0
+Processing days of the week (InputFile_Mix.txt 2/4) 0.017
+Processing days of the week (InputFile_noDots.txt 3/4) 0.0
+Processing days of the week (Money.txt 4/4) 0.0
+Deleting initials (Fractions.txt 1/4) 0.0
+Deleting initials (InputFile_Mix.txt 2/4) 0.0
+Deleting initials (InputFile_noDots.txt 3/4) 0.0
+Deleting initials (Money.txt 4/4) 0.0
+Searching abbreviations (Fractions.txt 1/4) 0.0
+Searching abbreviations (InputFile_Mix.txt 2/4) 0.008
+Searching abbreviations (InputFile_noDots.txt 3/4) 0.0
+Searching abbreviations (Money.txt 4/4) 0.0
+Separating camel case words (Fractions.txt 1/4) 0.0
+Separating camel case words (InputFile_Mix.txt 2/4) 0.008
+Separating camel case words (InputFile_noDots.txt 3/4) 0.008
+Separating camel case words (Money.txt 4/4) 0.0
+Splitting files into sentences (Fractions.txt 1/4) 0.0
+Splitting files into sentences (InputFile_Mix.txt 2/4) 0.0
+Splitting files into sentences (InputFile_noDots.txt 3/4) 0.0
+Splitting files into sentences (Money.txt 4/4) 0.0
+Deleting extra spaces (Fractions.txt 1/4) 0.0
+Deleting extra spaces (InputFile_Mix.txt 2/4) 0.0
+Deleting extra spaces (InputFile_noDots.txt 3/4) 0.008
+Deleting extra spaces (Money.txt 4/4) 0.0
+Searching english text  (Fractions.txt 1/4) 0.0
+Searching english text  (InputFile_Mix.txt 2/4) 0.0
+Searching english text  (InputFile_noDots.txt 3/4) 0.0
+Searching english text  (Money.txt 4/4) 0.0
+Processing acronyms (Fractions.txt 1/4) 0.0
+Processing acronyms (InputFile_Mix.txt 2/4) 0.008
+Processing acronyms (InputFile_noDots.txt 3/4) 0.0
+Processing acronyms (Money.txt 4/4) 0.0
+Creating a file with replacements (Fractions.txt 1/4) 0.0
+Creating a file with replacements (InputFile_Mix.txt 2/4) 0.008
+Creating a file with replacements (InputFile_noDots.txt 3/4) 0.002
+Creating a file with replacements (Money.txt 4/4) 0.0
+Creating processed files (Fractions.txt 1/4) 0.0
+Creating processed files (InputFile_Mix.txt 2/4) 0.0
+Creating processed files (InputFile_noDots.txt 3/4) 0.0
+Creating processed files (Money.txt 4/4) 0.008

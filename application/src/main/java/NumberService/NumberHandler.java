@@ -1,16 +1,79 @@
 package NumberService;
 
-/**
- * Class to process numbers
- */
+import OrdinalNumbers.OrdinalHandler;
+
 public class NumberHandler {
-    /**
-     * Do primary numbers` processing
-     * @param number number`s string
-     * @return number written with letters
-     */
     public static String numberToString(String number) {
         String res = "";
+        String ordinalEnded = "";
+        String number_new ="";
+        boolean flagWasLetter = false;
+        if(!(number.endsWith("-ый") || number.endsWith("-ого") || number.endsWith("-его") ||
+                number.endsWith("-ому") || number.endsWith("-ым") ||
+                number.endsWith("-ом") || number.endsWith("-ой") || number.endsWith("-ий") || number.endsWith("-й") ||
+                number.endsWith("-го") || number.endsWith("-ему") || number.endsWith("-ем"))) {
+            for (int i = 0; i < number.length(); i++) {
+                if (Character.isLetter(number.charAt(i)) && !flagWasLetter) {
+                    number_new += "-";
+                    flagWasLetter = true;
+                }
+                number_new += number.charAt(i);
+            }
+        }
+        if(flagWasLetter) number = number_new;
+        // проверяем строку на наличие порядковости
+        if(number.endsWith("-ый")) {
+            number = number.substring(0, number.length() - 3);
+            ordinalEnded = "ый";
+        }
+        else if(number.endsWith("-ого")) {
+            number = number.substring(0, number.length() - 4);
+            ordinalEnded = "ого";
+        }
+        else if(number.endsWith("-его")) {
+            number = number.substring(0, number.length() - 4);
+            ordinalEnded = "его";
+        }
+        else if(number.endsWith("-ому")) {
+            number = number.substring(0, number.length() - 4);
+            ordinalEnded = "oму";
+        }
+        else if(number.endsWith("-ый")) {
+            number = number.substring(0, number.length() - 3);
+            ordinalEnded = "ый";
+        }
+        else if(number.endsWith("-ым")) {
+            number = number.substring(0, number.length() - 3);
+            ordinalEnded = "ым";
+        }
+        else if(number.endsWith("-ом")) {
+            number = number.substring(0, number.length() - 3);
+            ordinalEnded = "ом";
+        }
+        else if(number.endsWith("-ой")) {
+            number = number.substring(0, number.length() - 3);
+            ordinalEnded = "ой";
+        }
+        else if(number.endsWith("-ий")) {
+            number = number.substring(0, number.length() - 3);
+            ordinalEnded = "ий";
+        }
+        else if(number.endsWith("-й")) {
+            number = number.substring(0, number.length() - 2);
+            ordinalEnded = "й";
+        }
+        else if(number.endsWith("-го")) {
+            number = number.substring(0, number.length() - 3);
+            ordinalEnded = "го";
+        }
+        else if(number.endsWith("-ему")) {
+            number = number.substring(0, number.length() - 4);
+            ordinalEnded = "ему";
+        }
+        else if(number.endsWith("-ем")) {
+            number = number.substring(0, number.length() - 3);
+            ordinalEnded = "ем";
+        }
         if(number.startsWith("-")) {
             res += "минус ";
             number = String.valueOf(-Long.parseLong(number));
@@ -35,17 +98,14 @@ public class NumberHandler {
                 chislo = (long) (Long.parseLong(number) % Math.pow(10, count - 1));
             }
             else chislo = (long) (Long.parseLong(number) / Math.pow(10, count - 1));
-            return res + numberToSymbol(chislo, chislo);
+            res = res + numberToSymbol(chislo, chislo);
         }
-        else return res + numberToSymbol(Long.parseLong(number), Long.parseLong(number));
+        else res = res + numberToSymbol(Long.parseLong(number), Long.parseLong(number));
+        if(ordinalEnded.isEmpty()) return res;
+        else {
+            return OrdinalHandler.ordinalToString(res, ordinalEnded);
+        }
     }
-
-    /**
-     * Translate number to string format
-     * @param number number to process
-     * @param number_copy copy of number to process
-     * @return
-     */
     public static String numberToSymbol(long number, long number_copy) {
         String res = "";
         long copyNumber;
@@ -141,46 +201,38 @@ public class NumberHandler {
                 return getString(res, copyNumber, number_copy, "миллион") + numberToSymbol((long) (number % 1e6), number_copy);
 
             }
-            if(number >= 1e9) {
+            /*if(number >= 1e9) {
                 return getStringByOneNumber("", number, number);
+            }*/
+            if (number >= 1e9 && number < 2e9) {
+                return "миллиард " + numberToSymbol((long) (number % 1e7), number_copy);
             }
-          /* if (number >= 1e9 && number < 2e9) {
-               return "миллиард " + numberToSymbol((long) (number % 1e7), number_copy);
-           }
-           if (number >= 2e9 && number < 1e12) {
-               copyNumber = (long) (number / 1e9);
-               return getString(res, copyNumber, number_copy, "миллиард") + numberToSymbol((long) (number % 1e9), number_copy);
+            if (number >= 2e9 && number < 1e12) {
+                copyNumber = (long) (number / 1e9);
+                return getString(res, copyNumber, number_copy, "миллиард") + numberToSymbol((long) (number % 1e9), number_copy);
 
-           }
-           if (number >= 1e12 && number < 2e12) {
-               return "триллион " + numberToSymbol((long) (number % 1e12), number_copy);
-           }
-           if (number >= 2e12 && number < 1e15) {
-               copyNumber = (long) (number / 1e12);
-               return getString(res, copyNumber, number_copy, "триллион") + numberToSymbol((long) (number % 1e12), number_copy);
-           }
-           if (number >= 1e15 && number < 2e15) {
+            }
+            if (number >= 1e12 && number < 2e12) {
+                return "триллион " + numberToSymbol((long) (number % 1e12), number_copy);
+            }
+            if (number >= 2e12 && number < 1e15) {
+                copyNumber = (long) (number / 1e12);
+                return getString(res, copyNumber, number_copy, "триллион") + numberToSymbol((long) (number % 1e12), number_copy);
+            }
+            if (number >= 1e15 && number < 2e15) {
 
-               return "квадриллион " + numberToSymbol((long) (number % 1e15), number_copy);
+                return "квадриллион " + numberToSymbol((long) (number % 1e15), number_copy);
 
-           }
-           if (number >= 2e15 && number < 1e18) {
-               copyNumber = (long) (number / 1e15);
-               return getString(res, copyNumber, number_copy, "квадриллион") + numberToSymbol((long) (number % 1e15), number_copy);
-           }*/
+            }
+            if (number >= 2e15 && number < 1e18) {
+                copyNumber = (long) (number / 1e15);
+                return getString(res, copyNumber, number_copy, "квадриллион") + numberToSymbol((long) (number % 1e15), number_copy);
+            }
         }
 
         return res;
     }
 
-    /**
-     * Change number`s string to correct record according to grammar
-     * @param res number`s string
-     * @param number number to process
-     * @param copy_number copy of number to process
-     * @param ends postfix of number. For example, "миллион".
-     * @return result of change
-     */
     private static String getString(String res, long number, long copy_number, String ends) {
         String t = numberToSymbol(number,  copy_number).trim();
         if (t.endsWith("надцать") || t.endsWith("дцать") ||
@@ -194,14 +246,14 @@ public class NumberHandler {
         else res+= t + " " + ends + "а ";
         return res;
     }
+    private static String getString(String res, long number, long copy_number) {
+        while (number != 0) {
+            res +=numberToSymbol(number, copy_number);
+            number /= 10;
 
-    /**
-     * Make number to letter format by one number. For example, "123" - один два три
-     * @param res number`s string
-     * @param number number to process
-     * @param copy_number copy of number
-     * @return number in letter format by one number
-     */
+        }
+        return res;
+    }
     private static String getStringByOneNumber(String res, long number, long copy_number) {
         while (number != 0) {
             res = copy_number == number ? "" : " "  + numberToSymbol(number % 10, number % 10)  + res;

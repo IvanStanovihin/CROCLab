@@ -1,0 +1,40 @@
+Processing phone numbers (InputFile_Mix.txt 1/2) 0.02
+Processing phone numbers (InputFile_noDots.txt 2/2) 0.04
+Processing times (InputFile_Mix.txt 1/2) 0.0
+Processing times (InputFile_noDots.txt 2/2) 0.0
+Processing dates (InputFile_Mix.txt 1/2) 0.07
+Processing dates (InputFile_noDots.txt 2/2) 0.09
+Processing moneys (InputFile_Mix.txt 1/2) 0.0
+Processing moneys (InputFile_noDots.txt 2/2) 0.0
+Processing fractions (InputFile_Mix.txt 1/2) 0.0
+Processing fractions (InputFile_noDots.txt 2/2) 0.0
+Deleting links (InputFile_Mix.txt 1/2) 0.01
+Deleting links (InputFile_noDots.txt 2/2) 0.0
+Processing numbers (InputFile_Mix.txt 1/2) 0.0
+Processing numbers (InputFile_noDots.txt 2/2) 0.008
+Deleting whitespace dictionary words (InputFile_Mix.txt 1/2) 0.023
+Deleting whitespace dictionary words (InputFile_noDots.txt 2/2) 0.017
+Deleting single dictionary words (InputFile_Mix.txt 1/2) 0.011
+Deleting single dictionary words (InputFile_noDots.txt 2/2) 0.002
+Processing punctuation marks (InputFile_Mix.txt 1/2) 0.01
+Processing punctuation marks (InputFile_noDots.txt 2/2) 0.002
+Processing days of the week (InputFile_Mix.txt 1/2) 0.01
+Processing days of the week (InputFile_noDots.txt 2/2) 0.0
+Deleting initials (InputFile_Mix.txt 1/2) 0.0
+Deleting initials (InputFile_noDots.txt 2/2) 0.0
+Searching abbreviations (InputFile_Mix.txt 1/2) 0.002
+Searching abbreviations (InputFile_noDots.txt 2/2) 0.0
+Separating camel case words (InputFile_Mix.txt 1/2) 0.01
+Separating camel case words (InputFile_noDots.txt 2/2) 0.0
+Splitting files into sentences (InputFile_Mix.txt 1/2) 0.0
+Splitting files into sentences (InputFile_noDots.txt 2/2) 0.0
+Deleting extra spaces (InputFile_Mix.txt 1/2) 0.0
+Deleting extra spaces (InputFile_noDots.txt 2/2) 0.0
+Searching english text  (InputFile_Mix.txt 1/2) 0.0
+Searching english text  (InputFile_noDots.txt 2/2) 0.0
+Processing acronyms (InputFile_Mix.txt 1/2) 0.0
+Processing acronyms (InputFile_noDots.txt 2/2) 0.01
+Creating a file with replacements (InputFile_Mix.txt 1/2) 0.0
+Creating a file with replacements (InputFile_noDots.txt 2/2) 0.0
+Creating processed files (InputFile_Mix.txt 1/2) 0.0
+Creating processed files (InputFile_noDots.txt 2/2) 0.0

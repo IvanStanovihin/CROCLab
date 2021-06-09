@@ -45,10 +45,6 @@ public class InputFile {
     public InputFile(String filePath) {
         this.filePath = filePath;
         this.fileName = filePath.substring(filePath.lastIndexOf("\\") + 1);
-//        validEncoding = checkEncoding();
-//        if (!validEncoding) {
-//            this.filePath = EncodingService.changeEncoding(filePath);
-//        }
         readFile();
         this.replacementFile = new ReplacementFile(fileName);
         this.fileWithAbbreviations = new FileWithAbbreviations(fileName);
@@ -96,18 +92,19 @@ public class InputFile {
         int countBytes = 0;
         int countSentences = 0;
         int outputFileSize = property.getOutFileSize();
+        int outputFileCountStrings = property.getOutFileCountStrings();
         StringBuilder filePart = new StringBuilder();
         for (int i = 0; i < sentences.size(); i++){
             String currentSentences = sentences.get(i);
             countBytes += currentSentences.getBytes().length;
             countSentences++;
-            if (i == sentences.size() - 1 || countBytes >= (outputFileSize * 1024 * 1024) || countSentences >= 100000) {
+            if (i == sentences.size() - 1 || countBytes >= (outputFileSize * 1024 * 1024) || countSentences >= outputFileCountStrings) {
                 filePart.append(currentSentences) ;
             }else{
                 filePart.append(currentSentences).append("\n");
             }
 
-            if(countBytes >= (outputFileSize * 1024 * 1024) || countSentences >= 100000){
+            if(countBytes >= (outputFileSize * 1024 * 1024) || countSentences >= outputFileCountStrings){
                 fileParts.add(filePart.toString());
                 filePart = new StringBuilder();
                 countBytes = 0;

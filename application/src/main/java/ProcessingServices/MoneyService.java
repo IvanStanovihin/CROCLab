@@ -45,7 +45,7 @@ public class MoneyService {
     private static void processFile(InputFile inputFile){
         String fileText = inputFile.getFileText();
         StringBuilder processedText = new StringBuilder();
-        Pattern moneyPattern = Pattern.compile("((\\d{1,3})+\\s?(\\d{1,3})+\\s?\\d{1,3}\\s?)(руб|₽)");
+        Pattern moneyPattern = Pattern.compile("((\\d{1,3})?\\s?(\\d{1,3})?\\s?\\d{1,3}\\s?)(руб|₽)");
         Matcher matcher = moneyPattern.matcher(fileText);
         while (matcher.find()){
             String foundMoney = matcher.group(1);

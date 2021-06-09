@@ -3,12 +3,16 @@ import Handler.Handler;
 
 import java.io.IOException;
 
+/**
+ * TAaC application for processing and collecting statistics on files
+ * @Version 1.0
+ */
 public class Launch {
 
 
     public static void main(String[] args) throws IOException {
-//        String propertyFilePath = args[0];
         Long startTime = System.currentTimeMillis();
+//        String propertyFilePath = args[0];
 //        Handler analyzer = new Handler(propertyFilePath);
         Handler analyzer = new Handler("C:\\Users\\ivan\\Desktop\\CROCLab\\Files\\Property.json");
 

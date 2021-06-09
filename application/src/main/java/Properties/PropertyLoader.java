@@ -10,6 +10,7 @@ public class PropertyLoader {
     private String inputFilesDirectory = null;
     /**Size of each output processed file(mb)*/
     private Integer outFileSize = null;
+    private Integer outFileCountStrings = null;
     private String outDirectory = null;
     /**Paths to configuration files*/
     private String dictionariesDirectory = null;
@@ -58,13 +59,14 @@ public class PropertyLoader {
             Gson gson = new Gson();
             PropertyData propertyData = gson.fromJson(fileContent , PropertyData.class);
 
-            inputFilesDirectory = propertyData.getInputFilesDirectory();
+            inputFilesDirectory = propertyData.getInputFiles();
             outFileSize = propertyData.getOutputFileSize();
+            outFileCountStrings = propertyData.getOutputFileCountStrings();
             outDirectory = propertyData.getOutputDirectory();
-            dictionariesDirectory = propertyData.getDictionariesDirectory();
-            filesForStatisticDirectory = propertyData.getFilesForStatisticDirectory();
-            protectedWordsDir = propertyData.getProtectedWordsDir();
-            wordsToDeleteDir = propertyData.getWordsToDeleteDir();
+            dictionariesDirectory = propertyData.getDictionaries();
+            filesForStatisticDirectory = propertyData.getFilesForStatistic();
+            protectedWordsDir = propertyData.getProtectedWords();
+            wordsToDeleteDir = propertyData.getWordsToDelete();
             initializeModulesFlags(propertyData);
 
         }catch(IOException e){
@@ -74,25 +76,25 @@ public class PropertyLoader {
 
     /**Initializing flags for enabling modules*/
     private void initializeModulesFlags(PropertyData propertyData){
-        enableRemoveEnglishTextModule = propertyData.getRemoveEnglishTextModule().equalsIgnoreCase("true");
-        enableDictionaryWordsModule = propertyData.getDictionaryWordsModule().equalsIgnoreCase("true");
-        enableFindEnglishModule = propertyData.getFindEnglishModule().equalsIgnoreCase("true");
-        enablePhoneNumberModule = propertyData.getPhoneNumberModule().equalsIgnoreCase("true");
-        enableDatesModule = propertyData.getDatesModule().equalsIgnoreCase("true");
-        enableTimesModule = propertyData.getTimesModule().equalsIgnoreCase("true");
-        enableMoneyModule = propertyData.getMoneyModule().equalsIgnoreCase("true");
-        enableFractionsModule = propertyData.getFractionsModule().equalsIgnoreCase("true");
-        enableNumbersModule = propertyData.getNumbersModule().equalsIgnoreCase("true");
-        enableLinksModule = propertyData.getLinksModule().equalsIgnoreCase("true");
-        enablePunctuationMarkModule = propertyData.getPunctuationMarkModule().equalsIgnoreCase("true");
-        enableRemoveWordsModule = propertyData.getRemoveWordsModule().equalsIgnoreCase("true");
-        enableDaysOfWeekModule = propertyData.getDaysOfWeekModule().equalsIgnoreCase("true");
-        enableInitialsModule = propertyData.getInitialsModule().equalsIgnoreCase("true");
-        enableAbbreviationsFindModule = propertyData.getAbbreviationsFindModule().equalsIgnoreCase("true");
-        enableCamelCaseModule = propertyData.getCamelCaseModule().equalsIgnoreCase("true");
-        enableMonthsModule = propertyData.getMonthsModule().equalsIgnoreCase("true");
-        enableWhitespaceRemoveModule = propertyData.getWhitespaceRemoveModule().equalsIgnoreCase("true");
-        enableAcronymsModule = propertyData.getAcronymsModule().equalsIgnoreCase("true");
+        enableRemoveEnglishTextModule = propertyData.getRemoveEnglishText().equalsIgnoreCase("true");
+        enableDictionaryWordsModule = propertyData.getDictionaryWords().equalsIgnoreCase("true");
+        enableFindEnglishModule = propertyData.getFindEnglish().equalsIgnoreCase("true");
+        enablePhoneNumberModule = propertyData.getPhoneNumber().equalsIgnoreCase("true");
+        enableDatesModule = propertyData.getDates().equalsIgnoreCase("true");
+        enableTimesModule = propertyData.getTimes().equalsIgnoreCase("true");
+        enableMoneyModule = propertyData.getMoney().equalsIgnoreCase("true");
+        enableFractionsModule = propertyData.getFractions().equalsIgnoreCase("true");
+        enableNumbersModule = propertyData.getNumbers().equalsIgnoreCase("true");
+        enableLinksModule = propertyData.getLinks().equalsIgnoreCase("true");
+        enablePunctuationMarkModule = propertyData.getPunctuationMark().equalsIgnoreCase("true");
+        enableRemoveWordsModule = propertyData.getRemoveWords().equalsIgnoreCase("true");
+        enableDaysOfWeekModule = propertyData.getDaysOfWeek().equalsIgnoreCase("true");
+        enableInitialsModule = propertyData.getInitials().equalsIgnoreCase("true");
+        enableAbbreviationsFindModule = propertyData.getAbbreviationsFind().equalsIgnoreCase("true");
+        enableCamelCaseModule = propertyData.getCamelCase().equalsIgnoreCase("true");
+        enableMonthsModule = propertyData.getMonths().equalsIgnoreCase("true");
+        enableWhitespaceRemoveModule = propertyData.getWhitespaceRemove().equalsIgnoreCase("true");
+        enableAcronymsModule = propertyData.getAcronyms().equalsIgnoreCase("true");
     }
 
 
@@ -118,6 +120,10 @@ public class PropertyLoader {
 
     public String getWordsToDeleteDir() {
         return wordsToDeleteDir;
+    }
+
+    public Integer getOutFileCountStrings() {
+        return outFileCountStrings;
     }
 
     public String getProtectedWordsDir() {

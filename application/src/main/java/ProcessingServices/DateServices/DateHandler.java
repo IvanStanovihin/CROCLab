@@ -6,6 +6,7 @@ import ReportLog.LogOperation;
 
 import java.util.ArrayList;
 
+
 /**
  * Handler of dates
  */

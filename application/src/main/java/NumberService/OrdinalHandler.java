@@ -1,16 +1,6 @@
-package NumberService;
+package OrdinalNumbers;
 
-/**
- * Class to process ordinal numbers
- * in future it will be used
- */
 public class OrdinalHandler {
-    /**
-     * Translate number`s string to ordinal number`s string
-     * @param number number`s string
-     * @param ended postfix. For example, "-ый" in word "1-ый".
-     * @return ordinal number`s string
-     */
     public static String ordinalToString(String number, String ended) {
         String res = number;
         if(number.endsWith("один ")) {
@@ -83,4 +73,3 @@ public class OrdinalHandler {
         return res;
     }
 }
-

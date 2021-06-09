@@ -71,7 +71,7 @@ public class FractionService {
                     whole = "две целых ";
                     break;
                 default:
-                    if(strings[0].matches("\\d*2")){
+                    if(strings[0].matches("\\d*2") && !strings[0].equals("12")){
                         String number = NumberHandler.numberToString(strings[0]);
                         whole = number.substring(0 , number.length() - 2) + "е" +  " целых ";
                     }else if(strings[0].matches("\\d*1")){
