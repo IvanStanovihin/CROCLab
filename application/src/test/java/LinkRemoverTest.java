@@ -1,12 +1,7 @@
-import InputFile.InputFile;
-import ProcessingServices.LinksService.LinksRemover;
-import org.apache.poi.hslf.model.textproperties.TextPFException9;
+import TAaC.Logic.ProcessingServices.LinksService.LinksRemover;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.ArrayList;
 
 public class LinkRemoverTest {
 

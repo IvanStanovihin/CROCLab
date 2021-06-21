@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+   <children>
+      <HBox prefHeight="600.0" prefWidth="900.0">
+         <children>
+            <VBox prefHeight="600.0" prefWidth="180.0" style="-fx-background-color: #6AA744;">
+               <children>
+                  <ToggleButton fx:id="btnSectionSettingFiles" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="80.0" prefWidth="250.0" stylesheets="@../style/mainView.css" text="Настройка">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/document.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnSectionModules" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="80.0" prefWidth="250.0" stylesheets="@../style/mainView.css" text="Модули">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/switch.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnSectionLaunch" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="80.0" prefWidth="250.0" stylesheets="@../style/mainView.css" text="Запуск">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/play-button-arrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="650.0">
+               <children>
+                  <AnchorPane minWidth="-Infinity" prefHeight="80.0" prefWidth="720.0" style="-fx-background-color: #6AA744;" />
+                  <StackPane minWidth="-Infinity" prefHeight="520.0" prefWidth="720.0">
+                     <children>
+                        <Pane fx:id="pnlLaunch" prefHeight="520.0" prefWidth="718.0" style="-fx-background-color: #fff;">
+                           <children>
+                              <GridPane prefHeight="530.0" prefWidth="650.0">
+                                 <children>
+                                    <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                       <children>
+                                          <Button fx:id="btnLaunch" layoutX="14.0" layoutY="23.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="205.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="Запуск" />
+                                          <Button fx:id="btnOpenOutDir" alignment="CENTER" layoutX="271.0" layoutY="23.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="205.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="Открыть выходную папку" />
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <children>
+                                          <TextArea layoutY="14.0" prefHeight="349.0" prefWidth="490.0" />
+                                       </children>
+                                    </Pane>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="363.0" minHeight="10.0" prefHeight="98.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="401.0" minHeight="10.0" prefHeight="389.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="pnlModules" prefHeight="520.0" prefWidth="718.0" style="-fx-background-color: #fff;">
+                           <children>
+                              <ScrollPane prefHeight="520.0" prefWidth="649.0">
+                                 <content>
+                                    <GridPane prefHeight="800.0" prefWidth="649.0">
+                                       <children>
+                                          <StackPane fx:id="pnlSwitch10" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="1" />
+                                          <StackPane fx:id="pnlSwitch11" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <StackPane fx:id="pnlSwitch12" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <StackPane fx:id="pnlSwitch13" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <StackPane fx:id="pnlSwitch14" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <StackPane fx:id="pnlSwitch15" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <StackPane fx:id="pnlSwitch16" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <StackPane fx:id="pnlSwitch17" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                          <StackPane fx:id="pnlSwitch30" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="3" />
+                                          <StackPane fx:id="pnlSwitch31" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                          <StackPane fx:id="pnlSwitch32" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                          <StackPane fx:id="pnlSwitch33" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                          <StackPane fx:id="pnlSwitch34" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                          <StackPane fx:id="pnlSwitch35" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                          <StackPane fx:id="pnlSwitch36" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                                          <StackPane fx:id="pnlSwitch37" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                                          <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                             <children>
+                                                <AnchorPane minWidth="35.0" prefHeight="100.0" prefWidth="60.0">
+                                                   <children>
+                                                      <Button fx:id="btnMdDictionaries" layoutX="19.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="question-button" stylesheets="@../style/mainView.css" text="?">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="204.0">
+                                                   <children>
+                                                      <Label layoutY="21.0" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Словарные слова" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                             <children>
+                                                <AnchorPane minWidth="35.0" prefHeight="100.0" prefWidth="60.0">
+                                                   <children>
+                                                      <Button fx:id="btnMdEnglishFind" layoutX="19.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="question-button" stylesheets="@../style/mainView.css" text="i">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="204.0">
+                                                   <children>
+                                                      <Label layoutY="21.0" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Поиск английского" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="7">
+                                             <children>
+                                                <AnchorPane minWidth="35.0" prefHeight="100.0" prefWidth="60.0">
+                                                   <children>
+                                                      <Button fx:id="btnMdNumbers" layoutX="19.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="question-button" stylesheets="@../style/mainView.css" text="?">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="204.0">
+                                                   <children>
+                                                      <Label layoutY="21.0" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Целые числа" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="6">
+                                             <children>
+                                                <AnchorPane minWidth="35.0" prefHeight="100.0" prefWidth="60.0">
+                                                   <children>
+                                                      <Button fx:id="btnMdFractions" layoutX="19.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="question-button" stylesheets="@../style/mainView.css" text="?">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="204.0">
+                                                   <children>
+                                                      <Label layoutY="21.0" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Дробные числа" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
+                                             <children>
+                                                <AnchorPane minWidth="35.0" prefHeight="100.0" prefWidth="60.0">
+                                                   <children>
+                                                      <Button fx:id="btnMdMoney" layoutX="19.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="question-button" stylesheets="@../style/mainView.css" text="?">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="204.0">
+                                                   <children>
+                                                      <Label layoutY="21.0" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Денежные единицы" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+                                             <children>
+                                                <AnchorPane minWidth="35.0" prefHeight="100.0" prefWidth="60.0">
+                                                   <children>
+                                                      <Button fx:id="btnMdTimes" layoutX="19.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="question-button" stylesheets="@../style/mainView.css" text="?">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="204.0">
+                                                   <children>
+                                                      <Label layoutY="21.0" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Время" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+                                             <children>
+                                                <AnchorPane minWidth="35.0" prefHeight="100.0" prefWidth="60.0">
+                                                   <children>
+                                                      <Button fx:id="btnMdDates" layoutX="19.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="question-button" stylesheets="@../style/mainView.css" text="?">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="204.0">
+                                                   <children>
+                                                      <Label layoutY="21.0" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Даты" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <AnchorPane minWidth="35.0" prefHeight="100.0" prefWidth="60.0">
+                                                   <children>
+                                                      <Button fx:id="btnMdEnglishRemove" layoutX="19.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="question-button" stylesheets="@../style/mainView.css" text="?">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="204.0">
+                                                   <children>
+                                                      <Label layoutY="21.0" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Удаление английского" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
+                                             <children>
+                                                <AnchorPane minWidth="35.0" prefHeight="100.0" prefWidth="60.0">
+                                                   <children>
+                                                      <Button fx:id="btnMdPunctuation" layoutX="19.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="question-button" stylesheets="@../style/mainView.css" text="?">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="204.0">
+                                                   <children>
+                                                      <Label layoutY="21.0" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Знаки пунктуации" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <children>
+                                                <AnchorPane minWidth="35.0" prefHeight="100.0" prefWidth="60.0">
+                                                   <children>
+                                                      <Button fx:id="btnMdWordsRemove" layoutX="19.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="question-button" stylesheets="@../style/mainView.css" text="?">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="204.0">
+                                                   <children>
+                                                      <Label layoutY="21.0" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Удаление заданных слов" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                             <children>
+                                                <AnchorPane minWidth="35.0" prefHeight="100.0" prefWidth="60.0">
+                                                   <children>
+                                                      <Button fx:id="btnMdWeeks" layoutX="19.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="question-button" stylesheets="@../style/mainView.css" text="?">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="204.0">
+                                                   <children>
+                                                      <Label layoutY="21.0" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Сокращения дней недели" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                             <children>
+                                                <AnchorPane minWidth="35.0" prefHeight="100.0" prefWidth="60.0">
+                                                   <children>
+                                                      <Button fx:id="btnMdInitials" layoutX="19.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="question-button" stylesheets="@../style/mainView.css" text="?">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="204.0">
+                                                   <children>
+                                                      <Label layoutY="21.0" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Удаление инициалов" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                             <children>
+                                                <AnchorPane minWidth="35.0" prefHeight="100.0" prefWidth="60.0">
+                                                   <children>
+                                                      <Button fx:id="btnMdAbbreviations" layoutX="19.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="question-button" stylesheets="@../style/mainView.css" text="?">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="204.0">
+                                                   <children>
+                                                      <Label layoutY="21.0" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Поиск аббревиатур" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                             <children>
+                                                <AnchorPane minWidth="35.0" prefHeight="100.0" prefWidth="60.0">
+                                                   <children>
+                                                      <Button fx:id="btnMdMonths" layoutX="19.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="question-button" stylesheets="@../style/mainView.css" text="?">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="204.0">
+                                                   <children>
+                                                      <Label layoutY="21.0" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Сокращения месяцев" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                             <children>
+                                                <AnchorPane minWidth="35.0" prefHeight="100.0" prefWidth="60.0">
+                                                   <children>
+                                                      <Button fx:id="btnMdAcronyms" layoutX="19.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="question-button" stylesheets="@../style/mainView.css" text="?">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="204.0">
+                                                   <children>
+                                                      <Label layoutY="21.0" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Акронимы" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                             <children>
+                                                <AnchorPane minWidth="35.0" prefHeight="100.0" prefWidth="60.0">
+                                                   <children>
+                                                      <Button fx:id="btnMdLinks" layoutX="19.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="question-button" stylesheets="@../style/mainView.css" text="?">
+                                                         <font>
+                                                            <Font size="8.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="204.0">
+                                                   <children>
+                                                      <Label layoutY="21.0" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Ссылки" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.5" minWidth="10.0" prefWidth="264.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="88.0" minWidth="10.0" prefWidth="81.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.5" minWidth="10.0" prefWidth="264.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="92.0" minWidth="10.0" prefWidth="64.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="pnlChooseFiles" prefHeight="520.0" prefWidth="718.0" style="-fx-background-color: #fff;">
+                           <children>
+                              <ScrollPane fx:id="scrlPnChooseFile" prefHeight="522.0" prefWidth="718.0">
+                                 <content>
+                                    <GridPane prefHeight="730.0" prefWidth="716.0">
+                                       <children>
+                                          <Label fx:id="lblInputFiles" prefHeight="27.0" prefWidth="137.0" text="Входные файлы" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblDictionaties" prefHeight="27.0" prefWidth="95.0" text="Словари" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblUserStat" prefHeight="27.0" prefWidth="236.0" text="Дополнительная статистика" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblOutDir" prefHeight="27.0" prefWidth="193.0" text="Выходная директория" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblProtectedWords" prefHeight="21.0" prefWidth="120.0" text="Исключения" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblDeletWords" prefHeight="27.0" prefWidth="172.0" text="Слова для удаления" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                             <children>
+                                                <Button fx:id="btnChooseInputFiles" layoutX="2.0" layoutY="28.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <children>
+                                                <Label fx:id="lblCountStringProcFile" layoutY="23.0" lineSpacing="2.0" prefHeight="58.0" prefWidth="209.0" text="Количество строк в обработанном файле" wrapText="true">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <children>
+                                                <Label fx:id="lblSizeProcFile" layoutY="23.0" lineSpacing="2.0" prefHeight="58.0" prefWidth="209.0" text="Размер обработанного файла" wrapText="true">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                             <children>
+                                                <Label fx:id="lblPropertyPath" layoutY="12.0" lineSpacing="2.0" prefHeight="58.0" prefWidth="209.0" text="Путь к property.json" wrapText="true">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                                             <children>
+                                                <TextField fx:id="txtFieldPropertyPath" layoutY="22.0" prefHeight="39.0" prefWidth="390.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
+                                             <children>
+                                                <Button fx:id="btnChooseProperty" layoutX="4.0" layoutY="28.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                             <children>
+                                                <Button fx:id="btnChooseDictionaries" layoutX="4.0" layoutY="28.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                             <children>
+                                                <Button fx:id="btnChooseUserStatistic" layoutX="4.0" layoutY="28.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                             <children>
+                                                <Button fx:id="btnChooseOutDirectory" layoutX="4.0" layoutY="28.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                                             <children>
+                                                <Button fx:id="btnChooseProtectedWords" layoutX="4.0" layoutY="28.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="8">
+                                             <children>
+                                                <Button fx:id="btnChooseDeleteWords" layoutX="4.0" layoutY="28.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <children>
+                                                <TextField fx:id="txtFieldSizeFile" layoutY="25.0" prefHeight="39.0" prefWidth="390.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                             <children>
+                                                <TextField fx:id="txtFieldCountString" layoutY="25.0" prefHeight="39.0" prefWidth="390.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                             <children>
+                                                <TextField fx:id="txtFieldInputFiles" layoutY="25.0" prefHeight="39.0" prefWidth="390.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                             <children>
+                                                <TextField fx:id="txtFieldDictionaries" layoutY="25.0" prefHeight="39.0" prefWidth="390.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                             <children>
+                                                <TextField fx:id="txtFieldUserStatistic" layoutY="25.0" prefHeight="39.0" prefWidth="390.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                             <children>
+                                                <TextField fx:id="txtFieldOutFiles" layoutY="25.0" prefHeight="39.0" prefWidth="390.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                             <children>
+                                                <TextField fx:id="txtFieldProtectedWords" layoutY="25.0" prefHeight="39.0" prefWidth="390.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="8">
+                                             <children>
+                                                <TextField fx:id="txtFieldDeleteWords" layoutY="25.0" prefHeight="39.0" prefWidth="390.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="449.0" minWidth="0.0" prefWidth="14.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="0.0" prefWidth="235.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="10.0" prefWidth="386.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="10.0" prefWidth="65.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="81.0" minHeight="81.0" prefHeight="81.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="81.0" minHeight="81.0" prefHeight="81.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="81.0" minHeight="81.0" prefHeight="81.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
