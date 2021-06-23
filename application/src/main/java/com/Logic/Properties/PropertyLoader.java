@@ -43,6 +43,7 @@ public class PropertyLoader {
     private boolean enableAcronymsModule = false;
 
     private String propertyJsonPath;
+    private PropertyData propertyData;
 
 
     public PropertyLoader(String filePath){
@@ -62,7 +63,7 @@ public class PropertyLoader {
             }
 
             Gson gson = new Gson();
-            PropertyData propertyData = gson.fromJson(fileContent , PropertyData.class);
+            propertyData = gson.fromJson(fileContent , PropertyData.class);
 
             inputFilesDirectory = propertyData.getInputFiles();
             outFileSize = propertyData.getOutputFileSize();
@@ -104,7 +105,7 @@ public class PropertyLoader {
 
     public void overwriteFile(){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String newPropertyFile = gson.toJson(this);
+        String newPropertyFile = gson.toJson(propertyData);
         try(FileWriter fw = new FileWriter(propertyJsonPath)){
             fw.write(newPropertyFile);
         }catch(IOException ex){
@@ -201,6 +202,7 @@ public class PropertyLoader {
 
     public void setFilesForStatisticDirectory(String filesForStatisticDirectory) {
         this.filesForStatisticDirectory = filesForStatisticDirectory;
+        propertyData.setFilesForStatistic(filesForStatisticDirectory);
     }
 
     public boolean isEnableInitialsModule() {
@@ -225,105 +227,131 @@ public class PropertyLoader {
 
     public void setInputFilesDirectory(String inputFilesDirectory) {
         this.inputFilesDirectory = inputFilesDirectory;
+        propertyData.setInputFiles(inputFilesDirectory);
     }
 
     public void setOutFileSize(Integer outFileSize) {
         this.outFileSize = outFileSize;
+        propertyData.setOutputFileSize(outFileSize);
     }
 
     public void setOutFileCountStrings(Integer outFileCountStrings) {
         this.outFileCountStrings = outFileCountStrings;
+        propertyData.setOutputFileCountStrings(outFileCountStrings);
     }
 
     public void setOutDirectory(String outDirectory) {
         this.outDirectory = outDirectory;
+        propertyData.setOutputDirectory(outDirectory);
     }
 
     public void setDictionariesDirectory(String dictionariesDirectory) {
         this.dictionariesDirectory = dictionariesDirectory;
+        propertyData.setDictionaries(dictionariesDirectory);
     }
 
     public void setProtectedWordsDir(String protectedWordsDir) {
         this.protectedWordsDir = protectedWordsDir;
+        propertyData.setProtectedWords(protectedWordsDir);
     }
 
     public void setWordsToDeleteDir(String wordsToDeleteDir) {
         this.wordsToDeleteDir = wordsToDeleteDir;
+        propertyData.setWordsToDelete(wordsToDeleteDir);
     }
 
     public void setEnableRemoveEnglishTextModule(boolean enableRemoveEnglishTextModule) {
         this.enableRemoveEnglishTextModule = enableRemoveEnglishTextModule;
+        propertyData.setRemoveEnglishText(String.valueOf(enableRemoveEnglishTextModule));
     }
 
     public void setEnableDictionaryWordsModule(boolean enableDictionaryWordsModule) {
         this.enableDictionaryWordsModule = enableDictionaryWordsModule;
+        propertyData.setDictionaryWords(String.valueOf(enableDictionaryWordsModule));
     }
 
     public void setEnableFindEnglishModule(boolean enableFindEnglishModule) {
         this.enableFindEnglishModule = enableFindEnglishModule;
+        propertyData.setFindEnglish(String.valueOf(enableFindEnglishModule));
     }
 
     public void setEnablePhoneNumberModule(boolean enablePhoneNumberModule) {
         this.enablePhoneNumberModule = enablePhoneNumberModule;
+        propertyData.setPhoneNumber(String.valueOf(enablePhoneNumberModule));
     }
 
     public void setEnableDatesModule(boolean enableDatesModule) {
         this.enableDatesModule = enableDatesModule;
+        propertyData.setDates(String.valueOf(enableDatesModule));
     }
 
     public void setEnableTimesModule(boolean enableTimesModule) {
         this.enableTimesModule = enableTimesModule;
+        propertyData.setTimes(String.valueOf(enableTimesModule));
     }
 
     public void setEnableMoneyModule(boolean enableMoneyModule) {
         this.enableMoneyModule = enableMoneyModule;
+        propertyData.setMoney(String.valueOf(enableMoneyModule));
     }
 
     public void setEnableFractionsModule(boolean enableFractionsModule) {
         this.enableFractionsModule = enableFractionsModule;
+        propertyData.setFractions(String.valueOf(enableFractionsModule));
     }
 
     public void setEnableNumbersModule(boolean enableNumbersModule) {
         this.enableNumbersModule = enableNumbersModule;
+        propertyData.setNumbers(String.valueOf(enableNumbersModule));
     }
 
     public void setEnableLinksModule(boolean enableLinksModule) {
         this.enableLinksModule = enableLinksModule;
+        propertyData.setLinks(String.valueOf(enableLinksModule));
     }
 
     public void setEnablePunctuationMarkModule(boolean enablePunctuationMarkModule) {
         this.enablePunctuationMarkModule = enablePunctuationMarkModule;
+        propertyData.setPunctuationMark(String.valueOf(enablePunctuationMarkModule));
     }
 
     public void setEnableRemoveWordsModule(boolean enableRemoveWordsModule) {
         this.enableRemoveWordsModule = enableRemoveWordsModule;
+        propertyData.setRemoveWords(String.valueOf(enableRemoveWordsModule));
     }
 
     public void setEnableDaysOfWeekModule(boolean enableDaysOfWeekModule) {
         this.enableDaysOfWeekModule = enableDaysOfWeekModule;
+        propertyData.setDaysOfWeek(String.valueOf(enableDaysOfWeekModule));
     }
 
     public void setEnableInitialsModule(boolean enableInitialsModule) {
         this.enableInitialsModule = enableInitialsModule;
+        propertyData.setInitials(String.valueOf(enableInitialsModule));
     }
 
     public void setEnableAbbreviationsFindModule(boolean enableAbbreviationsFindModule) {
         this.enableAbbreviationsFindModule = enableAbbreviationsFindModule;
+        propertyData.setAbbreviationsFind(String.valueOf(enableAbbreviationsFindModule));
     }
 
     public void setEnableCamelCaseModule(boolean enableCamelCaseModule) {
         this.enableCamelCaseModule = enableCamelCaseModule;
+        propertyData.setCamelCase(String.valueOf(enableCamelCaseModule));
     }
 
     public void setEnableMonthsModule(boolean enableMonthsModule) {
         this.enableMonthsModule = enableMonthsModule;
+        propertyData.setMonths(String.valueOf(enableMonthsModule));
     }
 
     public void setEnableWhitespaceRemoveModule(boolean enableWhitespaceRemoveModule) {
         this.enableWhitespaceRemoveModule = enableWhitespaceRemoveModule;
+        propertyData.setWhitespaceRemove(String.valueOf(enableWhitespaceRemoveModule));
     }
 
     public void setEnableAcronymsModule(boolean enableAcronymsModule) {
         this.enableAcronymsModule = enableAcronymsModule;
+        propertyData.setAcronyms(String.valueOf(enableAcronymsModule));
     }
 }

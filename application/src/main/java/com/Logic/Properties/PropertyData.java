@@ -2,11 +2,12 @@ package com.Logic.Properties;
 
 /**Class for deserializing file "property.json"*/
 public class PropertyData {
-    private String inputFiles;
+
     private Integer outputFileSize;
     private Integer outputFileCountStrings;
-    private String outputDirectory;
     private String dictionaries;
+    private String inputFiles;
+    private String outputDirectory;
     private String filesForStatistic;
     private String protectedWords;
     private String wordsToDelete;

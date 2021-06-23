@@ -49,22 +49,37 @@ public class LabelsModules {
     }
 
     private void createTooltips(){
-        Tooltip tooltipLblRemoveEnglish = new Tooltip("Описание");
-        Tooltip tooltipLblFindEnglish = new Tooltip("Описание");
-        Tooltip tooltipLblLinks = new Tooltip("Описание");
-        Tooltip tooltipLblRemoveInitials = new Tooltip("Описание");
-        Tooltip tooltipLblTimes = new Tooltip("Описание");
-        Tooltip tooltipLblDates = new Tooltip("Описание");
-        Tooltip tooltipLblFractions = new Tooltip("Описание");
-        Tooltip tooltipLblNumbers = new Tooltip("Описание");
-        Tooltip tooltipLblMoney = new Tooltip("Описание");
-        Tooltip tooltipLblPunctuation = new Tooltip("Описание");
-        Tooltip tooltipLblAcronyms = new Tooltip("Описание");
-        Tooltip tooltipLblDaysOfWeek = new Tooltip("Описание");
-        Tooltip tooltipLblDeleteWords = new Tooltip("Описание");
-        Tooltip tooltipLblAbbreviations = new Tooltip("Описание");
-        Tooltip tooltipLblMonths = new Tooltip("Описание");
-        Tooltip tooltipLblDictionaries = new Tooltip("Описание");
+        Tooltip tooltipLblRemoveEnglish = new Tooltip("Отвечает за удаление английского текста из входных\nфайлов." +
+                " При отключении модуля – английский текст\nне удаляется в процессе обработки данных.");
+        Tooltip tooltipLblFindEnglish = new Tooltip("При включении модуля в папке FilesWithEnglish\nсоздастся файл, " +
+                "в который будет помещён весь\nанглийский текст, найденный во входных файлах.");
+        Tooltip tooltipLblLinks = new Tooltip("Удаляет ссылки, найденные в тексте. При включении\nмодуля будут " +
+                "обработаны ссылки любой длины,\nначинающиеся на: http, https, ftp, ftps.");
+        Tooltip tooltipLblRemoveInitials = new Tooltip("Отвечает за удаление инициалов из входных фалов .");
+        Tooltip tooltipLblTimes = new Tooltip("Отвечает за работу модуля по обработке времени.\nПри значении true, " +
+                "комбинации цифр подходящие под\nшаблоны времени будут раскрываться в текст.");
+        Tooltip tooltipLblDates = new Tooltip("Включение обработки дат. При включении, даты представленные в\nчисловом виде, " +
+                "будут раскрыты в текст.");
+        Tooltip tooltipLblFractions = new Tooltip("Отвечает за обработку десятичных дробей – чисел,\nкоторые " +
+                "записаны через запятую.");
+        Tooltip tooltipLblNumbers = new Tooltip("Отвечает за раскрытие цифр и чисел в текст. Раскрытие\nпроисходит" +
+                " в именительном падеже.");
+        Tooltip tooltipLblMoney = new Tooltip("Включение этого модуля добавляет дополнительные правила\nобработки" +
+                " денежных сокращений. При включении будут\nобработанны числа, после которых написан один из\nспец. " +
+                "символов руб. или ₽");
+        Tooltip tooltipLblPunctuation = new Tooltip("Включенный модуль удаляет из входных файлов все знаки\n" +
+                "пунктуации и спец. символы, кроме “.” и “-”.");
+        Tooltip tooltipLblAcronyms = new Tooltip("Ищет во входных файлах акронимы, и удаляет их.\nУдалённые " +
+                "акронимы помещаются в карантинный файл");
+        Tooltip tooltipLblDaysOfWeek = new Tooltip("Находит в текстах дни недели, записанные в сокращённой\nформе," +
+                " и раскрывает в полное слово.");
+        Tooltip tooltipLblDeleteWords = new Tooltip("Отвечает за удаление слов, которые пользователь указал\nв файле," +
+                " находящемся в директории WordsToDelete");
+        Tooltip tooltipLblAbbreviations = new Tooltip("Модуль находит слова, по написанию похожие на\nсокращения, " +
+                "и добавляет их в справочный файл,\nкоторый генерируестя в директории FilesWithAbbreviations.\nНайденные" +
+                " слова не удаляются из обрабатываемых файлов.\nПопавшие в справочный файл слова могу не являтся\nаббревиатурами.");
+        Tooltip tooltipLblMonths = new Tooltip("Раскрывает месяцы, написанные сокращённо в их\nполную форму.");
+        Tooltip tooltipLblDictionaries = new Tooltip("Модуль, отвечающий за раскрытие слов по правилам,\nуказанным пользователем в файлах, находящихся в папке\ndictionaries.");
 
         tooltipLblRemoveEnglish.setShowDuration(Duration.minutes(5));
         tooltipLblFindEnglish.setShowDuration(Duration.minutes(5));

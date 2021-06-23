@@ -33,12 +33,13 @@ public class LabelsChooseFiles {
     }
 
     private void fillInHints(){
-        Tooltip propertyTooltip = new Tooltip("Файл Property.json предназначен для...");
+        Tooltip propertyTooltip = new Tooltip("Файл Property.json - хранит настройку всех путей и модулей,\n" +
+                "необходимых для запуска приложения. В этом файле сохраняются\nпараметры предыдущего запуска приложения.");
         propertyTooltip.setShowDuration(Duration.minutes(5));
         lblProperty.setTooltip(propertyTooltip);
 
-        Tooltip szProcFileTooltip = new Tooltip("Число определяющее размер выходного файла.\n Если обработанный файл" +
-                "превышает заданную величину,\n то он разбивается на части установленной величины.\n Единицы измерения - Мегабайты.");
+        Tooltip szProcFileTooltip = new Tooltip("Число, определяющее размер выходного файла.\nЕсли обработанный файл " +
+                "превышает заданный размер,\nто он разбивается на части установленной величины.\nЕдиницы измерения - Мегабайты.");
         szProcFileTooltip.setShowDuration(Duration.minutes(5));
         lblSizeProcessedFile.setTooltip(szProcFileTooltip);
 
@@ -46,27 +47,33 @@ public class LabelsChooseFiles {
         countStringProcFileTooltip.setShowDuration(Duration.minutes(5));
         lblCountProcessedString.setTooltip(countStringProcFileTooltip);
 
-        Tooltip inputFilesTooltip = new Tooltip("Путь к директории в которой находятся файлы,\n предназначенные для обработки");
+        Tooltip inputFilesTooltip = new Tooltip("Путь к директории, в которой находятся файлы,\nпредназначенные для обработки");
         inputFilesTooltip.setShowDuration(Duration.minutes(5));
         lblInputFiles.setTooltip(inputFilesTooltip);
 
-        Tooltip dictionariesTooltip = new Tooltip("Файл Property.json предназначен для...");
+        Tooltip dictionariesTooltip = new Tooltip("Путь к директории, в которой хранятся словари. Словарь - файл,\n" +
+                "в который пользователь может добавить сокращение\nи правила его раскрытия(расшифровку). При работе приложение\nбудет искать " +
+                "указанные сокращения во входных файлах и заменять,\nв соответствии с указанной пользователем расшифровкой.");
         dictionariesTooltip.setShowDuration(Duration.minutes(5));
         lblDictionaries.setTooltip(dictionariesTooltip);
 
-        Tooltip userStatisticTooltip = new Tooltip("Файл Property.json предназначен для...");
+        Tooltip userStatisticTooltip = new Tooltip("Путь к папке, в которую пользователь помещает файлы\nсо словами," +
+                " по которым он хочет получит дополнительную\nстатистику, собранную по обработанным файлам.");
         userStatisticTooltip.setShowDuration(Duration.minutes(5));
         lblUserStatistic.setTooltip(userStatisticTooltip);
 
-        Tooltip outDirectoryTooltip = new Tooltip("Файл Property.json предназначен для...");
+        Tooltip outDirectoryTooltip = new Tooltip("Путь к директории, в которой приложение создаст " +
+                "папку out\n Out - директория со всеми сгенерированными и обработанными файлами.");
         outDirectoryTooltip.setShowDuration(Duration.minutes(5));
         lblOutDir.setTooltip(outDirectoryTooltip);
 
-        Tooltip protectedWordsTooltip = new Tooltip("Файл Property.json предназначен для...");
+        Tooltip protectedWordsTooltip = new Tooltip("В папке, расположенной по этому пути, находятся файлы \n" +
+                " со словами, которые в процессе работы приложения\n не будут изменены/ удалены.");
         protectedWordsTooltip.setShowDuration(Duration.minutes(5));
         lblProtectedWords.setTooltip(protectedWordsTooltip);
 
-        Tooltip deleteWordsTooltip = new Tooltip("Файл Property.json предназначен для...");
+        Tooltip deleteWordsTooltip = new Tooltip("В эту директорию пользователь помещает файлы со словами,\n " +
+                "которые должны быть удалены из входных данных.");
         deleteWordsTooltip.setShowDuration(Duration.minutes(5));
         lblDeleteWords.setTooltip(deleteWordsTooltip);
     }

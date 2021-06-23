@@ -55,6 +55,39 @@
                <children>
                   <StackPane minWidth="-Infinity" prefHeight="520.0" prefWidth="720.0">
                      <children>
+                        <Pane fx:id="pnlLaunch" prefHeight="520.0" prefWidth="718.0" style="-fx-background-color: #fff;">
+                           <children>
+                              <GridPane prefHeight="600.0" prefWidth="720.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="50.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="50.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="470.0" minHeight="100.0" prefHeight="470.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="441.0" minHeight="10.0" prefHeight="130.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                       <children>
+                                          <TextArea fx:id="txtFieldLog" layoutX="50.0" layoutY="31.0" prefHeight="441.0" prefWidth="520.0" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <children>
+                                          <Button fx:id="btnLaunch" layoutX="52.0" layoutY="49.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="205.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="Запуск" AnchorPane.leftAnchor="50.0" />
+                                          <Button fx:id="btnOpenOutDir" alignment="CENTER" layoutX="320.0" layoutY="49.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="205.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="Открыть выходную папку" AnchorPane.rightAnchor="50.0" />
+                                          <Label fx:id="lblEmptyPaths" layoutX="-20.0" layoutY="18.0" text="Заполните все поля в разделе настройка" textFill="RED">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </Pane>
                         <Pane fx:id="pnlModules" prefHeight="520.0" prefWidth="718.0" style="-fx-background-color: #fff;">
                            <children>
                               <ScrollPane fx:id="scrlPnModules" prefHeight="600.0" prefWidth="720.0">
@@ -322,39 +355,6 @@
                                     </GridPane>
                                  </content>
                               </ScrollPane>
-                           </children>
-                        </Pane>
-                        <Pane fx:id="pnlLaunch" prefHeight="520.0" prefWidth="718.0" style="-fx-background-color: #fff;">
-                           <children>
-                              <GridPane prefHeight="600.0" prefWidth="720.0">
-                                <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="50.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="50.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints maxHeight="470.0" minHeight="100.0" prefHeight="470.0" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="441.0" minHeight="10.0" prefHeight="130.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                 <children>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-                                       <children>
-                                          <TextArea fx:id="txtFieldLog" layoutX="50.0" layoutY="31.0" prefHeight="441.0" prefWidth="520.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                       <children>
-                                          <Button fx:id="btnLaunch" layoutX="52.0" layoutY="49.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="205.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="Запуск" AnchorPane.leftAnchor="50.0" />
-                                          <Button fx:id="btnOpenOutDir" alignment="CENTER" layoutX="320.0" layoutY="49.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="205.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="Открыть выходную папку" AnchorPane.rightAnchor="50.0" />
-                                          <Label fx:id="lblEmptyPaths" layoutX="-20.0" layoutY="18.0" text="Заполните все поля в разделе настройка" textFill="RED">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                 </children>
-                              </GridPane>
                            </children>
                         </Pane>
                      </children>

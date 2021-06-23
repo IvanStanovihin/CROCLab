@@ -1,9 +1,12 @@
 package com.Controller;
 
+import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import com.Components.LabelsChooseFiles;
@@ -15,12 +18,17 @@ import com.Threads.ThreadLaunchButton;
 import com.Utility.Alerts;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 
 
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.stage.DirectoryChooser;
@@ -299,6 +307,8 @@ public class MainController {
 
         btnLaunch.setOnAction(event -> launchProcess());
 
+        btnOpenOutDir.setOnAction(event -> openOutDir());
+
         btnChooseInputFiles.setOnAction(event -> {
         File chosenDirectory = chooseDirectory();
             if (chosenDirectory != null) {
@@ -371,6 +381,18 @@ public class MainController {
 
     }
 
+    private void openOutDir() {
+        Desktop desktop = null;
+        if (desktop.isDesktopSupported()){
+            desktop = Desktop.getDesktop();
+        }
+        try{
+            desktop.open(new File(property.getOutDirectory()));
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
+    }
+
 
     private void createTooltipsForField() {
         Tooltip propertyTooltip = new Tooltip();
@@ -425,9 +447,12 @@ public class MainController {
     }
 
     private void launchProcess() {
-        property.overwriteFile();
+        overwriteProperty();
         Handler handler = new Handler(property, txtFieldLog);
+        btnOpenOutDir.setDisable(false);
     }
+
+
 
     private void fillInPropertyPaths() {
         String propertyPath = txtFieldPropertyPath.getText().trim();
@@ -583,6 +608,7 @@ public class MainController {
 
 
     private void overwriteProperty(){
+        //Setting paths
         property.setOutFileSize(Integer.parseInt(txtFieldSizeFile.getText().trim()));
         property.setOutFileCountStrings(Integer.parseInt(txtFieldCountString.getText().trim()));
         property.setInputFilesDirectory(txtFieldInputFiles.getText().trim());
@@ -591,7 +617,27 @@ public class MainController {
         property.setOutDirectory(txtFieldOutFiles.getText().trim());
         property.setProtectedWordsDir(txtFieldProtectedWords.getText().trim());
         property.setWordsToDeleteDir(txtFieldDeleteWords.getText().trim());
+        //Setting modules
+        property.setEnableRemoveEnglishTextModule(switchRemoveEnglish.getState());
+        property.setEnableDictionaryWordsModule(switchDictionaryWords.getState());
+        property.setEnableFindEnglishModule(switchFindEnglish.getState());
+        //TODO : add phone numbers processing module
+        property.setEnableDatesModule(switchDates.getState());
+        property.setEnableTimesModule(switchTimes.getState());
+        property.setEnableMoneyModule(switchMoneys.getState());
+        property.setEnableFractionsModule(switchFractions.getState());
+        property.setEnableNumbersModule(switchNumbers.getState());
+        property.setEnableLinksModule(switchLinks.getState());
+        property.setEnablePunctuationMarkModule(switchPunctuation.getState());
+        property.setEnableRemoveWordsModule(switchDeleteWords.getState());
+        property.setEnableDaysOfWeekModule(switchDaysOfWeek.getState());
+        property.setEnableInitialsModule(switchInitials.getState());
+        property.setEnableAbbreviationsFindModule(switchAbbreviations.getState());
+        //TODO : add camelCase processing module
+        property.setEnableMonthsModule(switchMonths.getState());
+        property.setEnableAcronymsModule(switchAcronyms.getState());
 
+        property.overwriteFile();
     }
 
     private void openProperty(String propertyPath){
