@@ -1,4 +1,4 @@
-import TAaC.Logic.ProcessingServices.LinksService.LinksRemover;
+import com.Logic.ProcessingServices.LinksService.LinksRemover;
 import org.junit.Assert;
 import org.junit.Test;
 

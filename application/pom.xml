@@ -39,7 +39,7 @@
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>libs/</classpathPrefix>
                             <mainClass>
-                                Launch
+                                com.Launch
                             </mainClass>
                         </manifest>
                     </archive>
