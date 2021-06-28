@@ -30,10 +30,10 @@ public class WordsRemover {
     public static void removeWords(PropertyLoader property, ArrayList<InputFile>inputFiles){
         if (isModuleEnable()) {
             Handler.reportLog.startModule();
-            Handler.reportLog.startCurrentOperation(LogOperation.LOAD_WORDS_TO_DELETE);
+//            Handler.reportLog.startCurrentOperation(LogOperation.LOAD_WORDS_TO_DELETE);
             WordsToDeleteStorage wordsToDeleteStorage = new WordsToDeleteStorage(property);
             wordsToDelete = wordsToDeleteStorage.getWordsToDelete();
-            Handler.reportLog.startCurrentOperation(LogOperation.REMOVE_WORDS_TO_DELETE);
+//            Handler.reportLog.startCurrentOperation(LogOperation.REMOVE_WORDS_TO_DELETE);
             processFiles(inputFiles);
             wordsToDelete = null;
             Handler.reportLog.endModule("Remove words ");

@@ -12,7 +12,7 @@ public enum LogOperation {
     REMOVE_ENGLISH("Deleting English text"),
     CREATE_QUARANTINE_FILES("Creating quarantine files"),
     LOAD_WORDS_TO_DELETE("Loading words to delete"),
-    REMOVE_WORDS_TO_DELETE("Deleting words to delete"),
+    REMOVE_WORDS_TO_DELETE("Words to delete"),
     PROCESSING_DAYS_OF_WEEK("Processing days of the week"),
     REMOVE_INITIALS("Deleting initials"),
     FIND_ABBREVIATIONS("Searching abbreviations"),

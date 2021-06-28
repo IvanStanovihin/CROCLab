@@ -19,4 +19,14 @@ public class Alerts {
         alert.setContentText("Property.json предназначен для ...");
         alert.showAndWait();
     }
+
+    public static void wrongOutDirPath(){
+        System.out.println("error!!!");
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Ошибка!");
+        alert.setHeaderText(null);
+        alert.setContentText("Ошибка при открытии директории. Проверьте путь к выходной папке в разделе " +
+                "настройка.");
+        alert.showAndWait();
+    }
 }

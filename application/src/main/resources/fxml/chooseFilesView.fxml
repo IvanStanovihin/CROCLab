@@ -7,112 +7,166 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane prefHeight="730.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane prefHeight="580.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="lblInputFiles" prefHeight="27.0" prefWidth="137.0" text="Входные файлы" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <Label fx:id="lblInputFiles" layoutY="5.0" prefHeight="27.0" prefWidth="162.0" text="Входные файлы" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <font>
-            <Font size="18.0" />
+            <Font size="17.0" />
          </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
       </Label>
-      <Label fx:id="lblDictionaties" prefHeight="27.0" prefWidth="95.0" text="Словари" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <Label fx:id="lblDictionaties" layoutY="5.0" prefHeight="27.0" prefWidth="95.0" text="Словари" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <font>
-            <Font size="18.0" />
+            <Font size="17.0" />
          </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
       </Label>
-      <Label fx:id="lblUserStat" prefHeight="27.0" prefWidth="236.0" text="Дополнительная статистика" GridPane.columnIndex="1" GridPane.rowIndex="5">
+      <Label fx:id="lblUserStat" layoutY="5.0" prefHeight="64.0" prefWidth="189.0" text="Дополнительная статистика" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <font>
-            <Font size="18.0" />
+            <Font size="17.0" />
          </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
       </Label>
-      <Label fx:id="lblOutDir" prefHeight="27.0" prefWidth="193.0" text="Выходная директория" GridPane.columnIndex="1" GridPane.rowIndex="6">
+      <Label fx:id="lblOutDir" layoutY="5.0" prefHeight="27.0" prefWidth="193.0" text="Выходная директория" GridPane.columnIndex="1" GridPane.rowIndex="6">
          <font>
-            <Font size="18.0" />
+            <Font size="17.0" />
          </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
       </Label>
-      <Label fx:id="lblProtectedWords" prefHeight="21.0" prefWidth="120.0" text="Исключения" GridPane.columnIndex="1" GridPane.rowIndex="7">
+      <Label fx:id="lblProtectedWords" layoutY="5.0" prefHeight="21.0" prefWidth="120.0" text="Исключения" GridPane.columnIndex="1" GridPane.rowIndex="7">
          <font>
-            <Font size="18.0" />
+            <Font size="17.0" />
          </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
       </Label>
-      <Label fx:id="lblDeletWords" prefHeight="27.0" prefWidth="172.0" text="Слова для удаления" GridPane.columnIndex="1" GridPane.rowIndex="8">
+      <Label fx:id="lblDeletWords" layoutY="5.0" prefHeight="27.0" prefWidth="172.0" text="Слова для удаления" GridPane.columnIndex="1" GridPane.rowIndex="8">
          <font>
-            <Font size="18.0" />
+            <Font size="17.0" />
          </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
       </Label>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
          <children>
-            <Button fx:id="btnChooseInputFiles" layoutX="2.0" layoutY="28.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
+            <Button fx:id="btnChooseInputFiles" layoutX="5.0" layoutY="20.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
          </children>
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
-            <Label fx:id="lblCountStringProcFile" layoutY="23.0" lineSpacing="2.0" prefHeight="58.0" prefWidth="209.0" text="Количество строк в обработанном файле" wrapText="true">
+            <Label fx:id="lblCountStringProcFile" layoutY="5.0" prefHeight="58.0" prefWidth="209.0" text="Количество строк в обработанном файле" wrapText="true">
                <font>
-                  <Font size="18.0" />
+                  <Font size="17.0" />
                </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
             </Label>
          </children>
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <Label fx:id="lblSizeProcFile" layoutY="23.0" lineSpacing="2.0" prefHeight="58.0" prefWidth="209.0" text="Размер обработанного файла" wrapText="true">
+            <Label fx:id="lblSizeProcFile" layoutY="5.0" prefHeight="58.0" prefWidth="209.0" text="Размер обработанного файла" wrapText="true">
                <font>
-                  <Font size="18.0" />
+                  <Font size="17.0" />
                </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
             </Label>
          </children>
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
          <children>
-            <Label fx:id="lblPropertyPath" layoutY="12.0" lineSpacing="2.0" prefHeight="58.0" prefWidth="209.0" text="Путь к property.json" wrapText="true">
+            <Label fx:id="lblPropertyPath" lineSpacing="2.0" prefHeight="60.0" prefWidth="228.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 1 0 0 0;" text="Путь к property.json" wrapText="true">
                <font>
-                  <Font size="18.0" />
+                  <Font size="17.0" />
                </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
             </Label>
          </children>
       </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 1 0 0 0;" GridPane.columnIndex="2">
          <children>
-            <TextField fx:id="txtFieldPropertyPath" layoutY="22.0" prefHeight="39.0" prefWidth="390.0">
+            <TextField fx:id="txtFieldPropertyPath" layoutY="17.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="560.0">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
          </children>
       </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 1 0 0 0;" GridPane.columnIndex="3">
          <children>
-            <Button fx:id="btnChooseProperty" layoutX="4.0" layoutY="28.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
+            <Button fx:id="btnChooseProperty" layoutX="6.0" layoutY="20.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
          </children>
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
          <children>
-            <Button fx:id="btnChooseDictionaries" layoutX="4.0" layoutY="28.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
+            <Button fx:id="btnChooseDictionaries" layoutX="5.0" layoutY="20.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
          </children>
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
          <children>
-            <Button fx:id="btnChooseUserStatistic" layoutX="4.0" layoutY="28.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
+            <Button fx:id="btnChooseUserStatistic" layoutX="5.0" layoutY="20.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
          </children>
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
          <children>
-            <Button fx:id="btnChooseOutDirectory" layoutX="4.0" layoutY="28.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
+            <Button fx:id="btnChooseOutDirectory" layoutX="5.0" layoutY="20.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
          </children>
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="7">
          <children>
-            <Button fx:id="btnChooseProtectedWords" layoutX="4.0" layoutY="28.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
+            <Button fx:id="btnChooseProtectedWords" layoutX="5.0" layoutY="20.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
          </children>
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="8">
          <children>
-            <Button fx:id="btnChooseDeleteWords" layoutX="4.0" layoutY="28.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
+            <Button fx:id="btnChooseDeleteWords" layoutX="5.0" layoutY="20.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" styleClass="choose-button" stylesheets="@../style/mainView.css" text="..." />
          </children>
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <children>
-            <TextField fx:id="txtFieldSizeFile" layoutY="25.0" prefHeight="39.0" prefWidth="390.0">
+            <TextField fx:id="txtFieldSizeFile" layoutY="17.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="560.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -121,7 +175,7 @@
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
          <children>
-            <TextField fx:id="txtFieldCountString" layoutY="25.0" prefHeight="39.0" prefWidth="390.0">
+            <TextField fx:id="txtFieldCountString" layoutY="17.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="560.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -130,7 +184,7 @@
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
          <children>
-            <TextField fx:id="txtFieldInputFiles" layoutY="25.0" prefHeight="39.0" prefWidth="390.0">
+            <TextField fx:id="txtFieldInputFiles" layoutY="17.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="560.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -139,7 +193,7 @@
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
          <children>
-            <TextField fx:id="txtFieldDictionaries" layoutY="25.0" prefHeight="39.0" prefWidth="390.0">
+            <TextField fx:id="txtFieldDictionaries" layoutY="17.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="560.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -148,7 +202,7 @@
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
          <children>
-            <TextField fx:id="txtFieldUserStatistic" layoutY="25.0" prefHeight="39.0" prefWidth="390.0">
+            <TextField fx:id="txtFieldUserStatistic" layoutY="17.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="560.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -157,7 +211,7 @@
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
          <children>
-            <TextField fx:id="txtFieldOutFiles" layoutY="25.0" prefHeight="39.0" prefWidth="390.0">
+            <TextField fx:id="txtFieldOutFiles" layoutY="17.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="560.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -166,7 +220,7 @@
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
          <children>
-            <TextField fx:id="txtFieldProtectedWords" layoutY="25.0" prefHeight="39.0" prefWidth="390.0">
+            <TextField fx:id="txtFieldProtectedWords" layoutY="17.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="560.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -175,29 +229,52 @@
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="8">
          <children>
-            <TextField fx:id="txtFieldDeleteWords" layoutY="25.0" prefHeight="39.0" prefWidth="390.0">
+            <TextField fx:id="txtFieldDeleteWords" layoutY="17.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="560.0">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
          </children>
       </Pane>
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 1 0 0;" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 1 0 0;" GridPane.rowIndex="1" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 1 0 0;" GridPane.rowIndex="2" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 1 0 0;" GridPane.rowIndex="3" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 1 0 0;" GridPane.rowIndex="4" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 1 0 0;" GridPane.rowIndex="5" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 1 0 0;" GridPane.rowIndex="6" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 1 0 0;" GridPane.rowIndex="7" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 1 0 0;" GridPane.rowIndex="8" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 1 0 0 0;" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 1 0 0 0;" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 1 0 0 0;" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 0 1;" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 0 1;" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 0 1;" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 0 1;" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 0 1;" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 0 1;" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 0 1;" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 0 1;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 0 1;" GridPane.columnIndex="4" />
    </children>
    <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="449.0" minWidth="0.0" prefWidth="14.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="0.0" prefWidth="235.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="10.0" prefWidth="386.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="10.0" prefWidth="65.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="0.0" prefWidth="20.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="0.0" prefWidth="227.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="10.0" prefWidth="565.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="10.0" prefWidth="67.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="40.0" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints maxHeight="81.0" minHeight="81.0" prefHeight="81.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="81.0" minHeight="81.0" prefHeight="81.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="81.0" minHeight="81.0" prefHeight="81.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="90.0" minHeight="-Infinity" prefHeight="60.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="86.0" minHeight="-Infinity" prefHeight="60.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="88.0" minHeight="-Infinity" prefHeight="60.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="82.0" minHeight="-Infinity" prefHeight="60.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
    </rowConstraints>
 </GridPane>

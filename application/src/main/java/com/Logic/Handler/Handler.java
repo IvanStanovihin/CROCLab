@@ -18,6 +18,10 @@ import com.Logic.ReportLog.LogOperation;
 import com.Logic.ReportLog.ReportLog;
 import com.Logic.Statistic.Statistic;
 import com.Logic.WordsToDelete.WordsRemover;
+import com.Threads.ThreadLaunchHandler;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 
 
@@ -28,7 +32,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 /**The class in which all file processing modules are called.*/
-public class Handler {
+public class Handler{
+
+    public static Boolean processingFiles;
 
     /**List of files that are specified in property.json*/
     private ArrayList<InputFile> inputFiles;
@@ -41,20 +47,29 @@ public class Handler {
     /**Stores the running time of each module and writes logs to the console*/
     public static ReportLog reportLog;
 
-    public static TextArea logArea;
+    public static volatile TextArea logArea;
+    private Button btnOpenOutDir;
 
 
     /**
      **
      * @param property - The path to the property.json file. This file stores the file paths for running the program.
      */
-    public Handler(PropertyLoader property, TextArea logArea) {
+    public Handler(PropertyLoader property, TextArea logArea, Button btnOpenOutDir, Button btnOpenLog) {
+        Handler.processingFiles = processingFiles;
         Handler.property = property;
         Handler.logArea = logArea;
         protectedWordsStorage = new ProtectedWordsStorage(property);
         handle();
         createOutputFiles();
+        btnOpenOutDir.setDisable(false);
+        btnOpenLog.setDisable(false);
+        logArea.appendText("Обработка файлов завершена!");
+        ThreadLaunchHandler.handlerIsWork = false;
     }
+
+
+
 
 
     private void handle() {
@@ -116,6 +131,7 @@ public class Handler {
     }
 
 
+
     //Создаёт выходной файл.
     public void createOutputFiles() {
         String processedFilesDir = property.getOutDirectory() + "/Processed";
@@ -140,4 +156,5 @@ public class Handler {
     public static PropertyLoader getProperty() {
         return property;
     }
+
 }

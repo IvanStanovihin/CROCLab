@@ -4,9 +4,10 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
-import java.util.Locale;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 import com.Components.LabelsChooseFiles;
@@ -14,16 +15,18 @@ import com.Components.LabelsModules;
 import com.Components.SwitchButton;
 import com.Logic.Handler.Handler;
 import com.Logic.Properties.PropertyLoader;
+
+import com.Threads.ThreadControlHandler;
 import com.Threads.ThreadLaunchButton;
+import com.Threads.ThreadLaunchHandler;
 import com.Utility.Alerts;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 
 
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -38,218 +41,222 @@ import javafx.util.Duration;
 
 public class MainController {
 
+    @FXML
+    public ProgressBar progressBar;
+    @FXML
+    public Button btnOpenLog;
+    @FXML
+    public Button btnCloseApp;
 
-    private PropertyLoader property;
+    volatile private PropertyLoader property;
 
     @FXML
-    public TextArea txtFieldLog;
+    volatile public TextArea txtAreaLog;
 
     @FXML
-    private ResourceBundle resources;
+    volatile private ResourceBundle resources;
 
     @FXML
-    private URL location;
+    volatile private URL location;
 
     @FXML
-    private TextField txtFieldInputFiles;
+    volatile private TextField txtFieldInputFiles;
 
     @FXML
-    private Label lblCountStringProcFile;
+    volatile private Label lblCountStringProcFile;
 
     @FXML
-    private TextField txtFieldPropertyPath;
+    volatile private TextField txtFieldPropertyPath;
 
     @FXML
-    private Button btnOpenOutDir;
+    volatile private Button btnOpenOutDir;
 
     @FXML
-    private Pane pnlChooseFiles;
+    volatile private Pane pnlChooseFiles;
 
     @FXML
-    private TextField txtFieldDictionaries;
+    volatile private TextField txtFieldDictionaries;
 
     @FXML
-    private Label lblMdlInitials;
+    volatile private Label lblMdlInitials;
 
     @FXML
-    private StackPane pnlAbbreviationsSwitch;
+    volatile private StackPane pnlAbbreviationsSwitch;
 
     @FXML
-    private StackPane pnlInitialsSwitch;
+    volatile private StackPane pnlInitialsSwitch;
 
     @FXML
-    private StackPane pnlDeleteWordsSwitch;
+    volatile private StackPane pnlDeleteWordsSwitch;
 
     @FXML
-    private Button btnChooseProperty;
+    volatile private Button btnChooseProperty;
 
     @FXML
-    private StackPane pnlDatesSwitch;
+    volatile private StackPane pnlDatesSwitch;
 
     @FXML
-    private Button btnChooseUserStatistic;
+    volatile private Button btnChooseUserStatistic;
 
     @FXML
-    private Pane pnlModules;
+    volatile private Pane pnlModules;
 
     @FXML
-    private Pane pnlLaunch;
+    volatile private Pane pnlLaunch;
 
     @FXML
-    private StackPane pnlDictionariesSwitch;
+    volatile private StackPane pnlDictionariesSwitch;
 
     @FXML
-    private TextField txtFieldOutFiles;
+    volatile private TextField txtFieldOutFiles;
 
     @FXML
-    private Label lblMdlLinks;
+    volatile private Label lblMdlLinks;
 
     @FXML
-    private ToggleButton btnSectionModules;
+    volatile private ToggleButton btnSectionModules;
 
     @FXML
-    private Label lblOutDir;
+    volatile private Label lblOutDir;
 
     @FXML
-    private Label lblMdlDeleteWords;
+    volatile private Label lblMdlDeleteWords;
 
     @FXML
-    private StackPane pnlLinksSwitch;
+    volatile private StackPane pnlLinksSwitch;
 
     @FXML
-    private Label lblMdlDaysWeek;
+    volatile private Label lblMdlDaysWeek;
 
     @FXML
-    private Label lblProtectedWords;
+    volatile private Label lblProtectedWords;
 
     @FXML
-    private Label lblMdlNumbers;
+    volatile private Label lblMdlNumbers;
 
     @FXML
-    private Label lblMdlDictionaries;
+    volatile private Label lblMdlDictionaries;
 
     @FXML
-    private Label lblMdlMonths;
+    volatile private Label lblMdlMonths;
 
     @FXML
-    private TextField txtFieldUserStatistic;
+    volatile private TextField txtFieldUserStatistic;
 
     @FXML
-    private Label lblDeletWords;
+    volatile private Label lblDeletWords;
 
     @FXML
-    private Button btnChooseProtectedWords;
+    volatile private Button btnChooseProtectedWords;
 
     @FXML
-    private Button btnChooseDictionaries;
+    volatile private Button btnChooseDictionaries;
 
     @FXML
-    private TextField txtFieldProtectedWords;
+    volatile private TextField txtFieldProtectedWords;
 
     @FXML
-    private Label lblMdlRemoveEnglish;
+    volatile private Label lblMdlRemoveEnglish;
 
     @FXML
-    private TextField txtFieldDeleteWords;
+    volatile private TextField txtFieldDeleteWords;
 
     @FXML
-    private Button btnChooseOutDirectory;
+    volatile private Button btnChooseOutDirectory;
 
     @FXML
-    private ToggleButton btnSectionLaunch;
+    volatile private ToggleButton btnSectionLaunch;
 
     @FXML
-    private TextField txtFieldSizeFile;
+    volatile private TextField txtFieldSizeFile;
 
     @FXML
-    private StackPane pnlNumbersSwitch;
+    volatile private StackPane pnlNumbersSwitch;
 
     @FXML
-    private StackPane pnlFractionsSwitch;
+    volatile private StackPane pnlFractionsSwitch;
 
     @FXML
-    private Label lblMdlPunctuation;
+    volatile private Label lblMdlPunctuation;
 
     @FXML
-    private Button btnLaunch;
+    volatile private Button btnLaunch;
 
     @FXML
-    private StackPane pnlTimeSwitch;
+    volatile private StackPane pnlTimeSwitch;
 
     @FXML
-    private Button btnChooseDeleteWords;
+    volatile private Button btnChooseDeleteWords;
 
     @FXML
-    private TextField txtFieldCountString;
+    volatile private TextField txtFieldCountString;
 
     @FXML
-    private Label lblMdlFindEnglish;
+    volatile private Label lblMdlFindEnglish;
 
     @FXML
-    private StackPane pnlAcronymsSwitch;
+    volatile private StackPane pnlAcronymsSwitch;
 
     @FXML
-    private StackPane pnlMonthsSwitch;
+    volatile private StackPane pnlMonthsSwitch;
 
-    @FXML
-    private ScrollPane scrlPnModules;
 
     @FXML
-    private ToggleButton btnSectionSettingFiles;
+    volatile private ToggleButton btnSectionSettingFiles;
 
     @FXML
-    private Label lblMdlTimes;
+    volatile private Label lblMdlTimes;
 
     @FXML
-    private Label lblDictionaties;
+    volatile private Label lblDictionaties;
 
     @FXML
-    private Label lblMdlAcronyms;
+    volatile private Label lblMdlAcronyms;
 
     @FXML
-    private StackPane pnlMoneySwitch;
+    volatile private StackPane pnlMoneySwitch;
 
     @FXML
-    private Label lblMdlAbbreviations;
+    volatile private Label lblMdlAbbreviations;
 
     @FXML
-    private ScrollPane scrlPnChooseFile;
+    volatile private ScrollPane scrlPnChooseFile;
 
     @FXML
-    private Label lblMdlMoneys;
+    volatile private Label lblMdlMoneys;
 
     @FXML
-    private Label lblMdlFractions;
+    volatile private Label lblMdlFractions;
 
     @FXML
-    private Label lblSizeProcFile;
+    volatile private Label lblSizeProcFile;
 
     @FXML
-    private Label lblPropertyPath;
+    volatile private Label lblPropertyPath;
 
     @FXML
-    private StackPane pnlDeleteEnglishSwitch;
+    volatile private StackPane pnlDeleteEnglishSwitch;
 
     @FXML
-    private Label lblInputFiles;
+    volatile private Label lblInputFiles;
 
     @FXML
-    private StackPane pnlDaysWeekSwitch;
+    volatile private StackPane pnlDaysWeekSwitch;
 
     @FXML
-    private Button btnChooseInputFiles;
+    volatile private Button btnChooseInputFiles;
 
     @FXML
-    private Label lblUserStat;
+    volatile private Label lblUserStat;
 
     @FXML
-    private StackPane pnlFindEnglishSwitch;
+    volatile private StackPane pnlFindEnglishSwitch;
 
     @FXML
-    private StackPane pnlPunctuationSwitch;
+    volatile private StackPane pnlPunctuationSwitch;
 
     @FXML
-    private Label lblMdlDates;
+    volatile private Label lblMdlDates;
 
     private SwitchButton switchRemoveEnglish;
     private SwitchButton switchDictionaryWords;
@@ -269,7 +276,13 @@ public class MainController {
     private SwitchButton switchLinks;
 
     @FXML
-    private Label lblEmptyPaths;
+    volatile private Label lblEmptyPaths;
+
+    private static volatile Boolean processingFiles = true;
+
+    private ThreadLaunchHandler taskThread;
+
+    private boolean firstLaunch = true;
 
 
 
@@ -281,12 +294,11 @@ public class MainController {
     @FXML
     void initialize() {
 
-
-        scrlPnChooseFile.setFitToWidth(true);
-        scrlPnModules.setFitToWidth(true);
-
+        btnCloseApp.setOnAction(event -> Platform.exit());
         pnlChooseFiles.toFront();
         btnSectionSettingFiles.setSelected(true);
+
+        btnOpenLog.setDisable(true);
         btnOpenOutDir.setDisable(true);
         createModuleSwitches();
 
@@ -294,7 +306,6 @@ public class MainController {
 
         LabelsChooseFiles hintsForChooseFiles = new LabelsChooseFiles(lblPropertyPath, lblSizeProcFile, lblCountStringProcFile,
                 lblInputFiles, lblDictionaties, lblUserStat, lblOutDir, lblProtectedWords, lblDeletWords);
-        lblPropertyPath.setOnMouseClicked(event -> Alerts.propertyPathInfo());
         LabelsModules labelsModules = new LabelsModules(lblMdlRemoveEnglish, lblMdlFindEnglish, lblMdlLinks, lblMdlInitials,
                 lblMdlTimes, lblMdlDates, lblMdlFractions, lblMdlNumbers, lblMdlMoneys, lblMdlPunctuation, lblMdlAcronyms,
                 lblMdlDaysWeek, lblMdlDeleteWords, lblMdlAbbreviations, lblMdlMonths, lblMdlDictionaries);
@@ -302,9 +313,13 @@ public class MainController {
         ThreadLaunchButton controlButtonLaunchThread = new ThreadLaunchButton("ControlLaunchBtnThread", btnLaunch, lblEmptyPaths,
                 txtFieldPropertyPath, txtFieldSizeFile, txtFieldCountString, txtFieldInputFiles, txtFieldUserStatistic,
                 txtFieldDictionaries, txtFieldOutFiles, txtFieldProtectedWords, txtFieldDeleteWords);
+        controlButtonLaunchThread.setDaemon(true);
         controlButtonLaunchThread.start();
 
 
+
+
+        btnOpenOutDir.setOnAction(event -> openLogFile());
         btnLaunch.setOnAction(event -> launchProcess());
 
         btnOpenOutDir.setOnAction(event -> openOutDir());
@@ -376,7 +391,13 @@ public class MainController {
             pnlLaunch.toFront();
             btnSectionModules.setSelected(false);
             btnSectionSettingFiles.setSelected(false);
+
         });
+
+
+    }
+
+    private void openLogFile() {
 
 
     }
@@ -387,7 +408,13 @@ public class MainController {
             desktop = Desktop.getDesktop();
         }
         try{
-            desktop.open(new File(property.getOutDirectory()));
+            Path outDirPath = Paths.get(property.getOutDirectory());
+            if (Files.exists(outDirPath)) {
+                File outDir = new File(property.getOutDirectory());
+                desktop.open(outDir);
+            }else {
+                Alerts.wrongOutDirPath();
+            }
         }catch(IOException ex){
             ex.printStackTrace();
         }
@@ -448,8 +475,34 @@ public class MainController {
 
     private void launchProcess() {
         overwriteProperty();
-        Handler handler = new Handler(property, txtFieldLog);
-        btnOpenOutDir.setDisable(false);
+        txtAreaLog.setText("Обработка файлов!\n");
+
+//        Thread taskThread = new Thread(new Task<>() {
+//
+//            @Override
+//            protected Object call() throws Exception {
+//                Handler handler = new Handler(property, txtAreaLog, btnOpenOutDir, btnOpenLog);
+//                handler = null;
+//                return null;
+//            }
+//        });
+//        taskThread.setDaemon(true);
+//        taskThread.start();
+
+
+//        Thread taskThread = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                Handler handler = new Handler(property, txtAreaLog, btnOpenOutDir, btnOpenLog);
+//
+//            }
+//        });
+
+        taskThread = new ThreadLaunchHandler("Thread launch handler", property, txtAreaLog, btnOpenOutDir, btnOpenLog);
+        taskThread.setDaemon(true);
+        taskThread.start();
+
+
     }
 
 

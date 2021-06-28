@@ -15,6 +15,7 @@ public class TextAreaAppender extends AppenderSkeleton {
     @Override
     protected void append(LoggingEvent loggingEvent) {
         logArea.appendText(loggingEvent.getMessage().toString() + "\n");
+
     }
 
     @Override

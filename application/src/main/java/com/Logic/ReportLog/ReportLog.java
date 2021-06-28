@@ -4,6 +4,7 @@ import com.Logic.Handler.Handler;
 import com.Logic.Properties.PropertyLoader;
 
 
+import javafx.scene.control.TextArea;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import java.io.FileOutputStream;
@@ -20,12 +21,9 @@ import java.util.Calendar;
  */
 public class ReportLog {
 
-    public ReportLog(int countInputFiles){
-        this.countInputFiles = countInputFiles;
-        TextAreaAppender customAppender = new TextAreaAppender(Handler.logArea);
-        LOGGER.addAppender(customAppender);
-    }
 
+    private int currentProgress = 0;
+    private int maxProgress;
     /**
      * logger
      */
@@ -70,6 +68,17 @@ public class ReportLog {
      * Common time through all modules
      */
     private double totalModulesWorkingTime = 0;
+
+    private TextArea logArea;
+
+
+    public ReportLog(int countInputFiles){
+        this.countInputFiles = countInputFiles;
+        maxProgress = 32 * countInputFiles;
+        this.logArea = Handler.logArea;
+//        TextAreaAppender customAppender = new TextAreaAppender(Handler.logArea);
+//        LOGGER.addAppender(customAppender);
+    }
 
     /**
      * Log current operation
@@ -117,6 +126,7 @@ public class ReportLog {
                 processingFiles(currentOperation, fileName);
                 break;
         }
+
     }
 
     /**
@@ -125,6 +135,7 @@ public class ReportLog {
      */
     private  void loadingResources(LogOperation currentOperation) {
         System.out.println(currentOperation);
+        logArea.appendText(currentOperation + "\n");
     }
 
     /**
@@ -157,6 +168,8 @@ public class ReportLog {
         endOperationTime = Calendar.getInstance().getTimeInMillis();
         currentMessage += " " + (((double)endOperationTime - startOperationTime)/1000);
         LOGGER.log(Level.INFO, currentMessage);
+        currentProgress++;
+
     }
 
     /**
@@ -176,6 +189,7 @@ public class ReportLog {
         this.totalModulesWorkingTime += moduleWorkingTime;
         String moduleTime = moduleName + moduleWorkingTime + " s.";
         System.out.println(moduleTime);
+        logArea.appendText(moduleTime + "\n");
         this.moduleWorkTime.add(moduleTime);
     }
 

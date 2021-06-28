@@ -7,66 +7,154 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="649.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="918.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <GridPane prefHeight="900.0" prefWidth="649.0">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.5" minWidth="10.0" prefWidth="52.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="246.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="337.0" minWidth="10.0" prefWidth="337.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <GridPane prefHeight="620.0" prefWidth="918.0">
          <children>
-            <StackPane fx:id="pnlDeleteEnglishSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" />
-            <StackPane fx:id="pnlFindEnglishSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <StackPane fx:id="pnlLinksSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <StackPane fx:id="pnlInintialsSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <StackPane fx:id="pnlTimeSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <StackPane fx:id="pnlDatesSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <StackPane fx:id="pnlFractionsSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <StackPane fx:id="pnlMoneySwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-            <Label fx:id="lblMdlRemoveEnglish" prefHeight="50.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Удаление английского" GridPane.columnIndex="1" />
-            <Label fx:id="lblMdlDictionaries" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Словарные слова" GridPane.columnIndex="1" GridPane.rowIndex="14" />
-            <Label fx:id="lblMdlFindEnglish" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Поиск английского" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="lblMdlDates" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Даты" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label fx:id="lblMdlTimes" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Время" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label fx:id="lblMdlMoneys" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Денежные единицы" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label fx:id="lblMdlFractions" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Дробные числа" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label fx:id="lblMdlNumbers" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Целые числа" GridPane.columnIndex="1" GridPane.rowIndex="15" />
-            <Label fx:id="lblMdlPunctuation" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Знаки пунктуации" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Label fx:id="lblMdlDeleteWords" prefHeight="47.0" prefWidth="212.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Удаление заданных слов" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-            <Label fx:id="lblMdlInitials" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Удаление инициалов" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="lblMdlAbbreviations" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Поиск аббревиатур" GridPane.columnIndex="1" GridPane.rowIndex="12" />
-            <Label fx:id="lblMdlMonths" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Сокращения месяцев" GridPane.columnIndex="1" GridPane.rowIndex="13" />
-            <Label fx:id="lblMdlAcronyms" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Акронимы" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <Label fx:id="lblMdlLinks" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Ссылки" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label fx:id="lblMdlDaysWeek" prefHeight="47.0" prefWidth="220.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Сокращения дней недели" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <StackPane fx:id="pnlAcronymsSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-            <StackPane fx:id="pnlPunctuationSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-            <StackPane fx:id="pnlDaysWeekSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
-            <StackPane fx:id="pnlDeleteWordsSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="11" />
-            <StackPane fx:id="pnlAbbreviationsSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="12" />
-            <StackPane fx:id="pnlMonthsSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="13" />
-            <StackPane fx:id="pnlDictionariesSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="14" />
-            <StackPane fx:id="pnlNumbersSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="15" />
+            <StackPane fx:id="pnlDeleteEnglishSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <StackPane fx:id="pnlFindEnglishSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <StackPane fx:id="pnlLinksSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <StackPane fx:id="pnlInitialsSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <StackPane fx:id="pnlDatesSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <StackPane fx:id="pnlFractionsSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <StackPane fx:id="pnlMoneySwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <Label fx:id="lblMdlRemoveEnglish" prefHeight="50.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Удаление английского" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lblMdlDictionaries" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Словарные слова" GridPane.columnIndex="3" GridPane.rowIndex="7">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lblMdlFindEnglish" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Поиск английского" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lblMdlDates" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Даты" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lblMdlTimes" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Время" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lblMdlMoneys" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Денежные единицы" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lblMdlFractions" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Дробные числа" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lblMdlNumbers" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Целые числа" GridPane.columnIndex="3" GridPane.rowIndex="8">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lblMdlPunctuation" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Знаки пунктуации" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lblMdlDeleteWords" prefHeight="47.0" prefWidth="212.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Удаление заданных слов" GridPane.columnIndex="3" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lblMdlInitials" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Удаление инициалов" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lblMdlAbbreviations" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Поиск аббревиатур" GridPane.columnIndex="3" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lblMdlMonths" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Сокращения месяцев" GridPane.columnIndex="3" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lblMdlAcronyms" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Акронимы" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lblMdlLinks" prefHeight="58.0" prefWidth="189.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Ссылки" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lblMdlDaysWeek" prefHeight="47.0" prefWidth="220.0" styleClass="label-info" stylesheets="@../style/mainView.css" text="Сокращения дней недели" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <StackPane fx:id="pnlAcronymsSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <StackPane fx:id="pnlPunctuationSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <StackPane fx:id="pnlDaysWeekSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <StackPane fx:id="pnlDeleteWordsSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <StackPane fx:id="pnlAbbreviationsSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <StackPane fx:id="pnlMonthsSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <StackPane fx:id="pnlDictionariesSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <StackPane fx:id="pnlNumbersSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+            <StackPane fx:id="pnlTimeSwitch" prefHeight="100.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 1 0 0;" GridPane.rowIndex="1" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 1 0 0;" GridPane.rowIndex="2" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 1 0 0;" GridPane.rowIndex="3" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 1 0 0;" GridPane.rowIndex="4" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 1 0 0;" GridPane.rowIndex="5" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 1 0 0;" GridPane.rowIndex="6" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 1 0 0;" GridPane.rowIndex="7" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 1 0 0;" GridPane.rowIndex="8" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 1 0 0 0;" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 1 0;" GridPane.columnIndex="1" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 1 0;" GridPane.columnIndex="2" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 1 0;" GridPane.columnIndex="3" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 1 0;" GridPane.columnIndex="4" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 0 1;" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 0 1;" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 0 1;" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 0 1;" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 0 1;" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 0 1;" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 0 1;" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 1 0 0 0;" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 1 0 0 0;" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 1 0 0 0;" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #CCCCCC; -fx-border-width: 0 0 0 1;" GridPane.columnIndex="5" GridPane.rowIndex="7" />
          </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="411.0" minWidth="10.0" prefWidth="40.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="411.0" minWidth="10.0" prefWidth="222.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="47.0" prefWidth="237.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="405.0" minWidth="-Infinity" prefWidth="250.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="201.0" minWidth="50.0" prefWidth="127.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="44.0" minWidth="-Infinity" prefWidth="40.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+         </rowConstraints>
       </GridPane>
    </children>
 </AnchorPane>

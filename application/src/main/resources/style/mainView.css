@@ -7,22 +7,32 @@
 }
 
 
+.close-button
+{
+-fx-background-color : #CC3300;
+-fx-font-size: 15px;
+-fx-text-fill : white;
+}
+.close-button : hover{
+-fx-background-color : #990000;
+}
+
 .label-info{
 -fx-font-size : 18;
 -fx-text-fill : black;
 -fx-wrap-text : true;
 }
 
-.button
+.pnl-button
 {
 -fx-background-color : #6AA744;
 -fx-text-fill : #e7e5e5;
 -fx-font-size : 20px;
 }
-.button:hover{
+.pnl-button:hover{
 -fx-background-color : #248341;
 }
-.button:pressed
+.pnl-button:pressed
 {
 -fx-background-color : #219945;
 }
