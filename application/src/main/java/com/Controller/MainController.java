@@ -13,15 +13,14 @@ import java.util.ResourceBundle;
 import com.Components.LabelsChooseFiles;
 import com.Components.LabelsModules;
 import com.Components.SwitchButton;
-import com.Logic.Handler.Handler;
 import com.Logic.Properties.PropertyLoader;
 
-import com.Threads.ThreadControlHandler;
 import com.Threads.ThreadLaunchButton;
 import com.Threads.ThreadLaunchHandler;
 import com.Utility.Alerts;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -284,6 +283,8 @@ public class MainController {
 
     private boolean firstLaunch = true;
 
+    private static final String PROPERTY_HISTORY_PATH = "..\\propertyHistory\\history.json";
+
 
 
 
@@ -293,15 +294,16 @@ public class MainController {
 
     @FXML
     void initialize() {
-
+        createModuleSwitches();
+        loadPropertyHistory();
         btnCloseApp.setOnAction(event -> Platform.exit());
         pnlChooseFiles.toFront();
         btnSectionSettingFiles.setSelected(true);
 
         btnOpenLog.setDisable(true);
         btnOpenOutDir.setDisable(true);
-        createModuleSwitches();
 
+        lblEmptyPaths.setVisible(false);
         createTooltipsForField();
 
         LabelsChooseFiles hintsForChooseFiles = new LabelsChooseFiles(lblPropertyPath, lblSizeProcFile, lblCountStringProcFile,
@@ -318,10 +320,9 @@ public class MainController {
 
 
 
-
-        btnOpenOutDir.setOnAction(event -> openLogFile());
         btnLaunch.setOnAction(event -> launchProcess());
 
+        btnOpenLog.setOnAction(event -> openLogDir());
         btnOpenOutDir.setOnAction(event -> openOutDir());
 
         btnChooseInputFiles.setOnAction(event -> {
@@ -369,6 +370,9 @@ public class MainController {
             File chosenFile = chooseFile();
             if (chosenFile != null) {
                 txtFieldPropertyPath.setText(chosenFile.getAbsolutePath());
+                String propertyPath = txtFieldPropertyPath.getText().trim();
+                //TODO: Make error handling for failed property.json read attempt. Create alerts.
+                property = new PropertyLoader(propertyPath);
                 fillInPropertyPaths();
                 fillInModulesSwitch();
             }
@@ -397,10 +401,32 @@ public class MainController {
 
     }
 
-    private void openLogFile() {
-
-
+    private void loadPropertyHistory() {
+        if (Files.exists(Paths.get(PROPERTY_HISTORY_PATH))) {
+            property = new PropertyLoader(PROPERTY_HISTORY_PATH);
+            fillInPropertyPaths();
+            fillInModulesSwitch();
+        }
     }
+
+
+    private void openLogDir() {
+        Desktop desktop = null;
+        if (Desktop.isDesktopSupported()){
+            desktop = Desktop.getDesktop();
+        }
+        try{
+            Path logDirPath = Paths.get("././out/Report");
+            if (Files.exists(logDirPath)) {
+                desktop.open(new File(logDirPath.toString()));
+            }else{
+
+            }
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
+    }
+
 
     private void openOutDir() {
         Desktop desktop = null;
@@ -474,43 +500,22 @@ public class MainController {
     }
 
     private void launchProcess() {
-        overwriteProperty();
-        txtAreaLog.setText("Обработка файлов!\n");
+        if (!firstLaunch) {
+            taskThread = null;
+            System.gc();
+        }
+            overwriteProperty();
+            txtAreaLog.setText("Обработка файлов!\n");
 
-//        Thread taskThread = new Thread(new Task<>() {
-//
-//            @Override
-//            protected Object call() throws Exception {
-//                Handler handler = new Handler(property, txtAreaLog, btnOpenOutDir, btnOpenLog);
-//                handler = null;
-//                return null;
-//            }
-//        });
-//        taskThread.setDaemon(true);
-//        taskThread.start();
-
-
-//        Thread taskThread = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                Handler handler = new Handler(property, txtAreaLog, btnOpenOutDir, btnOpenLog);
-//
-//            }
-//        });
-
-        taskThread = new ThreadLaunchHandler("Thread launch handler", property, txtAreaLog, btnOpenOutDir, btnOpenLog);
-        taskThread.setDaemon(true);
-        taskThread.start();
-
-
+            taskThread = new ThreadLaunchHandler("Thread launch handler", property, txtAreaLog, btnOpenOutDir, btnOpenLog);
+            taskThread.setDaemon(true);
+            taskThread.start();
+            firstLaunch = false;
     }
 
 
 
     private void fillInPropertyPaths() {
-        String propertyPath = txtFieldPropertyPath.getText().trim();
-        //TODO: Make error handling for failed property.json read attempt. Create alerts.
-        property = new PropertyLoader(propertyPath);
         txtFieldSizeFile.setText(property.getOutFileSize().toString());
         txtFieldCountString.setText(property.getOutFileCountStrings().toString());
         txtFieldInputFiles.setText(property.getInputFilesDirectory());
@@ -689,13 +694,11 @@ public class MainController {
         //TODO : add camelCase processing module
         property.setEnableMonthsModule(switchMonths.getState());
         property.setEnableAcronymsModule(switchAcronyms.getState());
-
-        property.overwriteFile();
+        File propertyHistoryDir = new File("..\\propertyHistory");
+        propertyHistoryDir.mkdir();
+        property.overwritePropertyHistory(PROPERTY_HISTORY_PATH);
     }
 
-    private void openProperty(String propertyPath){
-        PropertyLoader property = new PropertyLoader(propertyPath);
-    }
 
 
 

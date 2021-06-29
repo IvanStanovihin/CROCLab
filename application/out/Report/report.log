@@ -2468,3 +2468,424 @@ Creating processed files (InputFile_abbrev.txt 7/10) 0.001
 Creating processed files (InputFile_Mix.txt 8/10) 0.001
 Creating processed files (InputFile_noDots.txt 9/10) 0.0
 Creating processed files (_RSHB_2019_12_15_Names.txt 10/10) 0.002
+Processing phone numbers (1 (2).txt 1/10) 0.024
+Processing phone numbers (1 (3).txt 2/10) 0.007
+Processing phone numbers (1 (4).txt 3/10) 0.007
+Processing phone numbers (1 (5).txt 4/10) 0.008
+Processing phone numbers (1 (6).txt 5/10) 0.004
+Processing phone numbers (1 (7).txt 6/10) 0.002
+Processing phone numbers (InputFile_abbrev.txt 7/10) 0.016
+Processing phone numbers (InputFile_Mix.txt 8/10) 0.0
+Processing phone numbers (InputFile_noDots.txt 9/10) 0.001
+Processing phone numbers (_RSHB_2019_12_15_Names.txt 10/10) 0.003
+Processing times (1 (2).txt 1/10) 0.02
+Processing times (1 (3).txt 2/10) 0.017
+Processing times (1 (4).txt 3/10) 0.016
+Processing times (1 (5).txt 4/10) 0.019
+Processing times (1 (6).txt 5/10) 0.008
+Processing times (1 (7).txt 6/10) 0.005
+Processing times (InputFile_abbrev.txt 7/10) 0.001
+Processing times (InputFile_Mix.txt 8/10) 0.001
+Processing times (InputFile_noDots.txt 9/10) 0.0
+Processing times (_RSHB_2019_12_15_Names.txt 10/10) 0.002
+Processing dates (1 (2).txt 1/10) 1.287
+Processing dates (1 (3).txt 2/10) 1.055
+Processing dates (1 (4).txt 3/10) 1.05
+Processing dates (1 (5).txt 4/10) 1.088
+Processing dates (1 (6).txt 5/10) 0.558
+Processing dates (1 (7).txt 6/10) 0.35
+Processing dates (InputFile_abbrev.txt 7/10) 0.017
+Processing dates (InputFile_Mix.txt 8/10) 0.03
+Processing dates (InputFile_noDots.txt 9/10) 0.037
+Processing dates (_RSHB_2019_12_15_Names.txt 10/10) 0.081
+Processing moneys (1 (2).txt 1/10) 0.043
+Processing moneys (1 (3).txt 2/10) 0.03
+Processing moneys (1 (4).txt 3/10) 0.031
+Processing moneys (1 (5).txt 4/10) 0.031
+Processing moneys (1 (6).txt 5/10) 0.016
+Processing moneys (1 (7).txt 6/10) 0.01
+Processing moneys (InputFile_abbrev.txt 7/10) 0.001
+Processing moneys (InputFile_Mix.txt 8/10) 0.001
+Processing moneys (InputFile_noDots.txt 9/10) 0.002
+Processing moneys (_RSHB_2019_12_15_Names.txt 10/10) 0.007
+Processing fractions (1 (2).txt 1/10) 0.008
+Processing fractions (1 (3).txt 2/10) 0.004
+Processing fractions (1 (4).txt 3/10) 0.005
+Processing fractions (1 (5).txt 4/10) 0.005
+Processing fractions (1 (6).txt 5/10) 0.002
+Processing fractions (1 (7).txt 6/10) 0.002
+Processing fractions (InputFile_abbrev.txt 7/10) 0.0
+Processing fractions (InputFile_Mix.txt 8/10) 0.0
+Processing fractions (InputFile_noDots.txt 9/10) 0.001
+Processing fractions (_RSHB_2019_12_15_Names.txt 10/10) 0.0
+Deleting links (1 (2).txt 1/10) 0.054
+Deleting links (1 (3).txt 2/10) 0.033
+Deleting links (1 (4).txt 3/10) 0.034
+Deleting links (1 (5).txt 4/10) 0.036
+Deleting links (1 (6).txt 5/10) 0.018
+Deleting links (1 (7).txt 6/10) 0.013
+Deleting links (InputFile_abbrev.txt 7/10) 0.001
+Deleting links (InputFile_Mix.txt 8/10) 0.001
+Deleting links (InputFile_noDots.txt 9/10) 0.0
+Deleting links (_RSHB_2019_12_15_Names.txt 10/10) 0.003
+Processing numbers (1 (2).txt 1/10) 0.005
+Processing numbers (1 (3).txt 2/10) 0.004
+Processing numbers (1 (4).txt 3/10) 0.007
+Processing numbers (1 (5).txt 4/10) 0.006
+Processing numbers (1 (6).txt 5/10) 0.002
+Processing numbers (1 (7).txt 6/10) 0.002
+Processing numbers (InputFile_abbrev.txt 7/10) 0.001
+Processing numbers (InputFile_Mix.txt 8/10) 0.001
+Processing numbers (InputFile_noDots.txt 9/10) 0.0
+Processing numbers (_RSHB_2019_12_15_Names.txt 10/10) 0.001
+Deleting whitespace dictionary words (1 (2).txt 1/10) 1.298
+Deleting whitespace dictionary words (1 (3).txt 2/10) 1.079
+Deleting whitespace dictionary words (1 (4).txt 3/10) 1.086
+Deleting whitespace dictionary words (1 (5).txt 4/10) 1.128
+Deleting whitespace dictionary words (1 (6).txt 5/10) 0.564
+Deleting whitespace dictionary words (1 (7).txt 6/10) 0.363
+Deleting whitespace dictionary words (InputFile_abbrev.txt 7/10) 0.015
+Deleting whitespace dictionary words (InputFile_Mix.txt 8/10) 0.019
+Deleting whitespace dictionary words (InputFile_noDots.txt 9/10) 0.015
+Deleting whitespace dictionary words (_RSHB_2019_12_15_Names.txt 10/10) 0.099
+Deleting single dictionary words (1 (2).txt 1/10) 0.091
+Deleting single dictionary words (1 (3).txt 2/10) 0.038
+Deleting single dictionary words (1 (4).txt 3/10) 0.029
+Deleting single dictionary words (1 (5).txt 4/10) 0.034
+Deleting single dictionary words (1 (6).txt 5/10) 0.013
+Deleting single dictionary words (1 (7).txt 6/10) 0.008
+Deleting single dictionary words (InputFile_abbrev.txt 7/10) 0.001
+Deleting single dictionary words (InputFile_Mix.txt 8/10) 0.001
+Deleting single dictionary words (InputFile_noDots.txt 9/10) 0.0
+Deleting single dictionary words (_RSHB_2019_12_15_Names.txt 10/10) 0.005
+Processing punctuation marks (1 (2).txt 1/10) 0.111
+Processing punctuation marks (1 (3).txt 2/10) 0.092
+Processing punctuation marks (1 (4).txt 3/10) 0.094
+Processing punctuation marks (1 (5).txt 4/10) 0.099
+Processing punctuation marks (1 (6).txt 5/10) 0.049
+Processing punctuation marks (1 (7).txt 6/10) 0.033
+Processing punctuation marks (InputFile_abbrev.txt 7/10) 0.003
+Processing punctuation marks (InputFile_Mix.txt 8/10) 0.003
+Processing punctuation marks (InputFile_noDots.txt 9/10) 0.002
+Processing punctuation marks (_RSHB_2019_12_15_Names.txt 10/10) 0.01
+Processing days of the week (1 (2).txt 1/10) 0.158
+Processing days of the week (1 (3).txt 2/10) 0.111
+Processing days of the week (1 (4).txt 3/10) 0.113
+Processing days of the week (1 (5).txt 4/10) 0.114
+Processing days of the week (1 (6).txt 5/10) 0.057
+Processing days of the week (1 (7).txt 6/10) 0.041
+Processing days of the week (InputFile_abbrev.txt 7/10) 0.002
+Processing days of the week (InputFile_Mix.txt 8/10) 0.002
+Processing days of the week (InputFile_noDots.txt 9/10) 0.001
+Processing days of the week (_RSHB_2019_12_15_Names.txt 10/10) 0.007
+Deleting initials (1 (2).txt 1/10) 0.093
+Deleting initials (1 (3).txt 2/10) 0.078
+Deleting initials (1 (4).txt 3/10) 0.076
+Deleting initials (1 (5).txt 4/10) 0.079
+Deleting initials (1 (6).txt 5/10) 0.041
+Deleting initials (1 (7).txt 6/10) 0.024
+Deleting initials (InputFile_abbrev.txt 7/10) 0.001
+Deleting initials (InputFile_Mix.txt 8/10) 0.001
+Deleting initials (InputFile_noDots.txt 9/10) 0.001
+Deleting initials (_RSHB_2019_12_15_Names.txt 10/10) 0.004
+Searching abbreviations (1 (2).txt 1/10) 0.021
+Searching abbreviations (1 (3).txt 2/10) 0.013
+Searching abbreviations (1 (4).txt 3/10) 0.013
+Searching abbreviations (1 (5).txt 4/10) 0.012
+Searching abbreviations (1 (6).txt 5/10) 0.007
+Searching abbreviations (1 (7).txt 6/10) 0.004
+Searching abbreviations (InputFile_abbrev.txt 7/10) 0.004
+Searching abbreviations (InputFile_Mix.txt 8/10) 0.001
+Searching abbreviations (InputFile_noDots.txt 9/10) 0.0
+Searching abbreviations (_RSHB_2019_12_15_Names.txt 10/10) 0.001
+Separating camel case words (1 (2).txt 1/10) 0.148
+Separating camel case words (1 (3).txt 2/10) 0.125
+Separating camel case words (1 (4).txt 3/10) 0.124
+Separating camel case words (1 (5).txt 4/10) 0.129
+Separating camel case words (1 (6).txt 5/10) 0.064
+Separating camel case words (1 (7).txt 6/10) 0.042
+Separating camel case words (InputFile_abbrev.txt 7/10) 0.002
+Separating camel case words (InputFile_Mix.txt 8/10) 0.003
+Separating camel case words (InputFile_noDots.txt 9/10) 0.002
+Separating camel case words (_RSHB_2019_12_15_Names.txt 10/10) 0.008
+Splitting files into sentences (1 (2).txt 1/10) 0.104
+Splitting files into sentences (1 (3).txt 2/10) 0.033
+Splitting files into sentences (1 (4).txt 3/10) 0.03
+Splitting files into sentences (1 (5).txt 4/10) 0.032
+Splitting files into sentences (1 (6).txt 5/10) 0.021
+Splitting files into sentences (1 (7).txt 6/10) 0.014
+Splitting files into sentences (InputFile_abbrev.txt 7/10) 0.001
+Splitting files into sentences (InputFile_Mix.txt 8/10) 0.001
+Splitting files into sentences (InputFile_noDots.txt 9/10) 0.0
+Splitting files into sentences (_RSHB_2019_12_15_Names.txt 10/10) 0.011
+Deleting extra spaces (1 (2).txt 1/10) 0.04
+Deleting extra spaces (1 (3).txt 2/10) 0.031
+Deleting extra spaces (1 (4).txt 3/10) 0.039
+Deleting extra spaces (1 (5).txt 4/10) 0.032
+Deleting extra spaces (1 (6).txt 5/10) 0.016
+Deleting extra spaces (1 (7).txt 6/10) 0.017
+Deleting extra spaces (InputFile_abbrev.txt 7/10) 0.0
+Deleting extra spaces (InputFile_Mix.txt 8/10) 0.001
+Deleting extra spaces (InputFile_noDots.txt 9/10) 0.001
+Deleting extra spaces (_RSHB_2019_12_15_Names.txt 10/10) 0.007
+Searching english text  (1 (2).txt 1/10) 0.022
+Searching english text  (1 (3).txt 2/10) 0.018
+Searching english text  (1 (4).txt 3/10) 0.018
+Searching english text  (1 (5).txt 4/10) 0.015
+Searching english text  (1 (6).txt 5/10) 0.007
+Searching english text  (1 (7).txt 6/10) 0.004
+Searching english text  (InputFile_abbrev.txt 7/10) 0.0
+Searching english text  (InputFile_Mix.txt 8/10) 0.0
+Searching english text  (InputFile_noDots.txt 9/10) 0.0
+Searching english text  (_RSHB_2019_12_15_Names.txt 10/10) 0.002
+Processing acronyms (1 (2).txt 1/10) 0.07
+Processing acronyms (1 (3).txt 2/10) 0.082
+Processing acronyms (1 (4).txt 3/10) 0.074
+Processing acronyms (1 (5).txt 4/10) 0.063
+Processing acronyms (1 (6).txt 5/10) 0.03
+Processing acronyms (1 (7).txt 6/10) 0.019
+Processing acronyms (InputFile_abbrev.txt 7/10) 0.0
+Processing acronyms (InputFile_Mix.txt 8/10) 0.002
+Processing acronyms (InputFile_noDots.txt 9/10) 0.0
+Processing acronyms (_RSHB_2019_12_15_Names.txt 10/10) 0.007
+Creating a file with replacements (1 (2).txt 1/10) 0.004
+Creating a file with replacements (1 (3).txt 2/10) 0.002
+Creating a file with replacements (1 (4).txt 3/10) 0.007
+Creating a file with replacements (1 (5).txt 4/10) 0.001
+Creating a file with replacements (1 (6).txt 5/10) 0.001
+Creating a file with replacements (1 (7).txt 6/10) 0.001
+Creating a file with replacements (InputFile_abbrev.txt 7/10) 0.002
+Creating a file with replacements (InputFile_Mix.txt 8/10) 0.001
+Creating a file with replacements (InputFile_noDots.txt 9/10) 0.002
+Creating a file with replacements (_RSHB_2019_12_15_Names.txt 10/10) 0.002
+Creating processed files (1 (2).txt 1/10) 0.031
+Creating processed files (1 (3).txt 2/10) 0.011
+Creating processed files (1 (4).txt 3/10) 0.011
+Creating processed files (1 (5).txt 4/10) 0.011
+Creating processed files (1 (6).txt 5/10) 0.007
+Creating processed files (1 (7).txt 6/10) 0.005
+Creating processed files (InputFile_abbrev.txt 7/10) 0.001
+Creating processed files (InputFile_Mix.txt 8/10) 0.001
+Creating processed files (InputFile_noDots.txt 9/10) 0.001
+Creating processed files (_RSHB_2019_12_15_Names.txt 10/10) 0.001
+Processing phone numbers (1 (2).txt 1/10) 0.025
+Processing phone numbers (1 (3).txt 2/10) 0.008
+Processing phone numbers (1 (4).txt 3/10) 0.007
+Processing phone numbers (1 (5).txt 4/10) 0.008
+Processing phone numbers (1 (6).txt 5/10) 0.005
+Processing phone numbers (1 (7).txt 6/10) 0.003
+Processing phone numbers (InputFile_abbrev.txt 7/10) 0.014
+Processing phone numbers (InputFile_Mix.txt 8/10) 0.001
+Processing phone numbers (InputFile_noDots.txt 9/10) 0.001
+Processing phone numbers (_RSHB_2019_12_15_Names.txt 10/10) 0.002
+Processing times (1 (2).txt 1/10) 0.02
+Processing times (1 (3).txt 2/10) 0.016
+Processing times (1 (4).txt 3/10) 0.016
+Processing times (1 (5).txt 4/10) 0.019
+Processing times (1 (6).txt 5/10) 0.008
+Processing times (1 (7).txt 6/10) 0.006
+Processing times (InputFile_abbrev.txt 7/10) 0.001
+Processing times (InputFile_Mix.txt 8/10) 0.0
+Processing times (InputFile_noDots.txt 9/10) 0.0
+Processing times (_RSHB_2019_12_15_Names.txt 10/10) 0.002
+Processing dates (1 (2).txt 1/10) 1.291
+Processing phone numbers (1 (2).txt 1/10) 0.037
+Processing phone numbers (1 (3).txt 2/10) 0.008
+Processing phone numbers (1 (4).txt 3/10) 0.01
+Processing phone numbers (1 (5).txt 4/10) 0.013
+Processing phone numbers (1 (6).txt 5/10) 0.007
+Processing phone numbers (1 (7).txt 6/10) 0.003
+Processing phone numbers (InputFile_abbrev.txt 7/10) 0.017
+Processing phone numbers (InputFile_Mix.txt 8/10) 0.0
+Processing phone numbers (InputFile_noDots.txt 9/10) 0.001
+Processing phone numbers (_RSHB_2019_12_15_Names.txt 10/10) 0.003
+Processing times (1 (2).txt 1/10) 0.028
+Processing times (1 (3).txt 2/10) 0.017
+Processing times (1 (4).txt 3/10) 0.018
+Processing times (1 (5).txt 4/10) 0.018
+Processing times (1 (6).txt 5/10) 0.009
+Processing times (1 (7).txt 6/10) 0.005
+Processing times (InputFile_abbrev.txt 7/10) 0.001
+Processing times (InputFile_Mix.txt 8/10) 0.001
+Processing times (InputFile_noDots.txt 9/10) 0.0
+Processing times (_RSHB_2019_12_15_Names.txt 10/10) 0.002
+Processing dates (1 (2).txt 1/10) 1.229
+Processing dates (1 (3).txt 2/10) 1.006
+Processing dates (1 (4).txt 3/10) 1.014
+Processing dates (1 (5).txt 4/10) 1.04
+Processing dates (1 (6).txt 5/10) 0.522
+Processing dates (1 (7).txt 6/10) 0.33
+Processing dates (InputFile_abbrev.txt 7/10) 0.016
+Processing dates (InputFile_Mix.txt 8/10) 0.03
+Processing dates (InputFile_noDots.txt 9/10) 0.041
+Processing dates (_RSHB_2019_12_15_Names.txt 10/10) 0.086
+Processing moneys (1 (2).txt 1/10) 0.047
+Processing moneys (1 (3).txt 2/10) 0.031
+Processing moneys (1 (4).txt 3/10) 0.04
+Processing moneys (1 (5).txt 4/10) 0.033
+Processing moneys (1 (6).txt 5/10) 0.018
+Processing moneys (1 (7).txt 6/10) 0.011
+Processing moneys (InputFile_abbrev.txt 7/10) 0.002
+Processing moneys (InputFile_Mix.txt 8/10) 0.0
+Processing moneys (InputFile_noDots.txt 9/10) 0.003
+Processing moneys (_RSHB_2019_12_15_Names.txt 10/10) 0.006
+Processing fractions (1 (2).txt 1/10) 0.01
+Processing fractions (1 (3).txt 2/10) 0.005
+Processing fractions (1 (4).txt 3/10) 0.005
+Processing fractions (1 (5).txt 4/10) 0.005
+Processing fractions (1 (6).txt 5/10) 0.003
+Processing fractions (1 (7).txt 6/10) 0.002
+Processing fractions (InputFile_abbrev.txt 7/10) 0.0
+Processing fractions (InputFile_Mix.txt 8/10) 0.0
+Processing fractions (InputFile_noDots.txt 9/10) 0.001
+Processing fractions (_RSHB_2019_12_15_Names.txt 10/10) 0.0
+Deleting links (1 (2).txt 1/10) 0.056
+Deleting links (1 (3).txt 2/10) 0.041
+Deleting links (1 (4).txt 3/10) 0.042
+Deleting links (1 (5).txt 4/10) 0.039
+Deleting links (1 (6).txt 5/10) 0.034
+Deleting links (1 (7).txt 6/10) 0.016
+Deleting links (InputFile_abbrev.txt 7/10) 0.001
+Deleting links (InputFile_Mix.txt 8/10) 0.001
+Deleting links (InputFile_noDots.txt 9/10) 0.001
+Deleting links (_RSHB_2019_12_15_Names.txt 10/10) 0.004
+Processing numbers (1 (2).txt 1/10) 0.006
+Processing numbers (1 (3).txt 2/10) 0.006
+Processing numbers (1 (4).txt 3/10) 0.005
+Processing numbers (1 (5).txt 4/10) 0.007
+Processing numbers (1 (6).txt 5/10) 0.003
+Processing numbers (1 (7).txt 6/10) 0.002
+Processing numbers (InputFile_abbrev.txt 7/10) 0.001
+Processing numbers (InputFile_Mix.txt 8/10) 0.0
+Processing numbers (InputFile_noDots.txt 9/10) 0.001
+Processing numbers (_RSHB_2019_12_15_Names.txt 10/10) 0.0
+Deleting whitespace dictionary words (1 (2).txt 1/10) 1.418
+Deleting whitespace dictionary words (1 (3).txt 2/10) 1.209
+Deleting whitespace dictionary words (1 (4).txt 3/10) 1.224
+Deleting whitespace dictionary words (1 (5).txt 4/10) 1.264
+Deleting whitespace dictionary words (1 (6).txt 5/10) 0.618
+Deleting whitespace dictionary words (1 (7).txt 6/10) 0.398
+Deleting whitespace dictionary words (InputFile_abbrev.txt 7/10) 0.017
+Deleting whitespace dictionary words (InputFile_Mix.txt 8/10) 0.018
+Deleting whitespace dictionary words (InputFile_noDots.txt 9/10) 0.017
+Deleting whitespace dictionary words (_RSHB_2019_12_15_Names.txt 10/10) 0.111
+Deleting single dictionary words (1 (2).txt 1/10) 0.097
+Deleting single dictionary words (1 (3).txt 2/10) 0.041
+Deleting single dictionary words (1 (4).txt 3/10) 0.035
+Deleting single dictionary words (1 (5).txt 4/10) 0.041
+Deleting single dictionary words (1 (6).txt 5/10) 0.015
+Deleting single dictionary words (1 (7).txt 6/10) 0.012
+Deleting single dictionary words (InputFile_abbrev.txt 7/10) 0.001
+Deleting single dictionary words (InputFile_Mix.txt 8/10) 0.001
+Deleting single dictionary words (InputFile_noDots.txt 9/10) 0.001
+Deleting single dictionary words (_RSHB_2019_12_15_Names.txt 10/10) 0.006
+Processing punctuation marks (1 (2).txt 1/10) 0.112
+Processing punctuation marks (1 (3).txt 2/10) 0.098
+Processing punctuation marks (1 (4).txt 3/10) 0.101
+Processing punctuation marks (1 (5).txt 4/10) 0.1
+Processing punctuation marks (1 (6).txt 5/10) 0.05
+Processing punctuation marks (1 (7).txt 6/10) 0.033
+Processing punctuation marks (InputFile_abbrev.txt 7/10) 0.003
+Processing punctuation marks (InputFile_Mix.txt 8/10) 0.003
+Processing punctuation marks (InputFile_noDots.txt 9/10) 0.002
+Processing punctuation marks (_RSHB_2019_12_15_Names.txt 10/10) 0.011
+Processing days of the week (1 (2).txt 1/10) 0.211
+Processing days of the week (1 (3).txt 2/10) 0.162
+Processing days of the week (1 (4).txt 3/10) 0.161
+Processing days of the week (1 (5).txt 4/10) 0.165
+Processing days of the week (1 (6).txt 5/10) 0.084
+Processing days of the week (1 (7).txt 6/10) 0.054
+Processing days of the week (InputFile_abbrev.txt 7/10) 0.003
+Processing days of the week (InputFile_Mix.txt 8/10) 0.002
+Processing days of the week (InputFile_noDots.txt 9/10) 0.002
+Processing days of the week (_RSHB_2019_12_15_Names.txt 10/10) 0.01
+Deleting initials (1 (2).txt 1/10) 0.103
+Deleting initials (1 (3).txt 2/10) 0.081
+Deleting initials (1 (4).txt 3/10) 0.081
+Deleting initials (1 (5).txt 4/10) 0.084
+Deleting initials (1 (6).txt 5/10) 0.041
+Deleting initials (1 (7).txt 6/10) 0.025
+Deleting initials (InputFile_abbrev.txt 7/10) 0.003
+Deleting initials (InputFile_Mix.txt 8/10) 0.001
+Deleting initials (InputFile_noDots.txt 9/10) 0.001
+Deleting initials (_RSHB_2019_12_15_Names.txt 10/10) 0.005
+Searching abbreviations (1 (2).txt 1/10) 0.02
+Searching abbreviations (1 (3).txt 2/10) 0.018
+Searching abbreviations (1 (4).txt 3/10) 0.015
+Searching abbreviations (1 (5).txt 4/10) 0.014
+Searching abbreviations (1 (6).txt 5/10) 0.006
+Searching abbreviations (1 (7).txt 6/10) 0.005
+Searching abbreviations (InputFile_abbrev.txt 7/10) 0.004
+Searching abbreviations (InputFile_Mix.txt 8/10) 0.0
+Searching abbreviations (InputFile_noDots.txt 9/10) 0.0
+Searching abbreviations (_RSHB_2019_12_15_Names.txt 10/10) 0.0
+Separating camel case words (1 (2).txt 1/10) 0.163
+Separating camel case words (1 (3).txt 2/10) 0.136
+Separating camel case words (1 (4).txt 3/10) 0.136
+Separating camel case words (1 (5).txt 4/10) 0.145
+Separating camel case words (1 (6).txt 5/10) 0.071
+Separating camel case words (1 (7).txt 6/10) 0.046
+Separating camel case words (InputFile_abbrev.txt 7/10) 0.002
+Separating camel case words (InputFile_Mix.txt 8/10) 0.003
+Separating camel case words (InputFile_noDots.txt 9/10) 0.003
+Separating camel case words (_RSHB_2019_12_15_Names.txt 10/10) 0.008
+Splitting files into sentences (1 (2).txt 1/10) 0.107
+Splitting files into sentences (1 (3).txt 2/10) 0.035
+Splitting files into sentences (1 (4).txt 3/10) 0.032
+Splitting files into sentences (1 (5).txt 4/10) 0.029
+Splitting files into sentences (1 (6).txt 5/10) 0.018
+Splitting files into sentences (1 (7).txt 6/10) 0.009
+Splitting files into sentences (InputFile_abbrev.txt 7/10) 0.001
+Splitting files into sentences (InputFile_Mix.txt 8/10) 0.0
+Splitting files into sentences (InputFile_noDots.txt 9/10) 0.0
+Splitting files into sentences (_RSHB_2019_12_15_Names.txt 10/10) 0.007
+Deleting extra spaces (1 (2).txt 1/10) 0.043
+Deleting extra spaces (1 (3).txt 2/10) 0.032
+Deleting extra spaces (1 (4).txt 3/10) 0.038
+Deleting extra spaces (1 (5).txt 4/10) 0.036
+Deleting extra spaces (1 (6).txt 5/10) 0.02
+Deleting extra spaces (1 (7).txt 6/10) 0.012
+Deleting extra spaces (InputFile_abbrev.txt 7/10) 0.001
+Deleting extra spaces (InputFile_Mix.txt 8/10) 0.0
+Deleting extra spaces (InputFile_noDots.txt 9/10) 0.001
+Deleting extra spaces (_RSHB_2019_12_15_Names.txt 10/10) 0.005
+Searching english text  (1 (2).txt 1/10) 0.021
+Searching english text  (1 (3).txt 2/10) 0.017
+Searching english text  (1 (4).txt 3/10) 0.014
+Searching english text  (1 (5).txt 4/10) 0.017
+Searching english text  (1 (6).txt 5/10) 0.006
+Searching english text  (1 (7).txt 6/10) 0.004
+Searching english text  (InputFile_abbrev.txt 7/10) 0.0
+Searching english text  (InputFile_Mix.txt 8/10) 0.0
+Searching english text  (InputFile_noDots.txt 9/10) 0.0
+Searching english text  (_RSHB_2019_12_15_Names.txt 10/10) 0.002
+Processing acronyms (1 (2).txt 1/10) 0.084
+Processing acronyms (1 (3).txt 2/10) 0.071
+Processing acronyms (1 (4).txt 3/10) 0.066
+Processing acronyms (1 (5).txt 4/10) 0.064
+Processing acronyms (1 (6).txt 5/10) 0.03
+Processing acronyms (1 (7).txt 6/10) 0.019
+Processing acronyms (InputFile_abbrev.txt 7/10) 0.001
+Processing acronyms (InputFile_Mix.txt 8/10) 0.001
+Processing acronyms (InputFile_noDots.txt 9/10) 0.001
+Processing acronyms (_RSHB_2019_12_15_Names.txt 10/10) 0.008
+Creating a file with replacements (1 (2).txt 1/10) 0.004
+Creating a file with replacements (1 (3).txt 2/10) 0.001
+Creating a file with replacements (1 (4).txt 3/10) 0.007
+Creating a file with replacements (1 (5).txt 4/10) 0.001
+Creating a file with replacements (1 (6).txt 5/10) 0.001
+Creating a file with replacements (1 (7).txt 6/10) 0.001
+Creating a file with replacements (InputFile_abbrev.txt 7/10) 0.002
+Creating a file with replacements (InputFile_Mix.txt 8/10) 0.001
+Creating a file with replacements (InputFile_noDots.txt 9/10) 0.002
+Creating a file with replacements (_RSHB_2019_12_15_Names.txt 10/10) 0.001
+Creating processed files (1 (2).txt 1/10) 0.027
+Creating processed files (1 (3).txt 2/10) 0.013
+Creating processed files (1 (4).txt 3/10) 0.019
+Creating processed files (1 (5).txt 4/10) 0.012
+Creating processed files (1 (6).txt 5/10) 0.006
+Creating processed files (1 (7).txt 6/10) 0.004
+Creating processed files (InputFile_abbrev.txt 7/10) 0.001
+Creating processed files (InputFile_Mix.txt 8/10) 0.001
+Creating processed files (InputFile_noDots.txt 9/10) 0.001
+Creating processed files (_RSHB_2019_12_15_Names.txt 10/10) 0.001

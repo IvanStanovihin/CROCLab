@@ -103,10 +103,10 @@ public class PropertyLoader {
         enableAcronymsModule = propertyData.getAcronyms().equalsIgnoreCase("true");
     }
 
-    public void overwriteFile(){
+    public void overwritePropertyHistory(String propertyHistoryPath){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String newPropertyFile = gson.toJson(propertyData);
-        try(FileWriter fw = new FileWriter(propertyJsonPath)){
+        try(FileWriter fw = new FileWriter(propertyHistoryPath)){
             fw.write(newPropertyFile);
         }catch(IOException ex){
             ex.printStackTrace();

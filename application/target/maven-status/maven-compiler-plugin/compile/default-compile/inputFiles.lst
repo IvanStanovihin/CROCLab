@@ -19,6 +19,7 @@ C:\Users\ivan\Desktop\CROCLab\application\src\main\java\com\Logic\ProcessingServ
 C:\Users\ivan\Desktop\CROCLab\application\src\main\java\com\Logic\Quarantine\FailedValidationFile.java
 C:\Users\ivan\Desktop\CROCLab\application\src\main\java\com\Logic\ProcessingServices\LinksService\LinksRemover.java
 C:\Users\ivan\Desktop\CROCLab\application\src\main\java\com\Logic\Quarantine\QuarantineSentencesFile.java
+C:\Users\ivan\Desktop\CROCLab\application\src\main\java\com\Threads\ThreadLaunchHandler.java
 C:\Users\ivan\Desktop\CROCLab\application\src\main\java\com\Logic\ReplacingWords\ReplacerSingleWords.java
 C:\Users\ivan\Desktop\CROCLab\application\src\main\java\com\LauncherMain.java
 C:\Users\ivan\Desktop\CROCLab\application\src\main\java\com\Logic\Statistic\QuarantineStatisticFile.java
@@ -40,6 +41,7 @@ C:\Users\ivan\Desktop\CROCLab\application\src\main\java\com\Logic\WordsToDelete\
 C:\Users\ivan\Desktop\CROCLab\application\src\main\java\com\Logic\ProcessingServices\AbbreviationFinder.java
 C:\Users\ivan\Desktop\CROCLab\application\src\main\java\com\Logic\ProcessingServices\DateServices\StringToData.java
 C:\Users\ivan\Desktop\CROCLab\application\src\main\java\com\Logic\Dictionary\JsonDictionary.java
+C:\Users\ivan\Desktop\CROCLab\application\src\main\java\com\Threads\ThreadControlHandler.java
 C:\Users\ivan\Desktop\CROCLab\application\src\main\java\com\Launch.java
 C:\Users\ivan\Desktop\CROCLab\application\src\main\java\com\Logic\Statistic\GeneralUserStatisticFile.java
 C:\Users\ivan\Desktop\CROCLab\application\src\main\java\com\Logic\ProcessingServices\SentenceSeparator.java

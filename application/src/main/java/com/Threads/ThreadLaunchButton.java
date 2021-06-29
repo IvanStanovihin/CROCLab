@@ -55,7 +55,7 @@ public class ThreadLaunchButton extends Thread{
 
 
     private boolean areFieldsFilled(){
-        boolean result = (!txtFieldPropertyPath.getText().isEmpty() && !txtFieldSizeFile.getText().isEmpty() &&
+        boolean result = (!txtFieldSizeFile.getText().isEmpty() &&
                 !txtFieldCountString.getText().isEmpty() && !txtFieldInputFiles.getText().isEmpty() &&
                 !txtFieldDictionaries.getText().isEmpty() && !txtFieldUserStatistic.getText().isEmpty() &&
                 !txtFieldOutFiles.getText().isEmpty() && !txtFieldProtectedWords.getText().isEmpty() &&
