@@ -28,7 +28,7 @@ public class QuarantineCreator {
      */
     public static void createQuarantine(String outDirectory, ArrayList<InputFile> inputFiles,
                                         String modificationQuarantineFilePath){
-        String quarantineSentencesFilesDir = outDirectory + "/TAaC/Logic/Quarantine";
+        String quarantineSentencesFilesDir = outDirectory + "/Quarantine";
         String failedValidationFiles = outDirectory + "/BadFile";
         try{
             Files.createDirectories(Paths.get(quarantineSentencesFilesDir));
@@ -80,7 +80,7 @@ public class QuarantineCreator {
      * @param outputDirectory out directory
      */
     private static void createModificationQuarantine(ArrayList<String>quarantineSentences, String outputDirectory){
-        try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outputDirectory + "/TAaC.Logic.Quarantine.txt"), StandardCharsets.UTF_8)){
+        try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outputDirectory + "/Quarantine.txt"), StandardCharsets.UTF_8)){
             os.write("в карантин попало " + countQuarantineSentences + " предложений\n");
             for (String quarantineSentence : quarantineSentences){
                 os.write(quarantineSentence.toLowerCase(Locale.ROOT) + "\n");

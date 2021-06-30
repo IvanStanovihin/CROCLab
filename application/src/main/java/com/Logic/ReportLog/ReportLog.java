@@ -4,6 +4,7 @@ import com.Logic.Handler.Handler;
 import com.Logic.Properties.PropertyLoader;
 
 
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -22,8 +23,9 @@ import java.util.Calendar;
 public class ReportLog {
 
 
-    private int currentProgress = 0;
-    private int maxProgress;
+    private double currentProgress = 0;
+    private int maxProgress = 22;
+    private double progressStep;
     /**
      * logger
      */
@@ -71,10 +73,13 @@ public class ReportLog {
 
     private TextArea logArea;
 
+    private ProgressBar progressBar;
 
-    public ReportLog(int countInputFiles){
+
+    public ReportLog(int countInputFiles, ProgressBar progressBar){
+        this.progressBar = progressBar;
         this.countInputFiles = countInputFiles;
-        maxProgress = 32 * countInputFiles;
+        progressStep = (double) 1 / maxProgress;
         this.logArea = Handler.logArea;
 //        TextAreaAppender customAppender = new TextAreaAppender(Handler.logArea);
 //        LOGGER.addAppender(customAppender);
@@ -97,8 +102,6 @@ public class ReportLog {
         startOperationTime = System.currentTimeMillis();
         switch (currentOperation) {
             case DICTIONARIES_LOAD:
-            case LOAD_WORDS_TO_DELETE:
-            case REMOVE_WORDS_TO_DELETE:
                 loadingResources(currentOperation);
                 break;
             case SINGLE_DICTIONARY:
@@ -107,7 +110,6 @@ public class ReportLog {
             case WHITESPACE_DICTIONARY:
             case FIND_ENGLISH:
             case REMOVE_ENGLISH:
-            case CREATE_QUARANTINE_FILES:
             case CREATE_PROCESSED_FILES:
             case PROCESSING_DAYS_OF_WEEK:
             case REMOVE_INITIALS:
@@ -134,6 +136,8 @@ public class ReportLog {
      * @param currentOperation current log operation
      */
     private  void loadingResources(LogOperation currentOperation) {
+        currentProgress += progressStep;
+        progressBar.setProgress(currentProgress);
         System.out.println(currentOperation);
         logArea.appendText(currentOperation + "\n");
     }
@@ -144,6 +148,7 @@ public class ReportLog {
      * @param fileName filename
      */
     private  void processingFiles(LogOperation currentOperation, String fileName) {
+
         updateProcessedFileIndex(currentOperation);
         currentMessage = (currentOperation +" (" + fileName + " " + ( indexCurrentProcessedFile) + "/" + countInputFiles + ")");
     }
@@ -168,7 +173,7 @@ public class ReportLog {
         endOperationTime = Calendar.getInstance().getTimeInMillis();
         currentMessage += " " + (((double)endOperationTime - startOperationTime)/1000);
         LOGGER.log(Level.INFO, currentMessage);
-        currentProgress++;
+
 
     }
 
@@ -184,6 +189,8 @@ public class ReportLog {
      * @param moduleName name of module
      */
     public void endModule(String moduleName){
+        currentProgress += progressStep;
+        progressBar.setProgress(currentProgress);
         endCurrentModuleTime = Calendar.getInstance().getTimeInMillis();
         double moduleWorkingTime = ((double) endCurrentModuleTime - startCurrentModuleTime) /1000;
         this.totalModulesWorkingTime += moduleWorkingTime;

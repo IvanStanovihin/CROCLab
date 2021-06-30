@@ -19,9 +19,8 @@ import com.Logic.ReportLog.ReportLog;
 import com.Logic.Statistic.Statistic;
 import com.Logic.WordsToDelete.WordsRemover;
 import com.Threads.ThreadLaunchHandler;
-import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 
 
@@ -50,18 +49,22 @@ public class Handler{
     public static volatile TextArea logArea;
     private Button btnOpenOutDir;
 
+    private ProgressBar progressBar;
+
 
     /**
      **
      * @param property - The path to the property.json file. This file stores the file paths for running the program.
      */
-    public Handler(PropertyLoader property, TextArea logArea, Button btnOpenOutDir, Button btnOpenLog) {
+    public Handler(PropertyLoader property, TextArea logArea, Button btnOpenOutDir, Button btnOpenLog, ProgressBar progressBar) {
         Handler.processingFiles = processingFiles;
         Handler.property = property;
         Handler.logArea = logArea;
+        this.progressBar = progressBar;
         protectedWordsStorage = new ProtectedWordsStorage(property);
         handle();
         createOutputFiles();
+
         btnOpenOutDir.setDisable(false);
         btnOpenLog.setDisable(false);
         logArea.appendText("Обработка файлов завершена!");
@@ -76,9 +79,9 @@ public class Handler{
         Cleaner.deleteOldOutDirectory(property);
         inputFiles = InputFilesLoader.loadInputFiles(property.getInputFilesDirectory());
         Statistic.generateRowFilesStatistic(inputFiles, property);
-        reportLog = new ReportLog(inputFiles.size());
+        reportLog = new ReportLog(inputFiles.size(), progressBar);
         System.out.println(Calendar.getInstance().getTime().toString());
-        dictionaries = new Dictionaries(property.getDictionariesDirectory());
+
         //Обработка мобильных номеров телефонов
         PhoneNumberService.handle(inputFiles);
         //Обработка времени
@@ -95,6 +98,8 @@ public class Handler{
         WordsRemover.removeWords(property, inputFiles);
         //Раскрываем числа в текст.
         NumberService.handleNumbers(inputFiles);
+
+        dictionaries = new Dictionaries(property.getDictionariesDirectory());
         //Замена слов которые содержат пробелы(# в. ч. -> войсковая часть)
         ReplacerSpaceWords.handleWhitespaceWords(dictionaries.getDictionaryWhitespaceWords(), inputFiles);
         System.gc();
@@ -128,6 +133,7 @@ public class Handler{
         //Отправляем акронимы в карантин
         AcronymService.acronymsInQuarantine(inputFiles);
 
+
     }
 
 
@@ -157,4 +163,8 @@ public class Handler{
         return property;
     }
 
+    public void cleanModel(){
+        InputFilesLoader.inputFiles = new ArrayList<>();
+        QuarantineCreator.countQuarantineSentences = 0;
+    }
 }

@@ -41,7 +41,7 @@ public class ThreadLaunchButton extends Thread{
     @Override
     public void run() {
         int counter = 0;
-        while(true){
+        while(!interrupted()){
             if (areFieldsFilled() && launchButton.isDisable()){
                 launchButton.setDisable(false);
                 lblEmptyPaths.setVisible(false);
@@ -51,6 +51,7 @@ public class ThreadLaunchButton extends Thread{
             }
 //            System.out.println(counter++);
         }
+        launchButton.setDisable(true);
     }
 
 

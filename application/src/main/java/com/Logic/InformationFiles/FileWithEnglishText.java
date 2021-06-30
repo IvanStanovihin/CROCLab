@@ -25,15 +25,21 @@ public class FileWithEnglishText {
 
     /**Creating output file*/
     public void createFile(String outDir){
-        try(OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/EnglishText_" + processedFileName), StandardCharsets.UTF_8)){
-            os.write(getJsonFormat());
-        }catch(IOException ex){
-            ex.printStackTrace();
+        if (!isFileEmpty()) {
+            try (OutputStreamWriter os = new OutputStreamWriter(new FileOutputStream(outDir + "/EnglishText_" + processedFileName), StandardCharsets.UTF_8)) {
+                os.write(getJsonFormat());
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
     private String getJsonFormat(){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(this);
+    }
+
+    private boolean isFileEmpty(){
+        return sentencesWithEnglish.size() == 0;
     }
 }

@@ -45,7 +45,7 @@ public class Statistic {
             this.quarantineStatisticFiles.add(new QuarantineStatisticFile(inputFile.getQuarantineFile()));
             this.processedFilesStatistic.add(new ProcessedFileStatistic(inputFile));
         }
-        this.statisticFilesDir = outputDirectory + "/TAaC/Logic/Statistic";
+        this.statisticFilesDir = outputDirectory + "/Statistic";
     }
 
 
@@ -116,7 +116,7 @@ public class Statistic {
 
     /**Creating statistic file for row file*/
     public static void generateRowFilesStatistic(ArrayList<InputFile>inputFiles, PropertyLoader property){
-        String statisticFilesDir = property.getOutDirectory() + "/TAaC/Logic/Statistic";
+        String statisticFilesDir = property.getOutDirectory() + "/Statistic";
         ArrayList<RowFileStatistic>rowFilesStatistic = new ArrayList<>();
         for (InputFile inputFile : inputFiles){
             rowFilesStatistic.add(new RowFileStatistic(inputFile));

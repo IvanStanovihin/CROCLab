@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class InputFilesLoader {
 
     /**List of input files*/
-    private static ArrayList<InputFile> inputFiles = new ArrayList<>();
+    public static ArrayList<InputFile> inputFiles = new ArrayList<>();
 
     /**Loading files*/
     public static ArrayList<InputFile> loadInputFiles(String inputFilesDirectoryPath){
@@ -20,5 +20,7 @@ public class InputFilesLoader {
         }
         return inputFiles;
     }
+
+
 
 }

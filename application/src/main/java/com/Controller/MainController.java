@@ -3,6 +3,7 @@ package com.Controller;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -37,6 +38,7 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import ucar.nc2.util.IO;
 
 public class MainController {
 
@@ -46,6 +48,12 @@ public class MainController {
     public Button btnOpenLog;
     @FXML
     public Button btnCloseApp;
+
+    @FXML
+    public ToggleButton btnSectionUpdate;
+
+    @FXML
+    public Label lblLaunchUnavailable;
 
     volatile private PropertyLoader property;
 
@@ -257,6 +265,7 @@ public class MainController {
     @FXML
     volatile private Label lblMdlDates;
 
+
     private SwitchButton switchRemoveEnglish;
     private SwitchButton switchDictionaryWords;
     private SwitchButton switchFindEnglish;
@@ -283,10 +292,9 @@ public class MainController {
 
     private boolean firstLaunch = true;
 
-    private static final String PROPERTY_HISTORY_PATH = "..\\propertyHistory\\history.json";
+    private static final String PROPERTY_HISTORY_PATH = ".\\propertyHistory\\history.json";
 
-
-
+    private ThreadLaunchButton controlButtonLaunchThread;
 
 
     public MainController() {
@@ -302,7 +310,7 @@ public class MainController {
 
         btnOpenLog.setDisable(true);
         btnOpenOutDir.setDisable(true);
-
+        lblLaunchUnavailable.setVisible(false);
         lblEmptyPaths.setVisible(false);
         createTooltipsForField();
 
@@ -312,12 +320,11 @@ public class MainController {
                 lblMdlTimes, lblMdlDates, lblMdlFractions, lblMdlNumbers, lblMdlMoneys, lblMdlPunctuation, lblMdlAcronyms,
                 lblMdlDaysWeek, lblMdlDeleteWords, lblMdlAbbreviations, lblMdlMonths, lblMdlDictionaries);
 
-        ThreadLaunchButton controlButtonLaunchThread = new ThreadLaunchButton("ControlLaunchBtnThread", btnLaunch, lblEmptyPaths,
+        controlButtonLaunchThread = new ThreadLaunchButton("ControlLaunchBtnThread", btnLaunch, lblEmptyPaths,
                 txtFieldPropertyPath, txtFieldSizeFile, txtFieldCountString, txtFieldInputFiles, txtFieldUserStatistic,
                 txtFieldDictionaries, txtFieldOutFiles, txtFieldProtectedWords, txtFieldDeleteWords);
         controlButtonLaunchThread.setDaemon(true);
         controlButtonLaunchThread.start();
-
 
 
         btnLaunch.setOnAction(event -> launchProcess());
@@ -326,7 +333,7 @@ public class MainController {
         btnOpenOutDir.setOnAction(event -> openOutDir());
 
         btnChooseInputFiles.setOnAction(event -> {
-        File chosenDirectory = chooseDirectory();
+            File chosenDirectory = chooseDirectory();
             if (chosenDirectory != null) {
                 txtFieldInputFiles.setText(chosenDirectory.getAbsolutePath());
             }
@@ -381,21 +388,42 @@ public class MainController {
         //Select section
         btnSectionModules.setOnAction(event -> {
             pnlModules.toFront();
+            btnSectionModules.setSelected(true);
             btnSectionLaunch.setSelected(false);
             btnSectionSettingFiles.setSelected(false);
+            btnSectionUpdate.setSelected(false);
         });
 
         btnSectionSettingFiles.setOnAction(event -> {
             pnlChooseFiles.toFront();
+            btnSectionSettingFiles.setSelected(true);
             btnSectionLaunch.setSelected(false);
             btnSectionModules.setSelected(false);
+            btnSectionUpdate.setSelected(false);
         });
 
         btnSectionLaunch.setOnAction(event -> {
             pnlLaunch.toFront();
+            btnSectionLaunch.setSelected(true);
             btnSectionModules.setSelected(false);
             btnSectionSettingFiles.setSelected(false);
+            btnSectionUpdate.setSelected(false);
 
+        });
+
+        btnSectionUpdate.setOnAction(event -> {
+            btnSectionUpdate.setSelected(false);
+            btnSectionLaunch.setSelected(false);
+            btnSectionModules.setSelected(false);
+            btnSectionSettingFiles.setSelected(false);
+            String jarPath = "C:/Users/ivan/Desktop/CROCLab/application/target/TAaC-jar-with-dependencies.jar";
+            Runtime re = Runtime.getRuntime();
+            try {
+                re.exec("java -jar " + jarPath);
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+            System.exit(0);
         });
 
 
@@ -412,17 +440,17 @@ public class MainController {
 
     private void openLogDir() {
         Desktop desktop = null;
-        if (Desktop.isDesktopSupported()){
+        if (Desktop.isDesktopSupported()) {
             desktop = Desktop.getDesktop();
         }
-        try{
+        try {
             Path logDirPath = Paths.get("././out/Report");
             if (Files.exists(logDirPath)) {
                 desktop.open(new File(logDirPath.toString()));
-            }else{
+            } else {
 
             }
-        }catch(IOException ex){
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
@@ -430,18 +458,18 @@ public class MainController {
 
     private void openOutDir() {
         Desktop desktop = null;
-        if (desktop.isDesktopSupported()){
+        if (desktop.isDesktopSupported()) {
             desktop = Desktop.getDesktop();
         }
-        try{
+        try {
             Path outDirPath = Paths.get(property.getOutDirectory());
             if (Files.exists(outDirPath)) {
                 File outDir = new File(property.getOutDirectory());
                 desktop.open(outDir);
-            }else {
+            } else {
                 Alerts.wrongOutDirPath();
             }
-        }catch(IOException ex){
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
@@ -456,63 +484,61 @@ public class MainController {
         Tooltip protectWordsTooltip = new Tooltip();
         Tooltip deleteWordsTooltip = new Tooltip();
 
-        txtFieldPropertyPath.textProperty().addListener( (ov,oldV,newV) -> {
+        txtFieldPropertyPath.textProperty().addListener((ov, oldV, newV) -> {
             propertyTooltip.setShowDuration(Duration.minutes(5));
             propertyTooltip.setText(txtFieldPropertyPath.getText());
             txtFieldPropertyPath.setTooltip(propertyTooltip);
-        } );
+        });
 
-        txtFieldInputFiles.textProperty().addListener( (ov,oldV,newV) -> {
+        txtFieldInputFiles.textProperty().addListener((ov, oldV, newV) -> {
             inFilesTooltip.setShowDuration(Duration.minutes(5));
             inFilesTooltip.setText(txtFieldInputFiles.getText());
             txtFieldInputFiles.setTooltip(inFilesTooltip);
-        } );
+        });
 
-        txtFieldDictionaries.textProperty().addListener( (ov,oldV,newV) -> {
+        txtFieldDictionaries.textProperty().addListener((ov, oldV, newV) -> {
             dictionariesTooltip.setShowDuration(Duration.minutes(5));
             dictionariesTooltip.setText(txtFieldDictionaries.getText());
             txtFieldDictionaries.setTooltip(dictionariesTooltip);
-        } );
+        });
 
-        txtFieldUserStatistic.textProperty().addListener( (ov,oldV,newV) -> {
+        txtFieldUserStatistic.textProperty().addListener((ov, oldV, newV) -> {
             userStatisticTooltip.setShowDuration(Duration.minutes(5));
             userStatisticTooltip.setText(txtFieldUserStatistic.getText());
             txtFieldUserStatistic.setTooltip(userStatisticTooltip);
-        } );
+        });
 
-        txtFieldOutFiles.textProperty().addListener( (ov,oldV,newV) -> {
+        txtFieldOutFiles.textProperty().addListener((ov, oldV, newV) -> {
             outDirTooltip.setShowDuration(Duration.minutes(5));
             outDirTooltip.setText(txtFieldOutFiles.getText());
             txtFieldOutFiles.setTooltip(outDirTooltip);
-        } );
+        });
 
-        txtFieldProtectedWords.textProperty().addListener( (ov,oldV,newV) -> {
+        txtFieldProtectedWords.textProperty().addListener((ov, oldV, newV) -> {
             protectWordsTooltip.setShowDuration(Duration.minutes(5));
             protectWordsTooltip.setText(txtFieldProtectedWords.getText());
             txtFieldProtectedWords.setTooltip(protectWordsTooltip);
-        } );
+        });
 
-        txtFieldDeleteWords.textProperty().addListener( (ov,oldV,newV) -> {
+        txtFieldDeleteWords.textProperty().addListener((ov, oldV, newV) -> {
             deleteWordsTooltip.setShowDuration(Duration.minutes(5));
             deleteWordsTooltip.setText(txtFieldDeleteWords.getText());
             txtFieldDeleteWords.setTooltip(deleteWordsTooltip);
-        } );
+        });
     }
 
     private void launchProcess() {
-        if (!firstLaunch) {
-            taskThread = null;
-            System.gc();
-        }
-            overwriteProperty();
-            txtAreaLog.setText("Обработка файлов!\n");
+        controlButtonLaunchThread.interrupt();
+        lblLaunchUnavailable.setVisible(true);
+        overwriteProperty();
+        txtAreaLog.setText("Обработка файлов!\n");
 
-            taskThread = new ThreadLaunchHandler("Thread launch handler", property, txtAreaLog, btnOpenOutDir, btnOpenLog);
-            taskThread.setDaemon(true);
-            taskThread.start();
-            firstLaunch = false;
+        taskThread = new ThreadLaunchHandler("Thread launch handler", property, txtAreaLog,
+                btnOpenOutDir, btnOpenLog, progressBar);
+        taskThread.setDaemon(true);
+        taskThread.start();
+        firstLaunch = false;
     }
-
 
 
     private void fillInPropertyPaths() {
@@ -526,7 +552,7 @@ public class MainController {
         txtFieldDeleteWords.setText(property.getWordsToDeleteDir());
     }
 
-    private void fillInModulesSwitch(){
+    private void fillInModulesSwitch() {
         switchRemoveEnglish.setState(property.isEnableRemoveEnglishTextModule());
         System.out.println(switchRemoveEnglish.getState());
         switchFindEnglish.setState(property.isEnableFindEnglishModule());
@@ -547,7 +573,7 @@ public class MainController {
         switchNumbers.setState(property.isEnableNumbersModule());
     }
 
-    private void createModuleSwitches(){
+    private void createModuleSwitches() {
 
         switchRemoveEnglish = new SwitchButton();
         switchRemoveEnglish.setMaxWidth(20);
@@ -632,14 +658,12 @@ public class MainController {
     }
 
     @FXML
-    private void handleClick(ActionEvent event){
+    private void handleClick(ActionEvent event) {
 
     }
 
 
-
-
-    private File chooseDirectory(){
+    private File chooseDirectory() {
         File chosenDirectory;
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Выбор директории");
@@ -647,14 +671,14 @@ public class MainController {
         return chosenDirectory;
     }
 
-    private File chooseFile(){
-        Stage stage = (Stage)btnChooseProperty.getScene().getWindow();
+    private File chooseFile() {
+        Stage stage = (Stage) btnChooseProperty.getScene().getWindow();
         FileChooser fileChooser = new FileChooser();
         File chosenFile = fileChooser.showOpenDialog(stage);
         return chosenFile;
     }
 
-    private String getFilesPaths(List<File>files){
+    private String getFilesPaths(List<File> files) {
         StringBuilder chosenFilesPaths = new StringBuilder();
         for (File chosenFile : files) {
             chosenFilesPaths.append(chosenFile.getPath()).append("\n");
@@ -663,9 +687,7 @@ public class MainController {
     }
 
 
-
-
-    private void overwriteProperty(){
+    private void overwriteProperty() {
         //Setting paths
         property.setOutFileSize(Integer.parseInt(txtFieldSizeFile.getText().trim()));
         property.setOutFileCountStrings(Integer.parseInt(txtFieldCountString.getText().trim()));
@@ -694,12 +716,10 @@ public class MainController {
         //TODO : add camelCase processing module
         property.setEnableMonthsModule(switchMonths.getState());
         property.setEnableAcronymsModule(switchAcronyms.getState());
-        File propertyHistoryDir = new File("..\\propertyHistory");
+        File propertyHistoryDir = new File(".\\propertyHistory");
         propertyHistoryDir.mkdir();
         property.overwritePropertyHistory(PROPERTY_HISTORY_PATH);
     }
-
-
 
 
     public TextField getTxtFieldInputFiles() {

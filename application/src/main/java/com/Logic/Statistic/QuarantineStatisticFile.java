@@ -31,7 +31,7 @@ public class QuarantineStatisticFile {
         this.processedFileName = quarantineSentencesFile.getFileName();
         this.quarantineSentencesFile = quarantineSentencesFile;
         generateQuarantineSentencesStatistic();
-        fileName = "TAaC/Logic/Statistic" + quarantineSentencesFile.getFileName();
+        fileName = "Statistic" + quarantineSentencesFile.getFileName();
     }
 
     /**Counts the number of times the sentence has been quarantined.*/
