@@ -1,66 +1,38 @@
 package com.Threads;
 
 
+import com.Controller.SettingsController;
+import com.Logic.Properties.PropertyLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 
 public class ThreadLaunchButton extends Thread{
 
-    private Button launchButton;
+    private Button btnLaunch;
     private Label lblEmptyPaths;
-    private TextField txtFieldPropertyPath;
-    private TextField txtFieldSizeFile;
-    private TextField txtFieldCountString;
-    private TextField txtFieldInputFiles;
-    private TextField txtFieldUserStatistic;
-    private TextField txtFieldDictionaries;
-    private TextField txtFieldOutFiles;
-    private TextField txtFieldProtectedWords;
-    private TextField txtFieldDeleteWords;
+    private PropertyLoader property;
 
-    public ThreadLaunchButton(String name, Button launchButton, Label lblEmptyPaths, TextField txtFieldPropertyPath, TextField txtFieldSizeFile,
-                              TextField txtFieldCountString, TextField txtFieldInputFiles, TextField txtFieldUserStatistic,
-                              TextField txtFieldDictionaries, TextField txtFieldOutFiles, TextField txtFieldProtectedWords,
-                              TextField txtFieldDeleteWords) {
+    public ThreadLaunchButton(String name, PropertyLoader property, Button btnLaunch, Label lblEmptyPath) {
         super(name);
-        this.lblEmptyPaths = lblEmptyPaths;
-        this.launchButton = launchButton;
-        this.txtFieldPropertyPath = txtFieldPropertyPath;
-        this.txtFieldSizeFile = txtFieldSizeFile;
-        this.txtFieldCountString = txtFieldCountString;
-        this.txtFieldInputFiles = txtFieldInputFiles;
-        this.txtFieldUserStatistic = txtFieldUserStatistic;
-        this.txtFieldDictionaries = txtFieldDictionaries;
-        this.txtFieldOutFiles = txtFieldOutFiles;
-        this.txtFieldProtectedWords = txtFieldProtectedWords;
-        this.txtFieldDeleteWords = txtFieldDeleteWords;
-
+        this.property = property;
+        this.btnLaunch = btnLaunch;
+        this.lblEmptyPaths = lblEmptyPath;
     }
 
     @Override
     public void run() {
         int counter = 0;
         while(!interrupted()){
-            if (areFieldsFilled() && launchButton.isDisable()){
-                launchButton.setDisable(false);
+            if (property.isPropertyFill() && lblEmptyPaths.isVisible()){
+                btnLaunch.setDisable(false);//button on
                 lblEmptyPaths.setVisible(false);
-            }else if (!areFieldsFilled() && !launchButton.isDisable()){
-                launchButton.setDisable(true);
+            }else if (!property.isPropertyFill() && !lblEmptyPaths.isVisible()){
+                btnLaunch.setDisable(true);//button off
                 lblEmptyPaths.setVisible(true);
             }
 //            System.out.println(counter++);
         }
-        launchButton.setDisable(true);
+        btnLaunch.setDisable(true);
     }
 
-
-    private boolean areFieldsFilled(){
-        boolean result = (!txtFieldSizeFile.getText().isEmpty() &&
-                !txtFieldCountString.getText().isEmpty() && !txtFieldInputFiles.getText().isEmpty() &&
-                !txtFieldDictionaries.getText().isEmpty() && !txtFieldUserStatistic.getText().isEmpty() &&
-                !txtFieldOutFiles.getText().isEmpty() && !txtFieldProtectedWords.getText().isEmpty() &&
-                !txtFieldDeleteWords.getText().isEmpty());
-        return result;
-    }
 }

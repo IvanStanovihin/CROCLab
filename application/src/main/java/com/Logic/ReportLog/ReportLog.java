@@ -24,7 +24,7 @@ public class ReportLog {
 
 
     private double currentProgress = 0;
-    private int maxProgress = 22;
+    private int maxProgress = 23;
     private double progressStep;
     /**
      * logger

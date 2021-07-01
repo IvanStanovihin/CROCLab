@@ -15,7 +15,7 @@ public class PropertyData {
     private String removeEnglishText;
     private String dictionaryWords;
     private String findEnglish;
-    private String phoneNumber;
+//    private String phoneNumber;
     private String dates;
     private String times;
     private String money;
@@ -27,9 +27,9 @@ public class PropertyData {
     private String daysOfWeek;
     private String initials;
     private String abbreviationsFind;
-    private String camelCase;
+//    private String camelCase;
     private String months;
-    private String whitespaceRemove;
+//    private String whitespaceRemove;
     private String acronyms;
 
     public String getInputFiles() {
@@ -120,13 +120,13 @@ public class PropertyData {
         this.findEnglish = findEnglish;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+//    public String getPhoneNumber() {
+//        return phoneNumber;
+//    }
+//
+//    public void setPhoneNumber(String phoneNumber) {
+//        this.phoneNumber = phoneNumber;
+//    }
 
     public String getDates() {
         return dates;
@@ -216,13 +216,13 @@ public class PropertyData {
         this.abbreviationsFind = abbreviationsFind;
     }
 
-    public String getCamelCase() {
-        return camelCase;
-    }
+//    public String getCamelCase() {
+//        return camelCase;
+//    }
 
-    public void setCamelCase(String camelCase) {
-        this.camelCase = camelCase;
-    }
+//    public void setCamelCase(String camelCase) {
+//        this.camelCase = camelCase;
+//    }
 
     public String getMonths() {
         return months;
@@ -232,13 +232,13 @@ public class PropertyData {
         this.months = months;
     }
 
-    public String getWhitespaceRemove() {
-        return whitespaceRemove;
-    }
+//    public String getWhitespaceRemove() {
+//        return whitespaceRemove;
+//    }
 
-    public void setWhitespaceRemove(String whitespaceRemove) {
-        this.whitespaceRemove = whitespaceRemove;
-    }
+//    public void setWhitespaceRemove(String whitespaceRemove) {
+//        this.whitespaceRemove = whitespaceRemove;
+//    }
 
     public String getAcronyms() {
         return acronyms;
@@ -247,4 +247,6 @@ public class PropertyData {
     public void setAcronyms(String acronyms) {
         this.acronyms = acronyms;
     }
+
+
 }

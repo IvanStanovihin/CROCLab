@@ -6,10 +6,11 @@ import java.util.ArrayList;
 public class InputFilesLoader {
 
     /**List of input files*/
-    public static ArrayList<InputFile> inputFiles = new ArrayList<>();
+    public static ArrayList<InputFile> inputFiles = null;
 
     /**Loading files*/
     public static ArrayList<InputFile> loadInputFiles(String inputFilesDirectoryPath){
+        inputFiles = new ArrayList<>();
         File inputFilesDirectory = new File(inputFilesDirectoryPath);
         for(File inputFile : inputFilesDirectory.listFiles()){
             if (inputFile.isDirectory()){

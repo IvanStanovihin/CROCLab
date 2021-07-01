@@ -10,6 +10,7 @@ import java.io.OutputStreamWriter;
 import java.util.Scanner;
 /**The class stores information loaded from property.json*/
 public class PropertyLoader {
+
     private String inputFilesDirectory = null;
     /**Size of each output processed file(mb)*/
     private Integer outFileSize = null;
@@ -25,7 +26,7 @@ public class PropertyLoader {
     private boolean enableRemoveEnglishTextModule = false;
     private boolean enableDictionaryWordsModule = false;
     private boolean enableFindEnglishModule = false;
-    private boolean enablePhoneNumberModule = false;
+    private boolean enablePhoneNumberModule = true;
     private boolean enableDatesModule = false;
     private boolean enableTimesModule = false;
     private boolean enableMoneyModule = false;
@@ -37,22 +38,22 @@ public class PropertyLoader {
     private boolean enableDaysOfWeekModule = false;
     private boolean enableInitialsModule = false;
     private boolean enableAbbreviationsFindModule = false;
-    private boolean enableCamelCaseModule = false;
+    private boolean enableCamelCaseModule = true;
     private boolean enableMonthsModule = false;
-    private boolean enableWhitespaceRemoveModule = false;
+    private boolean enableWhitespaceRemoveModule = true;
     private boolean enableAcronymsModule = false;
+
 
     private String propertyJsonPath;
     private PropertyData propertyData;
 
 
-    public PropertyLoader(String filePath){
-        this.propertyJsonPath = filePath;
-        load(filePath);
+    public PropertyLoader(){
+        propertyData = new PropertyData();
     }
 
     /**Reading a "property.json" and initializing paths for configuration files*/
-    private void load(String filePath){
+    public void load(String filePath){
 
         try(Scanner in = new Scanner(new File(filePath))){
 
@@ -85,7 +86,7 @@ public class PropertyLoader {
         enableRemoveEnglishTextModule = propertyData.getRemoveEnglishText().equalsIgnoreCase("true");
         enableDictionaryWordsModule = propertyData.getDictionaryWords().equalsIgnoreCase("true");
         enableFindEnglishModule = propertyData.getFindEnglish().equalsIgnoreCase("true");
-        enablePhoneNumberModule = propertyData.getPhoneNumber().equalsIgnoreCase("true");
+//        enablePhoneNumberModule = propertyData.getPhoneNumber().equalsIgnoreCase("true");
         enableDatesModule = propertyData.getDates().equalsIgnoreCase("true");
         enableTimesModule = propertyData.getTimes().equalsIgnoreCase("true");
         enableMoneyModule = propertyData.getMoney().equalsIgnoreCase("true");
@@ -97,14 +98,14 @@ public class PropertyLoader {
         enableDaysOfWeekModule = propertyData.getDaysOfWeek().equalsIgnoreCase("true");
         enableInitialsModule = propertyData.getInitials().equalsIgnoreCase("true");
         enableAbbreviationsFindModule = propertyData.getAbbreviationsFind().equalsIgnoreCase("true");
-        enableCamelCaseModule = propertyData.getCamelCase().equalsIgnoreCase("true");
+//        enableCamelCaseModule = propertyData.getCamelCase().equalsIgnoreCase("true");
         enableMonthsModule = propertyData.getMonths().equalsIgnoreCase("true");
-        enableWhitespaceRemoveModule = propertyData.getWhitespaceRemove().equalsIgnoreCase("true");
+//        enableWhitespaceRemoveModule = propertyData.getWhitespaceRemove().equalsIgnoreCase("true");
         enableAcronymsModule = propertyData.getAcronyms().equalsIgnoreCase("true");
     }
 
-    public void overwritePropertyHistory(String propertyHistoryPath){
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    public void writeFile(String propertyHistoryPath){
+        Gson gson = new GsonBuilder().serializeNulls().setPrettyPrinting().create();
         String newPropertyFile = gson.toJson(propertyData);
         try(FileWriter fw = new FileWriter(propertyHistoryPath)){
             fw.write(newPropertyFile);
@@ -112,6 +113,7 @@ public class PropertyLoader {
             ex.printStackTrace();
         }
     }
+
 
     public boolean isEnableAcronymsModule() {
         return enableAcronymsModule;
@@ -275,10 +277,10 @@ public class PropertyLoader {
         propertyData.setFindEnglish(String.valueOf(enableFindEnglishModule));
     }
 
-    public void setEnablePhoneNumberModule(boolean enablePhoneNumberModule) {
-        this.enablePhoneNumberModule = enablePhoneNumberModule;
-        propertyData.setPhoneNumber(String.valueOf(enablePhoneNumberModule));
-    }
+//    public void setEnablePhoneNumberModule(boolean enablePhoneNumberModule) {
+//        this.enablePhoneNumberModule = enablePhoneNumberModule;
+//        propertyData.setPhoneNumber(String.valueOf(enablePhoneNumberModule));
+//    }
 
     public void setEnableDatesModule(boolean enableDatesModule) {
         this.enableDatesModule = enableDatesModule;
@@ -335,23 +337,29 @@ public class PropertyLoader {
         propertyData.setAbbreviationsFind(String.valueOf(enableAbbreviationsFindModule));
     }
 
-    public void setEnableCamelCaseModule(boolean enableCamelCaseModule) {
-        this.enableCamelCaseModule = enableCamelCaseModule;
-        propertyData.setCamelCase(String.valueOf(enableCamelCaseModule));
-    }
+//    public void setEnableCamelCaseModule(boolean enableCamelCaseModule) {
+//        this.enableCamelCaseModule = enableCamelCaseModule;
+//        propertyData.setCamelCase(String.valueOf(enableCamelCaseModule));
+//    }
 
     public void setEnableMonthsModule(boolean enableMonthsModule) {
         this.enableMonthsModule = enableMonthsModule;
         propertyData.setMonths(String.valueOf(enableMonthsModule));
     }
 
-    public void setEnableWhitespaceRemoveModule(boolean enableWhitespaceRemoveModule) {
-        this.enableWhitespaceRemoveModule = enableWhitespaceRemoveModule;
-        propertyData.setWhitespaceRemove(String.valueOf(enableWhitespaceRemoveModule));
-    }
+//    public void setEnableWhitespaceRemoveModule(boolean enableWhitespaceRemoveModule) {
+//        this.enableWhitespaceRemoveModule = enableWhitespaceRemoveModule;
+//        propertyData.setWhitespaceRemove(String.valueOf(enableWhitespaceRemoveModule));
+//    }
 
     public void setEnableAcronymsModule(boolean enableAcronymsModule) {
         this.enableAcronymsModule = enableAcronymsModule;
         propertyData.setAcronyms(String.valueOf(enableAcronymsModule));
+    }
+
+    public boolean isPropertyFill(){
+        return  (outFileSize != null && outFileCountStrings != null && inputFilesDirectory != null &&
+                dictionariesDirectory != null && filesForStatisticDirectory != null && outDirectory != null &&
+                protectedWordsDir != null && wordsToDeleteDir != null);
     }
 }

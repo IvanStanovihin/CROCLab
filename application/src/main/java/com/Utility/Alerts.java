@@ -38,4 +38,14 @@ public class Alerts {
         alert.setContentText("Ошибка при открытии директории с отчётом.");
         alert.showAndWait();
     }
+
+    public static void hasEmptyPath(){
+        System.out.println("error!!!");
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Ошибка!");
+        alert.setHeaderText(null);
+        alert.setContentText("Не все поля к файлам настройки заполнены! Проверьте раздел \"настройка\"");
+        alert.showAndWait();
+    }
+
 }

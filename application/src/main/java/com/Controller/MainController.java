@@ -3,30 +3,27 @@ package com.Controller;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
-import com.Components.LabelsChooseFiles;
-import com.Components.LabelsModules;
-import com.Components.SwitchButton;
 import com.Logic.Properties.PropertyLoader;
 
 import com.Threads.ThreadLaunchButton;
 import com.Threads.ThreadLaunchHandler;
 import com.Utility.Alerts;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
+import javafx.fxml.FXMLLoader;
 
 
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -34,18 +31,14 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
-import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import javafx.util.Duration;
-import ucar.nc2.util.IO;
+import javafx.stage.*;
 
 public class MainController {
 
     @FXML
-    public ProgressBar progressBar;
+    public volatile ProgressBar progressBar;
     @FXML
-    public Button btnOpenLog;
+    public volatile Button btnOpenLog;
     @FXML
     public Button btnCloseApp;
 
@@ -55,7 +48,7 @@ public class MainController {
     @FXML
     public Label lblLaunchUnavailable;
 
-    volatile private PropertyLoader property;
+    volatile public static PropertyLoader property;
 
     @FXML
     volatile public TextArea txtAreaLog;
@@ -265,36 +258,24 @@ public class MainController {
     @FXML
     volatile private Label lblMdlDates;
 
-
-    private SwitchButton switchRemoveEnglish;
-    private SwitchButton switchDictionaryWords;
-    private SwitchButton switchFindEnglish;
-    private SwitchButton switchDates;
-    private SwitchButton switchTimes;
-    private SwitchButton switchMoneys;
-    private SwitchButton switchFractions;
-    private SwitchButton switchNumbers;
-    private SwitchButton switchPunctuation;
-    private SwitchButton switchDeleteWords;
-    private SwitchButton switchDaysOfWeek;
-    private SwitchButton switchInitials;
-    private SwitchButton switchAbbreviations;
-    private SwitchButton switchMonths;
-    private SwitchButton switchAcronyms;
-    private SwitchButton switchLinks;
-
     @FXML
     volatile private Label lblEmptyPaths;
 
+
+    public static final String PROPERTY_HISTORY_PATH = ".\\propertyHistory\\history.json";
     private static volatile Boolean processingFiles = true;
 
     private ThreadLaunchHandler taskThread;
 
     private boolean firstLaunch = true;
 
-    private static final String PROPERTY_HISTORY_PATH = ".\\propertyHistory\\history.json";
+    private ThreadLaunchButton threadLaunchButton;
 
-    private ThreadLaunchButton controlButtonLaunchThread;
+    private SettingsController settingsController;
+
+    private Stage settingsStage;
+
+    public static boolean btnLaunchActive = false;
 
 
     public MainController() {
@@ -302,29 +283,30 @@ public class MainController {
 
     @FXML
     void initialize() {
-        createModuleSwitches();
-        loadPropertyHistory();
         btnCloseApp.setOnAction(event -> Platform.exit());
-        pnlChooseFiles.toFront();
-        btnSectionSettingFiles.setSelected(true);
+
+
+
+        lblEmptyPaths.setVisible(false);
+        lblLaunchUnavailable.setVisible(false);
 
         btnOpenLog.setDisable(true);
         btnOpenOutDir.setDisable(true);
-        lblLaunchUnavailable.setVisible(false);
-        lblEmptyPaths.setVisible(false);
-        createTooltipsForField();
 
-        LabelsChooseFiles hintsForChooseFiles = new LabelsChooseFiles(lblPropertyPath, lblSizeProcFile, lblCountStringProcFile,
-                lblInputFiles, lblDictionaties, lblUserStat, lblOutDir, lblProtectedWords, lblDeletWords);
-        LabelsModules labelsModules = new LabelsModules(lblMdlRemoveEnglish, lblMdlFindEnglish, lblMdlLinks, lblMdlInitials,
-                lblMdlTimes, lblMdlDates, lblMdlFractions, lblMdlNumbers, lblMdlMoneys, lblMdlPunctuation, lblMdlAcronyms,
-                lblMdlDaysWeek, lblMdlDeleteWords, lblMdlAbbreviations, lblMdlMonths, lblMdlDictionaries);
 
-        controlButtonLaunchThread = new ThreadLaunchButton("ControlLaunchBtnThread", btnLaunch, lblEmptyPaths,
-                txtFieldPropertyPath, txtFieldSizeFile, txtFieldCountString, txtFieldInputFiles, txtFieldUserStatistic,
-                txtFieldDictionaries, txtFieldOutFiles, txtFieldProtectedWords, txtFieldDeleteWords);
-        controlButtonLaunchThread.setDaemon(true);
-        controlButtonLaunchThread.start();
+
+//        threadLaunchButton = new ThreadLaunchButton("Thread control launch button", property,
+//                btnLaunch, lblEmptyPaths);
+//        threadLaunchButton.setDaemon(true);
+//        threadLaunchButton.start();
+
+
+
+//        controlButtonLaunchThread = new ThreadLaunchButton("ControlLaunchBtnThread", btnLaunch, lblEmptyPaths,
+//                txtFieldPropertyPath, txtFieldSizeFile, txtFieldCountString, txtFieldInputFiles, txtFieldUserStatistic,
+//                txtFieldDictionaries, txtFieldOutFiles, txtFieldProtectedWords, txtFieldDeleteWords);
+//        controlButtonLaunchThread.setDaemon(true);
+//        controlButtonLaunchThread.start();
 
 
         btnLaunch.setOnAction(event -> launchProcess());
@@ -332,108 +314,53 @@ public class MainController {
         btnOpenLog.setOnAction(event -> openLogDir());
         btnOpenOutDir.setOnAction(event -> openOutDir());
 
-        btnChooseInputFiles.setOnAction(event -> {
-            File chosenDirectory = chooseDirectory();
-            if (chosenDirectory != null) {
-                txtFieldInputFiles.setText(chosenDirectory.getAbsolutePath());
-            }
-        });
 
-        btnChooseDictionaries.setOnAction(event -> {
-            File chosenDirectory = chooseDirectory();
-            if (chosenDirectory != null) {
-                txtFieldDictionaries.setText(chosenDirectory.getAbsolutePath());
-            }
-        });
-
-        btnChooseUserStatistic.setOnAction(event -> {
-            File chosenDirectory = chooseDirectory();
-            if (chosenDirectory != null) {
-                txtFieldUserStatistic.setText(chosenDirectory.getAbsolutePath());
-            }
-        });
-
-        btnChooseOutDirectory.setOnAction(event -> {
-            File chosenDirectory = chooseDirectory();
-            if (chosenDirectory != null) {
-                txtFieldOutFiles.setText(chosenDirectory.getAbsolutePath());
-            }
-        });
-
-        btnChooseProtectedWords.setOnAction(event -> {
-            File chosenDirectory = chooseDirectory();
-            if (chosenDirectory != null) {
-                txtFieldProtectedWords.setText(chosenDirectory.getAbsolutePath());
-            }
-        });
-
-        btnChooseDeleteWords.setOnAction(event -> {
-            File chosenDirectory = chooseDirectory();
-            if (chosenDirectory != null) {
-                txtFieldDeleteWords.setText(chosenDirectory.getAbsolutePath());
-            }
-        });
-        btnChooseProperty.setOnAction(event -> {
-            File chosenFile = chooseFile();
-            if (chosenFile != null) {
-                txtFieldPropertyPath.setText(chosenFile.getAbsolutePath());
-                String propertyPath = txtFieldPropertyPath.getText().trim();
-                //TODO: Make error handling for failed property.json read attempt. Create alerts.
-                property = new PropertyLoader(propertyPath);
-                fillInPropertyPaths();
-                fillInModulesSwitch();
-            }
-        });
 
         //Select section
-        btnSectionModules.setOnAction(event -> {
-            pnlModules.toFront();
-            btnSectionModules.setSelected(true);
-            btnSectionLaunch.setSelected(false);
-            btnSectionSettingFiles.setSelected(false);
-            btnSectionUpdate.setSelected(false);
-        });
 
         btnSectionSettingFiles.setOnAction(event -> {
-            pnlChooseFiles.toFront();
-            btnSectionSettingFiles.setSelected(true);
-            btnSectionLaunch.setSelected(false);
-            btnSectionModules.setSelected(false);
-            btnSectionUpdate.setSelected(false);
-        });
-
-        btnSectionLaunch.setOnAction(event -> {
-            pnlLaunch.toFront();
-            btnSectionLaunch.setSelected(true);
-            btnSectionModules.setSelected(false);
+            createSettingsStage();
             btnSectionSettingFiles.setSelected(false);
-            btnSectionUpdate.setSelected(false);
-
         });
 
-        btnSectionUpdate.setOnAction(event -> {
-            btnSectionUpdate.setSelected(false);
-            btnSectionLaunch.setSelected(false);
-            btnSectionModules.setSelected(false);
-            btnSectionSettingFiles.setSelected(false);
-            String jarPath = "C:/Users/ivan/Desktop/CROCLab/application/target/TAaC-jar-with-dependencies.jar";
-            Runtime re = Runtime.getRuntime();
-            try {
-                re.exec("java -jar " + jarPath);
-            } catch (IOException ioe) {
-                ioe.printStackTrace();
-            }
-            System.exit(0);
-        });
+
+
+//        btnSectionUpdate.setOnAction(event -> {
+//            btnSectionUpdate.setSelected(false);
+//            btnSectionLaunch.setSelected(false);
+//            btnSectionModules.setSelected(false);
+//            btnSectionSettingFiles.setSelected(false);
+//            String jarPath = "C:/Users/ivan/Desktop/CROCLab/application/target/TAaC-jar-with-dependencies.jar";
+//            Runtime re = Runtime.getRuntime();
+//            try {
+//                re.exec("java -jar " + jarPath);
+//            } catch (IOException ioe) {
+//                ioe.printStackTrace();
+//            }
+//            System.exit(0);
+//        });
 
 
     }
 
-    private void loadPropertyHistory() {
-        if (Files.exists(Paths.get(PROPERTY_HISTORY_PATH))) {
-            property = new PropertyLoader(PROPERTY_HISTORY_PATH);
-            fillInPropertyPaths();
-            fillInModulesSwitch();
+
+
+
+    private void createSettingsStage() {
+        try {
+            settingsStage = new Stage();
+            settingsStage.initModality(Modality.WINDOW_MODAL);
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Objects.requireNonNull(getClass().getResource("/fxml/settingsView.fxml")));
+            Parent root = loader.load();
+            settingsController = loader.getController();
+            settingsController.setProperty(property);
+            settingsStage.setTitle("Settings");
+            settingsStage.initStyle(StageStyle.UNDECORATED);
+            settingsStage.setScene(new Scene(root, 1100, 650));
+            settingsStage.show();
+        }catch(IOException ex){
+            ex.printStackTrace();
         }
     }
 
@@ -475,187 +402,26 @@ public class MainController {
     }
 
 
-    private void createTooltipsForField() {
-        Tooltip propertyTooltip = new Tooltip();
-        Tooltip inFilesTooltip = new Tooltip();
-        Tooltip dictionariesTooltip = new Tooltip();
-        Tooltip userStatisticTooltip = new Tooltip();
-        Tooltip outDirTooltip = new Tooltip();
-        Tooltip protectWordsTooltip = new Tooltip();
-        Tooltip deleteWordsTooltip = new Tooltip();
 
-        txtFieldPropertyPath.textProperty().addListener((ov, oldV, newV) -> {
-            propertyTooltip.setShowDuration(Duration.minutes(5));
-            propertyTooltip.setText(txtFieldPropertyPath.getText());
-            txtFieldPropertyPath.setTooltip(propertyTooltip);
-        });
-
-        txtFieldInputFiles.textProperty().addListener((ov, oldV, newV) -> {
-            inFilesTooltip.setShowDuration(Duration.minutes(5));
-            inFilesTooltip.setText(txtFieldInputFiles.getText());
-            txtFieldInputFiles.setTooltip(inFilesTooltip);
-        });
-
-        txtFieldDictionaries.textProperty().addListener((ov, oldV, newV) -> {
-            dictionariesTooltip.setShowDuration(Duration.minutes(5));
-            dictionariesTooltip.setText(txtFieldDictionaries.getText());
-            txtFieldDictionaries.setTooltip(dictionariesTooltip);
-        });
-
-        txtFieldUserStatistic.textProperty().addListener((ov, oldV, newV) -> {
-            userStatisticTooltip.setShowDuration(Duration.minutes(5));
-            userStatisticTooltip.setText(txtFieldUserStatistic.getText());
-            txtFieldUserStatistic.setTooltip(userStatisticTooltip);
-        });
-
-        txtFieldOutFiles.textProperty().addListener((ov, oldV, newV) -> {
-            outDirTooltip.setShowDuration(Duration.minutes(5));
-            outDirTooltip.setText(txtFieldOutFiles.getText());
-            txtFieldOutFiles.setTooltip(outDirTooltip);
-        });
-
-        txtFieldProtectedWords.textProperty().addListener((ov, oldV, newV) -> {
-            protectWordsTooltip.setShowDuration(Duration.minutes(5));
-            protectWordsTooltip.setText(txtFieldProtectedWords.getText());
-            txtFieldProtectedWords.setTooltip(protectWordsTooltip);
-        });
-
-        txtFieldDeleteWords.textProperty().addListener((ov, oldV, newV) -> {
-            deleteWordsTooltip.setShowDuration(Duration.minutes(5));
-            deleteWordsTooltip.setText(txtFieldDeleteWords.getText());
-            txtFieldDeleteWords.setTooltip(deleteWordsTooltip);
-        });
-    }
 
     private void launchProcess() {
-        controlButtonLaunchThread.interrupt();
-        lblLaunchUnavailable.setVisible(true);
-        overwriteProperty();
-        txtAreaLog.setText("Обработка файлов!\n");
-
-        taskThread = new ThreadLaunchHandler("Thread launch handler", property, txtAreaLog,
-                btnOpenOutDir, btnOpenLog, progressBar);
-        taskThread.setDaemon(true);
-        taskThread.start();
-        firstLaunch = false;
+        if (!btnLaunchActive){
+            Alerts.hasEmptyPath();
+        }else {
+            txtAreaLog.setText("Обработка файлов!\n");
+            property = settingsController.getProperty();
+            taskThread = new ThreadLaunchHandler("Thread launch handler", property, txtAreaLog,
+                    btnOpenOutDir, btnOpenLog, progressBar);
+            taskThread.setDaemon(true);
+            taskThread.start();
+            firstLaunch = false;
+        }
     }
 
 
-    private void fillInPropertyPaths() {
-        txtFieldSizeFile.setText(property.getOutFileSize().toString());
-        txtFieldCountString.setText(property.getOutFileCountStrings().toString());
-        txtFieldInputFiles.setText(property.getInputFilesDirectory());
-        txtFieldDictionaries.setText(property.getDictionariesDirectory());
-        txtFieldUserStatistic.setText(property.getFilesForStatisticDirectory());
-        txtFieldOutFiles.setText(property.getOutDirectory());
-        txtFieldProtectedWords.setText(property.getProtectedWordsDir());
-        txtFieldDeleteWords.setText(property.getWordsToDeleteDir());
-    }
 
-    private void fillInModulesSwitch() {
-        switchRemoveEnglish.setState(property.isEnableRemoveEnglishTextModule());
-        System.out.println(switchRemoveEnglish.getState());
-        switchFindEnglish.setState(property.isEnableFindEnglishModule());
-        System.out.println(switchFindEnglish.getState());
-        switchLinks.setState(property.isEnableLinksModule());
-        switchInitials.setState(property.isEnableInitialsModule());
-        switchTimes.setState(property.isEnableTimesModule());
-        switchDates.setState(property.isEnableDatesModule());
-        switchFractions.setState(property.isEnableFractionsModule());
-        switchMoneys.setState(property.isEnableMoneyModule());
-        switchPunctuation.setState(property.isEnablePunctuationMarkModule());
-        switchAcronyms.setState(property.isEnableAcronymsModule());
-        switchDaysOfWeek.setState(property.isEnableDaysOfWeekModule());
-        switchDeleteWords.setState(property.isEnableRemoveWordsModule());
-        switchAbbreviations.setState(property.isEnableAbbreviationsFindModule());
-        switchMonths.setState(property.isEnableMonthsModule());
-        switchDictionaryWords.setState(property.isEnableDictionaryWordsModule());
-        switchNumbers.setState(property.isEnableNumbersModule());
-    }
 
-    private void createModuleSwitches() {
 
-        switchRemoveEnglish = new SwitchButton();
-        switchRemoveEnglish.setMaxWidth(20);
-        pnlDeleteEnglishSwitch.setAlignment(Pos.CENTER_LEFT);
-        pnlDeleteEnglishSwitch.getChildren().add(switchRemoveEnglish);
-
-        switchDictionaryWords = new SwitchButton();
-        switchDictionaryWords.setMaxWidth(20);
-        pnlDictionariesSwitch.setAlignment(Pos.CENTER_LEFT);
-        pnlDictionariesSwitch.getChildren().add(switchDictionaryWords);
-
-        switchFindEnglish = new SwitchButton();
-        switchFindEnglish.setMaxWidth(20);
-        pnlFindEnglishSwitch.setAlignment(Pos.CENTER_LEFT);
-        pnlFindEnglishSwitch.getChildren().add(switchFindEnglish);
-
-        switchDates = new SwitchButton();
-        switchDates.setMaxWidth(20);
-        pnlDatesSwitch.setAlignment(Pos.CENTER_LEFT);
-        pnlDatesSwitch.getChildren().add(switchDates);
-
-        switchTimes = new SwitchButton();
-        switchTimes.setMaxWidth(20);
-        pnlTimeSwitch.setAlignment(Pos.CENTER_LEFT);
-        pnlTimeSwitch.getChildren().add(switchTimes);
-
-        switchMoneys = new SwitchButton();
-        switchMoneys.setMaxWidth(20);
-        pnlMoneySwitch.setAlignment(Pos.CENTER_LEFT);
-        pnlMoneySwitch.getChildren().add(switchMoneys);
-
-        switchFractions = new SwitchButton();
-        switchFractions.setMaxWidth(20);
-        pnlFractionsSwitch.setAlignment(Pos.CENTER_LEFT);
-        pnlFractionsSwitch.getChildren().add(switchFractions);
-
-        switchNumbers = new SwitchButton();
-        switchNumbers.setMaxWidth(20);
-        pnlNumbersSwitch.setAlignment(Pos.CENTER_LEFT);
-        pnlNumbersSwitch.getChildren().add(switchNumbers);
-
-        switchPunctuation = new SwitchButton();
-        switchPunctuation.setMaxWidth(20);
-        pnlPunctuationSwitch.setAlignment(Pos.CENTER_LEFT);
-        pnlPunctuationSwitch.getChildren().add(switchPunctuation);
-
-        switchDeleteWords = new SwitchButton();
-        switchDeleteWords.setMaxWidth(20);
-        pnlDeleteWordsSwitch.setAlignment(Pos.CENTER_LEFT);
-        pnlDeleteWordsSwitch.getChildren().add(switchDeleteWords);
-
-        switchDaysOfWeek = new SwitchButton();
-        switchDaysOfWeek.setMaxWidth(20);
-        pnlDaysWeekSwitch.setAlignment(Pos.CENTER_LEFT);
-        pnlDaysWeekSwitch.getChildren().add(switchDaysOfWeek);
-
-        switchInitials = new SwitchButton();
-        switchInitials.setMaxWidth(20);
-        pnlInitialsSwitch.setAlignment(Pos.CENTER_LEFT);
-        pnlInitialsSwitch.getChildren().add(switchInitials);
-
-        switchAbbreviations = new SwitchButton();
-        switchAbbreviations.setMaxWidth(20);
-        pnlAbbreviationsSwitch.setAlignment(Pos.CENTER_LEFT);
-        pnlAbbreviationsSwitch.getChildren().add(switchAbbreviations);
-
-        switchMonths = new SwitchButton();
-        switchMonths.setMaxWidth(20);
-        pnlMonthsSwitch.setAlignment(Pos.CENTER_LEFT);
-        pnlMonthsSwitch.getChildren().add(switchMonths);
-
-        switchAcronyms = new SwitchButton();
-        switchAcronyms.setMaxWidth(20);
-        pnlAcronymsSwitch.setAlignment(Pos.CENTER_LEFT);
-        pnlAcronymsSwitch.getChildren().add(switchAcronyms);
-
-        switchLinks = new SwitchButton();
-        switchLinks.setMaxWidth(20);
-        pnlLinksSwitch.setAlignment(Pos.CENTER_LEFT);
-        pnlLinksSwitch.getChildren().add(switchLinks);
-
-    }
 
     @FXML
     private void handleClick(ActionEvent event) {
@@ -663,20 +429,7 @@ public class MainController {
     }
 
 
-    private File chooseDirectory() {
-        File chosenDirectory;
-        DirectoryChooser directoryChooser = new DirectoryChooser();
-        directoryChooser.setTitle("Выбор директории");
-        chosenDirectory = directoryChooser.showDialog(btnChooseInputFiles.getScene().getWindow());
-        return chosenDirectory;
-    }
 
-    private File chooseFile() {
-        Stage stage = (Stage) btnChooseProperty.getScene().getWindow();
-        FileChooser fileChooser = new FileChooser();
-        File chosenFile = fileChooser.showOpenDialog(stage);
-        return chosenFile;
-    }
 
     private String getFilesPaths(List<File> files) {
         StringBuilder chosenFilesPaths = new StringBuilder();
@@ -687,39 +440,7 @@ public class MainController {
     }
 
 
-    private void overwriteProperty() {
-        //Setting paths
-        property.setOutFileSize(Integer.parseInt(txtFieldSizeFile.getText().trim()));
-        property.setOutFileCountStrings(Integer.parseInt(txtFieldCountString.getText().trim()));
-        property.setInputFilesDirectory(txtFieldInputFiles.getText().trim());
-        property.setDictionariesDirectory(txtFieldDictionaries.getText().trim());
-        property.setFilesForStatisticDirectory(txtFieldUserStatistic.getText().trim());
-        property.setOutDirectory(txtFieldOutFiles.getText().trim());
-        property.setProtectedWordsDir(txtFieldProtectedWords.getText().trim());
-        property.setWordsToDeleteDir(txtFieldDeleteWords.getText().trim());
-        //Setting modules
-        property.setEnableRemoveEnglishTextModule(switchRemoveEnglish.getState());
-        property.setEnableDictionaryWordsModule(switchDictionaryWords.getState());
-        property.setEnableFindEnglishModule(switchFindEnglish.getState());
-        //TODO : add phone numbers processing module
-        property.setEnableDatesModule(switchDates.getState());
-        property.setEnableTimesModule(switchTimes.getState());
-        property.setEnableMoneyModule(switchMoneys.getState());
-        property.setEnableFractionsModule(switchFractions.getState());
-        property.setEnableNumbersModule(switchNumbers.getState());
-        property.setEnableLinksModule(switchLinks.getState());
-        property.setEnablePunctuationMarkModule(switchPunctuation.getState());
-        property.setEnableRemoveWordsModule(switchDeleteWords.getState());
-        property.setEnableDaysOfWeekModule(switchDaysOfWeek.getState());
-        property.setEnableInitialsModule(switchInitials.getState());
-        property.setEnableAbbreviationsFindModule(switchAbbreviations.getState());
-        //TODO : add camelCase processing module
-        property.setEnableMonthsModule(switchMonths.getState());
-        property.setEnableAcronymsModule(switchAcronyms.getState());
-        File propertyHistoryDir = new File(".\\propertyHistory");
-        propertyHistoryDir.mkdir();
-        property.overwritePropertyHistory(PROPERTY_HISTORY_PATH);
-    }
+
 
 
     public TextField getTxtFieldInputFiles() {

@@ -18,16 +18,8 @@ public class DaysOfWeekHandler {
     /**
      * Map with day of thr week
      */
-    private static Map<String, String> daysOfWeek = new LinkedHashMap<>();
-    static{
-        daysOfWeek.put("пн", " понедельник ");
-        daysOfWeek.put("вт", " вторник ");
-        daysOfWeek.put("ср", " среда ");
-        daysOfWeek.put("чт", " четверг ");
-        daysOfWeek.put("пт", " пятница ");
-        daysOfWeek.put("сб", " суббота ");
-        daysOfWeek.put("вс", " воскресенье ");
-    }
+    private static Map<String, String> daysOfWeek = null;
+
 
     /**
      * Method for checking the module connection
@@ -42,6 +34,7 @@ public class DaysOfWeekHandler {
      * @param inputFiles ArrayList with inputFiles
      */
     public static void handleDaysOfWeek(ArrayList<InputFile> inputFiles){
+        fillInDaysOfWeek();
         if (isModuleEnable()) {
             Handler.reportLog.startModule();
             for (InputFile inputFile : inputFiles) {
@@ -73,5 +66,16 @@ public class DaysOfWeekHandler {
             matcher.appendTail(cleanText);
             inputFile.setFileText(cleanText.toString());
         }
+    }
+
+    private static void fillInDaysOfWeek(){
+        daysOfWeek = new LinkedHashMap<>();
+        daysOfWeek.put("пн", " понедельник ");
+        daysOfWeek.put("вт", " вторник ");
+        daysOfWeek.put("ср", " среда ");
+        daysOfWeek.put("чт", " четверг ");
+        daysOfWeek.put("пт", " пятница ");
+        daysOfWeek.put("сб", " суббота ");
+        daysOfWeek.put("вс", " воскресенье ");
     }
 }

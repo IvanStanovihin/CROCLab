@@ -67,6 +67,7 @@ public class Handler{
 
         btnOpenOutDir.setDisable(false);
         btnOpenLog.setDisable(false);
+        progressBar.setProgress(1);
         logArea.appendText("Обработка файлов завершена!");
         ThreadLaunchHandler.handlerIsWork = false;
     }
